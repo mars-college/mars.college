@@ -12,7 +12,10 @@ collections:
   pages:
     output: true
     permalink: /:path/
-  
+  gallery:
+    output: true
+    permalink: /gallery/:path/
+
 plugins:
   - jekyll-feed
 
