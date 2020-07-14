@@ -1,0 +1,8 @@
+.DS_Store
+*_ad.html
+wiki
+dokuwiki
+ad
+ad/*
+ad_*
+Gemfile.lock
