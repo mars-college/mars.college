@@ -65,6 +65,26 @@ title: Mars College
     <div id="signup">
         Apply
     </div>
+    <div id="desertthing1">&nbsp;</div>
+    <div id="desertthing2">&nbsp;</div>
 </div>
+<style>
+    #desertthing1 {
+        background-color:rgba(255, 0, 0, 0.5);
+        position:absolute;
+        bottom:29%;
+        top:43%;
+        left:70%;
+        right:24%;
+    }
+    #desertthing2 {
+        background-color:rgba(0, 255, 0, 0.5);
+        position:absolute;
+        bottom:29%;
+        top:43%;
+        left:78%;
+        right:16%;
+    }
+</style>
 
 {:/nomarkdown}
