@@ -18,6 +18,7 @@ data_path = '../_data/gallery.json'
 image_dir = '../images/gallery/'
 thumbs_dir = '../images/gallery/thumb/'
 lookup_path = 'gdrive_lookup.json'
+dropbox_file = 'dropbox_lookup.json'
 
 
 def process_entry(data, d):
@@ -83,9 +84,6 @@ def lineup_gdrive_links():
     local_files = list(set([img['name'] for img in images]))
     images_non_gdrive = [f for f in local_files if f not in gdrive_files]
     duplicates = [item for item, count in collections.Counter([img['name'] for img in images]).items() if count > 1]
-    print(duplicates)
-    print(images_non_gdrive)
-    print(len(gdrive_files), len(local_files))
     for d in tqdm(range(len(images))):
         images[d]['gdrive'] = lookup[images[d]['name']]
     json_file = open("results.json", "w")
@@ -104,7 +102,25 @@ def make_thumbnails():
     json_file.write(json.dumps(data, indent=4))
     json_file.close()
 
+def lineup_dropbox_links():
+    data = json.loads(open(data_path, 'rb').read())
+    db = json.loads(open(dropbox_file, 'rb').read())
+    images = data['images']
+    file_names = list(db.keys())
+    image_names = list(set([img['name'] for img in images]))
+    missing = [im for im in image_names if im not in file_names and im.split('.')[-1].lower() == 'mp4']
+    print("missing:", missing)
+    for img in images:
+        name = img['name']
+        if name in file_names:
+            img['dropbox'] = db[name]
+    data['images'] = images
+    json_file = open("results.json", "w")
+    json_file.write(json.dumps(data, indent=4))
+    json_file.write(json.dumps(data, indent=4))
 
-lineup_gdrive_links()
+
+#lineup_gdrive_links()
+lineup_dropbox_links()
 
 
