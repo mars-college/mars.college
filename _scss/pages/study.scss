@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 .splash_title {
-    font-size: calc(12px + 1.3vw);
+    font-size: calc(14px + 0.95vw);
     font-weight: bold;
     color: #111;
     margin-top: 2%;
@@ -20,7 +20,7 @@
     min-width: 300px;
 }
 .splash_description {
-    font-size: calc(10px + 1.2vw);
+    font-size: calc(11px + 0.9vw);
     color: #222;
     margin-bottom: 5%;
     min-width: 300px;
@@ -33,11 +33,11 @@
 }
 .splash_image.right {
     float: right;
-    margin-left: 2%;
+    margin-left: 3%;
 }
 .splash_image.left {
     float: left;
-    margin-right: 2%;
+    margin-right: 3%;
 }
 
 

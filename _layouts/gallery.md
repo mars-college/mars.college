@@ -4,6 +4,7 @@ title: Mars College
 ---
 
 {% assign target_tag = page.target_tag %}
+{% assign target_tag_txt = target_tag|replace:' ','_' %} 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
@@ -14,13 +15,12 @@ title: Mars College
     <div id="tags">
     {% assign tags = site.data.gallery.tags %} 
     {% for tag in tags %}
-        {% assign target_tag_txt = target_tag|replace:' ','_' %} 
-        {%if tag == target_tag_txt %}
+        {%if tag.name == target_tag_txt %}
             {% assign tag_class = "tag active" %}
         {% else %}
             {% assign tag_class = "tag" %}
         {% endif %}
-        <a href="/gallery/{{tag|replace:' ','_'}}" class="{{tag_class}}" id="tag_{{tag|replace:' ','_'}}">{{tag}}</a>
+        <a href="/gallery/{{tag.name|replace:' ','_'}}" class="{{tag_class}}" id="tag_{{tag.name|replace:' ','_'}}">{{tag.displayName}}</a> 
     {% endfor %}
     </div>
     <div id="images">

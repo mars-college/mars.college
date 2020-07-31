@@ -1,14 +1,29 @@
-.tag {
+#tags {
+    background-color: #ccc;
+    margin: 6px;
+    margin-bottom:10px;
+}
+
+.tag, .tag a:visited, .tag a {
     cursor: pointer;
-    background-color: #f00;
+    color: #000;
+    background-color:#ffe9ab;
     display: inline-block;
-    padding:3px;
-    margin:5px;
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
 }
 
 .tag.active {
-    background-color:#ff0;
+    background-color:#00a;
+    color: #fff;
 }
+
+.tag:hover {
+    background-color:#66f;
+    color: #fff;
+}
+
 
 #images { 
     margin: 5px 5px;
