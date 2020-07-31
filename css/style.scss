@@ -1,0 +1,19 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+@import 'modules/variables.scss';
+@import 'modules/mixins.scss';
+@import 'modules/header.scss';
+
+html {
+    background-color:$white; 
+}
+html, body {
+    height:100%; //Set so descendents vertically fill space
+    overflow-y: scroll;
+}
+
+@import 'pages/study.scss';
+@import 'pages/gallery.scss';
+@import 'pages/home.scss';

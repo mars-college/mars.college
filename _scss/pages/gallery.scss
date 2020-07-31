@@ -1,0 +1,46 @@
+.tag {
+    cursor: pointer;
+    background-color: #f00;
+    display: inline-block;
+    padding:3px;
+    margin:5px;
+}
+
+.tag.active {
+    background-color:#ff0;
+}
+
+#images { 
+    margin: 5px 5px;
+    text-align: center;
+} 
+    
+#images img, #images video { 
+    transition: 0.2s;
+    padding: 5px; 
+} 
+    
+#images img:hover, #images video:hover { 
+    /* filter: drop-shadow(2px 2px 2px green);  */
+    /* transform: scale(1.05);  */
+    background-color:#0f0; 
+} 
+
+img.thumbnail1, video.thumbnail1, img.thumbnail2, video.thumbnail2 {
+    display: inline-block;
+    margin: 5px;
+    vertical-align: middle;
+}
+img.thumbnail1, video.thumbnail1  {
+    max-height: 300px;
+    height: auto;
+    width: auto;
+    max-width: 96%;
+    
+}
+img.thumbnail2, video.thumbnail2  {
+    max-height: 400px;
+    height: auto;
+    width: auto;
+    max-width:96%;
+}

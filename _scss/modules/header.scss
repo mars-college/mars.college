@@ -1,0 +1,170 @@
+.main_header{
+    // position:fixed;
+    top:0;
+    @include flexbox();
+    @include flex-direction(row);
+    @include justify-content(space-around);
+    @include align-items(center);
+    background-color:$black;
+    width:100%;
+    z-index:1000;
+    transition:all 0.5s ease;
+    // height: 1.0;
+    
+    h1{
+        font-size: 20px;
+        // line-height: 1.0;
+        // text-transform: uppercase;
+        margin:0;
+        // position:absolute;
+        width: 100%;
+        margin-left: 10px;
+        letter-spacing: 0.03em;
+        padding-top:5px;
+        a{
+            transition:all 0.5s ease;
+            color:$white;
+            // font-family:data;
+            font-size:inherit;
+            line-height: inherit;
+            text-decoration: none;
+        }
+        &:hover{
+            a{
+                color:$highlight;
+            }
+        }
+    }
+    .main_nav{
+        @include flexbox();
+        @include flex-direction(row);
+        @include align-items(center);
+        // position:relative;
+        margin-right:2%;
+        width:100%;
+        a{
+            white-space: nowrap;
+            // font-family: alphaHeadline;
+            // text-transform: uppercase;
+            text-decoration: none;
+            color:$white;
+            transition:all 0.5s ease;
+            letter-spacing: 0.02em;
+            &:hover,
+            &.active{
+                color:$highlight;
+                background-color:#ffe9ab;
+            }
+        }
+    }
+    .hamburger{
+        display: none;
+    }
+    @include tablet{
+        nav{
+            height:100%;
+        }
+        h1{
+            left:20px;
+        }
+        ul{
+            width:100%;
+            height: 100%;
+            display:block;
+            @include flexbox();
+            @include justify-content(flex-end);
+            li{
+                @include flexbox();
+                @include align-items(center);
+                height:100%;
+            }
+        }
+        a{
+            height:100%;
+            @include flexbox();
+            @include align-items(center);
+            padding:0 20px;
+            border-right:2px solid transparent;
+            border-left:2px solid transparent;
+            &.active{
+                border-right:2px solid $black;
+                border-left:2px solid $black;
+            }
+            &:not(:first-child),
+            &:not(:last-child){
+                padding:0 10px;
+            }
+            &:first-child{
+                padding-left:20px;
+            }
+            &:last-child{
+                padding-right:20px;
+            }
+            &:hover{
+                color:$highlight;
+            }
+        }
+    }
+    @include phone{
+        height:$headerHeight;
+        .hamburger{
+            display: block;
+            position: fixed;
+            float:right;
+            right:10px;
+            font-size:30px;
+            color:$white;
+            z-index: 1000;
+            transition: all 0.5s ease;
+            &:hover{
+                color:$highlight;
+            }
+            &.active{
+                color:$highlight;
+            }
+        }
+        h1{
+            left:10px;
+        }
+        .main_nav{
+            position:absolute;
+            top:$headerHeight;
+            left:0;
+            width:100%;
+            height:calc(100vh - 80px);
+            z-index:2000;
+            display: none;
+            background-color:$black;
+            padding-bottom:60px;
+            opacity:0;
+            transition:all 0.5s ease;
+            overflow-y:scroll;
+            -webkit-overflow-scrolling:touch;
+            border-top:1px solid $white;
+            &.active{
+                opacity:1;
+            }
+            ul{
+                @include flexbox();
+                @include flex-direction(column);
+                li{
+                    @include flexbox();
+                    @include flex-direction(column);
+                    height:100px;
+                    @include align-items(center);
+                    @include justify-content(center);
+                    border-bottom:1px solid $white;
+                    text-align: center;
+                    a{
+                        @include flexbox();
+                        @include flex-direction(row);
+                         @include align-items(center);
+                        @include justify-content(center);
+                        height:100%;
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
+}
