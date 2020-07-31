@@ -1,4 +1,4 @@
-
+  
 
 To [get the share link for all files in a Google Drive folder](https://webapps.stackexchange.com/questions/88769/get-share-link-of-multiple-files-in-google-drive-to-put-in-spreadsheet), open a new Google Spreadsheet, then go to Tools > Script Editor, and run the following, replacing the <id> token with the shared folder ID.
 
