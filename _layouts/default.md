@@ -14,7 +14,7 @@
 			<nav class="main_nav">
 				<ul>
 					<li><a href="/gallery">Gallery</a></li>
-					<li><a href="/faq">FAQ</a></li>
+					<li><a href="https://www.instagram.com/brahman_ai/">Instagram</a></li>
 					<li><a href="/join">Join</a></li>
 				</ul>
 			</nav>

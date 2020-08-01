@@ -19,12 +19,14 @@ image_dir = '../images/gallery/'
 thumbs_dir = '../images/gallery/thumb/'
 lookup_path = 'gdrive_lookup.json'
 dropbox_file = 'dropbox_lookup.json'
+overwrite = False
 
 
 def process_entry(data, d):
     entry = data[d]
     path = '%s/%s'%(image_dir, entry['name'])
     save_path = path.replace('gallery/', 'gallery/thumb/')
+
     if entry['type'] == 'video':
         vid = cv2.VideoCapture(path)
         w, h = vid.get(cv2.CAP_PROP_FRAME_WIDTH), vid.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -64,16 +66,23 @@ def process_entry(data, d):
             save_path]
 
         cmd = ' '.join(cmd)
-        print(cmd)        
-        os.system(cmd)     
+        print(cmd)
+        
+        if os.path.isfile(save_path):
+            print("skipping %s"%save_path)
+        else:
+            os.system(cmd)     
 
-    elif entry['type'] == 'photos':
+    elif entry['type'] == 'photo':
         img = Image.open(path)
         w, h = img.width, img.height
         h2 = height_small if w > h else height_large
         img = img.resize((int(h2*w/h), h2), Image.BICUBIC)
         entry['size'] = [int(w), int(h)]
-        img.save(save_path)
+        if os.path.isfile(save_path):
+            print("skipping %s"%save_path)
+        else:
+            img.save(save_path)
 
 
 def lineup_gdrive_links():
@@ -121,6 +130,7 @@ def lineup_dropbox_links():
 
 
 #lineup_gdrive_links()
-lineup_dropbox_links()
+#lineup_dropbox_links()
+make_thumbnails()
 
 

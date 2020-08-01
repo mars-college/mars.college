@@ -1,26 +1,89 @@
 {
     "tags": [
-        {"name": "bouldering", "displayName": "Bouldering"},
-        {"name": "carpentry", "displayName": "Carpentry"},
-        {"name": "containers", "displayName": "Containers"},
-        {"name": "cyberpunk", "displayName": "Cyberpunk"},
-        {"name": "desert", "displayName": "Desert"},
-        {"name": "drone", "displayName": "Drone"},
-        {"name": "electric_unicycle", "displayName": "Electric unicycle"},
-        {"name": "extended_reality", "displayName": "Extended reality"},
-        {"name": "fitness", "displayName": "Fitness"},
-        {"name": "hexayurt", "displayName": "Hexayurt"},
-        {"name": "installation", "displayName": "Installation"},
-        {"name": "machine_learning", "displayName": "Machine learning"},
-        {"name": "off-grid", "displayName": "Off-grid"},
-        {"name": "pallet_racks", "displayName": "Pallet racks"},
-        {"name": "performance", "displayName": "Performance"},
-        {"name": "physical_computing", "displayName": "Physical computing"},
-        {"name": "portal", "displayName": "Portal"},
-        {"name": "solar", "displayName": "Solar"},
-        {"name": "vanlife", "displayName": "Vanlife"},
-        {"name": "workshop", "displayName": "Workshop"},
-        {"name": "yoga", "displayName": "Yoga"}
+        {
+            "name": "bouldering",
+            "displayName": "Bouldering"
+        },
+        {
+            "name": "carpentry",
+            "displayName": "Carpentry"
+        },
+        {
+            "name": "containers",
+            "displayName": "Containers"
+        },
+        {
+            "name": "cyberpunk",
+            "displayName": "Cyberpunk"
+        },
+        {
+            "name": "desert",
+            "displayName": "Desert"
+        },
+        {
+            "name": "drone",
+            "displayName": "Drone"
+        },
+        {
+            "name": "electric_unicycle",
+            "displayName": "Electric unicycle"
+        },
+        {
+            "name": "extended_reality",
+            "displayName": "Extended reality"
+        },
+        {
+            "name": "fitness",
+            "displayName": "Fitness"
+        },
+        {
+            "name": "hexayurt",
+            "displayName": "Hexayurt"
+        },
+        {
+            "name": "installation",
+            "displayName": "Installation"
+        },
+        {
+            "name": "machine_learning",
+            "displayName": "Machine learning"
+        },
+        {
+            "name": "off-grid",
+            "displayName": "Off-grid"
+        },
+        {
+            "name": "pallet_racks",
+            "displayName": "Pallet racks"
+        },
+        {
+            "name": "performance",
+            "displayName": "Performance"
+        },
+        {
+            "name": "physical_computing",
+            "displayName": "Physical computing"
+        },
+        {
+            "name": "portal",
+            "displayName": "Portal"
+        },
+        {
+            "name": "solar",
+            "displayName": "Solar"
+        },
+        {
+            "name": "vanlife",
+            "displayName": "Vanlife"
+        },
+        {
+            "name": "workshop",
+            "displayName": "Workshop"
+        },
+        {
+            "name": "yoga",
+            "displayName": "Yoga"
+        }
     ],
     "images": [
         {
@@ -683,27 +746,12 @@
         },
         {
             "type": "photo",
-            "name": "IMG_1916.jpeg",
-            "size": [
-                2439,
-                540
-            ],
-            "panorama": 1,
-            "tags": [
-                "off-grid",
-                "pallet racks"
-            ],
-            "gdrive": "13tVsKdWHUMHQLXm_gSULgxcxLR4OiDlj"
-        },
-        {
-            "type": "photo",
             "name": "alice_parlor.jpeg",
             "size": [
                 1086,
                 724
             ],
             "tags": [
-                "carpentry",
                 "cyberpunk"
             ],
             "gdrive": "1jdIRNpdW2Ltx1pjKE56MOzDiCsRQaWZo"
@@ -1004,9 +1052,10 @@
         {
             "type": "video",
             "name": "IMG_5536.mp4",
+            "reverse": true,
             "size": [
-                592,
-                1280
+                1280,
+                592
             ],
             "tags": [
                 "extended reality",
@@ -1023,9 +1072,10 @@
             "type": "video",
             "name": "IMG_6113.MP4",
             "size": [
-                592,
-                1280
+                1280,
+                592
             ],
+            "reverse": true,
             "tags": [
                 "extended reality"
             ],
@@ -1324,8 +1374,7 @@
                 780
             ],
             "tags": [
-                "bouldering",
-                "fitness"
+                "bouldering"
             ],
             "interval": [
                 3,
@@ -1343,8 +1392,7 @@
             ],
             "tags": [
                 "bouldering",
-                "drone",
-                "fitness"
+                "drone"
             ],
             "interval": [
                 22,
@@ -1382,8 +1430,7 @@
             ],
             "tags": [
                 "bouldering",
-                "off-grid",
-                "carpentry"
+                "off-grid"
             ],
             "gdrive": "1OyH92IZC05XcI_vVYobEg3BTMOUoPJFK"
         },
@@ -1513,7 +1560,6 @@
             ],
             "tags": [
                 "bouldering",
-                "workshop",
                 "off-grid"
             ],
             "gdrive": "17oo3zHCGrSt77T_2iutnpizmRmzI0wAQ"
@@ -1553,7 +1599,6 @@
                 1619
             ],
             "tags": [
-                "carpentry",
                 "pallet racks",
                 "off-grid"
             ],
@@ -1658,8 +1703,7 @@
                 927
             ],
             "tags": [
-                "pallet racks",
-                "cyberpunk"
+                "pallet racks"
             ],
             "gdrive": "1s5VLl57C97UI6A3hdYzx_-68ZhgqZwZ5"
         },
@@ -1974,7 +2018,6 @@
             "tags": [
                 "drone",
                 "pallet racks",
-                "containers",
                 "desert"
             ],
             "gdrive": "1V9NbOu6s96cIMSp4NlIy3dxMfXbew1MM"
@@ -2376,19 +2419,6 @@
         },
         {
             "type": "photo",
-            "name": "50EFDF05-0E2B-4A04-BA01-EE98D35ECE17_1_105_c.jpeg",
-            "size": [
-                768,
-                1024
-            ],
-            "tags": [
-                "performance",
-                "pallet racks"
-            ],
-            "gdrive": "1Dr6nSmMATpqZ3RTMIpkEuLYN_Qnyt0V5"
-        },
-        {
-            "type": "photo",
             "name": "248DA055-04FC-46F0-9369-BA177512F272_1_105_c.jpeg",
             "size": [
                 1024,
@@ -2651,8 +2681,7 @@
                 1512
             ],
             "tags": [
-                "portal",
-                "workshop"
+                "portal"
             ],
             "gdrive": "106qVetQd9x3Ymh237hR--U4gNnem8WUb"
         },
@@ -2949,7 +2978,6 @@
                 1080
             ],
             "tags": [
-                "electric unicycle",
                 "desert"
             ],
             "interval": [
@@ -3201,8 +3229,7 @@
             ],
             "tags": [
                 "electric unicycle",
-                "workshop",
-                "cyberpunk"
+                "workshop"
             ],
             "gdrive": "1ecBgszU92Moh0fJEcttZm5K9W98zO2D7"
         },
@@ -3896,6 +3923,263 @@
             ],
             "gdrive": "1PhljWOX3hiqVk5Y1wAOrnAXrj2G5ITM-",
             "dropbox": "AADIr4IVocRI6S0juU1Ld6yma"
+        },
+        {
+            "type": "photo",
+            "name": "89D4A62C-7830-41F7-A9DE-051AA470584F_1_105_c.jpeg",
+            "tags": [
+                "off-grid"
+            ],
+            "gdrive": "1m1q3p1SidxWoOuuLYTIWJv2Z_u7fFo8c",
+            "size": [
+                886,
+                886
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "DSC08070.jpg",
+            "tags": [
+                "pallet racks",
+                "off-grid"
+            ],
+            "gdrive": "1e7IhAc5xl61cNuPAKEmx8",
+            "size": [
+                1920,
+                1087
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_5686.JPG",
+            "tags": [
+                "extended reality",
+                "off-grid"
+            ],
+            "gdrive": "1ZKgw5RJ4JxHpnwR9ie6Jr-gIninn7HNU",
+            "size": [
+                1280,
+                592
+            ]
+        },
+        {
+            "type": "video",
+            "name": "alsino-rgb05.mp4",
+            "interval": [
+                7,
+                9
+            ],
+            "tags": [
+                "extended reality",
+                "cyberpunk"
+            ],
+            "gdrive": "1xfKLQVQkAMbJWJmYsponckHpEopzZwDK",
+            "size": [
+                960,
+                588
+            ]
+        },
+        {
+            "type": "video",
+            "name": "alsinoblue-spark.mp4",
+            "interval": [
+                5,
+                8
+            ],
+            "tags": [
+                "extended reality"
+            ],
+            "gdrive": "1hN-WIdYoqWPV2EoSAS7l_kkFQ7com31U",
+            "size": [
+                1200,
+                734
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "desert_pano.jpeg",
+            "panorama": 1,
+            "tags": [
+                "desert",
+                "cyberpunk"
+            ],
+            "gdrive": "1lZK77Ne3_RbO8MQQZP3wsnDdq3ILvuH0",
+            "size": [
+                1600,
+                623
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "DSC08035.jpg",
+            "tags": [
+                "physical computing",
+                "desert"
+            ],
+            "gdrive": "1S-upIiiy3XauzhsnLzsIUOK-qEKYtEKT",
+            "size": [
+                1920,
+                1087
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_3230.jpg",
+            "tags": [
+                "installation",
+                "cyberpunk"
+            ],
+            "gdrive": "1Clyv50k5ZSde8Mhd78bcT0am2ix1N03f",
+            "size": [
+                4032,
+                3024
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_6072.jpg",
+            "tags": [
+                "performance"
+            ],
+            "gdrive": "1YXTP0JESgqV818gRzuhDBkyTiHYATUjF",
+            "size": [
+                4032,
+                3024
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_6103.jpg",
+            "tags": [
+                "yoga"
+            ],
+            "gdrive": "1L2j4mQO5UUNugxYUUkUzhvMFCMf1LuMG",
+            "size": [
+                4032,
+                3024
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_7847.jpg",
+            "tags": [
+                "physical computing"
+            ],
+            "gdrive": "1n2liwpb8F8rP0T_-94oMQGHD-6Iw87fH",
+            "size": [
+                1920,
+                1440
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_7858.jpg",
+            "tags": [
+                "physical computing"
+            ],
+            "gdrive": "1PveAhiacN5PRHngVYv8hFzrpukBwWq-_",
+            "size": [
+                1440,
+                1920
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_8032.jpg",
+            "tags": [
+                "physical computing"
+            ],
+            "gdrive": "1n_Zusg_Bxs6ccovl-y5pbISejKFmT4t-",
+            "size": [
+                1920,
+                1440
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "morning-meditation.jpg",
+            "tags": [
+                "yoga"
+            ],
+            "gdrive": "1ezmxvxb-6c66djDWfMQH-sabTUqX1aCn",
+            "size": [
+                1400,
+                1099
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "neural-smpc.png",
+            "tags": [
+                "machine learning"
+            ],
+            "gdrive": "1puVfZ6929tJ7FwaN8-F3i1JNPpLK9MfS",
+            "size": [
+                2101,
+                891
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "PANO_20191112_154619.vr.jpg",
+            "panorama": 1,
+            "tags": [
+                "desert"
+            ],
+            "gdrive": "1IfVSxwp1GqW5DoVUOERYWmSz4b_q7oSk",
+            "size": [
+                9456,
+                1620
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "received_2382445732017282.jpeg",
+            "tags": [
+                "desert",
+                "cyberpunk"
+            ],
+            "gdrive": "1Uapimb6JMnHBEejGo4n53K8QC_AVgm1-",
+            "size": [
+                4032,
+                3024
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "Screen Shot 2020-04-04 at 13.21.29.png",
+            "tags": [
+                "installation"
+            ],
+            "gdrive": "1UO4cpkz8I2ZbkYqnrwgREbaTGsVc00Cs",
+            "size": [
+                2880,
+                1800
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "workshop-cyanotype-01.jpg",
+            "tags": [
+                "workshop"
+            ],
+            "gdrive": "1ar9HSTW4xruc26u7nBX56IZhApzMXCjl",
+            "size": [
+                1600,
+                984
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "workshop-cyanotype-02.jpg",
+            "tags": [
+                "workshop"
+            ],
+            "gdrive": "1TyGvGCBauMK_vPaqLBwvqhsXwm3UOaMh",
+            "size": [
+                1600,
+                984
+            ]
         }
     ]
 }

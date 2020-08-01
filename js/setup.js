@@ -11,7 +11,7 @@ var tags=[
     {"text":"Robotics", "href":"/gallery/", "position":[22, 47], "scale":1.05},
     {"text":"Tele-<br/>presence", "href":"/gallery/", "position":[33, 39], "scale":0.8},
     {"text":"Autonomy", "href":"/gallery/", "position":[32, 55], "scale":0.825},
-    {"text":"Brahman", "href":"https://www.brahman.ai", "position":[43, 47], "scale":1.1},
+    {"text":"Brahman", "href":"https://brahman.ai", "position":[43, 47], "scale":1.1},
     {"text":"Pallet<br/>racks", "href":"/gallery/pallet_racks", "position":[58, 39], "scale":0.85},
     {"text":"Work<br/>remote", "href":"/gallery/workshops", "position":[57, 52], "scale":0.85},
     {"text":"Off-grid", "href":"/gallery/off_grid", "position":[67, 47], "scale":1.05},
@@ -62,10 +62,10 @@ function resizeTags() {
 
 function setupAnimation() {
     var initFrame = false;
-    var minDist = 550;
-    var maxDist = 700;
-    var minVelocity = 0.00004;
-    var maxVelocity = 0.00006;
+    var minDist = 480;
+    var maxDist = 550;
+    var minVelocity = 0.0000425;
+    var maxVelocity = 0.0000565;
     var startTime = new Date();
     
     var distance = [];
