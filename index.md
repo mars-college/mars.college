@@ -46,7 +46,7 @@ title: Mars College
         </div>        
     </div>
     <div class="splash_section">
-        <img class="splash_image left" src="/images/workshop2.jpg" alt="workshop">
+        <img class="splash_image left" src="/images/workshop.jpg" alt="workshop">
         <div class="splash_title">
             💻 Be your own enterprise
         </div>
@@ -62,30 +62,22 @@ title: Mars College
 </div>
 
 
-<!-- yoga/meditation, gardening, bouldering, hydroponics/aquaponics, EUC -->
-
-<!-- XR: https://wiki.brahman.ai/projects/air -->
-<!-- yoga + meditation -->
-
-
 <!-- ==================== STUDY GROUPS ==================== -->
 <div class="courses_outer">
     <div class="courses_inner">
         <div class="section_title">Study groups</div>
-        <div class="section_description">Academic life on Mars revolves around study groups ranging from high-tech to ecology to fitness. Some study groups we hope to seed are listed below, with links to previous work.</div>
+        <div class="section_description">Academic life on Mars revolves around study groups ranging from high-tech to ecology to fitness. Some study groups we hope to seed are listed below.</div>
         <div class="course">
-            <a href="https://wiki.brahman.ai/projects/desertscape">
-                <div class="course_icon">
-                    <img src="/images/study_icons/physical_computing.jpg">
-                </div>
-                <div class="course_description">
-                    Physical computing
-                </div>
-            </a>
+            <div class="course_icon">
+                <img src="/images/study/physical_computing.jpg">
+            </div>
+            <div class="course_description">
+                Physical computing
+            </div>
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/vanlife.jpg">
+                <img src="/images/study/vanlife.jpg">
             </div>
             <div class="course_description">
                 Vanlife
@@ -94,7 +86,7 @@ title: Mars College
         <div class="course">
             <div class="course_icon">
                 <video autoplay playsinline muted loop>
-                    <source src="/images/study_icons/artificial_intelligence.mp4" type="video/mp4">
+                    <source src="/images/study/artificial_intelligence.mp4" type="video/mp4">
                     Your browser does not support playing this video.
                 </video>
             </div>
@@ -104,7 +96,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/solar.jpg">
+                <img src="/images/study/solar.jpg">
             </div>
             <div class="course_description">
                 Solar power
@@ -112,7 +104,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/decentralization.jpg">
+                <img src="/images/study/decentralization.jpg">
             </div>
             <div class="course_description">
                 Decentralization
@@ -120,7 +112,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/yoga.jpg">
+                <img src="/images/study/yoga.jpg">
             </div>
             <div class="course_description">
                 Yoga
@@ -128,7 +120,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/offgrid.jpg">
+                <img src="/images/study/offgrid.jpg">
             </div>
             <div class="course_description">
                 Off-grid living
@@ -136,7 +128,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/extended_reality.jpg">
+                <img src="/images/study/extended_reality.jpg">
             </div>
             <div class="course_description">
                 Telepresence & XR
@@ -144,7 +136,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/drone.jpg">
+                <img src="/images/study/drone.jpg">
             </div>
             <div class="course_description">
                 Drones
@@ -152,7 +144,15 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/garden.jpg">
+                <img src="/images/study/electric_unicycle.jpg">
+            </div>
+            <div class="course_description">
+                Electric unicycling
+            </div>
+        </div>
+        <div class="course">
+            <div class="course_icon">
+                <img src="/images/study/garden.jpg">
             </div>
             <div class="course_description">
                 Gardening
@@ -160,7 +160,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/study_icons/bouldering.jpg">
+                <img src="/images/study/bouldering.jpg">
             </div>
             <div class="course_description">
                 Bouldering
@@ -179,7 +179,7 @@ title: Mars College
         Click on any of the below topics to see photos.
     </div>
     <div id="activities">
-        <img width="100%" src="/images/venn-hexagram-empty.png">
+        <img width="100%" src="/images/venn-hexagram-empty.jpg">
     </div>
 </div>
 
@@ -187,16 +187,16 @@ title: Mars College
 <!-- ==================== FOOTER ==================== -->
 <div id="footer">
     <div id="footer_inner">
-        <img width="100%" src="/images/desert3.jpg">
-        <img class="desert_creature" id="euc1" src="/images/people/a1.png" />
-        <img class="desert_creature" id="euc2" src="/images/people/b2.png" />    
-        <img class="desert_creature" id="euc3" src="/images/people/a2.png" />
-        <img class="desert_creature" id="euc4" src="/images/people/b3.png" />    
-        <img class="desert_creature" id="euc5" src="/images/people/a3.png" />
-        <img class="desert_creature" id="euc6" src="/images/people/b4.png" />       
-        <img class="desert_creature" id="euc7" src="/images/people/a4.png" />
-        <img class="desert_creature" id="euc8" src="/images/people/b1.png" />    
-        <img class="desert_creature" id="euc9" src="/images/road.gif" />    
+        <img width="100%" src="/images/desert.jpg">
+        <img class="desert_creature" id="euc1" src="/images/unicyclists/1.png" />
+        <img class="desert_creature" id="euc2" src="/images/unicyclists/4.png" />    
+        <img class="desert_creature" id="euc3" src="/images/unicyclists/3.png" />
+        <img class="desert_creature" id="euc4" src="/images/unicyclists/6.png" />    
+        <img class="desert_creature" id="euc5" src="/images/unicyclists/5.png" />
+        <img class="desert_creature" id="euc6" src="/images/unicyclists/8.png" />       
+        <img class="desert_creature" id="euc7" src="/images/unicyclists/7.png" />
+        <img class="desert_creature" id="euc8" src="/images/unicyclists/2.png" />    
+        <img class="desert_creature" id="euc9" src="/images/unicyclists/roadrunner.gif" />    
     </div>
     <a href="/join">
         <div id="footer_signup">
