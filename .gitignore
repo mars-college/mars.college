@@ -1,3 +1,6 @@
 .DS_Store
 Gemfile.lock
 .jekyll-cache/
+images
+_site
+scripts

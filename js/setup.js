@@ -18,7 +18,7 @@ var tags=[
     {"text":"Desert", "href":"/gallery/desert", "position":[85, 46], "scale":1.35},
     {"text":"Machine<br/>Intelligence", "href":"/gallery/machine_learning", "position":[14, 60], "scale":1.05},
     {"text":"Extended<br/>Reality", "href":"/gallery/extended_reality", "position":[33, 64], "scale":1.0},
-    {"text":"DAOs", "href":"/gallery/", "position":[46, 60], "scale":0.9},
+    {"text":"DAOs", "href":"https://abraham.ai", "position":[46, 60], "scale":0.9},
     {"text":"Decentralization", "href":"/gallery/off_grid", "position":[52, 67], "scale":0.8},
     {"text":"Solar<br/>energy", "href":"/gallery/solar", "position":[74, 60], "scale":1.1},
     {"text":"Consciousness", "href":"/gallery/performance", "position":[16, 83], "scale":1.3},

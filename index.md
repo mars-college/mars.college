@@ -62,22 +62,30 @@ title: Mars College
 </div>
 
 
+<!-- yoga/meditation, gardening, bouldering, hydroponics/aquaponics, EUC -->
+
+<!-- XR: https://wiki.brahman.ai/projects/air -->
+<!-- yoga + meditation -->
+
+
 <!-- ==================== STUDY GROUPS ==================== -->
 <div class="courses_outer">
     <div class="courses_inner">
         <div class="section_title">Study groups</div>
-        <div class="section_description">Academic life on Mars revolves around study groups at the intersection of technology, creativity, and sustainability.</div>
+        <div class="section_description">Academic life on Mars revolves around study groups ranging from high-tech to ecology to fitness. Some study groups we hope to seed are listed below, with links to previous work.</div>
         <div class="course">
-            <div class="course_icon">
-                <img src="/images/icons/robot.png">
-            </div>
-            <div class="course_description">
-                Physical computing
-            </div>
+            <a href="https://wiki.brahman.ai/projects/desertscape">
+                <div class="course_icon">
+                    <img src="/images/study_icons/physical_computing.jpg">
+                </div>
+                <div class="course_description">
+                    Physical computing
+                </div>
+            </a>
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/icons/vanlife.png">
+                <img src="/images/study_icons/vanlife.jpg">
             </div>
             <div class="course_description">
                 Vanlife
@@ -85,7 +93,10 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/icons/ai.png">
+                <video autoplay playsinline muted loop>
+                    <source src="/images/study_icons/artificial_intelligence.mp4" type="video/mp4">
+                    Your browser does not support playing this video.
+                </video>
             </div>
             <div class="course_description">
                 Artificial intelligence
@@ -93,7 +104,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/icons/solar.png">
+                <img src="/images/study_icons/solar.jpg">
             </div>
             <div class="course_description">
                 Solar power
@@ -101,7 +112,7 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/icons/decentralization.png">
+                <img src="/images/study_icons/decentralization.jpg">
             </div>
             <div class="course_description">
                 Decentralization
@@ -109,7 +120,15 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/icons/carpentry.png">
+                <img src="/images/study_icons/yoga.jpg">
+            </div>
+            <div class="course_description">
+                Yoga
+            </div>
+        </div>
+        <div class="course">
+            <div class="course_icon">
+                <img src="/images/study_icons/offgrid.jpg">
             </div>
             <div class="course_description">
                 Off-grid living
@@ -117,10 +136,34 @@ title: Mars College
         </div>
         <div class="course">
             <div class="course_icon">
-                <img src="/images/icons/xr.png">
+                <img src="/images/study_icons/extended_reality.jpg">
             </div>
             <div class="course_description">
                 Telepresence & XR
+            </div>
+        </div>
+        <div class="course">
+            <div class="course_icon">
+                <img src="/images/study_icons/drone.jpg">
+            </div>
+            <div class="course_description">
+                Drones
+            </div>
+        </div>
+        <div class="course">
+            <div class="course_icon">
+                <img src="/images/study_icons/garden.jpg">
+            </div>
+            <div class="course_description">
+                Gardening
+            </div>
+        </div>
+        <div class="course">
+            <div class="course_icon">
+                <img src="/images/study_icons/bouldering.jpg">
+            </div>
+            <div class="course_description">
+                Bouldering
             </div>
         </div>
     </div>
