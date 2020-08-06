@@ -9,8 +9,8 @@
 		<meta property="og:title" content="Mars College">
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content="Mars College" />
-		<meta property="og:description" content="Mars College is an educational program, R&D lab, and intentional community dedicated to cultivating a low-cost, high-tech lifestyle. 😎️️️🏜❤️🌵️☀️">
-		<meta name="twitter:description" content="Mars College is an educational program, R&D lab, and intentional community dedicated to cultivating a low-cost, high-tech lifestyle. 😎️️️🏜❤️🌵️☀️" />
+		<meta property="og:description" content="Mars College is an educational program, R&D lab, and intentional community dedicated to cultivating a low-cost, high-tech lifestyle.">
+		<meta name="twitter:description" content="Mars College is an educational program, R&D lab, and intentional community dedicated to cultivating a low-cost, high-tech lifestyle." />
 		<meta name="twitter:image" content="https://mars.college/images/study/garden.jpg" />
 		<meta property="og:image" content="https://mars.college/images/study/garden.jpg" />
 	</head>

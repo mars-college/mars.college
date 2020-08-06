@@ -93,9 +93,15 @@ function setupAnimation() {
 
 window.onresize = resizeTags;
 window.onorientationchange = resizeTags; 
+
+initializeTags();
+resizeTags();
+setupAnimation();
+
+/*
 window.onload = function() {
     initializeTags();
     resizeTags();
     setupAnimation();
 }
-
+*/

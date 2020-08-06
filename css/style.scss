@@ -11,7 +11,7 @@ html {
 }
 html, body {
     height:100%; //Set so descendents vertically fill space
-    overflow-y: scroll;
+    // overflow-y: scroll;
 }
 
 @import 'pages/study.scss';
