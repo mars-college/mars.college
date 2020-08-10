@@ -5010,7 +5010,7 @@
             "type": "video",
             "name": "IMG_6731.mp4",
             "tags": [
-                "cyanotope"
+                "cyanotype"
             ],
             "interval": [
                 14,
@@ -5359,7 +5359,7 @@
             "type": "video",
             "name": "IMG_6622.MP4",
             "tags": [
-                "extend reality"
+                "extended reality"
             ],
             "interval": [
                 2,
@@ -5604,139 +5604,11 @@
         },
         {
             "type": "video",
-            "name": "interp_bombay_trunc1.05_1.mp4",
-            "tags": [
-                "marsgan",
-                "machine learning"
-            ],
-            "interval": [
-                17,
-                20
-            ],
-            "size": [
-                1024,
-                768
-            ],
-            "gdrive": "1W4_qm7g0m8VwkHX4wwuZxACOKAoOgIVI",
-            "dropbox": "AABEbtk3U2u82ojP_MskwDVaa"
-        },
-        {
-            "type": "video",
-            "name": "interp_bouldering_trunc1.05_2.mp4",
-            "tags": [
-                "marsgan",
-                "bouldering"
-            ],
-            "interval": [
-                22,
-                26
-            ],
-            "size": [
-                1024,
-                768
-            ],
-            "gdrive": "1YevQ_rdzFm9VAmL7s3bq2jiPUA1qtEQD",
-            "dropbox": "AACyIfuhJeEpMDrE9Ig314pma"
-        },
-        {
-            "type": "video",
-            "name": "interp_camp_trunc1.05_1.mp4",
-            "tags": [
-                "marsgan",
-                "vanlife",
-                "machine learning"
-            ],
-            "interval": [
-                12,
-                15
-            ],
-            "size": [
-                1024,
-                768
-            ],
-            "gdrive": "1V4Rje5lmTe3Ub91xIjtQlEr-mHvBwS_w",
-            "dropbox": "AADwlChcH1yRdNyobe5fd9GIa"
-        },
-        {
-            "type": "video",
-            "name": "interp_landscape_trunc1.05_1.mp4",
-            "tags": [
-                "marsgan",
-                "desert"
-            ],
-            "interval": [
-                52,
-                56
-            ],
-            "size": [
-                1024,
-                768
-            ],
-            "gdrive": "1zcO3Gsk7R3YE-0MZdqnx2a2JPjuBhwYr",
-            "dropbox": "AAADhLRL7AaZDQeo6zevFgRKa"
-        },
-        {
-            "type": "video",
-            "name": "interp_lodestar_trunc1.05_2.mp4",
-            "tags": [
-                "marsgan",
-                "installation"
-            ],
-            "interval": [
-                27,
-                30
-            ],
-            "size": [
-                1024,
-                768
-            ],
-            "gdrive": "1GISOZ7cXjkvoYUHYnpc5gOskYvXO5nzU",
-            "dropbox": "AABUcQ5uhSQlJFqXvOAqbmNla"
-        },
-        {
-            "type": "video",
-            "name": "interp_mars_air_trunc1.05_4.mp4",
-            "tags": [
-                "marsgan",
-                "drone"
-            ],
-            "interval": [
-                12,
-                16
-            ],
-            "size": [
-                1024,
-                768
-            ],
-            "gdrive": "1X_adqKY6R6YC-9SUpPkF2GRn-oPqrQUG",
-            "dropbox": "AAClA3YTQCuFfoefxIvMFFb2a"
-        },
-        {
-            "type": "video",
-            "name": "interp_mars_ground_trunc1.05_1.mp4",
-            "tags": [
-                "marsgan",
-                "pallet racks",
-                "machine learning"
-            ],
-            "interval": [
-                44,
-                47
-            ],
-            "size": [
-                1024,
-                768
-            ],
-            "gdrive": "1iDptY_2zCOUzGRuy6Giity_p_IAR9Jx-",
-            "dropbox": "AACwCqG-IXtbM-CfKtqjDLi-a"
-        },
-        {
-            "type": "video",
             "name": "87789600_1554787758008183_7527623005180265870_n.mp4",
             "tags": [
                 "dance"
             ],
-            "interval":[
+            "interval": [
                 1,
                 5
             ],
@@ -5746,6 +5618,135 @@
             ],
             "gdrive": "1noxlZErWWj4gforrPKsp0KJtOf6j9kDH",
             "dropbox": "AAAHRM2FvY68t7dQKZegyCeZa"
+        },
+        {
+            "type": "video",
+            "name": "bbgan_bouldering.mp4",
+            "tags": [
+                "marsgan",
+                "bouldering"
+            ],
+            "interval": [
+                9,
+                12
+            ],
+            "gdrive": "1-pPJ95m_L2ncJ7hmJQl4fvbQyhciXMnr",
+            "dropbox": "AAA7dfeAQvXhu_M4Hni6mRIda",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "type": "video",
+            "name": "bbgan_bombay.mp4",
+            "tags": [
+                "marsgan",
+                "machine learning"
+            ],
+            "interval": [
+                46,
+                50
+            ],
+            "gdrive": "1pAGU5tanfr-c-2BujzKvfrE5R4FKFrkW",
+            "dropbox": "AAAdAo6xtCEkTwHAJOvaf9MOa",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "type": "video",
+            "name": "bbgan_camp.mp4",
+            "tags": [
+                "marsgan",
+                "machine learning",
+                "vanlife"
+            ],
+            "interval": [
+                45,
+                48
+            ],
+            "gdrive": "1CQhfWRjD16HdzFoTdCaWZ72eItLZW5_f",
+            "dropbox": "AAD2bzok-PjyLyFaQGYmK4Qya",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "type": "video",
+            "name": "bbgan_lodestar.mp4",
+            "tags": [
+                "marsgan",
+                "installation",
+                "machine learning"
+            ],
+            "interval": [
+                20,
+                23
+            ],
+            "gdrive": "1uCCPo5L8KtYcxy_GqnwPQsQj5_q6t3ia",
+            "dropbox": "AABFV7C7ysJ7pmZC-pFrjz9ra",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "type": "video",
+            "name": "bbgan_landscape.mp4",
+            "tags": [
+                "marsgan",
+                "desert"
+            ],
+            "interval": [
+                31,
+                34
+            ],
+            "gdrive": "1SGSzzMqg_4a2YUpRMAB-ZmZRL-9o0O-G",
+            "dropbox": "AABRQKxRXQ4ANHLy1PyKSC-Ta",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "type": "video",
+            "name": "bbgan_mars_air.mp4",
+            "tags": [
+                "marsgan",
+                "drone"
+            ],
+            "interval": [
+                22,
+                25
+            ],
+            "gdrive": "160TeNGKPFDn15AFmlf5lVxxCzjJrKVtW",
+            "dropbox": "AADgiOgcfXXMJq7_OaXshjXEa",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "type": "video",
+            "name": "bbgan_mars_ground.mp4",
+            "tags": [
+                "marsgan",
+                "machine learning",
+                "pallet racks"
+            ],
+            "interval": [
+                6,
+                10
+            ],
+            "gdrive": "1m-w9OoWkXY0qB7f8-iHpcvViP3v6V7OG",
+            "dropbox": "AABSwwzcGE16cpXUssS4uS1ha",
+            "size": [
+                1024,
+                768
+            ]
         }
     ]
 }

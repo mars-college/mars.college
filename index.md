@@ -65,8 +65,8 @@ title: Mars College
 <!-- ==================== STUDY GROUPS ==================== -->
 <div class="courses_outer">
     <div class="courses_inner">
-        <div class="section_title">Study groups</div>
-        <div class="section_description">Academic life on Mars revolves around study groups ranging from high-tech to ecology to fitness. Some study groups we hope to seed are listed below.</div>
+        <div class="section_title"><a href="/study">Study groups</a></div>
+        <div class="section_description">Academic life on Mars revolves around study groups ranging from high-tech to ecology to fitness. Some study groups we hope to seed are listed below. <a href="/study">Learn more</a>.</div>
         <div class="course">
             <div class="course_icon">
                 <img src="/images/study/physical_computing.jpg">

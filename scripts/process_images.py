@@ -148,17 +148,17 @@ def check():
     no_dropbox = [img for img in videos if 'dropbox' not in img]
     print('no gdrive: ', no_gdrive)
     print('no dropbox: ', no_dropbox)
-    # duplicates
-    # any tags don't belong?
-    # any videos without dropbox?
-    # any images without gdrive?
-    pass
+    all_tags = []
+    for img in images:
+        for tag in img['tags']:
+            all_tags.append(tag)
+    all_unique_tags = sorted(list(set(all_tags)))
+    print("%d unique tags" % len(all_unique_tags), all_unique_tags)
 
 
-
-make_thumbnails()
+#make_thumbnails()
 #lineup_gdrive_links()
 #lineup_dropbox_links()
-# check()
+check()
 
 

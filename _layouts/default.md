@@ -11,8 +11,8 @@
 		<meta name="twitter:title" content="Mars College" />
 		<meta property="og:description" content="Mars College is an educational program, R&D lab, and intentional community dedicated to cultivating a low-cost, high-tech lifestyle.">
 		<meta name="twitter:description" content="Mars College is an educational program, R&D lab, and intentional community dedicated to cultivating a low-cost, high-tech lifestyle." />
-		<meta name="twitter:image" content="https://mars.college/images/study/garden.jpg" />
-		<meta property="og:image" content="https://mars.college/images/study/garden.jpg" />
+		<meta name="twitter:image" content="https://mars.college/images/mars_logo-300x300.png" />
+		<meta property="og:image" content="https://mars.college/images/mars_logo-300x300.png" />
 	</head>
 	<body>
 		<header class="main_header">
