@@ -705,12 +705,12 @@ function initGame() {
 let girl, boy, abe, cactus, volleyball, rr;
 
 function preload() {
-  girl = loadImage('/images/uni2/unicycle_girl.png');
-  boy = loadImage('/images/uni2/unicycle_boy.png');
+  girl = loadImage('/images/volleyball/unicycle_girl.png');
+  boy = loadImage('/images/volleyball/unicycle_boy.png');
   //abe = loadImage('/images/abraham_small.png');
-  volleyball = loadImage('/images/uni2/volleyball.png');
-  cactus = loadImage('/images/uni2/cactus.png');
-  //rr = loadImage('/images/uni2/roadrunner_transparent.png');
+  volleyball = loadImage('/images/volleyball/volleyball.png');
+  cactus = loadImage('/images/volleyball/cactus.png');
+  //rr = loadImage('/images/volleyball/roadrunner_transparent.png');
 }
 
 function setup() {
