@@ -14,6 +14,9 @@ html, body {
     // overflow-y: scroll;
 }
 
+@import 'pages/common.scss';
 @import 'pages/study.scss';
 @import 'pages/gallery.scss';
+@import 'pages/join.scss';
+@import 'pages/euc.scss';
 @import 'pages/home.scss';

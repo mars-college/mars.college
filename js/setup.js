@@ -9,7 +9,7 @@ var tags=[
     {"text":"Self-reliance", "href":"/gallery/", "position":[69, 33], "scale":1.05},
     {"text":"Compute", "href":"/gallery/", "position":[1, 46], "scale":1.3},
     {"text":"Robotics", "href":"/gallery/", "position":[22, 47], "scale":1.05},
-    {"text":"Tele-<br/>presence", "href":"/gallery/", "position":[33, 39], "scale":0.8},
+    {"text":"Tele-<br/>presence", "href":"https://www.github.com/brahman-ai/mars-rover", "position":[33, 39], "scale":0.8},
     {"text":"Autonomy", "href":"/gallery/", "position":[32, 55], "scale":0.825},
     {"text":"Brahman", "href":"https://brahman.ai", "position":[43, 47], "scale":1.1},
     {"text":"Pallet<br/>racks", "href":"/gallery/pallet_racks", "position":[58, 39], "scale":0.85},
@@ -49,8 +49,11 @@ function resizeTags() {
         e.style.top = tags[i].position[1]+"%";
         e.style.fontSize = (tags[i].scale * baseFontScale * diagramWidth) + "px";
     }
+}
+
+function zoomImages() {
     var headerDiv = document.getElementById('header_inner');
-    var footerDiv = document.getElementById('footer_inner');
+    var footerDiv = document.getElementById('join_inner');
     var pageWidth = footerDiv.clientWidth;
     var headerScale = 1.15 - 0.00025 * Math.max(0, pageWidth-450);
     var footerScale = 1.75 - 0.00175 * Math.max(0, pageWidth-500);
@@ -90,12 +93,18 @@ function setupAnimation() {
     }, 30);
 }
 
+function onPageResizing() {
+    resizeTags();
+    zoomImages();
+}
 
-window.onresize = resizeTags;
-window.onorientationchange = resizeTags; 
+
+window.onresize = onPageResizing;
+window.onorientationchange = onPageResizing; 
 
 initializeTags();
 resizeTags();
+zoomImages();
 setupAnimation();
 
 /*

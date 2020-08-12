@@ -4,10 +4,9 @@ title: Mars College
 ---
 
 
-<!-- ==================== HEADER ==================== -->
+<!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
-        <!-- <img width="100%" src="/images/rv_mountains.jpg"> -->
         <img width="100%" src="/images/mars.jpg">
     </div>
     <div id="header_tagline">
@@ -19,16 +18,18 @@ title: Mars College
 </div>
 
 
-<!-- ==================== DESCRIPTION ==================== -->
+<!-- ============ DESCRIPTION ============ -->
 <div id="description">
-    Mars College is an educational program, R&D lab, and intentional community dedicated to cultivating a low-cost, high-tech lifestyle.
     <p>
-    Learn more about our vision and <a href="/join">how you can join</a>.
+        Mars College is an educational program, R&D lab, and residential community dedicated to cultivating a low-cost, high-tech lifestyle.
+    </p>
+    <p>
+        Learn more about our vision and <a href="/join">how you can join</a>.
     </p>
 </div>  
 
 
-<!-- ==================== SPLASH ==================== -->
+<!-- ============ SPLASH ============ -->
 <div id="splash">
     <div class="splash_section">
         <img class="splash_image right" src="/images/geodesic.jpg" alt="geodesic">        
@@ -62,7 +63,7 @@ title: Mars College
 </div>
 
 
-<!-- ==================== STUDY GROUPS ==================== -->
+<!-- ============ STUDY GROUPS ============ -->
 <div class="courses_outer">
     <div class="courses_inner">
         <div class="section_title"><a href="/study">Study groups</a></div>
@@ -170,7 +171,7 @@ title: Mars College
 </div>
 
 
-<!-- ================ ACTIVITIES / VENN-HEXAGRAM ================= -->
+<!-- =========== ACTIVITY VENN-HEXAGRAM =========== -->
 <div id="activities_outer">
     <div class="section_title">
         Our interests & activities
@@ -184,9 +185,9 @@ title: Mars College
 </div>
 
 
-<!-- ==================== FOOTER ==================== -->
-<div id="footer">
-    <div id="footer_inner">
+<!-- ============ FOOTER ============ -->
+<div id="join">
+    <div id="join_inner">
         <img width="100%" src="/images/desert.jpg">
         <img class="desert_creature" id="euc1" src="/images/unicyclists/1.png" />
         <img class="desert_creature" id="euc2" src="/images/unicyclists/4.png" />    
@@ -199,49 +200,12 @@ title: Mars College
         <img class="desert_creature" id="euc9" src="/images/unicyclists/roadrunner.gif" />    
     </div>
     <a href="/join">
-        <div id="footer_signup">
+        <div id="join_signup">
             Join us!
         </div>
     </a>
 </div>
 
 
-<!-- ==================== JAVASCRIPT ==================== -->
+<!-- ============ JAVASCRIPT ============ -->
 <script type="text/javascript" src="/js/setup.js"></script>
-
-
-<!-- ==================== OLD SECTIONS ==================== -->
-<!-- 
-    <div id="things">
-        <div class="pagelink">
-            <a href="/study">
-                <img width="100%" src="/images/workshop.jpg">
-                <div class="pagelink_text">Academic life</div>
-            </a>
-        </div>
-        <div class="pagelink">
-            <a href="/life">
-                <img width="100%" src="/images/thumb/climbing_disco.jpg">
-                <div class="pagelink_text">Life on Mars</div>
-            </a>
-        </div>
-        <div class="pagelink">
-            <a href="/logistics">
-                <img width="100%" src="/images/about.jpg">
-                <div class="pagelink_text">Logistics</div>
-            </a>
-        </div>
-        <div class="pagelink">
-            <a href="/gallery">
-                <img width="100%" src="/images/thumb/bombay_sunset.jpg">
-                <div class="pagelink_text">Gallery</div>
-            </a>
-        </div>
-        <div class="pagelink">
-            <a href="/about">
-                <img width="100%" src="/images/thumb/martians.jpg">
-                <div class="pagelink_text">About</div>
-            </a>
-        </div> 
-    </div>
--->

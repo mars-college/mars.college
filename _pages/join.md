@@ -4,12 +4,10 @@ title: Mars College
 ---
 
 
-
-<!-- ==================== HEADER ==================== -->
+<!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
         <img width="100%" src="/images/rv_mountains.jpg">
-        <!-- <img width="100%" src="/images/mars.jpg"> -->
     </div>
     <div id="header_tagline">
         Info for applicants
@@ -17,20 +15,8 @@ title: Mars College
 </div>
 
 
-<style>
-    #container2 {
-        width: 95%;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #gform {
-        /* margin-left: auto; */
-        /* margin-right: auto; */
-    }
-</style>
-
-<div id="container2">
+<!-- ============ CONTENT ============ -->
+<div id="container">
     <p>
         Mars College is in its infancy, and the program structure is evolving. We have scheduled January 2021 to bring an initial batch of students to start an academic quarter, subject to limitations <a href="/join/#covid">due to COVID-19</a>. We are also open to a small number people to join us early this fall to help us prepare for the first quarter and begin building out Mars. 
     </p>
@@ -91,14 +77,6 @@ title: Mars College
         If you are interested in joining us at Mars College, start by reaching out to us through the application form below or at <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJ2I5g9zqgCS_p4LSNP0GOusYfxX7myrfMduK3ltj9MI4g_g/viewform?usp=sf_link">this link</a>. We are reviewing applications on a rolling basis, and will respond to you to arrange a video call to meet you and talk more details.  
         </p>
         <iframe id="gform" src="https://docs.google.com/forms/d/e/1FAIpQLSeJ2I5g9zqgCS_p4LSNP0GOusYfxX7myrfMduK3ltj9MI4g_g/viewform?embedded=true" width="640" height="3333" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-    
-
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-
-
+    </div>    
 </div>
 

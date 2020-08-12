@@ -1,0 +1,59 @@
+
+body {
+    margin: 0;	
+    font-family:'Geneva', sans-serif; 
+}
+
+#header {
+    position: relative;
+    overflow: hidden;
+}
+
+#header_tagline {
+    position: absolute;
+    top: 8%;
+    left: 2%;
+    font-size: calc(12px + 1.6vw);
+    font-weight: bold;
+    line-height: 1.75;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1%;
+}
+
+#header_inner {
+    transform: scale(1.0);
+    transform-origin: 15% 60%;
+}
+
+#container {
+    width: 95%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+#container p, #container ul {
+    font-size: 1.25em;
+    line-height: 140%;
+}
+
+#container h2 {
+    font-size:1.7em;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: underline #888;
+    color: #000;
+}
+
+a:visited {
+    color: #000;
+}
+
+a:hover {
+    color: #f00;
+    text-decoration: underline #f00;
+}
