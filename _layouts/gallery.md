@@ -54,3 +54,7 @@ title: Mars College
         {% endfor %}
     </div>
 </div>
+
+<div id="container">
+    {{content}}
+</div>

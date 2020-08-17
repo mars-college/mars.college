@@ -6,11 +6,11 @@ var tags=[
     {"text":"Drones", "href":"/gallery/drone", "position":[34, 27], "scale":1.0},
     {"text":"Electric<br/>unicycle", "href":"/gallery/electric_unicycle", "position":[45, 33], "scale":0.85},
     {"text":"Vanlife", "href":"/gallery/vanlife", "position":[57, 27], "scale":1.0},
-    {"text":"Self-reliance", "href":"/gallery/", "position":[69, 33], "scale":1.05},
-    {"text":"Compute", "href":"/gallery/", "position":[1, 46], "scale":1.3},
-    {"text":"Robotics", "href":"/gallery/", "position":[22, 47], "scale":1.05},
+    {"text":"Self-reliance", "href":"none", "position":[69, 33], "scale":1.05},
+    {"text":"Compute", "href":"https://github.com/brahman-ai", "position":[1, 46], "scale":1.3},
+    {"text":"Robotics", "href":"none", "position":[22, 47], "scale":1.05},
     {"text":"Tele-<br/>presence", "href":"https://www.github.com/brahman-ai/mars-rover", "position":[33, 39], "scale":0.8},
-    {"text":"Autonomy", "href":"/gallery/", "position":[32, 55], "scale":0.825},
+    {"text":"Autonomy", "href":"none", "position":[32, 55], "scale":0.825},
     {"text":"Brahman", "href":"https://brahman.ai", "position":[43, 47], "scale":1.1},
     {"text":"Pallet<br/>racks", "href":"/gallery/pallet_racks", "position":[58, 39], "scale":0.85},
     {"text":"Work<br/>remote", "href":"/gallery/workshops", "position":[57, 52], "scale":0.85},
@@ -19,7 +19,7 @@ var tags=[
     {"text":"Machine<br/>Intelligence", "href":"/gallery/machine_learning", "position":[14, 60], "scale":1.05},
     {"text":"Extended<br/>Reality", "href":"/gallery/extended_reality", "position":[33, 64], "scale":1.0},
     {"text":"DAOs", "href":"https://abraham.ai", "position":[46, 60], "scale":0.9},
-    {"text":"Decentralization", "href":"/gallery/off_grid", "position":[52, 67], "scale":0.8},
+    {"text":"Decentralization", "href":"/gallery/off-grid", "position":[52, 67], "scale":0.8},
     {"text":"Solar<br/>energy", "href":"/gallery/solar", "position":[74, 60], "scale":1.1},
     {"text":"Consciousness", "href":"/gallery/performance", "position":[16, 83], "scale":1.3},
     {"text":"Networks", "href":"/gallery/installation", "position":[43, 77], "scale":1.1},
@@ -30,12 +30,19 @@ function initializeTags() {
     var parent = document.getElementById('activities');
     for (var i=0; i<tags.length; i++) {
         var tagDiv = document.createElement('div');
-        var tagLink = document.createElement('a');
-        tagLink.setAttribute('href', tags[i].href);
-        tagLink.innerHTML = tags[i].text;
+
         tagDiv.id = tags[i].text;
         tagDiv.className = 'gallery_link';
-        tagDiv.appendChild(tagLink);
+        
+        
+        if (tags[i].href !== "none") {
+            var tagLink = document.createElement('a');
+            tagLink.setAttribute('href', tags[i].href);
+            tagLink.innerHTML = tags[i].text;
+            tagDiv.appendChild(tagLink);
+        } else {
+            tagDiv.innerHTML = tags[i].text;
+        }
         parent.appendChild(tagDiv);
     }
 }
@@ -85,8 +92,13 @@ function setupAnimation() {
         var ms = new Date() - startTime; 
         for (var i=0; i<9; i++) {
             var t = -10 + distance[i] * ((velocity[i] * (ms + offset[i])) % 1);
+            var euc = document.getElementById('euc'+(i+1));
             if (t < 105 || !initFrame) {
-                document.getElementById('euc'+(i+1)).style.left = t+"%";
+                euc.style.left = t+"%";
+                if (euc.style.display != "inline") {
+                    euc.style.display = "inline";
+                    euc.style.left = t+"%";
+                }
             }
         }
         initFrame = true;
@@ -105,12 +117,11 @@ window.onorientationchange = onPageResizing;
 initializeTags();
 resizeTags();
 zoomImages();
-setupAnimation();
+// setupAnimation();
 
-/*
 window.onload = function() {
-    initializeTags();
-    resizeTags();
+    // initializeTags();
+    // resizeTags();
+    // zoomImages();
     setupAnimation();
 }
-*/

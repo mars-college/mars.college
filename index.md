@@ -9,55 +9,57 @@ title: Mars College
     <div id="header_inner">
         <img width="100%" src="/images/mars.jpg">
     </div>
+    <!--
     <div id="header_tagline">
         Live in nature<br/>
         Build a home<br/>
         Harness technology<br/>
         Reclaim your autonomy
     </div>
+    -->
 </div>
 
 
 <!-- ============ DESCRIPTION ============ -->
 <div id="description">
-    <p>
+    <!-- <div id="logo">
+        <img src="/images/mars_logo-125x125.png">
+    </div>
+    <div id="description_inner"> -->
         Mars College is an educational program, R&D lab, and residential community dedicated to cultivating a low-cost, high-tech lifestyle.
-    </p>
-    <p>
-        Learn more about our vision and <a href="/join">how you can join</a>.
-    </p>
+    <!-- </div> -->
 </div>  
 
 
 <!-- ============ SPLASH ============ -->
 <div id="splash">
     <div class="splash_section">
-        <img class="splash_image right" src="/images/geodesic.jpg" alt="geodesic">        
+        <img class="splash_image right" src="/images/geodesic.jpg" alt="geodesic"> 
         <div class="splash_title">
-            🏜️ Adopt a sustainable lifestyle
+            🏜️ Live in nature
         </div>
         <div class="splash_description">
-            See how a frugal DIY mindset lets you escape the hamster wheel of bourgeous urban life.
-        </div>
+            Secure your livelihood from an idyllic location, and escape the hamster wheel of urban professional life. 
+        </div>   
         <div class="splash_title">
-            🎓 Master new skills
+            🛠️ Build a home
         </div>
         <div class="splash_description">
-            Take the time and space needed to learn the skills that sustain your desertpunk life.
-        </div>        
+            Learn how to convert a tiny house, live the vanlife, or form a caravan with your friends.
+        </div>     
     </div>
     <div class="splash_section">
-        <img class="splash_image left" src="/images/workshop.jpg" alt="workshop">
+        <img class="splash_image left" src="/images/workshop.jpg" alt="workshop"> 
         <div class="splash_title">
-            💻 Be your own enterprise
+            💻 Harness technology
         </div>
         <div class="splash_description">
-            Practice financing an idyllic lifestyle under your own terms. Work remotely, develop an internet business, or climb up the gig economy.
-        </div>
+            Study and leverage emerging technologies under your own terms. Work remote, develop an internet business, or climb up the gig economy.
+        </div>      
         <div class="splash_title">
-            😎 Foster your self-reliance and autonomy</div>
+            😎 Reclaim your autonomy</div>
         <div class="splash_description">
-            Thrive in the face of meager circumstances, personal adversity, and global instability.
+            Practice self-reliance and thrive in the face of meager circumstances, personal adversity, and global instability.
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@
 			<a class="hamburger" href="#">&#9776;</a>
 			<nav class="main_nav">
 				<ul>
-					<!-- <li><a href="/study">Study</a></li> -->
+					<li><a href="/study">Study</a></li>
 					<li><a href="/gallery">Gallery</a></li>
 					<li><a href="/euc">EUC</a></li>
 					<!-- <li><a href="https://www.instagram.com/brahman_ai/">Instagram</a></li> -->

@@ -23,6 +23,7 @@
 .tag:hover {
     background-color:#66f;
     color: #fff;
+    text-decoration: none;
 }
 
 #images { 
@@ -39,6 +40,7 @@
     /* filter: drop-shadow(2px 2px 2px green);  */
     /* transform: scale(1.05);  */
     background-color:#0f0; 
+    text-decoration: none;
 } 
 
 img.thumbnail1, video.thumbnail1, img.thumbnail2, video.thumbnail2 {

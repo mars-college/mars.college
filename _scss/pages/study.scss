@@ -1,1 +1,30 @@
 
+.group {
+    // background-color: #f00;
+    width: 90%;
+    margin: 2%;
+    border: solid 1px #555;
+}
+
+.group_name {
+    // background-color: #0ff;
+    background-color: #eee;
+    font-size: 1.25em;
+    padding: 5px;
+}
+
+.group_description {
+    // background-color: #f0f;
+    font-size: 1.0em;
+    margin: 5px;
+    padding-left: 5px;
+    line-height: 175%;
+}
+
+.group_description ul {
+    font-size: 1.0em;
+    // list-style: none;
+    padding: 20px;
+    margin: 0px;
+}
+
