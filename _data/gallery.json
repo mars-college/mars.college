@@ -5747,6 +5747,32 @@
                 1024,
                 768
             ]
+        },
+        {
+            "type": "photo",
+            "name": "IMG_6229.jpg",
+            "tags": [
+                "workshop",
+                "physical computing"
+            ],
+            "gdrive": "1SrX5N9CJxUK84d04967zCVvTQJCBip67",
+            "size": [
+                1000,
+                1333
+            ]
+        },
+        {
+            "type": "photo",
+            "name": "study.jpg",
+            "tags": [
+                "performance",
+                "pallet racks"
+            ],
+            "gdrive": "1ZtAsqrbmlF-8wAE7BwLbWSTmL-lD6sVe",
+            "size": [
+                2048,
+                1365
+            ]
         }
     ]
 }

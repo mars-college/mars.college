@@ -1,4 +1,4 @@
 ---
 layout: gallery
-title: Mars College
+title: Mars College gallery
 ---

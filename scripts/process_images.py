@@ -29,7 +29,9 @@ def process_entry(data, d):
     path = '%s/%s'%(image_dir, entry['name'])
     save_path = path.replace('gallery/', 'gallery/thumb/')
     print("open", path)
+
     if entry['type'] == 'video':
+        return
         vid = cv2.VideoCapture(path)
         w, h = vid.get(cv2.CAP_PROP_FRAME_WIDTH), vid.get(cv2.CAP_PROP_FRAME_HEIGHT)
         if 'reverse' in entry:
@@ -76,7 +78,6 @@ def process_entry(data, d):
             os.system(cmd)     
 
     elif entry['type'] == 'photo':
-        return
         img = Image.open(path)
         w, h = img.width, img.height
         h2 = height_small if w > h else height_large
@@ -111,7 +112,10 @@ def make_thumbnails():
     data = json.loads(open(data_path, 'rb').read())
     images = data['images']
     for d in tqdm(range(len(images))):
-        process_entry(images, d)
+        try:
+            process_entry(images, d)
+        except:
+            print('no')
     data['images'] = images
     json_file = open(results_file, "w")
     json_file.write(json.dumps(data, indent=4))
@@ -156,7 +160,7 @@ def check():
     print("%d unique tags" % len(all_unique_tags), all_unique_tags)
 
 
-#make_thumbnails()
+make_thumbnails()
 #lineup_gdrive_links()
 #lineup_dropbox_links()
 check()

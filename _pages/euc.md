@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Mars College
+title: Electric unicycles at Mars College
+description: We are enthusiasts of the electric unicycle for personal transport at Mars College, and have started an electric unicycling squad which has regular group rides and practices on and around Mars.
 ---
 
 

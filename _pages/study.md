@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Mars College
+title: Study groups at Mars College
+description: Academic life on Mars revolves around a collection of study groups, ranging from those learning about technology (e.g. AI, VR/XR, telepresence), to those focused on life skills (e.g. culinary arts, vanlife, fitness, work-remote), to those dedicated to art and creativity (e.g. music, dance, crafts). 
 ---
 
 
@@ -119,21 +120,21 @@ title: Mars College
     {% include possible_study_group.md 
         name='Climbing' 
         topics='<a href="/gallery/bouldering">Bouldering</a>' 
-        prior_work='<a href="https://wiki.brahman.ai/activities/bouldering">Bouldering wall</a>Bouldering wall built at BRAHMAN</a>'
+        prior_work='<a href="https://wiki.brahman.ai/activities/bouldering">Bouldering wall built at BRAHMAN</a>'
     %}
     {% include possible_study_group.md 
         name='Telepresence' 
-        topics='TBD' 
+        topics='Telepresence, remote sensing, locomotion and robotics' 
         prior_work='<a href="https://github.com/brahman-ai/mars-rover">Rover project</a>'
     %}
     {% include possible_study_group.md 
         name='Drones' 
-        topics='' 
+        topics='Quadcopters, drone racing, aerial photography, drone telepresence' 
         prior_work='<a href="/gallery/drone">Droning at BRAHMAN</a>'
     %}
     {% include possible_study_group.md 
         name='Decentralization' 
-        topics='TBD' 
+        topics='Cryptography, blockchains, tokens, federated and decentralized systems' 
         prior_work=''
     %}
 </div>
