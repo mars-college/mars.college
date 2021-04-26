@@ -22,7 +22,7 @@ description: Academic life on Mars revolves around a collection of study groups,
         <h1>This page is under construction!</h1>
     </p> -->
     <p>
-        Academic life on Mars revolves around a collection of study groups. Study groups research subjects of interest to us, organize activities, and perform valuable camp services in exchange for space and resources. They come in many forms, ranging from those learning about technology (e.g. AI, VR/XR, telepresence), to those focused on life skills (e.g. culinary arts, vanlife, fitness, work-remote), to those dedicated to art and creativity (e.g. music, dance, crafts). 
+        Study groups make life on Mars lively and help camp run smoothly. They come in many forms, ranging from weekly meetings around specific topics like 'Machine Learning Mondays', ongoing collaborative projects like building Chiba, or learning about and taking care of core infrastructure like solar / water / waste & wifi. 
     </p>
     <p>
         Members are encouraged to participate in those study groups which interest them, and can initiate new ones. Everyone gets to be a teacher and a learner, and contribute to the overall programming in some way.
@@ -35,9 +35,7 @@ description: Academic life on Mars revolves around a collection of study groups,
     <p>        
         There are no full-time educators at Mars College; we are a federation of people trying to pool our skills and learn together. As such, study groups are mostly self-directed, and are encouraged to leverage online courses, blogs, open-source materials, and other free online resources to educate themselves and the community about their findings. 
     </p>
-    <p>
-        Study groups make life on Mars lively, while also working together to make camp run smoothly. Some lead workshops, performances, exhibitions, and installations. Others build and fix things, grow plants and gardens, cook and plan group meals, and organize social activities. 
-    </p>
+   
     <!--
     <p>
         We are interested in helping our members figure out how to make a living from Mars. 
