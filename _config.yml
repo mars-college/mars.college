@@ -6,7 +6,7 @@ description: >-
 baseurl: "" 
 url: "mars.college"
 twitter_username: genekogan
-github_username:  brahman-ai
+github_username:  mars-college
 
 collections:
   pages:
