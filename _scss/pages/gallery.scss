@@ -1,11 +1,11 @@
-#tags {
+#tags, #years {
     background-color: #ccc;
     margin: 6px;
     margin-bottom:10px;
     padding: 6px;
 }
 
-.tag, .tag a:visited, .tag a {
+.tag, .tag a:visited, .tag a, .year, .year a:visited, .year a {
     cursor: pointer;
     color: #000;
     background-color:#ffe9ab;
@@ -15,12 +15,16 @@
     text-decoration: none;
 }
 
-.tag.active {
+.year {
+    font-size: 1.5em;
+}
+
+.tag.active, .year.active {
     background-color:#00a;
     color: #fff;
 }
 
-.tag:hover {
+.tag:hover, .year:hover {
     background-color:#66f;
     color: #fff;
     text-decoration: none;

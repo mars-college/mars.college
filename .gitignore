@@ -1,4 +1,6 @@
 .DS_Store
+_data/applicants.json
+_pages/applicants.md
 Gemfile.lock
 .jekyll-cache/
 images

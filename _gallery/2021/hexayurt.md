@@ -1,5 +1,6 @@
 ---
 layout: gallery
 title: Mars College
-target_tag: ceramic
+target_tag: hexayurt
+target_year: 2021
 ---
