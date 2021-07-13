@@ -1,35 +1,9 @@
 ---
 layout: default
-title: Study groups at Mars College
-description: Academic life on Mars revolves around a collection of study groups, ranging from those learning about technology (e.g. AI, VR/XR, telepresence), to those focused on life skills (e.g. culinary arts, vanlife, fitness, work-remote), to those dedicated to art and creativity (e.g. music, dance, crafts). 
+title: Work at Mars College
+description: The four classical elements capture the burden of creating and physically maintaining Mars College.
 ---
 
-
-<!-- ============ HEADER ============ -->
-<div id="header">
- 
-</div>
-
-
-<!-- ============ CONTENT ============ -->
-<div id="container">
-    <!-- <p>
-        <h1>This page is under construction!</h1>
-    </p> -->
-    <p>
-        Academic life on Mars revolves around a collection of study groups. Study groups research subjects of interest to us, organize activities, and perform valuable camp services in exchange for space and resources. They come in many forms, ranging from those learning about technology (e.g. AI, VR/XR, telepresence), to those focused on life skills (e.g. culinary arts, vanlife, fitness, work-remote), to those dedicated to art and creativity (e.g. music, dance, crafts). 
-    </p>
-    <p>
-        Some paragraphs.
-    </p>
-    <h2>
-        <span id="activity">
-            Activities & responsibilities
-        </span>
-    </h2>
-    <p>        
-        There are no full-time educators at Mars College; we are a federation of people trying to pool our skills and learn together. As such, study groups are mostly self-directed, and are encouraged to leverage online courses, blogs, open-source materials, and other free online resources to educate themselves and the community about their findings. 
-    </p>
 
 <style>
     .workgroups {
@@ -47,21 +21,44 @@ description: Academic life on Mars revolves around a collection of study groups,
         font-size: 2em;
     }
     #earth {
-        background-color: #585;
+        background-color: rgb(101, 136, 85);
     }
     #air {
-        background-color: #aaf;
+        background-color: rgb(102, 163, 255);
     }
     #water {
-        background-color: #66f;
+        background-color: rgb(0, 64, 255);
+        color: #fff;
     }
     #fire {
-        background-color: #e55;
+        background-color: rgb(132, 31, 16);
+        color: #fff;
     }
 </style>
 
-    <p>
 
+<!-- ============ HEADER ============ -->
+<div id="header">
+    <div id="header_inner">
+        <img width="100%" src="/images/headers/work2.jpg">
+    </div>
+</div>
+
+
+<!-- ============ CONTENT ============ -->
+<div id="container">
+    <!-- <p>
+        <h1>This page is under construction!</h1>
+    </p> -->
+    <p> 
+        At its core, Mars College involves people coming together as a physical community in a harsh environment with no amenities provided. This means that we as a community need to take care of all our physical needs, including food, water, shelter, and infrastructure.
+    </p>
+    <p>
+        We've conceptualized the responsibilities of maintaining Mars College as falling under the four traditional elements: <b>Earth</b>, <b>Air</b>, <b>Water</b>, and <b>Fire</b>. Some of the jobs and chores associated with the elements are listed below.
+    </p>
+
+
+    <p>
         <div class="workgroups">
             
             <div class="workgroup" id="earth">
@@ -96,6 +93,7 @@ description: Academic life on Mars revolves around a collection of study groups,
                     <ul>
                         <li>Water distribution</li>
                         <li>Setup showers</li>
+                        <li>Gray water collection</li>
                     </ul>
                 </div>
             </div>
@@ -105,24 +103,50 @@ description: Academic life on Mars revolves around a collection of study groups,
                 <div class="workgroup_title">🔥 Fire</div>
                 <div class="workgroup_content">
                     <ul>
-                        <li>Solar energy</li>
-                        <li>Power distribution</li>
+                        <li>Solar power</li>
+                        <li>Electricity distribution</li>
                         <li>Lighting</li>
                     </ul>
                 </div>
             </div>
 
-        </div>
-        
-        
-        
+        </div> 
     </p>
+
+
+    <h2>
+        <span id="activity">
+            The kitchen
+        </span>
+    </h2>
+
+    <p>
+        The most important work we have is that of food preparation. Nothing brings all the Martians together quite like a good meal.
+    </p>
+
+    <p>
+        We will be setting up a well-protected outdoor kitchen and pantry, and organizing regular trips into town to stock up on fresh food and groceries. We are deciding between two options: making a Food Tribe, on par with the other four elements, which exclusively focuses on managing the kitchen and preparing several large group meals a week, or by dividing it up among four other tribes, with each tribe responsible for organizing one meal a week.
+    </p>
+
+    <h2>
+        <span id="activity">
+            🎩 The sorting hat
+        </span>
+    </h2>
+    
+    <p>
+        The above jobs capture the burden of constructing and maintaining camp. With our basic needs met, we are <a href="/study">free to pursue our interests</a>. Our primary means of organization revolve around these elements. Everybody at Mars College is expected to consistently contribute to at least one of these domains, in keeping with their skillset and preferences.
+    </p>
+
+    <p>
+        Martians are encouraged to form tribes around these elements and collaborate on finding innovations which make our lives easier. Some of the work is more front-loaded (initial construction and setup of core infrastructure), whereas others are more regular (water distribution, garden maintenance). Some are more technical, while others are more physical. We hope that Martians take the initiative on the jobs which they feel they can most contribute to, but are free to leave their fate to the <a href="https://static.wikia.nocookie.net/harrypotter/images/6/62/Sorting_Hat.png">sorting hat</a>.
+    </p>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+
+    
     
 </div>
-
-
-<!-- 
-put study photo into gallery along with pcomp workshop pictures
-Title, about (links to work, what they did, notes, aspirations, future goals)
-Ideas for new study groups 
--->

@@ -25,6 +25,7 @@
 			<a class="hamburger" href="#">&#9776;</a>
 			<nav class="main_nav">
 				<ul>
+					<li><a href="/work">Work</a></li>
 					<li><a href="/study">Study</a></li>
 					<li><a href="/gallery">Gallery</a></li>
 					<li><a href="/euc">EUC</a></li>

@@ -7,7 +7,7 @@ title: Join Mars College
 <!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
-        <img width="100%" src="/images/rv_mountains.jpg">
+        <img width="100%" src="/images/headers/rv_mountains.jpg">
     </div>
     <div id="header_tagline">
         Info for applicants

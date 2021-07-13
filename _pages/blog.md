@@ -13,3 +13,5 @@ title: Blog
   {% endfor %}
 </ul>
 
+<!-- https://docs.google.com/document/d/1R-SBdIl8mxUnz7RJXdRRCDXqIb22VdG4kFVAKZWWQZQ/edit?ts=60d90b88
+-->

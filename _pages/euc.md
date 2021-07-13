@@ -8,7 +8,7 @@ description: We are enthusiasts of the electric unicycle for personal transport 
 <!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
-        <img width="100%" src="/images/electric_unicycle_row.jpg">
+        <img width="100%" src="/images/headers/electric_unicycle_row.jpg">
     </div>
     <div id="header_tagline">
         Electric unicycling info

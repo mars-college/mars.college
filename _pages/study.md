@@ -8,7 +8,7 @@ description: Academic life on Mars revolves around a collection of study groups,
 <!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
-        <img width="100%" src="/images/study.jpg">
+        <img width="100%" src="/images/headers/study.jpg">
     </div>
     <div id="header_tagline">
         Study groups
