@@ -182,6 +182,59 @@
 }
 
 
+/* -- FUTURE -- */
+#future {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    text-align: center;
+    // overflow: hidden;
+    // font-size: 2.5vw;
+}
+#future_inner {
+    transform: scale(1.0);
+    transform-origin: 95% 42%;
+    max-height: 1200px;
+}
+
+#future_description {
+    position: absolute;
+    width: 95%;
+    max-width: 1100px;
+    left: 50%;
+    top: 3%;
+}
+#future_description2 {
+    position: relative; 
+    left: -50%;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2%;
+}
+#future_teaser {
+    // font-size: 1.5em;
+    font-size: calc(13px + 1.2vw);
+    font-weight: bold;
+    // text-shadow: 2px 2px #333;
+    padding: 1%;
+}
+
+#future_info {
+    // line-height: 20%;
+}
+#future_info1 {
+    // font-size: 1.3em;
+    font-size: calc(11px + 1.1vw);
+    padding: 1%;
+}
+#future_info2 {
+    // font-size: 1.1em;
+    font-size: calc(10px + 1.0vw);
+    padding: 1%
+}
+
+
+
 /* -- JOIN -- */
 #join {
     position: relative;
@@ -231,3 +284,36 @@
 #euc7 {left:18%; top:39%; display: none;}
 #euc8 {left:26%; top:40%; display: none;}
 #euc9 {left:10%; top:54%; height:20%; display: none;}
+
+/* -- ABRAHAM -- */
+.path {
+    position: absolute;
+    right: 15%;
+    top: 4%;
+    margin: auto;
+}
+.shape {
+    position: absolute;
+    display: block;
+    x-transition: all 3.45s ease-in-out;
+    animation: ani 3.45s infinite;
+}
+.path img {
+    width:calc(24px + 5.0vw);
+}
+
+.abelogo:hover {
+    cursor: pointer;
+}
+            
+@keyframes ani {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: calc(5px + 2.0vw); 
+    }
+    100% {
+        top: 0;
+    }
+}

@@ -187,6 +187,31 @@ title: Mars College
 </div>
 
 
+<!-- =========== MARS 2022 =========== -->
+<div id="future">
+    <div id="future_inner">
+        <img width="100%" src="/images/empty_mars.jpg">  
+    </div>
+    <div id="future_description">        
+        <div id="future_description2">        
+            <div id="future_teaser">
+                Mars College 2022 is coming 😎
+            </div>
+            <div id="future_info">
+                <div id="future_info1">
+                    Today, Mars is empty. Soon we will build it up once more...
+                </div>
+                <div id="future_info2">
+                    <p>2022 quarter is scheduled for Jan 1-Mar 31. Open call goes out in September. <a href="/join">More info here</a>.</p>
+                    <p>To be notified, <a href="https://marscollege.substack.com/embed">sign up for our mailing list</a>, or <a href="https://www.instagram.com/mars.college/">follow us on Instagram</a>.</p>                
+                    <iframe src="https://marscollege.substack.com/embed" width="340" height="75" style="clip:rect(70px,190px,340px,75px);" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- ============ FOOTER ============ -->
 <div id="join">
     <div id="join_inner">
@@ -206,6 +231,11 @@ title: Mars College
             Join us!
         </div>
     </a>
+    <div class="path">
+        <span id="elem" class="shape trail">
+            <img class="abelogo" onclick="window.location.href='https://abraham.ai'" src="/images/abraham_small.png">
+        </span> 
+    </div> 
 </div>
 
 

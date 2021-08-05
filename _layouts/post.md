@@ -7,43 +7,47 @@ layout: default
 
 #blog_title {
     color: #111;
-    font-size: 2.4em;
+    font-size: 2.2em;
     font-weight: 900;
-    padding-bottom:10px;
+    padding-bottom: 10px;
+    padding-top: 20px;
 }
 #blog_subtitle { 
-    color: #444;
-    font-size: 1.6em;
-    font-weight: 400;
-    padding-bottom:30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 1.2em;
 }
 #blog_date {   
-    color: #000;
+    color: #666;
     font-size: 1.2em;
-    padding-bottom:10px;
-    padding-top:10px;
+}
+#blog_author {   
+    color: #333;
+    font-size: 1.2em;
 }
 #blog_post {   
     color:#000;
-    font-size:1.0em;  
-    padding-bottom:60px;
+    font-size:1.2em;  
+    line-height: 150%;
+    padding-bottom: 60px;
 }
 
 </style>
 
 <!-- ============ CONTENT ============ -->
 <div id="container">
-	<div id="blog_date" class="post">
-		{{ page.date | date_to_long_string }}
-	</div>
 	<div id="blog_title" class="post">
 		{{ page.title }}
 	</div>
-	<div id="blog_subtitle" class="post">
-		{{ page.subtitle }}
+    <div id="blog_subtitle" class="post">
+		<span id="blog_date">{{ page.date | date_to_string }}</span>
 	</div>
-	<hr/>
-	<div id="blog_post" class="post">
+    <hr/>	
+    <div id="blog_post" class="post">
 		{{ content }}
+	</div>
+    <hr/>
+    <div id="blog_subtitle" class="post">
+        posted by: <span id="blog_author">{{ page.author }}</span>
 	</div>
 </div>
