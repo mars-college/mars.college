@@ -28,28 +28,3 @@ In cyberspace we help people choose their learning path, select courses they wan
 In meatspace we live together in the open desert where we develop self-reliance skills and learn to depend on each other in meaningful ways to take care of our needs. Surviving in an extreme environment lends immediate practical meaning to peoples actions encouraging them to challenge themselves for the benefit of the community. This strengthens people's personal resilience and interpersonal bonds.
 
 
-## Mars Study (Mars College in Cyberspace)
-
-### Who is it for
-
-Mars Study is for the empowered cyber nomads of the future. The gritty technically sophisticated humans you want on your team. People with the confidence to learn new things, execute projects, work collaboratively or independently. People excited about new technology, curious about how it will change society, and with a willingness to work hard to bring the future positive dystopia into focus
-
-### What does it do
-
-The goals of Mars Study are:
-* Help people chart a course through the technical landscape. As a starry eyed tech aspirant it can be hard to know how to navigate the endless possibility available online. Mars Study coaches talk with students, assess their skills help them choose courses and projects.
-* Help people stay focused on their goals, push through challenges, and avoid the thrashing indecision of jumping between possibilities. 
-* Help people connect and form meaningful bonds with other people.  In addition to ongoing engagement with a coach participants interact with fellow learners, seniors and juniors on the community discord. 
-
-### Program structure
-
-Mars Study is cohort based with 3 month batches. Before join with a set direction, engage with a community of fellow learners, follow up with their coaches, report progress at the mid term and receive awards at the quarter final.
-
-Mars Study has a 3 month cycle. 
-Before the quarter participants choose what they want to study. This needs to be specific and have visible artifacts. Coaches can help. 
-
-At the beginning of the quarter participants join the discord and create studygroup channels for the specific classes / projects they follow. 
-
-At the end of the quarter participants who achieved their goals are recognized and POAP NFTs are distributed.
-
-
