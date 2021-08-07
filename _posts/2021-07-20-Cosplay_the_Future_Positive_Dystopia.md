@@ -21,10 +21,6 @@ We’re living in the future. Temperatures rise pushing people into new environm
 
 But in this gritty dystopia gleam the shining gems of the internet, mobile phones, crypto finance and artificial intelligence. As conventional work and learning environments crumble into irrelevance - free online classes, youtube instructional videos, gigging apps, remote work and the digital nomad culture ascend. The technically literate, open minded, self directed and motivated can follow these alternative pathways towards financial independence, autonomy, meaningful, joyful existence in the midst of collapse.
 
-Mars College, based online and in the California desert, offers a supportive community and routine to these optimistic cyber nomads developing the skills to thrive in the radically changing society we find ourselves in. 
-
-In cyberspace we help people choose their learning path, select courses they want to take, connect with communities of co-learners, and provide ongoing encouragement to push through the difficulties and achieve their goals.  
-
-In meatspace we live together in the open desert where we develop self-reliance skills and learn to depend on each other in meaningful ways to take care of our needs. Surviving in an extreme environment lends immediate practical meaning to peoples actions encouraging them to challenge themselves for the benefit of the community. This strengthens people's personal resilience and interpersonal bonds.
+Mars College offers a supportive community and routine to these optimistic cyber nomads developing the skills to thrive in the radically changing society we find ourselves in. We live together in the open desert where we develop off-grid self-reliance skills and depend on each other to take care of our needs. Surviving in an extreme environment lends immediate practical meaning to peoples actions encouraging them to challenge themselves for the benefit of the community. This strengthens people's personal resilience and interpersonal bonds.
 
 
