@@ -12,9 +12,9 @@ title: Mars College
     <!--
     <div id="header_tagline">
         Live in nature<br/>
-        Build a home<br/>
+        Engage the physical<br/>
         Harness technology<br/>
-        Reclaim your autonomy
+        Find your joy
     </div>
     -->
 </div>
@@ -39,13 +39,13 @@ title: Mars College
             🏜️ Live in nature
         </div>
         <div class="splash_description">
-            Secure your livelihood from an idyllic location, and escape the hamster wheel of urban professional life. 
+            Secure your livelihood from an idyllic location and escape the hamster wheel of urban professional life. 
         </div>   
         <div class="splash_title">
-            🛠️ Build a home
+            🛠️ Engage the physical
         </div>
         <div class="splash_description">
-            Learn how to convert a tiny house, live the vanlife, or form a caravan with your friends.
+            Develop self reliance as you get in touch with and learn to satisfy your personal needs. Play an integral role in a small community taking on responsibility for aspects of community infrastructure. Develop meaningful relationships with other humans based on shared experience and respect formed from rising to meet the challenges of living off grid in a beautiful but often hostile environment.
         </div>     
     </div>
     <div class="splash_section">
@@ -54,12 +54,12 @@ title: Mars College
             💻 Harness technology
         </div>
         <div class="splash_description">
-            Study and leverage emerging technologies under your own terms. Work remote, develop an internet business, or climb up the gig economy.
+            Leverage emerging technologies under your own terms. Take online classes, work remote, develop an internet business...
         </div>      
         <div class="splash_title">
-            😎 Reclaim your autonomy</div>
+            😎 Find your joy</div>
         <div class="splash_description">
-            Practice self-reliance and thrive in the face of meager circumstances, personal adversity, and global instability.
+            Make art, spin fire, do yoga, shoot bliss out your third eye. Take the time to find and do what makes you happy.
         </div>
     </div>
 </div>
