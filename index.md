@@ -26,7 +26,7 @@ title: Mars College
         <img src="/images/mars_logo-125x125.png">
     </div>
     <div id="description_inner"> -->
-        Mars College is an educational program, R&D lab, and residential community dedicated to cultivating a low-cost, high-tech lifestyle.
+        Mars College is an educational program, R&D lab, and off grid residential community dedicated to cultivating a low-cost, high-tech lifestyle.
     <!-- </div> -->
 </div>  
 
