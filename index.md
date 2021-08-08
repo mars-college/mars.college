@@ -12,7 +12,7 @@ title: Mars College
     <!--
     <div id="header_tagline">
         Live in nature<br/>
-        Engage the physical<br/>
+        Develop self reliance<br/>
         Harness technology<br/>
         Find your joy
     </div>
@@ -42,10 +42,10 @@ title: Mars College
             Secure your livelihood from an idyllic location and escape the hamster wheel of urban professional life. 
         </div>   
         <div class="splash_title">
-            🛠️ Engage the physical
+            🛠️ Develop self reliance
         </div>
         <div class="splash_description">
-            Develop self reliance as you get in touch with and learn to satisfy your personal needs. Play an integral role in a small community taking on responsibility for aspects of community infrastructure. Develop meaningful relationships with other humans based on shared experience and respect formed from rising to meet the challenges of living off grid in a beautiful but often hostile environment.
+            Learn to satisfy your personal needs and play an integral role in a small community.
         </div>     
     </div>
     <div class="splash_section">
