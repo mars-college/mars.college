@@ -5,38 +5,6 @@ description: The four classical elements capture the burden of creating and phys
 ---
 
 
-<style>
-    .workgroups {
-        display: table;
-    }
-    .workgroup {
-        display: table-cell;
-        padding: 1em;
-        width: 20%;
-        height: 100%;
-        vertical-align: top;
-        margin: 20px;
-    }
-    .workgroup_title {
-        font-size: 2em;
-    }
-    #earth {
-        background-color: rgb(101, 136, 85);
-    }
-    #air {
-        background-color: rgb(102, 163, 255);
-    }
-    #water {
-        background-color: rgb(0, 64, 255);
-        color: #fff;
-    }
-    #fire {
-        background-color: rgb(132, 31, 16);
-        color: #fff;
-    }
-</style>
-
-
 <!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
@@ -47,72 +15,59 @@ description: The four classical elements capture the burden of creating and phys
 
 <!-- ============ CONTENT ============ -->
 <div id="container">
-    <!-- <p>
-        <h1>This page is under construction!</h1>
-    </p> -->
     <p> 
         At its core, Mars College involves people coming together as a physical community in a harsh environment with no amenities provided. This means that we as a community need to take care of all our physical needs, including food, water, shelter, electricity, internet and waste. Everybody at Mars College is expected to consistently contribute to at least one of these domains.
-    </
+    </p>
     <p>
         We've conceptualized the responsibilities of maintaining Mars College as falling under the four traditional elements: <b>Earth</b>, <b>Air</b>, <b>Water</b>, and <b>Fire</b>. Some of the jobs and chores associated with the elements are listed below.
     </p>
 
-
-    <p>
-        <div class="workgroups">
-            
-            <div class="workgroup" id="earth">
-                <div class="workgroup_title">🌱 Earth</div>
-                <div class="workgroup_content">
-                    <ul>
-                        <li>Building, carpentry</li>
-                        <li>Gardening, composting</li>
-                        <li>Recycling, waste management</li>
-                    </ul>
-                </div>
+    <!-- ============ WORKGROUPS GRAPHIC ============ -->
+    <div id="workgroups">
+        <div class="workgroups_group" id="earth">
+            <div class="workgroup_title">🌱 Earth</div>
+            <div class="workgroup_content">
+                <ul>
+                    <li>Building, carpentry</li>
+                    <li>Gardening, composting</li>
+                    <li>Recycling, waste management</li>
+                </ul>
             </div>
-
-            <div class="workgroup" id="air">
-                <div class="workgroup_title">💨 Air</div>
-                <div class="workgroup_content">
-                    <ul>
-                        <li>Manage wifi network</li>
-                        <li>Setup media centers</li>
-                        <li>Security cameras</li>
-                    </ul>
-                </div>
-            </div>
-        
         </div>
-
-        <div class="workgroups">
-
-            <div class="workgroup" id="water">
-                <div class="workgroup_title">💦 Water</div>
-                <div class="workgroup_content">
-                    <ul>
-                        <li>Water distribution</li>
-                        <li>Setup showers</li>
-                        <li>Gray water collection</li>
-                    </ul>
-                </div>
+        <div class="workgroups_group" id="fire">
+            <div class="workgroup_title">🔥 Fire</div>
+            <div class="workgroup_content">
+                <ul>
+                    <li>Solar power</li>
+                    <li>Electricity distribution</li>
+                    <li>Lighting</li>
+                </ul>
             </div>
-
-
-            <div class="workgroup" id="fire">
-                <div class="workgroup_title">🔥 Fire</div>
-                <div class="workgroup_content">
-                    <ul>
-                        <li>Solar power</li>
-                        <li>Electricity distribution</li>
-                        <li>Lighting</li>
-                    </ul>
-                </div>
+        </div>
+        <div class="workgroups_group" id="water">
+            <div class="workgroup_title">💦 Water</div>
+            <div class="workgroup_content">
+                <ul>
+                    <li>Water distribution</li>
+                    <li>Setup showers</li>
+                    <li>Gray water collection</li>
+                </ul>
             </div>
-
-        </div> 
-    </p>
-
+        </div>
+        <div class="workgroups_group" id="air">
+            <div class="workgroup_title">💨 Air</div>
+            <div class="workgroup_content">
+                <ul>
+                    <li>Manage wifi network</li>
+                    <li>Setup media centers</li>
+                    <li>Security cameras</li>
+                </ul>
+            </div>
+        </div>
+        <div id="workgroups_inner">
+            <img width="100%" src="/images/marscollege_work.png">
+        </div>
+    </div>
 
     <h2>
         <span id="activity">
@@ -131,8 +86,5 @@ description: The four classical elements capture the burden of creating and phys
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-
-
-    
     
 </div>
