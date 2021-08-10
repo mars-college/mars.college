@@ -26,7 +26,7 @@ title: Mars College
         <img src="/images/mars_logo-125x125.png">
     </div>
     <div id="description_inner"> -->
-        Mars College is an educational program, R&D lab, and off grid residential community dedicated to cultivating a low-cost, high-tech lifestyle.
+        Mars College is an educational program, R&D lab, and off-grid residential community dedicated to cultivating a low-cost, high-tech lifestyle.
     <!-- </div> -->
 </div>  
 
@@ -45,7 +45,7 @@ title: Mars College
             🛠️ Develop self reliance
         </div>
         <div class="splash_description">
-            Learn to satisfy your personal needs and play an integral role in a small community.
+            Learn to satisfy your own needs and thrive in the face of meager circumstances, personal adversity, and global instability.
         </div>     
     </div>
     <div class="splash_section">
@@ -54,12 +54,12 @@ title: Mars College
             💻 Harness technology
         </div>
         <div class="splash_description">
-            Leverage emerging technologies under your own terms. Take online classes, work remote, develop an internet business...
+            Leverage emerging technologies under your own terms. Take online classes, work remote, or develop an internet business.
         </div>      
         <div class="splash_title">
             😎 Find your joy</div>
         <div class="splash_description">
-            Make art, spin fire, do yoga, shoot bliss out your third eye. Take the time to find and do what makes you happy.
+            Make art, spin fire, do yoga, shoot bliss out your third eye. Take the time to find what makes you happy, and play an integral role in a small community.
         </div>
     </div>
 </div>
