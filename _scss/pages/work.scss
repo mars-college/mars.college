@@ -1,0 +1,43 @@
+
+
+#workgroups {
+    /* background-color:#ff0; */
+    position: relative;
+    width: 100%;
+}
+
+.workgroups_group {
+    position: absolute;
+    // font-size: calc(0.2em + 0.9vw);
+    line-height: 1.75;
+    padding: 1%;
+    width: 33%;
+    z-index: -10;
+}
+
+#workgroups_inner {
+    z-index: 10;
+}
+
+.workgroup_title {
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center;
+}
+.workgroup_content {
+    font-size: 1.1em;
+}
+
+#earth {top: 3%; left: 0%;}
+#fire {top: 3%; right: 0%;}
+#water {bottom: 3%; left: 0%;}
+#air {bottom: 3%; right: 0%;}
+// #earth {bottom: 60%; left: 0%;}
+// #fire {bottom: 60%; right: 0%;}
+// #water {top: 60%; left: 0%;}
+// #air {top: 60%; right: 0%;}
+
+#earth {background-color: rgba(101, 136, 85, 0.45);}
+#fire {background-color: rgba(132, 31, 16, 0.45); color: #000;}
+#water {background-color: rgba(0, 64, 255, 0.45); color: #000;}
+#air {background-color: rgba(102, 163, 255, 0.45);}
