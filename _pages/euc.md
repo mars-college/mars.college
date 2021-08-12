@@ -18,37 +18,45 @@ description: We are enthusiasts of the electric unicycle for personal transport 
 
 <!-- ============ CONTENT ============ -->
 <div id="container">
-    <p>
-    We are enthusiasts of the electric unicycle for personal transport at Mars College. Some of us have also started <a href="/gallery/electric_unicycle">an electric unicycling squad</a> which has regular group rides and practices on and around Mars.
+    <p><i>
+        “The future is here, its just not evenly distributed”</i> - William Gibson.
     </p>
     <p>
-    Note, all the important places at Mars College are walkable and we also have a stockpile of mountain bikes to freely rideshare, so no one needs a unicycle to get around. 
+ We live in the future on Mars. It is our reason for being. We conjure it into existence through high speed fiber optic connections to the internet and bulk orders of electric unicycles from factories in China. Electric Unicycle(EUC)s are small enough to fit in a car trunk or the front seat of a van, and can charge with a humble solar set up. They’re super fun and gain the rider entrance into an <a href="https://forum.electricunicycle.org/forum/26-local-group-meet-ups/">enthusiastic community of EUC riders</a> in many metros around the world. Now is like the early days of skateboarding and surfing only with 1000x the potential. 
     </p>
-    <h2>
+    <p>
+    NAs awesome EUCs are for many environments, they are especially perfect for Mars where the ground is occasionally soft making bicycling difficult, and activities are spread between Mars and Bombay Beach with people making frequent trips between them.
+    </p>
+    <p>
+        Also until the last human is replaced by a dancing robot there will be work for skilled people Repairing, modding, customizing, racing and making videos of PEV(Personal Electric Vehicle)s. Mars College is an environment and community to dive into this space and develop these skills.
+    </p>
+    <h3>
+        <span id="how">
+            Learning to Ride
+        </span>
+    </h3>
+    <p>
+        During the first 2 weeks of Mars College we will conduct regular training sessions to help people get going. There’s a learning curve. It takes sustained effort to do, but like learning to ride a bicycle as soon someone can ride unassisted, it quickly becomes the easiest funnest way to get around.
+    </p>
+    <h3>
         <span id="how">
             How to get a unicycle
         </span>
-    </h2>
+    </h3>
     <p>
-    If you are interested in riding a unicycle, we have a small number of communal unicycles which are freely available for people to try it out, learn how to ride one, or rideshare occasionally with the rest of the riders at Mars College. We'll also have some lessons for beginners, and more experienced riders can help you learn.
+    While we can make a small number of training unicycles freely available to people early on, we really want people to have their own personal unicycle for the duration of the program. We are mostly a KingSong club and have a variety of new and used unicyles available ranging from $300 for a used KS14D to $1500 for a new KS16X or S18. Mars credit may be available to help people who need it purchase their unicycle for 1/3 up front and the remainder at the end of the program.
     </p>
     <p>
-    If you are interested in having a dedicated unicycle, you can buy or loan loan one from us. We organize bulk orders of new unicycles from <a href="https://www.kingsong.com/">Kingsong</a>, or you may be able to buy a used unicycle from us. If you'd like to loan a unicycle for the duration of your stay at Mars College, we'll have some available for a rental fee. Discounts may be available to people who help do maintenance on the unicycles.
-    <ul>
-        <!-- <li><a href="https://www.kingsong.com/show-28-32.html">14-M</a> : $300 ($100 a month)</li> -->
-        <li><a href="https://www.kingsong.com/show-28-6.html">16-S</a> : $300 ($100 a month)</li>
-        <li><a href="https://www.kingsong.com/show-28-33.html">18-XL</a> or <a href="https://www.kingsong.com/show-28-31.html">18-L</a> : $400 ($133 a month)</li>
-        <li><a href="https://www.kingsong.com/show-28-38.html">16-X</a> or <a href="https://www.kingsong.com/show-28-41.html">S-18</a> : $500 ($167 a month)</li>
-    </ul> 
+        There is a reasonable secondhand market for unicycles so if you find yourself in the tragic position of being unable to take your beloved unicycle with you to your next destination, you should be able to sell it. We will also buy back unicycles depending on condition at about 2/3 the initial price. This gives us some inventory of used discount unicycles to offer next years Mars College participants.
     </p>
     <h2>
         <span id="squad">
-            Electric unicycling squad
+            Electric unicycling club
         </span>
     </h2>
     <img src="/images/roadrunner.jpg" id="roadrunner">
     <p>
-    If you are more serious about your unicycling, you can join the unicycling squad. The squad regularly has team practice around the track on Mars, and occasionally go on group rides together in the surrounding area. If you are a beginner to electric unicycling, you can join the team after spending some time practicing and becoming comfortable on it. Some footage from our rides <a href="/gallery/electric_unicycle">can be found here</a>.
+    If you are more serious about your unicycling, you can join the unicycling club. The club regularly has team practice around the track on Mars, fixes broken unicycles, makes videos and occasionally go on group rides together in the surrounding area.  Some footage from our rides <a href="/gallery/electric_unicycle">can be found here</a>.
     </p>
 </div>
 
