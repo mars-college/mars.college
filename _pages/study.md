@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Study groups at Mars College
-description: Academic life on Mars revolves around a collection of study groups, ranging from those learning about technology (e.g. AI, VR/XR, telepresence), to those focused on life skills (e.g. culinary arts, vanlife, fitness, work-remote), to those dedicated to art and creativity (e.g. music, dance, crafts). 
+description: Activities on Mars organize around a collection of Study Groups. 
 ---
 
 
@@ -18,39 +18,19 @@ description: Academic life on Mars revolves around a collection of study groups,
 
 <!-- ============ CONTENT ============ -->
 <div id="container">
-    <!-- <p>
-        <h1>This page is under construction!</h1>
-    </p> -->
-    <p>
-        Academic life on Mars revolves around a collection of study groups. Study groups research subjects of interest to us, organize activities, and perform valuable camp services in exchange for space and resources. They come in many forms, ranging from those learning about technology (e.g. AI, VR/XR, telepresence), to those focused on life skills (e.g. culinary arts, vanlife, fitness, work-remote), to those dedicated to art and creativity (e.g. music, dance, crafts). 
-    </p>
-    <p>
-        Members are encouraged to participate in those study groups which interest them, and can initiate new ones. Everyone gets to be a teacher and a learner, and contribute to the overall programming in some way.
-    </p>
-    <h2>
-        <span id="activity">
-            Activities & responsibilities
-        </span>
-    </h2>
     <p>        
-        There are no full-time educators at Mars College; we are a federation of people trying to pool our skills and learn together. As such, study groups are mostly self-directed, and are encouraged to leverage online courses, blogs, open-source materials, and other free online resources to educate themselves and the community about their findings. 
+        There are no full-time educators at Mars College; we are a federation of people pooling our skills and learning together. Everyone gets to be a teacher and a learner, and contribute to the overall programming in some way.
     </p>
     <p>
-        Study groups make life on Mars lively, while also working together to make camp run smoothly. Some lead workshops, performances, exhibitions, and installations. Others build and fix things, grow plants and gardens, cook and plan group meals, and organize social activities. 
+        Study groups make life on Mars lively and help camp run smoothly. People in study groups propose projects, classes or other activities to do together. Members are encouraged to participate in study groups which interest them, and initiate new ones. Study groups may get budget for their activities, and may persist through multiple sessions of Mars College.
     </p>
-    <!--
-    <p>
-        We are interested in helping our members figure out how to make a living from Mars. 
-        Down the road, those study groups that have commercial applications can potentially earn their members a revenue stream or even spin off separate ventures or enterprises.  
-    </p>
-    -->
     <h2>
         <span id="groups">
-            Possible study groups
+            Initial study groups
         </span>
     </h2>
     <p>
-        Study groups are not yet precisely determined, and won't be finalized until we begin the quarter. Several informal study groups emerged at <a href="https://brahman.ai">BRAHMAN</a>. They are listed below, along with links to their work. We are using these as a starting point for possible study groups. 
+        <a href="https://mars.college/work/">Earth, Air, Fire and Water</a> are the core clubs which take care of infrastructure on Mars. Additionally we will begin with a small number of clubs around key interest areas, and then encourage people to form clubs around topics they are interested in:
     </p>
     {% include possible_study_group.md 
         name='Machine intelligence' 
@@ -63,23 +43,8 @@ description: Academic life on Mars revolves around a collection of study groups,
         prior_work='<a href="/gallery/off-grid">Mars</a>, <a href="https://wiki.brahman.ai/projects/the-forest">The Forest</a>, <a href="https://wiki.brahman.ai/projects/inverted-discoball">Inverted discoball</a>'
     %}
     {% include possible_study_group.md 
-        name='Physical computing' 
-        topics='Electronics, microcontrollers, arduino, sensors, robotics' 
-        prior_work='<a href="https://wiki.brahman.ai/projects/desertscape">Desertscape</a>, soldering workshop'
-    %}
-    {% include possible_study_group.md 
-        name='Immersive spaces' 
-        topics='Projection, video walls, light painting, ambisonics' 
-        prior_work='<a href="/gallery/portal/">The Portal</a>, <a href="https://wiki.brahman.ai/projects/inverted-discoball">Inverted discoball</a>'
-    %}
-    {% include possible_study_group.md 
-        name='Extended reality' 
-        topics='Virtual reality, augmented reality, mixed reality, cybernetics, and games' 
-        prior_work='<a href="https://wiki.brahman.ai/projects/air">Artificial Intelligence Reality</a>'
-    %}
-    {% include possible_study_group.md 
-        name='Renewable energy' 
-        topics='Solar, geothermal, and wind energy' 
+        name='Fire' 
+        topics='Solar, fire spinnging, cooking' 
         prior_work='<a href="/gallery/solar/">Solar power at BRAHMAN</a>'
     %}
     {% include possible_study_group.md 
@@ -93,16 +58,6 @@ description: Academic life on Mars revolves around a collection of study groups,
         prior_work='<a href="https://github.com/brahman-ai/food.brahman.ai">food.brahman.ai</a>, <a href="https://wiki.brahman.ai/archive/food/dishes">some of our dishes</a>'
     %}
     {% include possible_study_group.md 
-        name='Music' 
-        topics='Music performance, composition, and production, live coding & algorave' 
-        prior_work='<a href="https://vimeo.com/405964174">Karaoke of Dreams</a>, <a href="/gallery/performance">Performances</a>'
-    %}
-    {% include possible_study_group.md 
-        name='Ecology' 
-        topics='Gardening, composting, aquaponics, hydroponics, clay, adobe' 
-        prior_work='<a href="/gallery/clay/">Claymaking projects</a>'
-    %}
-    {% include possible_study_group.md 
         name='Electric unicycling' 
         topics='<a href="/euc">Electric unicycling squad</a>' 
         prior_work='<a href="/gallery/electric_unicycle/">Unicycling gallery</a>'
@@ -111,16 +66,6 @@ description: Academic life on Mars revolves around a collection of study groups,
         name='Yoga & meditation' 
         topics='Daily yoga class, guided and group meditations' 
         prior_work='<a href="https://wiki.brahman.ai/activities/meditation">Meditation</a> and <a href="/gallery/yoga">yoga</a> at BRAHMAN'
-    %}
-    {% include possible_study_group.md 
-        name='Film & stage' 
-        topics='Screenings, acting exercises' 
-        prior_work='<a href="https://wiki.brahman.ai/activities/screening">Screenings at BRAHMAN</a>'
-    %}
-    {% include possible_study_group.md 
-        name='Climbing' 
-        topics='<a href="/gallery/bouldering">Bouldering</a>' 
-        prior_work='<a href="https://wiki.brahman.ai/activities/bouldering">Bouldering wall built at BRAHMAN</a>'
     %}
     {% include possible_study_group.md 
         name='Telepresence' 
