@@ -1,6 +1,6 @@
 {% assign name = include.name %}
 {% assign topics = include.topics %}
-{% assign prior_work = include.prior_work %}
+{% assign links = include.links %}
 
 <div class="group">
 	<div class="group_name">
@@ -8,9 +8,9 @@
 	</div>
 	<div class="group_description">
 		<b>Topics:</b> {{topics}}
-		{% if prior_work %}
+		{% if links %}
 			<br/>
-			<b>Prior work:</b> {{prior_work}}
+			<b>Links:</b> {{links}}
 		{% endif %}
 	</div>
 </div>
