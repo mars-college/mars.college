@@ -3,7 +3,8 @@ layout: post
 author: chatsubo.z
 title: Cosplay the Future Positive Dystopia
 description: We’re living in the future. Temperatures rise pushing people into new environments. Wealth inequality has made home prices unaffordable. Increased corporate power has come at the cost of public infrastructure and a public safety net. University education has become extremely expensive and job prospects uncertain.
-image: /images/blog/image0-5A5C1.jpg
+image: https://mars.college/images/images/blog/image0-5A5C1.jpg
+share_type: summary_large_image
 ---
 
 <style>

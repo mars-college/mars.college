@@ -6,7 +6,11 @@
 		<title>{{page.title}}</title>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link rel="icon" href="/favicon.png">
+	{%if page.share_type %} 
+		<meta name="twitter:card" content="{{page.share_type}}" />
+	{% else %}
 		<meta name="twitter:card" content="summary" />
+	{% endif %}
 		<meta name="twitter:title" content="{{page.title}}" />
 		<meta property="og:title" content="{{page.title}}">
 	{%if page.description %} 
