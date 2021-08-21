@@ -69,7 +69,7 @@ title: Mars College
 <div class="courses_outer">
     <div class="courses_inner">
         <div class="section_title"><a href="/study">Study groups</a></div>
-        <div class="section_description">Academic life on Mars revolves around study groups ranging from high-tech to ecology to fitness. Some study groups we hope to seed are listed below. <a href="/study">Learn more</a>.</div>
+        <div class="section_description">Academic life on Mars revolves around self-organized study groups ranging from high-tech to ecology to fitness. <a href="/study">Learn more</a>.</div>
         <div class="course">
             <div class="course_icon">
                 <img src="/images/study/physical_computing.jpg">
@@ -134,7 +134,7 @@ title: Mars College
                 <img src="/images/study/extended_reality.jpg">
             </div>
             <div class="course_description">
-                Telepresence & XR
+                Telepresence & VR
             </div>
         </div>
         <div class="course">
