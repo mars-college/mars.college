@@ -49,7 +49,7 @@ title: Join Mars College
         </ul>
     </p>
     <p>
-        In the beginning of the quarter, we'll build an <a href="/gallery/off-grid">off-grid</a> village on Mars that we call <a href="/gallery/chiba">Chiba</a>, using low-cost and reusable <a href="/gallery/pallet_racks">building components</a>. We'll setup an electrical grid from <a href="/gallery/solar">solar power</a>, connect to our high-speed internet network in town, and begin a rotation for managing food, water, waste, and composting/gardening.
+        In the beginning of the quarter, we'll build an <a href="/gallery/off-grid">off-grid</a> village on Mars that we call <a href="/gallery/chiba">Chiba</a>, using low-cost and reusable <a href="/gallery/pallet_racks">building components</a>. We'll setup an electrical grid from <a href="/gallery/solar">solar power</a>, connect to our high-speed internet network in town, and begin a rotation for managing food, water, waste, and composting/gardening. <a href="/work">More info about the work that goes into Mars College</a>.
     </p>
     <p>
         Once Chiba is built, we spend our time organizing educational and creative activities on Mars and in Bombay Beach, including workshops, study groups, and some invited talks. We also have some meals together, film screenings, <a href="/gallery/yoga">yoga</a>, group bike and <a href="/euc">electric unicycle</a> rides, and other fun stuff. We also setup some communal areas for co-working. <a href="/study">More info about our activities</a>.
@@ -62,9 +62,6 @@ title: Join Mars College
     </p>
     <p>
         After we take everything down from Mars, the wind-down period in April starts. We continue some activities in town, as people slowly trickle out. At the end, Mars will have no trace of us and we will disband for the summer.
-    </p>
-    <p>
-        We have some long-term initiatives for which we are also seeking people to come help us on a more semi-permanent basis. More information about <a href="#longterm">warm-up and long-term initiatives</a>.
     </p>
     <h2>
         <span id="where">

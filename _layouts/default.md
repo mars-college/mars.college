@@ -6,18 +6,23 @@
 		<title>{{page.title}}</title>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link rel="icon" href="/favicon.png">
-		<meta property="og:title" content="{{page.title}}">
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content="{{page.title}}" />
+		<meta property="og:title" content="{{page.title}}">
 	{%if page.description %} 
-		<meta property="og:description" content="{{page.description}}" />
 		<meta name="twitter:description" content="{{page.description}}" />
+		<meta property="og:description" content="{{page.description}}" />
 	{% else %}
-		<meta property="og:description" content="Mars College is an educational program, R&D lab, and residential community dedicated to cultivating a low-cost, high-tech lifestyle." />
 		<meta name="twitter:description" content="Mars College is an educational program, R&D lab, and residential community dedicated to cultivating a low-cost, high-tech lifestyle." />
+		<meta property="og:description" content="Mars College is an educational program, R&D lab, and residential community dedicated to cultivating a low-cost, high-tech lifestyle." />
 	{% endif %}
+	{%if page.image %} 
+		<meta name="twitter:image" content="{{page.image}}" />
+		<meta property="og:image" content="{{page.image}}" />
+	{% else %}
 		<meta name="twitter:image" content="https://mars.college/images/mars_logo-300x300.png" />
 		<meta property="og:image" content="https://mars.college/images/mars_logo-300x300.png" />
+	{% endif %}
 	</head>
 	<body>
 		<header class="main_header">

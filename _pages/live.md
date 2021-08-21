@@ -20,7 +20,7 @@ description: Living and personal space options on Mars
         Mars College takes place on an ancient dry lake bed in the Sonoran Desert. We adhere to the radical self reliance and leave no trace principles from Burningman. We construct an inner compound of communal structures framed with wood and pallet racks to provide closed in work spaces, kitchen areas, wind protection and shade for the tent living areas.
     </p>
     <p>
-        We provide water, weather protection, electricity, high-speed internet, and communal working spaces. It is easy to live comfortably and get work done while at Mars College.
+        We provide water, weather protection, electricity, high-speed internet, and communal working spaces. It is easy to live comfortably and get work done while at Mars College. With our basic needs met among a supportive community, we are free to <a href="/study">pursue our passions.</a>
     </p>
     <h2>
         <span id="tents">
@@ -28,7 +28,7 @@ description: Living and personal space options on Mars
         </span>
     </h2>
     <p>
-        The default personal living space, Mars participants are provided a 3 person tent with a mattress. These are densely arranged in the Mars inner compound where they can take advantage of the shade and wind protection of the main community structure.  People with sturdier tents of their own may set them up outside the compound where they may enjoy the expansive views and a bit more personal space, but will need to handle the intense sun and winds of the desert. Heavy duty Bell tents have withstood the winds in past years. <!--We also have materials for making <a href="/gallery/hexayurt">hexayurts</a>.-->
+        The default personal living space is a 3-person tent with a mattress. These are densely arranged in the Mars inner compound where they can take advantage of the shade and wind protection of the main community structure.  People with sturdier tents of their own may set them up outside the compound where they may enjoy the expansive views and a bit more personal space, but will need to handle the intense sun and winds of the desert. Heavy duty Bell tents have withstood the winds in past years. We also have materials for making <a href="/gallery/hexayurt">hexayurts</a>.
     </p>
     <h2>
         <span id="vanlife">
@@ -52,7 +52,7 @@ description: Living and personal space options on Mars
         </span>
     </h2>
     <p>
-        We encourage Martians to consider having some kind of personal transport to cover the distances between Mars and Bombay Beach. We are big fans of the <a href="/gallery/electric_unicycle/">electric unicycle</a>, and buy them in bulk for Martians. If you are interested in learning how to ride an electric unicycle with us, <a href="/euc">please see this page</a>. We also have a collection of mountain bikes which can be freely borrowed.
+        We encourage Martians to consider having some kind of personal transport to cover the distances between Mars and Bombay Beach. We are big fans of the <a href="/gallery/electric_unicycle/">electric unicycle</a>, and buy them in bulk. If you are interested in learning how to ride an electric unicycle with us, or joining our unicycling squad, <a href="/euc">please see this page</a>. We also have a collection of mountain bikes which can be freely borrowed.
     </p>
     <h2>
         <span id="diy">

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Blog
+title: Mars College blog
 ---
 
 
@@ -57,7 +57,7 @@ title: Blog
     <div class="blogpost_date">{{ post.date | date_to_string }}</div>
     <div class="blogpost_title"><a href="{{ post.url }}">{{ post.title }}</a></div>
     <div class="blogpost_author">by {{ post.author }}</div>
-    <div class="blogpost_excerpt">{{ post.excerpt }}<p><a href="{{ post.url }}">[read more]</a></p></div>
+    <div class="blogpost_excerpt">{{ post.description }}<p><a href="{{ post.url }}">[read more]</a></p></div>
   </div>
 {% endfor %}
 

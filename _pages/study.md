@@ -26,11 +26,22 @@ description: Activities on Mars organize around a collection of Study Groups.
     </p>
     <h2>
         <span id="groups">
+            Study group activities
+        </span>
+    </h2>
+    <p>
+        Although there are no fixed rules for how study groups spend their time, we encourage them to periodically organize outward facing events for other Martians. Weekly events at a set time work very well. Teach each other what is interesting about a particular subject, whether by performance, exhibition, workshop, or talks. 
+    </p>
+    <p>
+        We will be organizing two group exhibitions, one at the halfway point of Mars College, and one at the end, coinciding with the <a href="http://www.bombaybeachbiennale.org/">Bombay Beach Biennale</a>. Study groups will have the opportunity to prepare something for these shows.
+    </p>
+    <h2>
+        <span id="groups">
             Initial study groups
         </span>
     </h2>
     <p>
-        <a href="https://mars.college/work/">Earth, Air, Fire and Water</a> are the core clubs which take care of infrastructure on Mars. Additionally, we'll begin with a small number of study groups around key interest areas, and then encourage people to form study groups around topics they are interested in. Study groups may get budget for their activities, and may persist through multiple sessions of Mars College.
+        <a href="https://mars.college/work/">Earth, Air, Fire and Water</a> are the core clubs which take care of infrastructure on Mars. Additionally, we'll begin with a small number of study groups around key interest areas, and then encourage people to form study groups around topics they are interested in. Study groups may receive a budget for their activities, and may persist through multiple sessions of Mars College.
     </p>
     <p>
     {% include study_group.md 
@@ -45,7 +56,7 @@ description: Activities on Mars organize around a collection of Study Groups.
     %}
     {% include study_group.md 
         name='AI' 
-        topics='Machine learning, artificial intelligence, chatbots, AI art' 
+        topics='Machine learning, artificial intelligence, chatbots, AI art, <a href="https://abraham.ai">Abraham project</a>' 
         links='<a href="https://wiki.brahman.ai/projects/bombay-dreaming">Bombay Dreaming</a>, <a href="/gallery/marsgan/">MarsGAN</a>, <a href="https://wiki.brahman.ai/projects/collective-intelligence-lab">Collective intelligence lab</a>, <a href="https://github.com/brahman-ai/bb-aaa">bb-aaa</a>, <a href="https://wiki.brahman.ai/projects/air">Artificial Intelligence Reality</a>'
     %}
     {% include study_group.md 

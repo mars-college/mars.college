@@ -1,6 +1,5 @@
 ---
 layout: default
-
 ---
 
 <style>
@@ -27,8 +26,8 @@ layout: default
 }
 #blog_post {   
     color:#000;
-    font-size:1.2em;  
-    line-height: 150%;
+    font-size:1.0em;  
+    line-height: 180%;
     padding-bottom: 60px;
 }
 
