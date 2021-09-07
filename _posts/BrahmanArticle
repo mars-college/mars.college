@@ -1,0 +1,79 @@
+---
+layout: post
+author: the source
+title: MACHINE LEARNING AND FEEDBACK IN THE CENSUS DESIGNATED ZONE
+description: In the Spring of 2020 I had the pleasure of participating in a new residency called brahman.ai in the Colorado Desert. Brahman.ai runs in a long history of US architectural and educational projects such as Black Mountain College, Taliesin III East, Taliesin West, and Arcosanti. Like the Taliesin East/West moment this project is seasonal, lasting for three months a year. This three month period includes the construction and destruction of the entire infrastructure of the program. The space is more enmeshed in its environment focusing on site and time specific low-cost, high-tech communal living and less on permanent development per se. It is geared towards the digital native with projects not only focused on physical construction but holistically expanding to all scales of digital infrastructure. This has allowed for a broad amount of live media to flourish as part of brahman.ai including a variety of novel sound-worlds.
+
+image: https://64.media.tumblr.com/6251f7bbd13b6eca08cb9020c95cce22/829f6c52666d90f9-8c/s250x400/15b5b47533b19b157cc36cc43fe1c103e07e0b48.png
+share_type: summary_large_image
+---
+
+<style>
+    img {
+        width: 60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+![cosplay](/images/blog/15b5b47533b19b157cc36cc43fe1c103e07e0b48.png)
+
+In the Spring of 2020 I had the pleasure of participating in a new residency called brahman.ai in the Colorado Desert. Brahman.ai runs in a long history of US architectural and educational projects such as Black Mountain College, Taliesin III East, Taliesin West, and Arcosanti. Like the Taliesin East/West moment this project is seasonal, lasting for three months a year. This three month period includes the construction and destruction of the entire infrastructure of the program. The space is more enmeshed in its environment focusing on site and time specific low-cost, high-tech communal living and less on permanent development per se. It is geared towards the digital native with projects not only focused on physical construction but holistically expanding to all scales of digital infrastructure. This has allowed for a broad amount of live media to flourish as part of brahman.ai including a variety of novel sound-worlds.
+
+One of the main tracks of brahman.ai is machine learning and the singularity, as evidenced by lead organizer Gene Kogan’s https://abraham.ai project. Abraham.ai is an AI framework that will create its own content and trade it in crypto markets. While brahman.ai is still under development, once fused with Freeman Murray’s projects of temporary infrastructure and alternative educational institutions such as jaaga.in and hackerfarm.in it has generated a creative framework for other artists and makers to plug into.
+
+Some of the non-architectural projects made include landscape audio recognition hardware such as Desertscape (https://www.danioved.com/blog/posts/desertscape/overview/), audio-visual art-history re-generators co-created with the AI (https://vimeo.com/neuralsynesthesia/about) to generative karaoke made with the machine intelligence (https://github.com/guiguiguiguigui/karaoke/tree/master/lyrics/samples), a responsive tattoo generator https://paulh0001.github.io/tattoogenerator/.
+
+Large scale projects were the Portal and the Forest. The Portal is a networked tv-tunnel that displays distributed visuals and sound projects on 36 TV’s operated by 18 raspberry pi’s. The sound distribution plays with the effect of a tunnel made of two flat walls of distributed sound. Visuals can be paired with the sound.
+
+The Forest was a stage/installation piece that housed light, music, and projection performances. It was a pallet rack construction of 16 pillars, with 8 semi transparent sheets creating a holographic like screen surface. The 16 sections also had 16 lights in them visualizing the wifi. Derek Kwan and Cai performed live coding sessions and concerts on the portal, and Phil Stearns performed with his neon tubes, visualizing the network.
+
+Of the infrastructural projects played out at Brahman.ai, a notable one is the wifi itself. The wifi allows residents to keep a foot in their day jobs, academic positions, and main social circles, working remotely to fund this alternative infrastructure adventure. The increase in connectivity we have witnessed over the past decades has made urban centers less important, and nomadic lifestyles more possible for freelancers and people who work in tech. This allows for a temporary community to be sustainable without getting into farming and or some kind of exports, like Arcosanti. It also allows temporary communities to remain fluid and un-institutionalized like Black Mountain College or the Taliesins.
+
+Besides the ability to telecommute to work, the low population of brahman.ai plays a key role in keeping the management of people and their creature comforts at a self-organizing level, leaving no room for bureaucracy to take a foothold.
+
+The container project (Pegasus) (headed by Freeman Murray and Wilson Waller) is at the infrastructure of the low-cost high-tech community and educational living model. Pegasus is a secure, off the grid maker space inside a shipping container. Because it’s in a shipping container, it can be moved and deployed anywhere in the world, as a utilitarian project for development, a humanitarian project, or large-scale art support. Pegasus is at the center of the temporary live/work/large scale art outpost of Brahman.ai.
+
+This container supported both the construction and maintenance of the portal and forest super structures as well as the creature comfort studio and lounge used during the building of the other projects and for work outside. This included an outdoor kitchen, solar charging ports for computers and devices, and hefty work benches.
+
+In a world where social infrastructure and urban infrastructure is failing us, it is a minor miracle that brahman.ai created a space where people get to create their own society and social infrastructure for three months of the year. The brevity of this communal effort is one of its successes. Since most utopias fail eventually why not incorporate failure and disbandment into its design?
+
+Duchamp famously said the difference between art and architecture is plumbing—but perhaps plumbing too can be art—so long as it doesn’t require regular maintenance personnel. Historically, dedicated labor is at the core of every class striation. Here, the diffusion of time and responsibility has led to novel new vectors of learning of organizational systems for human infrastructure.
+
+I briefly interviewed co-founder Gene Kogan about Brahman.ai:
+
+Sofy:   How did you assemble all the different groups of people that are here?
+
+Gene:  I started first by just contacting friends and acquaintances who I thought would be really excited by the idea and wanting to participate, and after we got a critical mass to have some momentum, we made an open call and began interviewing applicants.
+
+
+Sofy: Where are you pulling them from?
+
+Gene: Mostly from friends, twitter and instagram posts. It's a bit of a self-selecting group. Once we get the word out, most people who had a different impression drop off, and those of us who are really open to the idea of living under fairly basic conditions are excited
+
+
+Sofy: How do you see the relationship between AI and low-cost high-tech living in remote locations?
+
+Gene: I'm really excited by the prospects of using high technology to make it possible to live remotely and cheaply, while at the same time still engaging with the modern world through the internet. Be it AI, VR, physical computing, crypto, networking, or whatever else people bring, literacy in these technologies lets you communicate with the world and perhaps make a living while maintaining your autonomy in a place of your choosing.
+
+
+
+Sofy: How do you see Abraham.ai feeding into brahman.ai?
+
+Gene: At Brahman, one of our core tracks (so to speak) was built around the idea of collective intelligence, and how machine learning and related techniques pull in and coordinate the accumulated efforts of many people towards a shared goal. Abraham is in some ways the beacon of this track, a lofty goal which ties together all of the relevant subtopics which inform and guide thee collective intelligence lab.
+
+
+Sofy: What are your thoughts on the singularity and the interplay of brahman.ai, abraham.ai and that concept?
+
+
+Gene: I think the singularity is an interesting take on technological progress although a bit flawed. What is predicted to happen after the singularity may indeed occur, but I'm not sure it can be accurately described as such a sharp singular point in time. I think important landmarks associated with the singularity may vary by even hundreds of years. For the most part, I wasn't thinking of the singularity when I was designing either Abraham or Brahman concepts.
+
+
+Gene Kogan is an artist and a programmer who is interested in autonomous systems, collective intelligence, generative art, and computer science. He is a collaborator within numerous open-source software projects, and gives workshops and lectures on topics at the intersection of code and art. Gene initiated ml4a, a free book about machine learning for creative practice, and regularly publishes video lectures, writings, and tutorials to facilitate a greater public understanding of the subject.
+
+and you can find out more about his projects at genekogan.com/
+
+Brahman.ai on lockdown
+
+This all came to a head when the lockdown happened—brahman.ai gradually transitioned from being a residency to being a temporary society. The residents were able to continue their digital jobs and remain in an isolated location while on lockdown. Many of the residents could not go to their respective homes and had to stay in this new temporary zone. Interestingly the project turned out to be at least self-sustaining enough that it extended itself for a month without gross interruptions to residents’ careers or other projects, or loss of comfort.
