@@ -88,7 +88,8 @@ title: Mars College
                         </video>
                     </a>
                 {% elsif img.type == 'photo' %}
-                    <a href="https://drive.google.com/uc?export=view&id={{img.drive_link}}" data-fancybox="gallery" > 
+                    <!-- <a href="https://drive.google.com/uc?export=view&id={{img.drive_link}}" data-fancybox="gallery" >  -->
+                    <a href="/images/gallery/{{img.filename}}" data-fancybox="gallery" >
                         <img class="{{class_name}}" src="/images/gallery/thumb/{{img.filename}}">
                     </a>
                 {% endif %}

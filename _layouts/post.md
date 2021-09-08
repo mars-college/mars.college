@@ -40,6 +40,7 @@ layout: default
 	</div>
     <div id="blog_subtitle" class="post">
 		<span id="blog_date">{{ page.date | date_to_string }}</span>
+        <span style="float:right"><a href="/blog">back to blog</a></span>
 	</div>
     <hr/>	
     <div id="blog_post" class="post">
