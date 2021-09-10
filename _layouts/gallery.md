@@ -31,10 +31,12 @@ title: Mars College
     </div>
     <div id="tags">
     {% assign tags = site.data.gallery.tags.all %} 
-    {% if target_year == 2020 %}
-        {% assign tags = site.data.gallery.tags.y2020 %} 
-    {% else if target_year == 2021 %}
-        {% assign tags = site.data.gallery.tags.y2021 %} 
+    {% if target_year %}
+        {% if target_year == 2020 %}
+            {% assign tags = site.data.gallery.tags.y2020 %} 
+        {% else if target_year == 2021 %}
+            {% assign tags = site.data.gallery.tags.y2021 %} 
+        {% endif %}
     {% endif %}
     {% for tag in tags %}
         {% assign tags_name = tag.name|replace:' ','_' %} 
