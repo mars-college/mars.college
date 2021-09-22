@@ -202,8 +202,8 @@ title: Mars College
                     Today, Mars is empty. Soon we will build it up once more...
                 </div>
                 <div id="future_info2">
-                    <p>2022 quarter is scheduled for Jan 1-Mar 31. Open call goes out in September. <a href="/join">More info here</a>.</p>
-                    <p>To be notified, <a href="https://marscollege.substack.com/embed">sign up for our mailing list</a>, or <a href="https://www.instagram.com/mars.college/">follow us on Instagram</a>.</p>                
+                    <p>2022 quarter is scheduled for Jan 1-Mar 31. <a href="/join">More info and application here</a>.</p>
+                    <p>To get updates, <a href="https://marscollege.substack.com/embed">sign up for our mailing list</a>, and follow us on <a href="https://www.instagram.com/mars.college/">Instagram</a> or <a href="https://www.twitter.com/mars_college">Twitter</a>.</p>
                     <iframe src="https://marscollege.substack.com/embed" width="340" height="75" style="clip:rect(70px,190px,340px,75px);" frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
