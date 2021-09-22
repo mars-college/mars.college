@@ -1,3 +1,12 @@
+---
+layout: post
+author: chatsubo.z
+title: Urban Plan
+description: Layout of Mars camp in 2022
+image: https://mars.college/images/22v3.png
+share_type: summary_large_image
+---
+
 **9-21-21**
 
 ![](/images/22v3.png)
