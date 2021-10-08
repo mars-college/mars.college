@@ -12,10 +12,8 @@ We don’t have [The Eye](https://flyvision.org/the_eye/03/)’s sketchup skills
 conceive Mars '22. Following the Disorient example this post goes in reverse chonilogical order with the most recent ideas at the top.  
 
 
-![](/images/blog/WingsOfChiba.png)
-I'm feeling good about this design right now. Big steps face large screens for multiple outdoor theater spaces. Lots of inner courtyard space for protected tent camping. Significant protected space in each of the four wings. This is probably close enough to final that we can start naming the rooms, setting some intention for them and planning how to fill them out. It is a great deal of space...  
-
-Generally I would like to make outer walls for the whole ground floor. Each wing also needs some completely walled in spaces where people can work during a wind storm.  
+![](/images/blog/WingsOfChiba.png)    
+I'm feeling good about this design right now. Big steps face large screens for multiple outdoor theater spaces. Lots of inner courtyard space for protected tent camping. Significant protected space in each of the four wings. This is probably close enough to final that we can start naming the rooms, setting some intention for them and planning how to fill them out. Generally I would like to make outer walls for the whole ground floor. Each wing also needs some completely walled in spaces where people can work during a wind storm.   
 
 Some additional ideas for rooms and areas:  
 * Chatsubo - Asian cyberpunk themed space with free ramen, tea eggs and anime 
