@@ -3,9 +3,36 @@ layout: post
 author: chatsubo.z
 title: Urban Plan
 description: Layout of Mars camp in 2022
-image: https://mars.college/images/blog/22v3.png
+image: https://mars.college/images/blog/WingsOfChiba.png
 share_type: summary_large_image
 ---
+[Disorient's Burningman Urban Plan](https://wiki.disorient.info/index.php?title=Urban_plan) is a model all desert camps can look to for guidance on how to 
+organize a big camp. It provides practical guidance to people building and an artifact we can look back on to see details of camp installations over the years. 
+We don’t have [The Eye](https://flyvision.org/the_eye/03/)’s sketchup skills or experience, but the Disorient Urban Plan gives us a good model to look to as we 
+conceive Mars '22. Following the Disorient example this post goes in reverse chonilogical order with the most recent ideas at the top.  
+
+
+![](/images/blog/WingsOfChiba.png)
+I'm feeling good about this design right now. Big steps face large screens for multiple outdoor theater spaces. Lots of inner courtyard space for protected tent camping. Significant protected space in each of the four wings. This is probably close enough to final that we can start naming the rooms, setting some intention for them and planning how to fill them out. It is a great deal of space...  
+
+Generally I would like to make outer walls for the whole ground floor. Each wing also needs some completely walled in spaces where people can work during a wind storm.  
+
+Some additional ideas for rooms and areas:  
+* Chatsubo - Asian cyberpunk themed space with free ramen, tea eggs and anime 
+* Bot Lounge - Room with Bots on the walls who talk to each other.
+* Library
+* Outdoor movie theaters
+* Indoor screening area
+* Lounges
+* NFT Gallery
+* Wood Shop
+* Electronics Lab
+* Electric Unicycle workshop
+* Dorms
+* nap room
+* pantry
+* kitchen
+* ...
 
 
 ![](/images/blog/22v3.png)
@@ -29,7 +56,3 @@ multiple simultaneous activities. Other areas I would like to imporove on over l
 - wind blocks and shade for tents
 - DIY shelters
 
-[Disorient's Burningman Urban Plan](https://wiki.disorient.info/index.php?title=Urban_plan) is a model all desert camps can look to for guidance on how to 
-organize a big camp. It provides practical guidance to people building and an artifact we can look back on to see details of camp installations over the years. 
-We don’t have [The Eye](https://flyvision.org/the_eye/03/)’s sketchup skills or experience, but the Disorient Urban Plan gives us a good model to look to as we 
-conceive Mars '22.
