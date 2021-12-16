@@ -83,7 +83,8 @@ title: Mars College
                     {% elsif img.year == '2021' %}
                         {% assign dropbox_folder = "vv4xaf9cmw7lemm" %}
                     {% endif %}
-                    <a href="https://dl.dropboxusercontent.com/sh/{{dropbox_folder}}/{{img.dropbox_link}}/{{img.filename}}?dl=0" data-fancybox="gallery" > 
+                    <!-- <a href="https://dl.dropboxusercontent.com/sh/{{dropbox_folder}}/{{img.dropbox_link}}/{{img.filename}}?dl=0" data-fancybox="gallery" >  -->
+                    <a href="/images/gallery/{{img.filename}}" data-fancybox="gallery" >
                         <video class="{{class_name}}" autoplay playsinline muted loop>
                             <source src="/images/gallery/thumb/{{img.filename}}" type="video/mp4">                    
                             Your browser does not support playing this video
