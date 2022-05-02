@@ -40,7 +40,9 @@
 <div class="figure_outer">
 	<div class="figure_insert">
 		{% if path %}
-		<img src="{{path}}" alt="" />
+		<a href="{{path}}">
+			<img src="{{path}}" alt="" />
+		</a>
 		{% endif %}
 		{% if mp4 %}
 		<video>
