@@ -15,6 +15,7 @@ title: Mars College
     <div id="years">   
         {% assign tag_has2020 = 0 %} 
         {% assign tag_has2021 = 0 %} 
+        {% assign tag_has2022 = 0 %} 
         {% for tag in site.data.gallery.tags.y2020 %}
             {% if tag.name == target_tag %}
                 {% assign tag_has2020 = 1 %} 
@@ -25,17 +26,27 @@ title: Mars College
                 {% assign tag_has2021 = 1 %} 
             {% endif %}
         {% endfor %}    
+        {% for tag in site.data.gallery.tags.y2022 %}
+            {% if tag.name == target_tag %}
+                {% assign tag_has2022 = 1 %} 
+            {% endif %}
+        {% endfor %}    
         <a href="/gallery/{% if target_tag != "" %}{{target_tag|replace:' ','_'}}{% endif %}" class="year{% if target_year %}{%else %} active{% endif %}" id="year_all">All</a>
         <a href="/gallery/2020/{% if target_tag != "" and tag_has2020 == 1 %}{{target_tag|replace:' ','_'}}{% endif %}" class="year{% if target_year==2020 %} active{% endif %}" id="year_2020">2020</a>
         <a href="/gallery/2021/{% if target_tag != "" and tag_has2021 == 1  %}{{target_tag|replace:' ','_'}}{% endif %}" class="year{% if target_year==2021 %} active{% endif %}" id="year_2021">2021</a>
+        <a href="/gallery/2022/{% if target_tag != "" and tag_has2022 == 1  %}{{target_tag|replace:' ','_'}}{% endif %}" class="year{% if target_year==2022 %} active{% endif %}" id="year_2022">2022</a>
     </div>
     <div id="tags">
     {% assign tags = site.data.gallery.tags.all %} 
     {% if target_year %}
         {% if target_year == 2020 %}
             {% assign tags = site.data.gallery.tags.y2020 %} 
-        {% else if target_year == 2021 %}
+        {% endif %}
+        {% if target_year == 2021 %}
             {% assign tags = site.data.gallery.tags.y2021 %} 
+        {% endif %}
+        {% if target_year == 2022 %}
+            {% assign tags = site.data.gallery.tags.y2022 %} 
         {% endif %}
     {% endif %}
     {% for tag in tags %}
@@ -76,11 +87,13 @@ title: Mars College
                 {% else %}
                     {% assign class_name = "thumbnail2" %}
                 {% endif %}
-                {% if img.type == 'video' %}
+                {% if img.type == 'video' %}`
                     {% assign dropbox_folder = "jr8gbitumdjw6dj" %}
                     {% if img.year == '2020' %}
                         {% assign dropbox_folder = "jr8gbitumdjw6dj" %}
                     {% elsif img.year == '2021' %}
+                        {% assign dropbox_folder = "vv4xaf9cmw7lemm" %}
+                    {% elsif img.year == '2022' %}
                         {% assign dropbox_folder = "vv4xaf9cmw7lemm" %}
                     {% endif %}
                     <!-- <a href="https://dl.dropboxusercontent.com/sh/{{dropbox_folder}}/{{img.dropbox_link}}/{{img.filename}}?dl=0" data-fancybox="gallery" >  -->

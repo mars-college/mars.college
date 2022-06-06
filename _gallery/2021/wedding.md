@@ -1,6 +1,6 @@
 ---
 layout: gallery
 title: Mars College
-target_tag: live_coding
+target_tag: wedding
 target_year: 2021
 ---

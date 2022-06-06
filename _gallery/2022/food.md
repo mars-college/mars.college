@@ -1,6 +1,6 @@
 ---
 layout: gallery
 title: Mars College
-target_tag: live_coding
-target_year: 2021
+target_tag: food
+target_year: 2022
 ---
