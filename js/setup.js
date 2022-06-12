@@ -28,6 +28,9 @@ var tags=[
 
 function initializeTags() {
     var parent = document.getElementById('activities');
+    if (!parent) {
+        return;
+    }
     for (var i=0; i<tags.length; i++) {
         var tagDiv = document.createElement('div');
 
@@ -49,6 +52,9 @@ function initializeTags() {
 
 function resizeTags() {
     var baseFontScale = 0.03;
+    if (!document.getElementById('activities')) {
+        return;
+    }
     var diagramWidth = document.getElementById('activities').clientWidth;
     for (var i=0; i<tags.length; i++) {
         var e = document.getElementById(tags[i].text);
