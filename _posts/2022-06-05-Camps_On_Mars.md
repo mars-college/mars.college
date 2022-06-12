@@ -9,7 +9,7 @@ share_type: summary_large_image
 
 <style>
     img {
-        width: 60%;
+        width: 80%;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -31,4 +31,4 @@ Because of these complexities the Mars College application process will be much 
 <p/>
 If you’re interested in participating reach out now. The more time we put into planning the next Mars College the more fun and productive the experience will be. 
 <p/>
-<h3><a href=https://docs.google.com/forms/d/e/1FAIpQLSdGwGCCvEFTOb4yauRoDrtShIVjVyNCZG7CtRjMzhqo8ghdRQ/viewform>I am Interested in Participating in Mars College 2023</a>
+<h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSdGwGCCvEFTOb4yauRoDrtShIVjVyNCZG7CtRjMzhqo8ghdRQ/viewform">I am Interested in Participating in Mars College 2023</a>.

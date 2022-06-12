@@ -150,9 +150,26 @@ description: Activities on Mars organize around a collection of Study Groups.
             </div>        
         </div>
     </div>
+    <!-- =========== ACTIVITY VENN-HEXAGRAM =========== -->
+    <h2>
+        <span id="groups">
+            Our interests & activities
+        </span>
+    </h2>
+    <div id="activities_outer">
+        <!-- <div class="section_title">
+            Our interests & activities
+        </div>
+        <div class="section_description">
+            Click on any of the below topics to see photos.
+        </div> -->
+        <div id="activities">
+            <img width="100%" src="/images/venn-hexagram-empty.jpg">
+        </div>
+    </div>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-
+    <script src="/js/setup.js" type="text/javascript"></script>
 
 
 <!-- 
