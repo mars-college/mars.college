@@ -19,93 +19,172 @@ description: Activities on Mars organize around a collection of Study Groups.
 <!-- ============ CONTENT ============ -->
 <div id="container">
     <p>        
-        There are no full-time educators at Mars College; we are a federation of people pooling our skills and learning together. Everyone gets to be a teacher and a learner, and contribute to the overall programming in some way.
+        Academic life on Mars revolves around self-organized study groups. There are no full-time educators at Mars College; we are a federation of people pooling our skills and learning together. Everyone gets to be a teacher and a learner, and contribute to the overall programming in some way.
     </p>
     <p>
-        Study groups make life on Mars lively. Some lead workshops, performances, exhibitions, and installations. Others build things, grow plants and gardens, and organize events. People in study groups propose projects, classes or other activities to do together. 
+        Study groups make life on Mars lively. Some lead workshops, performances, exhibitions, or workshops. Others build things, grow plants and gardens, and organize events. People in study groups propose projects and activities, and periodically organize events for other Martians and the local community. Weekly events at a set time work very well. 
+    </p>
+    <p>
+        We organize two exhibitions, one at the halfway point of Mars College, and one at the end<!--, coinciding with the <a href="http://www.bombaybeachbiennale.org/">Bombay Beach Biennale</a>-->. Study groups will have the opportunity to prepare something for these shows.
     </p>
     <h2>
         <span id="groups">
-            Study group activities
+            Existing study groups
         </span>
     </h2>
     <p>
-        Although there are no fixed rules for how study groups spend their time, we encourage them to periodically organize outward facing events for other Martians. Weekly events at a set time work very well. Teach each other what is interesting about a particular subject, whether by performance, exhibition, workshop, or talks. 
+        Martians are encouraged to join study groups or form new ones. Some study groups which have gathered consistently since we formed are listed below, along with links.
     </p>
     <p>
-        We will be organizing two group exhibitions, one at the halfway point of Mars College, and one at the end, coinciding with the <a href="http://www.bombaybeachbiennale.org/">Bombay Beach Biennale</a>. Study groups will have the opportunity to prepare something for these shows.
-    </p>
-    <h2>
-        <span id="groups">
-            Initial study groups
-        </span>
-    </h2>
-    <p>
-        <a href="https://mars.college/work/">Earth, Air, Fire and Water</a> are the core clubs which take care of infrastructure on Mars. Additionally, we'll begin with a small number of study groups around key interest areas, and then encourage people to form study groups around topics they are interested in. Study groups may receive a budget for their activities, and may persist through multiple sessions of Mars College.
-    </p>
-    <p>
-    {% include study_group.md 
-        name='Yoga & meditation' 
-        topics='Daily yoga class, guided and group meditations' 
-        links='<a href="https://wiki.brahman.ai/activities/meditation">Meditation</a> and <a href="/gallery/yoga">yoga</a>'
-    %}
-    {% include study_group.md 
-        name='Music, film, & stage' 
-        topics='Music performance, live coding & algorave, screenings'
-        links='<a href="https://mars.college/gallery/performance">Performances</a>, <a href="https://mars.college/gallery/2021/live_coding/">Live coding lab</a>, <a href="https://vimeo.com/405964174">Karaoke of Dreams</a>, <a href="https://wiki.brahman.ai/activities/screening">Film screenings</a>'
-    %}
-    {% include study_group.md 
-        name='AI' 
-        topics='Machine learning, artificial intelligence, chatbots, AI art, <a href="https://abraham.ai">Abraham project</a>' 
-        links='<a href="https://wiki.brahman.ai/projects/bombay-dreaming">Bombay Dreaming</a>, <a href="/gallery/marsgan/">MarsGAN</a>, <a href="https://wiki.brahman.ai/projects/collective-intelligence-lab">Collective intelligence lab</a>, <a href="https://github.com/brahman-ai/bb-aaa">bb-aaa</a>, <a href="https://wiki.brahman.ai/projects/air">Artificial Intelligence Reality</a>'
-    %}
-    {% include study_group.md 
-        name='Fire' 
-        topics='Solar, fire spinnging, cooking' 
-        links='<a href="/gallery/solar/">Solar power</a>'
-    %}
-    {% include study_group.md 
-        name='Off-grid architecture' 
-        topics='<a href="/gallery/pallet_racks/">Pallet racks</a>, <a href="/gallery/containers/">shipping containers</a>, <a href="/gallery/hexayurts/">hexayurts</a>, desert urbanism' 
-        links='<a href="/gallery/portal/">The Portal</a>, <a href="https://wiki.brahman.ai/projects/the-forest">The Forest</a>, <a href="/gallery/bouldering">Bouldering wall</a>, <a href="https://wiki.brahman.ai/projects/inverted-discoball">Inverted discoball</a>'
-    %}
-    {% include study_group.md 
-        name='Vanlife' 
-        topics='Converting vans, containers, and trailers into tiny houses'  
-        links='<a href="/gallery/vanlife/">Vans on Mars</a>'
-    %}
-    {% include study_group.md 
-        name='Ecology projects' 
-        topics='Gardening, composting, aquaponics, hydroponics, clay, adobe'
-        links='<a href="https://mars.college/gallery/clay/">Claymaking projects</a>'
-    %}
-    {% include study_group.md 
-        name='Food' 
-        topics='Cooking, meal planning, culinary arts' 
-        links='<a href="https://github.com/brahman-ai/food.brahman.ai">food.brahman.ai</a>, <a href="https://wiki.brahman.ai/archive/food/dishes">some of our dishes</a>'
-    %}
-    {% include study_group.md 
-        name='Electric unicycling' 
-        topics='<a href="/euc">Electric unicycling squad</a>' 
-        links='<a href="/gallery/electric_unicycle/">Unicycling gallery</a>'
-    %}
-    {% include study_group.md 
-        name='Telepresence' 
-        topics='Telepresence, remote sensing, locomotion and robotics' 
-        links='<a href="https://github.com/brahman-ai/mars-rover">Rover project</a>'
-    %}
-    {% include study_group.md 
-        name='Drones' 
-        topics='Quadcopters, drone racing, aerial photography, drone telepresence' 
-        links='<a href="/gallery/drone">Droning at BRAHMAN</a>'
-    %}
-    {% include study_group.md 
-        name='Decentralization' 
-        topics='Cryptography, blockchains, tokens, federated and decentralized systems' 
-    %}
-    </p>
+    <!-- ============ STUDY GROUPS ============ -->
+    <div class="courses_outer">
+        <div class="courses_inner">
+            <!-- <div class="section_title"><a href="/study">Study groups</a></div> -->
+            <!-- <div class="section_description">Academic life on Mars revolves around self-organized study groups ranging from high-tech to ecology to fitness. <a href="/study">Learn more</a>.</div> -->
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/bots.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="https://github.com/mars-college/marsbots_core">Bots</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/bouldering.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/bouldering">Bouldering</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/ceramics.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/ceramic/">Ceramics</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/livecode.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="https://mars.college/gallery/2021/live_coding/">Live coding</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/firespinning.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/fire_spinning/">Fire spinning</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/3drender.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/3drendering">3D rendering</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/vanlife.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/vanlife">Vanlife & off-grid</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <video autoplay playsinline muted loop>
+                        <source src="/images/study/artificial_intelligence.mp4" type="video/mp4">
+                        Your browser does not support playing this video.
+                    </video>
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/marsgan/">AI</a> and <a href="https://abraham.ai">Abraham project</a> 
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/decentralization.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="https://docs.google.com/presentation/d/1GKZao9V5KM88FlASWOaqPzmLl7FnbrwqjhJT-MOAwCQ/edit#slide=id.p">Decentralization and DAOs</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/yoga.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/yoga">Yoga</a> and <a href="https://wiki.brahman.ai/activities/meditation">meditation</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/extended_reality.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="https://github.com/brahman-ai/mars-rover">Telepresence</a> & VR
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/drone.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/gallery/drone">Drones</a>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course_icon">
+                    <img src="/images/study/electric_unicycle.jpg">
+                </div>
+                <div class="course_description">
+                    <a href="/euc">Electric unicycling</a>
+                </div>
+            </div>        
+        </div>
+    </div>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
+
+
+
+<!-- 
+<div class="course">
+    <div class="course_icon">
+        <img src="/images/study/garden.jpg">
+    </div>
+    <div class="course_description">
+        Gardening
+    </div>
 </div>
-
-
+<div class="course">
+    <div class="course_icon">
+        <img src="/images/study/physical_computing.jpg">
+    </div>
+    <div class="course_description">
+        Physical computing
+    </div>
+</div>
+<div class="course">
+    <div class="course_icon">
+        <img src="/images/study/solar.jpg">
+    </div>
+    <div class="course_description">
+        Solar power
+    </div>
+</div>
+<div class="course">
+    <div class="course_icon">
+        <img src="/images/study/offgrid.jpg">
+    </div>
+    <div class="course_description">
+        Off-grid living
+    </div>
+</div> -->
