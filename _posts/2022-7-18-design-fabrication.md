@@ -1,3 +1,12 @@
+---
+layout: post
+author: chatsubo.z
+title: Mobile Living - Design and Fabrication
+description: Design and build mobile living spaces
+image: https://mars.college/images/gallery/20220227_161024-873A1.jpg
+share_type: summary_large_image
+---
+
 We are working with <a href="http://www.machineinspiredart.com/">Ben Samareh</a> to design and build mobile living spaces. This may include residential space for Mars College, as well as small travel trailers like <a href="https://voyagertraveltrailers.com/diy-teardrop-trailer-construction-options/">tear-drop trailers</a> or pickup campers. This will take place in Southern California with the workshop either in Niland or Bombay Beach. 
 <p/>
 We are looking for people who would like to participate. Of particular interest are people knowledgeable in different aspects of digital design and fabrication including digital modelling (CAD) and CNC fabrication, as well as basic wood and metal fabrication
