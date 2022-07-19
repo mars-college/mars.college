@@ -2,12 +2,11 @@
 layout: post
 author: mechanical duck
 title: Telepresence completes the metaverse
+image: https://mars.college/images/blog/rover-on-mars.jpg
 description: I like to think of telepresence as the dual of virtual reality. Whereas VR lets you immerse yourself into an immaterial virtual world, telepresence lets you beam into a physical (meatspace) world that's far away or inaccessible.
 ---
 
 One of my favorite projects at Mars College last year was our telepresence robot. <a href="https://phillipstearns.com/">Phil</a>, <a href="https://www.linkedin.com/in/sebastian-quinard-40b5811a3">Sebastian</a>, and I joined forces to build the "Mars Rover."
-
-{% include figure.md path="/images/blog/rover-on-mars.jpg" caption="Rover (photo by <a href=\"https://phillipstearns.com/\">Phil Stearns</a>)" %}
 
 The little tank you see was not just a conventional electric vehicle. It was equipped with two back-to-back fisheye cameras streaming a full 360-degree view of the world to a Jetson Nano microcontroller ziptied to the frame of the rover. We wrote <a href="https://www.github.com/mars-college/mars-rover">some software</a> which stitched the two cameras into equirectangular format and live-streamed it through a websocket. From there, a remote observer could watch the stream inside a VR headset or on a smartphone. Because we streamed the full 360 degrees, there was no latency in head motion. It felt almost like you were really there, seeing what the rover saw.
 

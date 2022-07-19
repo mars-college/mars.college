@@ -3,7 +3,7 @@ layout: post
 author: mechanical duck
 title: The fifth element
 description: While Earth, Air, Fire, and Water constitute the work layer of Mars, Compute is our fifth element, breathing conscious agency and self-awareness into the elemental layer.
-image: 
+image: https://minio.aws.abraham.fun/creations-prd//4ab26ccebde51b057948740e4ecc704e1982542871acb2397eaa07b1cb92c6e7
 share_type: summary_large_image
 ---
 

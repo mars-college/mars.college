@@ -44,6 +44,9 @@ layout: default
 	</div>
     <hr/>	
     <div id="blog_post" class="post">
+        
+        {% include figure.md path=page.image caption=page.description %}
+
 		{{ content }}
 	</div>
     <hr/>
