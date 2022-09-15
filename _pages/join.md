@@ -33,9 +33,12 @@ title: Join Mars College
     </h2>
     <p>
         <ul>
-            <li><b>Warm-up period</b>: Nov-Dec 2021</li>
-            <li><b>Main quarter</b>: 1 Jan 2022 -> 31 Mar 2022 </li>
-            <li><b>Wind-down period</b>: Apr 2022 </li>
+            <li><b>Warm-up period</b>: Dec 2022</li>
+            <li><b>Quarter Begins</b>: 2 Jan 2023 </li>
+            <li><b>Build + Ideas Week</b>: 2 Jan - 7 Jan 2023 </li>
+            <li><b>Mid Term</b>: 17 Feb 2023 </li>
+            <li><b>Final Showcase</b>: 31 March - 2 April 2023 </li>
+            <li><b>Wind-down period</b>: Apr 2023 </li>
         </ul>
     </p>
     <p>
