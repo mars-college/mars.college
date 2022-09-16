@@ -34,13 +34,13 @@
 			<a class="hamburger" href="#">&#9776;</a>
 			<nav class="main_nav">
 				<ul>
+					<li><a href="/join">Join</a></li>
 					<li><a href="/live">Live</a></li>
 					<li><a href="/work">Work</a></li>
 					<li><a href="/study">Study</a></li>
 					<li><a href="/gallery">Gallery</a></li>
 					<li><a href="/blog">Blog</a></li>
 					<li><a href="/euc">Unicycle</a></li>
-					<li><a href="/join">Join</a></li>
 					<li><a href="https://www.instagram.com/mars.college/"><img src="/images/instagram.png"></a></li>
 					<li><a href="https://www.twitter.com/mars_college/"><img src="/images/twitter.png"></a></li>
 					<li><a href="https://www.github.com/mars-college/"><img src="/images/github.png"></a></li>

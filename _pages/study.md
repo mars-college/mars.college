@@ -4,6 +4,8 @@ title: Study groups at Mars College
 description: Activities on Mars organize around a collection of Study Groups. 
 ---
 
+midterm, final
+
 
 <!-- ============ HEADER ============ -->
 <div id="header">

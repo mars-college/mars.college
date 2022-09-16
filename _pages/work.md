@@ -21,7 +21,6 @@ description: The four classical elements capture the burden of creating and phys
     <p>
         We've conceptualized the responsibilities of maintaining Mars College as falling under the four traditional elements: <b>Earth</b>, <b>Air</b>, <b>Water</b>, and <b>Fire</b>. Some of the jobs and chores associated with the elements are listed below.
     </p>
-
     <!-- ============ WORKGROUPS GRAPHIC ============ -->
     <div id="workgroups">
         <div class="workgroups_group" id="earth">
@@ -68,25 +67,7 @@ description: The four classical elements capture the burden of creating and phys
             <img width="100%" src="/images/marscollege_work.png">
         </div>
     </div>
-
-    <h2>
-        <span id="activity">
-            The kitchen
-        </span>
-    </h2>
-
-    <p>
-        Nothing brings Martians together quite like a good meal. We will organize several group meals a week that everyone is free to attend.
-    </p>
-    <p>
-        We will be setting up a well-protected outdoor kitchen and pantry, and organizing regular trips into town to stock up on fresh food and groceries. We are deciding between two options: making a Food Tribe, on par with the other four elements, which exclusively focuses on managing the kitchen and preparing several large group meals a week, or by dividing it up among the four other tribes, with each tribe responsible for organizing one meal a week.
-    </p>
-    <p>
-        If you have an inclination for preparing large group meals, this could be an alternative to the Earth/Wind/Water/Air chores.
-    </p>
-
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    
 </div>
