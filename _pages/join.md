@@ -26,9 +26,12 @@ title: Join Mars College
 </p>
 <p>
     <ul>
-        <li><b>Warm-up period</b>: Nov-Dec 2022</li>
-        <li><b>Main quarter</b>: 1 Jan 2023 -> 31 Mar 2023</li>
-        <li><b>Wind-down period</b>: Apr 2023</li>
+        <li><b>Warm-up period</b>: Dec 2022</li>
+        <li><b>Quarter Begins</b>: 2 Jan 2023 </li>
+        <li><b>Build + Ideas Week</b>: 2 Jan - 7 Jan 2023 </li>
+        <li><b>Mid Term</b>: 17 Feb 2023 </li>
+        <li><b>Final Showcase</b>: 31 March - 2 April 2023 </li>
+        <li><b>Wind-down period</b>: Apr 2023 </li>
     </ul>
 </p>
 <p>
@@ -161,6 +164,19 @@ It would be great if we could pull together a vision doc which describes how we 
         </span>
     </h2>
     <p>
+<<<<<<< HEAD
+=======
+        <ul>
+            <li><b>Warm-up period</b>: Dec 2022</li>
+            <li><b>Quarter Begins</b>: 2 Jan 2023 </li>
+            <li><b>Build + Ideas Week</b>: 2 Jan - 7 Jan 2023 </li>
+            <li><b>Mid Term</b>: 17 Feb 2023 </li>
+            <li><b>Final Showcase</b>: 31 March - 2 April 2023 </li>
+            <li><b>Wind-down period</b>: Apr 2023 </li>
+        </ul>
+    </p>
+    <p>
+>>>>>>> 622b2cd19ffc677d0dbbdb9a6f85a540fa713b7d
         In the beginning of the quarter, we'll build an <a href="/gallery/off-grid">off-grid</a> village on Mars that we call <a href="/gallery/chiba">Chiba</a>, using low-cost and reusable <a href="/gallery/pallet_racks">building components</a>. We'll setup an electrical grid from <a href="/gallery/solar">solar power</a>, connect to our high-speed internet network in town, and begin a rotation for managing food, water, waste, and composting/gardening. <a href="/work">More info about the work that goes into Mars College</a>.
     </p>
     <p>

@@ -42,7 +42,7 @@ description: We are enthusiasts of the electric unicycle for personal transport 
         </span>
     </h2>
     <p>
-        While we can make a small number of training unicycles freely available to people early on, we really want people to have their own personal unicycle for the duration of the program. We are mostly a <a href="https://www.kingsong.com/">KingSong</a> club and have a variety of new and used unicyles available ranging from $300 for a used KS14D to $1500 for a new KS16X or S18. Mars credit may be available to help people who need it purchase their unicycle for 1/3 up front and the remainder at the end of the program.
+        While we can make a small number of training unicycles freely available to people early on, we really want people to have their own personal unicycle. 
     </p>
     <p>
         There is a good secondhand market for unicycles so if you find yourself in the tragic position of being unable to take your beloved unicycle with you to your next destination, you should be able to sell it. We will also buy back unicycles depending on condition at about 2/3 the initial price. This gives us some inventory of used discount unicycles to offer next years Mars College participants, and makes it possible for Martians on a budget to loan a unicycle for a few months and get back most or all of their payment.
