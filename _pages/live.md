@@ -17,26 +17,23 @@ description: Living and personal space options on Mars
 <!-- ============ CONTENT ============ -->
 <div id="container">
     <p> 
-        Mars College takes place on an ancient dry lake bed in the Sonoran Desert. We construct an inner compound of communal structures framed with wood and pallet racks to provide closed in work spaces, kitchen areas, wind protection and shade for the tent living areas.
+        Mars is a barren landscape with intense sun, frequent cold, and strong winds.
+Open for miles around it is a beautiful environment that takes effort to live in.
+
+        
+        Mars College takes place on an dry lake bed in the Southern California Desert. We construct a compound of communal structures framed with wood and pallet racks. We figure out water, weather protection, electricity, high-speed internet, and communal working spaces. We strive to live comfortably and get work done while at Mars College. With our basic needs met among a supportive community, we are free to <a href="https://mars.college/study/">pursue our passions</a>.
     </p>
     <p>
-        We provide water, weather protection, electricity, high-speed internet, and communal working spaces. It is easy to live comfortably and immerse yourself in the <a href="/study">study program</a>.
+        
     </p>
-    <h2>
-        <span id="tents">
-            Tents
-        </span>
-    </h2>
-    <p>
-        The default personal living space is a 3-person tent with a mattress. These are densely arranged in the Mars inner compound where they can take advantage of the shade and wind protection of the main community structure.  People with sturdier tents of their own may set them up outside the compound where they may enjoy the expansive views and a bit more personal space, but will need to handle the intense sun and winds of the desert. Heavy duty Bell tents have withstood the winds in past years.
-    </p>
+  
     <h2>
         <span id="vanlife">
             Cars, Vans & Trailers
         </span>
     </h2>
     <p>
-        We are proponents of the vanlife lifestyle. People who wish to live in their vehicles park just outside the compound walls. This creates an additional neighborhood with some protection from the communal structures and easy access to the community amenities. If you’ve been dreaming about vanlife, Mars College is a good chance to build out a van or cargo trailer into the mobile tiny home you’ve been thinking about.
+       Van Conversions, RVs, Camper trailers and other livable spaceships make good domiciles on Mars. The more self contained and self reliant you are the better you can navigate your welfare and happiness. If you’ve been dreaming about vanlife, Mars College is a good chance to build out a van or cargo trailer into a spaceship of your own.
     </p>
     <h2>
         <span id="diy">
@@ -44,7 +41,7 @@ description: Living and personal space options on Mars
         </span>
     </h2>
     <p>
-        More handy people may feel inspired to build out a more rigid structure for their personal camping space. DIY shelters can take advantage of the pallet rack communal structure for support. Keep in mind the Leave No Trace principle and build structures with standard components that can be reused in the future.
+       People flying in, early on their nomad path without a home on wheels, or just really into pallet racks can build out a shelter. Pallet Rack shelters start as platforms with a raised floor, ply roof and walls and mattress. A bare beginning Martians can fill with the soft pleasures of their home world.
     </p>
     <h2>
         <span id="houses">
@@ -52,7 +49,7 @@ description: Living and personal space options on Mars
         </span>
     </h2>
     <p>
-        We also have access to some housing rentals in town (Bombay Beach), around a mile from Mars. These might be a good option for Martians who are just doing Mars Residency and have more daytime work commitments, and must be reserved in advance.
+       We also have a few trailers, and may be able to connect those not ready for life on another planet with a room in Bombay.
     </p>
     <h2>
         <span id="transport">
@@ -60,7 +57,8 @@ description: Living and personal space options on Mars
         </span>
     </h2>
     <p>
-        We encourage Martians to consider having some kind of personal transport to cover the distances between Mars and Bombay Beach. We are big fans of the <a href="/gallery/electric_unicycle/">electric unicycle</a>, and buy them in bulk. If you are interested in learning how to ride an electric unicycle with us, or joining our unicycling squad, <a href="/euc">please see this page</a>. We also have a collection of mountain bikes which can be freely borrowed.
+       We really can’t overstate our intense love of electric unicycles. Outside in the desert the distances between places you want to be are perfect for unicycles. They really transform your ability to inhabit an open rural space. We also have some old red beach cruisers. But it’s really all about the unicycles.
+
     </p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
