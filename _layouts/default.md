@@ -37,7 +37,7 @@
 					<!-- <li><a href="/live">Live</a></li>
 					<li><a href="/work">Work</a></li>
 					<li><a href="/study">Study</a></li> -->
-					<li><a href="/blog">Blog</a></li>
+					<li><a href="https://marscollege.substack.com/">Blog</a></li>
 					<li><a href="/gallery">Gallery</a></li>
 					<li><a href="/join">Join</a></li>
 					<!-- <li><a href="/euc">Unicycle</a></li> -->

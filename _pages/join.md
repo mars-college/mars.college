@@ -7,10 +7,10 @@ title: Join Mars College
 <!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
-        <img width="100%" src="/images/headers/mars.jpg">
+        <img width="100%" src="/images/headers/mars23.jpg">
     </div>
     <div id="header_tagline">
-        Info for prospectives
+        Applying to Mars College
     </div>
 </div>
 
@@ -19,91 +19,149 @@ title: Join Mars College
 <div id="container">
 
 <p>
-    Mars College is a 3-month program, during which we build up a <a href="https://mars.college/gallery/chiba/">temporary village</a> on a 20-acre stretch of open desert in Southern California called <a href="https://mars.college/gallery/desert/">Mars</a>, where we <a href="/live">live</a>, <a href="/work">work</a>, and <a href="/study">study</a> together.
+Mars College is a 3-month program, during which we build <a href="https://mars.college/gallery/chiba/">a temporary village</a> on a 20-acre stretch of open desert in Southern California called <a href="https://mars.college/gallery/desert/">Mars</a>. During this time, we study and incubate projects related to technology and sustainability, and gradually turn camp into a large art installation.
 </p>
+
 <p>
-    The next Mars College will take place Q1 2023. The exact calendar is as follows:
+    Important dates:
 </p>
 <p>
     <ul>
-        <li><b>Warm-up period</b>: Dec 2022</li>
-        <li><b>Quarter Begins</b>: 2 Jan 2023 </li>
-        <li><b>Build + Ideas Week</b>: 2 Jan - 7 Jan 2023 </li>
-        <li><b>Mid Term</b>: 17 Feb 2023 </li>
-        <li><b>Final Showcase</b>: 31 March - 2 April 2023 </li>
-        <li><b>Wind-down period</b>: Apr 2023 </li>
+        <li><b>Applications open</b>:  21 Sept 2023</li>
+        <li><b>Applications close</b>:  21 Dec 2023</li>
+        <li><b>Build Month</b>: Nov 2023</li>
+        <li><b>Boot Camp</b>: Dec 2023</li>
+        <li><b>Main Program</b>: 1 Jan 2024 -> 31 Mar 2024</li>
+        <!-- <li><b>Wind-down period</b>: Apr 2024</li> -->
+        <!-- <li><b>Alumni Only:
+        <li><b>Deadline for courses: 21 Sept 2023
+        <li><b>Deadline for projects: 21 Sept 2023 -->
     </ul>
 </p>
+
+<h2>Mars</h2>
+
 <p>
-    The end of the quarter culminates in a final showcase and art installation called <a href="#the_simulation">The Simulation</a>, after which we dismantle the village, leaving no trace, to disband and await the next season.
+Mars is a barren landscape with intense sun, frequent cold, and strong wind. It is located on a dry lake bed in the Southern California Desert, next to the Salton Sea.
 </p>
 <p>
-    We are looking for exceptional people with passions for art, technology, and other creative pursuits to join us. There are two categories of participants on Mars: those in the <a href="#mars_residency">Mars residency</a> and those in <a href="#mars_college">Mars college</a>. Each one is described in the following sections.
+We construct a campus in the open desert with camping areas and academic buildings. We build structures with wood and pallet racks. We set up solar panels for electricity and install a high speed WiFi link to town for internet. We bring water to Mars from town in 5 gallon jugs and IBC tanks.
 </p>
 <p>
-    This upcoming quarter is our third session overall, following <a href="/gallery/2021/">2021</a> and <a href="/gallery/2022">2022</a>. Mars College grew out out of a precursor in 2020 called <a href="https://brahman.ai/">BRAHMAN</a>.
+Mars is one mile from a small community with two bar/restaurants and a convenience store. Indio is the closest large town with big grocery stores and hospitals.
 </p>
-<h2>
-    <span id="mars_residency">
-        Mars residency
-    </span>
-</h2>
 
-<p>This is the most open-ended and least strings-attached way to be a part of our community, and how to participate with relatively few requirements.</p>
+<h1>Shelter</h1>
+<p>
+Cars, Vans, RVs, Camper trailers and other spaceships make good domiciles on Mars. The more self-contained and self-reliant you are, the more control you have over your welfare and happiness. If you’ve been dreaming about vanlife, Mars College is a good chance to build out a van or cargo trailer into a spaceship of your own.
+</p>
 
-<p>Residents can be as much a part of the full Mars College program as they wish or can afford to be. They have an open invitation to all the activities we put on, and are encouraged to offer workshops or seminars in areas that interest them, but are not required to contribute much, other than basic upkeep of any facilities they use. T</p>
+<h1>Transportation</h1>
 
-<p>Residents are expected to be self-reliant and arrange their own shelter, either by bringing a van or RV with them, or renting a room in Bombay Beach (we may be able to help with this).</p>
+<p>
+There is no public transportation to and from Mars. Many participants come without cars and are generally able to carpool rides into town with other Martians when they need them, including on first arrival.
+</p>
+<p>
+Within Mars College and including town nearby, everything is walking distance. For medium and long distances, many of us have an intense love of electric unicycles. They transform your ability to inhabit an open rural space. We also have some old red beach cruiser bicycles that we can lend.
+</p>
 
-<p>The residency is optimal for self-directed and highly independent people, those with full-time jobs, those who are curious about visiting but not committed to stay for long, or those who are simply interested in joining our community but desire having comparatively fewer responsibilities or expectations of them.</p>
+<h2>Academic program</h2>
 
-<h2>
-    <span id="mars_college">
-        Mars College
-    </span>
-</h2>
+<p>
+Mars College has an open calendar where participants schedule classes, activities, and workshops they want to offer. 
+</p>
+<p>
+Some returning alumni have prepared courses with weekly meetings exploring a field and coming up with project ideas.
+</p>
+<p>
+New applicants may select one of those courses to major in or write a plan outlining their goals for an independent study.
+</p>
 
-<p>Mars College is a structured and intentional 3-month program which is part educational and part incubator for specific art & tech initiatives and creative exploration.</p>
+<h1>Structure of the semester</h1>
 
-<p>Participants in Mars College are expected to sign up for a major field of study (details next section), regularly attend and contribute to the activities, and develop or contribute to a final project. The first half of the quarter will revolve around open-ended exploration of their fields, culminating with a midterm presentation outlining a project they wish to carry out. During the second half, they will develop projects together to present at the final showcase at the end of the quarter. While you need to declare a major, you are free to participate in all the other study groups or to propose your own.</p>
+<p>
+The first week of Mars College is an orientation period where people settle into the routine on Mars and help develop the space. During the second week, we have lightning talk sessions for everyone to introduce themselves, share exciting ideas, and propose extracurricular activities and projects.
+</p>
+<p>
+After the lightning talks we open up the calendar for people to add activities and workshops they would like to offer.
+</p>
+<p>
+Pre-announced courses begin week 3. Typically courses have weekly meetings until the midterm in mid-February. During this time, students are encouraged to explore new ideas and technologies with the aim of choosing a thesis project concept which they present at the midterm.
+</p>
+<p>
+During the second half of the semester, participants develop their thesis projects to present as part of the at the final showcase. The showcase is accompanied by a largescale collaborative interactive art installation that is built into the communal structure.
+</p>
+<p>
+Over the next 5 weeks, leading up to the midterm in March, courses are structured with a syllabus, while students are encouraged to explore new ideas and technologies with the aim of choosing a thesis project. The midterm itself is an opportunity to present findings, ideas, and project proposals for the second half.
+</p>
+<p>
+During the second half of the semester, participants develop their thesis projects to present at the final showcase. The showcase is accompanied by a largescale collaborative interactive art installation that is built into the communal structure.
+</p>
+<p>
+People document their work and help breakdown camp during the final week.
+</p>
 
-<p>Mars College is best for those with more free time, and seeking a deeper or more immersive experience while here. Participants who can take an active role in Mars College will receive priority for housing and other resources we have.</p>
+<h1>Courses</h1>
 
-<h2>Projects and fields of study</h2>
+<p>
+TBA. Courses will be announced before the application period begins in September.
+</p>
 
-<p>For 2023, we are organizing the following study groups at Mars College. All Mars College participants and Mars residents alike can participate in any or all of these study groups, or propose new ones, but Mars College participants are requried to declare at least one of them as a major, and contribute a final project to it.</p>
-
-<p>Although these groups represent areas we wish to consolidate efforts into, Martians are encouraged to think outside the box and bring other disciplines into the study program.</p>
-
+<!-- <p>
+The following courses are available 
+</p>
+<p>
 <ul>
-    <li><u>Creative AI</u>: Building AI agents who generate images, sound, and text, on top of <a href="/2022/07/12/Eden.html">Eden</a>. This will include ongoing experimentation with our <a href="https://github.com/mars-college/marsbots">Discord bots</a>, and exploration of tools for AI-assisted creativity.</li>
-    <li><u>Yoga</u>: Regular <a href="/2022/07/17/yoga.html">yoga</a>, meditation, and breathing exercises.</li>
-    <li><u>DAOs and crypto</u>: A study group devoted to researching and applying decentralization technology to the Martian enterprise.</li>
-    <li><u>Art and craft</u>: Fine arts on Mars and in Bombay Beach, including <a href="/gallery/paint/">street art</a>, <a href="/gallery/installation/">sculpture</a>, and <a href="/gallery/ceramic/">ceramics</a> in coordination with our friends at <a href="https://bbartsculture.org/">BBAC</a>.</li>
-    <li><u>3d design and metaverse</u>: Using 3d design software to create a virtual counterpart of Mars in the metaverse.</li>
-    <!-- <li><u>Electric Unicycle Club</u>: A <a href="/euc/">squad practicing the electric unicycle</a> and going on excursions together. -->
+<li>Creative AI - by Eden team</li>
+<li>TBD - Josh</li>
+<li>Virtual World Building - Nico</li>
+<li>Music - Atin</li>
+<li>Crafts and storytelling - Vanessa</li>
 </ul>
+</p> -->
 
-<h2>
-    <span id="the_simulation">
-        The Simulation
-    </span>
-</h2>
+<h2>Boot camp</h2>
 
-<p>The Simulation is a large art installation we are planning to build on Mars, which will represent the culmination of the efforts of the study groups. Each study group will contribute something to the Simulation. The Simulation is the guiding light for all the study groups, uniting them with a shared goal, as well as our offering to the <a href="http://www.bombaybeachbiennale.org/">Bombay Beach Biennale</a>..</p>
+<p>
+TBD
+</p>
 
-<p>While the precise nature of The Simulation cannot be predicted ahead of time, we think it may include some of the following byproducts of the study groups:</p>
+<h2>Apply</h2>
 
-<ul>
-    <li>A massive physical installation, framed by pallet racks, and adorned by light, paint, sound, sculpture, and the other fruits of our collective labor.</li>
-    <li>An immersive virtual world counterpart representing the digital avatar of Mars, the dual of the physical installation.</li>
-    <li>Bots and AI entities who dynamically produce live content and interactions inside the Simulation.</li>
-    <li>Live audiovisual performances simultaneously inside the virtual and physical worlds.</li>
-</ul>
+<p>
+Applications for Mars College open up on September 21.
+</p>
+<p>
+Applicants who come for the full semester are preferred. People with exceptional skills to share who can not stay the full-time may offer a short-term seminar or workshop.
+</p>
 
+<h2>FAQ</h2>
+
+<p>
+<b>How much does it cost?</b>
+</p>
+<p>
+There is no fee to attend Mars College, but participants need to cover their own expenses like food and travel and contribute to group expenses like internet, propane, water delivery, and toilet service.
+</p>
+
+<p>
+<b>When did Mars College start?</b>
+</p>
+<p>
+Every Jan-March since 2020, growing out of a precursor in 2020 called <a href="https://brahman.ai/">BRAHMAN</a>. 2024 will be our fifth consecutive year.
+</p>
+
+<p>
+<b>What are you looking for in applicants?</b>
+</p>
+<p>
+We seek participants who can stay for most of the duration of the program, commit to a field of study, and help us run camp.
+</p>
 
 
 <!-- 
+
+
 
 Build Week + lightning talks in the evenings
 ideas week
@@ -164,8 +222,6 @@ It would be great if we could pull together a vision doc which describes how we 
         </span>
     </h2>
     <p>
-<<<<<<< HEAD
-=======
         <ul>
             <li><b>Warm-up period</b>: Dec 2022</li>
             <li><b>Quarter Begins</b>: 2 Jan 2023 </li>
@@ -176,7 +232,6 @@ It would be great if we could pull together a vision doc which describes how we 
         </ul>
     </p>
     <p>
->>>>>>> 622b2cd19ffc677d0dbbdb9a6f85a540fa713b7d
         In the beginning of the quarter, we'll build an <a href="/gallery/off-grid">off-grid</a> village on Mars that we call <a href="/gallery/chiba">Chiba</a>, using low-cost and reusable <a href="/gallery/pallet_racks">building components</a>. We'll setup an electrical grid from <a href="/gallery/solar">solar power</a>, connect to our high-speed internet network in town, and begin a rotation for managing food, water, waste, and composting/gardening. <a href="/work">More info about the work that goes into Mars College</a>.
     </p>
     <p>
@@ -188,29 +243,17 @@ It would be great if we could pull together a vision doc which describes how we 
     <p>
         Before the 2022 quarter begins, we will have an informal warm-up period from Nov-Dec 2021, during which we are looking for a small number of people to come early and help us prepare for the 2022 quarter. During this time, we are smaller, more informal, and mostly focused on infrastructure projects and preparing the build on Mars.
     </p> -->
-    
-    <h2>
-        <span id="apply">
-            <a name="join"></a>Join us!
-        </span>
-    </h2>
-    <div id="form">
-        <p>
-            The application for Mars College 2023 is below, or <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGwGCCvEFTOb4yauRoDrtShIVjVyNCZG7CtRjMzhqo8ghdRQ/viewform?usp=sf_link">at this link</a>. We are reviewing applications on a rolling basis, and will respond to you to arrange a call and talk more details.
-        </p>
-        <p>
-            If you're interested in or have questions about any of this, or just feel like saying hi, we encourage you to reach out to us <a href="mailto:info@mars.college">by e-mail</a>, <a href="https://www.twitter.com/mars_college/">twitter</a>, or <a href="https://www.instagram.com/mars.college/">instagram</a>. You can subscribe for announcements on <a href="https://marscollege.substack.com/embed">our newsletter</a>.
-        </p>
-        <!--
-        <p>
-            If you are interested in joining us at Mars College, start by reaching out to us through the application form below or at <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJ2I5g9zqgCS_p4LSNP0GOusYfxX7myrfMduK3ltj9MI4g_g/viewform?usp=sf_link">this link</a>. We are reviewing applications on a rolling basis, and will respond to you to arrange a video call to meet you and talk more details. <br/> 
-            <iframe id="gform" src="https://docs.google.com/forms/d/e/1FAIpQLSeJ2I5g9zqgCS_p4LSNP0GOusYfxX7myrfMduK3ltj9MI4g_g/viewform?embedded=true" width="640" height="3333" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </p>
-        -->
-        <p>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdGwGCCvEFTOb4yauRoDrtShIVjVyNCZG7CtRjMzhqo8ghdRQ/viewform?embedded=true" width="800" height="3030" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-    </div>    
 </div>
+
+<div id="volleyball_demo">
+    <div id="p5_container"></div>
+</div>
+<div id="hardmaru">
+    <a href="http://otoro.net/ml/slimevolley/index.html">Volleyball demo</a> lightly adapted from <a href="https://twitter.com/hardmaru">@hardmaru</a>. 
+</div>
+
+<script language="javascript" type="text/javascript" src="/js/p5.js"></script>
+<script language="javascript" type="text/javascript" src="/js/convnet.js"></script>
+<script language="javascript" type="text/javascript" src="/js/ga.js"></script>
+<script language="javascript" type="text/javascript" src="/js/useful.js"></script>
+<script language="javascript" type="text/javascript" src="/js/slimevolley_pro.js"></script>

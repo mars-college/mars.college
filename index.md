@@ -26,35 +26,41 @@ title: Mars College
         <img src="/images/mars_logo-125x125.png">
     </div>
     <div id="description_inner"> -->
-        Mars College is an educational program, R&D lab, and off-grid residential community dedicated to cultivating a low-cost, high-tech lifestyle.
     <!-- </div> -->
+    <p>
+        Mars College is a three-month educational program, R&D lab, and off-grid residential community dedicated to cultivating a low-cost, high-tech lifestyle.
+    </p>
+
 </div>  
 
 
 <!-- ============ SPLASH ============ -->
 <div id="splash">
     <div class="splash_section">
-        <img class="splash_image right" src="/images/geodesic.jpg" alt="geodesic"> 
+        <!-- <img class="splash_image right" src="/images/geodesic.jpg" alt="geodesic">  -->
         <div class="splash_title">
             🏜️ Live in nature
         </div>
         <div class="splash_description">
-            Secure your livelihood from an idyllic location and escape the hamster wheel of urban professional life. 
-        </div>   
+            <!-- Secure your livelihood from an idyllic location and escape the hamster wheel of urban professional life.  -->
+            Located in the scenic California desert with gorgeous sunsets and frequent high winds, life at Mars College is inspiring and challenging.
+        </div>
         <div class="splash_title">
             🛠️ Develop self reliance
         </div>
         <div class="splash_description">
-            Learn to satisfy your own needs and thrive in the face of meager circumstances, personal adversity, and global instability.
+            <!-- Learn to satisfy your own needs and thrive in the face of meager circumstances, personal adversity, and global instability. -->
+            We <a href="/gallery/pallet_racks">build</a> our <a href="/gallery/chiba">campus</a> from the ground up each year, setting up the shelter, solar, internet, and water systems we need to thrive. 
         </div>     
-    </div>
-    <div class="splash_section">
-        <img class="splash_image left" src="/images/workshop.jpg" alt="workshop"> 
+    <!-- </div>
+    <div class="splash_section"> -->
+        <!-- <img class="splash_image left" src="/images/workshop.jpg" alt="workshop">  -->
         <div class="splash_title">
             💻 Harness technology
         </div>
         <div class="splash_description">
-            Leverage emerging technologies under your own terms. Take online classes, work remote, or develop an internet business.
+            <!-- Leverage emerging technologies under your own terms. Take online classes, work remote, or develop an internet business. -->
+            Martians explore emerging technologies and develop projects to present at a midterm and final showcase.
         </div>      
         <div class="splash_title">
             😎 Find your joy</div>
@@ -64,6 +70,56 @@ title: Mars College
     </div>
 </div>
 
+<!-- ============ CTA ============ -->
+<div id="apply_mars">        
+    <div id="generic_title">        
+        Apply to Mars College
+    </div>
+    <div id="generic_description">
+        The next Mars College is scheduled for Jan-Mar 2024.
+    </div>
+    <div id="generic_description2">
+        <a href="/join2">Learn more and apply here</a>.    
+    </div>
+</div>
+
+<!-- ============ CTA ============ -->
+<div id="follow_mars">        
+    <div id="generic_title">
+        Follow Mars College
+    </div>
+    <div id="generic_description">
+        To get updates, <a href="https://marscollege.substack.com">subscribe to our mailing list</a>, and follow us on <a href="https://www.instagram.com/mars.college/">Instagram</a> and <a href="https://www.twitter.com/mars_college">Twitter</a>.
+    </div>
+    <div id="generic_description" style="width: 100%; max-width: 640px;">  
+        <iframe src="https://marscollege.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>        
+    </div>
+</div>
+
+<!-- ============ SUBSTACK ============ -->
+<div id="blog">
+    <style>
+    #substack-feed-embed {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    </style>
+    <div id="substack-feed-embed"></div>
+    <script>
+    window.SubstackFeedWidget = {
+        substackUrl: "marscollege.substack.com",
+        posts: 6,
+        width: "50%",
+        colors: {
+        primary: "#F78B04",
+        secondary: "#000000",
+        background: "#FFFFFF",
+        }
+    };
+    </script>
+    <script src="https://substackapi.com/embeds/feed.js" async></script>
+</div>
 
 <!-- ============ FOOTER ============ -->
 <div id="join">
@@ -78,24 +134,7 @@ title: Mars College
         <img class="desert_creature" id="euc7" src="/images/unicyclists/7.png" />
         <img class="desert_creature" id="euc8" src="/images/unicyclists/2.png" />    
         <img class="desert_creature" id="euc9" src="/images/unicyclists/roadrunner.gif" />    
-    </div>    
-    <div id="future_description">        
-        <div id="future_description2">        
-            <div id="future_teaser">
-                Interested in Mars College?
-            </div>
-            <div id="future_info">
-                <!-- <div id="future_info1">
-                    Today, Mars is empty. Soon we will build it up once more...
-                </div> -->
-                <div id="future_info2">
-                    <p>If you're interested in joining us for the 2023 edition of Mars College, <a href="/join">please learn more and get in touch with us here</a>.</p>
-                    <p>To get updates, <a href="https://marscollege.substack.com/embed">sign up for our mailing list</a>, and follow us on <a href="https://www.instagram.com/mars.college/">Instagram</a> or <a href="https://www.twitter.com/mars_college">Twitter</a>.</p>
-                    <iframe src="https://marscollege.substack.com/embed" width="340" height="75" style="clip:rect(70px,190px,340px,75px);" frameborder="0" scrolling="no"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>  
     <div class="path">
         <span id="elem" class="shape trail">
             <img class="abelogo" onclick="window.location.href='https://abraham.ai'" src="/images/abraham_small.png">

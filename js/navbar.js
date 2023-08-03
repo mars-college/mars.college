@@ -69,7 +69,7 @@ let setupNavbar = function() {
 	// Set hamburger click
 	document.getElementsByClassName('hamburger')[0].addEventListener("click", function(e) {
 		slideToggle(document.getElementsByClassName("main_nav")[0], 500);
-		document.getElementsByClassName('main_nav')[0].classList.toggle('active');
+		// document.getElementsByClassName('main_nav')[0].classList.toggle('active');
 		e.preventDefault();
 	});
 	// Add active class to nav
@@ -80,9 +80,9 @@ let setupNavbar = function() {
 	for (var i=0; i<menu.length; i++) {
 		var navPathArray = menu[i].href.split('/');
 		var navPathLocation = navPathArray[3];
-		if (pathLocation === navPathLocation){
-			menu[i].classList.toggle('active');
-		}
+		// if (pathLocation === navPathLocation){
+		// 	menu[i].classList.toggle('active');
+		// }
 	}
 }
 
