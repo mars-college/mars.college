@@ -28,7 +28,7 @@ Mars College is a 3-month program, during which we build <a href="https://mars.c
 <p>
     <ul>
         <li><b>Applications open</b>:  21 Sept 2023</li>
-        <li><b>Applications close</b>:  21 Dec 2023</li>
+        <li><b>Applications close</b>:  12 Nov 2023</li>
         <li><b>Build Month</b>: Nov 2023</li>
         <li><b>Boot Camp</b>: Dec 2023</li>
         <li><b>Main Program</b>: 1 Jan 2024 -> 31 Mar 2024</li>
@@ -86,13 +86,7 @@ The first week of Mars College is an orientation period where people settle into
 After the lightning talks we open up the calendar for people to add activities and workshops they would like to offer.
 </p>
 <p>
-Pre-announced courses begin week 3. Typically courses have weekly meetings until the midterm in mid-February. During this time, students are encouraged to explore new ideas and technologies with the aim of choosing a thesis project concept which they present at the midterm.
-</p>
-<p>
-During the second half of the semester, participants develop their thesis projects to present as part of the at the final showcase. The showcase is accompanied by a largescale collaborative interactive art installation that is built into the communal structure.
-</p>
-<p>
-Over the next 5 weeks, leading up to the midterm in March, courses are structured with a syllabus, while students are encouraged to explore new ideas and technologies with the aim of choosing a thesis project. The midterm itself is an opportunity to present findings, ideas, and project proposals for the second half.
+Courses begin week 3. Typically courses have weekly meetings until the midterm in mid-February. During this time, students are encouraged to explore new ideas and technologies with the aim of choosing a thesis project concept which they present at the midterm.
 </p>
 <p>
 During the second half of the semester, participants develop their thesis projects to present at the final showcase. The showcase is accompanied by a largescale collaborative interactive art installation that is built into the communal structure.
@@ -101,10 +95,82 @@ During the second half of the semester, participants develop their thesis projec
 People document their work and help breakdown camp during the final week.
 </p>
 
-<h1>Courses</h1>
+<h1>Courses and Majors</h1>
 
 <p>
-TBA. Courses will be announced before the application period begins in September.
+The following courses are available for the 2024 semester. More courses may be added later. Some of the courses have additional applications. Please fill those out in addition to the <a href="https://forms.gle/e9yysZdiUHtvht8t8">main application</a>.
+
+<style>
+    .coursedescription {
+        font-size: 150%; 
+        border: 1px solid gray; 
+        padding: 5px;
+        margin: 5px;
+    }
+</style>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Creative AI with Eden</b>
+<br/>
+Harness the power of AI to create art and creative applications. Led by the <a href="https://eden.art">Eden team</a>.
+<br/>
+<a href="https://marscollege.substack.com/p/creative-ai-major-at-mars-college">Read more</a> | <a href="https://forms.gle/W2hLRMNxvscDRC6k7">Apply here</a>
+</div>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Department of Future Music</b>
+<br/>
+Push the envelope of what's possible in terms of musical creation and experience. Led by Atin.
+<br/>
+<a href="https://marscollege.substack.com/p/announcing-the-mars-college-department">Read more</a> | <a href="https://forms.gle/3nHEcfv2MDyy6qjPA">Apply here</a>
+</div>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Department of Physical Art</b>
+<br/>
+Painting, sculpture, installation, traditional craft, and how they interact with the outdoors and digital realm, led by Vanessa and Seamus.
+<br/>
+<a href="https://marscollege.substack.com/p/department-of-physical-art?r=1xb2x&utm_campaign=post&utm_medium=web">Read more</a> | <a href="https://forms.gle/3nHEcfv2MDyy6qjPA">Apply here</a>
+</div>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Culinary institute</b>
+<br/>
+The art of cooking for large groups of Martians in a communal setting. Led by Catherine.
+<br/>
+<a href="https://marscollege.substack.com/p/apply-to-the-culinary-institute-of">Read more</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_NiYA1Wwe-X3gvvkC6BauXk7BK29Cih6S0QUIjur0DjWPGw/viewform">Apply here</a>
+</div>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Yoga</b>
+<br/>
+Yoga and meditation with Chatsubo.
+<br/>
+<a href="https://marscollege.substack.com/p/65f44f54-fa7c-4643-a6b4-505315b0a041">Read more</a>
+</div>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Lifestyle Engineering</b>
+<br/>
+How to live a lifestyle on your own terms, with Josh.
+<br/>
+<a href="https://marscollege.substack.com/p/lifestyle-engineering">Read more</a> 
+</div>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Utopias in the Metaverse</b>
+<br/>
+Virtual spaces, metaverses, video game design, and 3D worlds. Led by Nico.
+<br/>
+<a href="https://agartha1.substack.com/p/bc82f35a-d418-42eb-84a6-28170bcf7a17">Read more</a> 
+</div>
+
+<div class="coursedescription">
+<b style="font-size: 110%">Independent study</b>
+<br/>
+For Martians who wish to propose an independent learning plan for the semester.
+</div>
+
 </p>
 
 <!-- <p>
@@ -120,19 +186,26 @@ The following courses are available
 </ul>
 </p> -->
 
-<h2>Boot camp</h2>
+<!-- <h2>Boot camp</h2>
 
 <p>
 TBD
-</p>
+</p> -->
 
 <h2>Apply</h2>
 
 <p>
-Applications for Mars College open up on September 21.
+Applications for Mars College are now open! <b>Deadline to apply is November 12, 2023.</b>
 </p>
 <p>
 Applicants who come for the full semester are preferred. People with exceptional skills to share who can not stay the full-time may offer a short-term seminar or workshop.
+</p>
+<p>
+
+<div style="text-align: center;">
+    <a href="https://forms.gle/e9yysZdiUHtvht8t8"><span style="color: green; font-size: 300%; font-weight: bold;">Apply here!</span></a>
+</div>
+
 </p>
 
 <h2>FAQ</h2>
@@ -157,6 +230,14 @@ Every Jan-March since 2020, growing out of a precursor in 2020 called <a href="
 <p>
 We seek participants who can stay for most of the duration of the program, commit to a field of study, and help us run camp.
 </p>
+
+<!-- <p>
+<b>How can I get in touch with you now?</b>
+</p>
+<p>
+Applications open on September 21, but if you'd like to chat before then, <a href="https://docs.google.com/forms/d/e/1FAIpQLSd808SywRTXp4p8_QrAFc08l95aR0djj8ftsl3R8RhAxM0YBQ/viewform?usp=sf_link
+">contact us here</a>.
+</p> -->
 
 
 <!-- 

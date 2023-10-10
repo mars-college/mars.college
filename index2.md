@@ -76,10 +76,10 @@ title: Mars College
         Apply to Mars College
     </div>
     <div id="generic_description">
-        The next Mars College is scheduled for Jan-Mar 2024. Applications are now open.
+        The next Mars College is scheduled for Jan-Mar 2024.
     </div>
     <div id="generic_description2">
-        <a href="/join">Learn more and apply here</a>.    
+        <a href="/join2">Learn more and apply here</a>.    
     </div>
 </div>
 

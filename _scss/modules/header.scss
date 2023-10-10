@@ -138,14 +138,14 @@
             background-color:$black;
             padding-bottom:60px;
             vertical-align: middle;
-            opacity:0;
+            // opacity:0;
             transition:all 0.5s ease;
             overflow-y:scroll;
             -webkit-overflow-scrolling:touch;
             border-top:1px solid $white;
-            &.active{
-                opacity:1;
-            }
+            // &.active{
+            //     opacity:1;
+            // }
             ul{
                 @include flexbox();
                 @include flex-direction(column);
