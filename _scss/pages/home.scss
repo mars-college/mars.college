@@ -3,10 +3,7 @@
     width: 90%;
     min-width: 200px;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 4%;
-    margin-bottom: 4%;
+    margin: 8% auto;
     text-align: left;
     font-size: calc(16px + 1.35vw);
 }
@@ -32,13 +29,11 @@
 /* -- SPLASH -- */
 #splash {
     background-color:#ddd;
-    padding: 2%;
+    padding: 40px 20px 20px;
 }
 
 .splash_section {
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 25px;
+    margin: 0 auto;
     width: 98%;
     max-width: 1000px;
     overflow: hidden;
@@ -50,14 +45,12 @@
     color: #111;
     margin-top: 2%;
     margin-bottom: 2%;
-    min-width: 300px;
 }
 
 .splash_description {
     font-size: calc(16px + 0.6vw);
-    color: #222;
-    margin-bottom: 5%;
-    min-width: 300px;
+    color: #444;
+    margin-bottom: 40px;
 }
 
 .splash_image {
@@ -112,12 +105,6 @@
 
 .course_icon img, .course_icon video {
     width: 100%;
-}
-
-.course_description {
-    // background-color: #0f0;
-    text-align: center;
-    font-size:1.25em;
 }
     
 
@@ -220,9 +207,6 @@
     padding: 2%;
 }
 
-#future_info {
-    // line-height: 20%;
-}
 #future_info1 {
     // font-size: 1.3em;
     font-size: calc(11px + 1.1vw);
@@ -236,46 +220,42 @@
 
 #apply_mars {
     padding: 2%;
-    background-color: rgb(255, 210, 132);
-    margin-left: auto;
-    margin-right: auto;
+    // background-color: rgb(255, 210, 132);
+    background-color: #FFDC94;
 }
 #follow_mars {
     padding: 2%;
     margin-left: auto;
     margin-right: auto;
 }
-#generic_title {
+.generic_title {
     font-size: calc(14px + 1.25vw);
     font-weight: bold;
-    margin: 3%;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
     text-align: center;
 }
-#generic_description {
+.generic_description {
     font-size: calc(10px + 1.15vw);
-    margin: 3%;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 3% auto;
     text-align: center;
 }
-#generic_description2 {
+.apply-button {
+    display: block;
     font-size: calc(12px + 1.2vw);
-    background-color: #f602f2b3;
+    // background-color: #f602f2b3;
+    background-color: #ED4C41;
     color: #fff;
-    margin: 3%;
     padding: 3%;
     width: "80%";
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 3% auto;
     text-align: center;
-}
-#generic_description2 a, #generic_description2 a:hover {
     color: #fff;
+    text-decoration: none;
+}
+.apply-button:hover {
+    background-color:#D74B3F;
+    color: #fff;
+    text-decoration: none;
 }
 
 

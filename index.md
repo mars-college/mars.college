@@ -3,7 +3,6 @@ layout: default
 title: Mars College
 ---
 
-
 <!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
@@ -19,7 +18,6 @@ title: Mars College
     -->
 </div>
 
-
 <!-- ============ DESCRIPTION ============ -->
 <div id="description">
     <!-- <div id="logo">
@@ -31,8 +29,7 @@ title: Mars College
         Mars College is a three-month educational program, R&D lab, and off-grid residential community dedicated to cultivating a low-cost, high-tech lifestyle.
     </p>
 
-</div>  
-
+</div>
 
 <!-- ============ SPLASH ============ -->
 <div id="splash">
@@ -72,26 +69,24 @@ title: Mars College
 
 <!-- ============ CTA ============ -->
 <div id="apply_mars">        
-    <div id="generic_title">        
+    <div class="generic_title">        
         Apply to Mars College
     </div>
-    <div id="generic_description">
+    <div class="generic_description">
         The next Mars College is scheduled for Jan-Mar 2024. Applications are now open.
     </div>
-    <div id="generic_description2">
-        <a href="/join">Learn more and apply here</a>.    
-    </div>
+    <a class="apply-button" href="/join">Learn more and apply here</a>
 </div>
 
 <!-- ============ CTA ============ -->
 <div id="follow_mars">        
-    <div id="generic_title">
+    <div class="generic_title">
         Follow Mars College
     </div>
-    <div id="generic_description">
+    <div class="generic_description">
         To get updates, <a href="https://marscollege.substack.com">subscribe to our mailing list</a>, and follow us on <a href="https://www.instagram.com/mars.college/">Instagram</a> and <a href="https://www.twitter.com/mars_college">Twitter</a>.
     </div>
-    <div id="generic_description" style="width: 100%; max-width: 640px;">  
+    <div class="generic_description" style="width: 100%; max-width: 640px;">  
         <iframe src="https://marscollege.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>        
     </div>
 </div>
@@ -141,7 +136,6 @@ title: Mars College
         </span> 
     </div> 
 </div>
-
 
 <!-- ============ JAVASCRIPT ============ -->
 <script type="text/javascript" src="/js/setup.js"></script>

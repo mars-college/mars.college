@@ -117,6 +117,7 @@
             color:$white;
             z-index: 1000;
             transition: all 0.5s ease;
+            text-decoration: none;
             &:hover{
                 color:$highlight;
             }
@@ -147,12 +148,14 @@
             //     opacity:1;
             // }
             ul{
+                margin: 0;
+                padding: 0;
                 @include flexbox();
                 @include flex-direction(column);
                 li{
                     @include flexbox();
                     @include flex-direction(column);
-                    height:100px;
+                    height:75px;
                     @include align-items(center);
                     @include justify-content(center);
                     border-bottom:1px solid $white;
