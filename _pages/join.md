@@ -3,7 +3,6 @@ layout: default
 title: Join Mars College
 ---
 
-
 <!-- ============ HEADER ============ -->
 <div id="header">
     <div id="header_inner">
@@ -14,9 +13,8 @@ title: Join Mars College
     </div>
 </div>
 
-
 <!-- ============ CONTENT ============ -->
-<div id="container">
+<div id="container" class="join">
 
 <p>
 Mars College is a 3-month program, during which we build <a href="https://mars.college/gallery/chiba/">a temporary village</a> on a 20-acre stretch of open desert in Southern California called <a href="https://mars.college/gallery/desert/">Mars</a>. During this time, we study and incubate projects related to technology and sustainability, and gradually turn camp into a large art installation.
@@ -51,12 +49,12 @@ We construct a campus in the open desert with camping areas and academic buildin
 Mars is one mile from a small community with two bar/restaurants and a convenience store. Indio is the closest large town with big grocery stores and hospitals.
 </p>
 
-<h1>Shelter</h1>
+<h3>Shelter</h3>
 <p>
 Cars, Vans, RVs, Camper trailers and other spaceships make good domiciles on Mars. The more self-contained and self-reliant you are, the more control you have over your welfare and happiness. If you’ve been dreaming about vanlife, Mars College is a good chance to build out a van or cargo trailer into a spaceship of your own.
 </p>
 
-<h1>Transportation</h1>
+<h3>Transportation</h3>
 
 <p>
 There is no public transportation to and from Mars. Many participants come without cars and are generally able to carpool rides into town with other Martians when they need them, including on first arrival.
@@ -65,7 +63,7 @@ There is no public transportation to and from Mars. Many participants come witho
 Within Mars College and including town nearby, everything is walking distance. For medium and long distances, many of us have an intense love of electric unicycles. They transform your ability to inhabit an open rural space. We also have some old red beach cruiser bicycles that we can lend.
 </p>
 
-<h2>Academic program</h2>
+<h3>Academic program</h3>
 
 <p>
 Mars College has an open calendar where participants schedule classes, activities, and workshops they want to offer. 
@@ -77,7 +75,7 @@ Some returning alumni have prepared courses with weekly meetings exploring a fie
 New applicants may select one of those courses to major in or write a plan outlining their goals for an independent study.
 </p>
 
-<h1>Structure of the semester</h1>
+<h3>Structure of the semester</h3>
 
 <p>
 The first week of Mars College is an orientation period where people settle into the routine on Mars and help develop the space. During the second week, we have lightning talk sessions for everyone to introduce themselves, share exciting ideas, and propose extracurricular activities and projects.
@@ -95,86 +93,94 @@ During the second half of the semester, participants develop their thesis projec
 People document their work and help breakdown camp during the final week.
 </p>
 
-<h1>Courses and Majors</h1>
+<h3>Courses and Majors</h3>
 
 <p>
 The following courses are available for the 2024 semester. More courses may be added later. Some of the courses have additional applications. Please fill those out in addition to the <a href="https://forms.gle/e9yysZdiUHtvht8t8">main application</a>.
 
 <style>
-    .coursedescription {
-        font-size: 150%; 
-        border: 1px solid gray; 
-        padding: 5px;
-        margin: 5px;
+    .course-description {
+        font-size: 1em;
+        border: 1px dotted #ccc; 
+        padding: 10px;
+        margin: 0 0 20px 0;
+    }
+    .course-description .title {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    #container .course-description p {
+        font-size: 1em;
+        color: #555;
+        margin: .75em 0;
+        line-height: 1.1em;
+    }
+    #container.join h3 {
+        font-size: 1.7em;
+    }
+    #container.join h2 {
+        background-color: #FFDC94;
     }
 </style>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Creative AI with Eden</b>
-<br/>
-Harness the power of AI to create art and creative applications. Led by the <a href="https://eden.art">Eden team</a>.
-<br/>
-<a href="https://marscollege.substack.com/p/creative-ai-major-at-mars-college">Read more</a> | <a href="https://forms.gle/W2hLRMNxvscDRC6k7">Apply here</a>
+<div class="course-description">
+    <div class="title">Creative AI with Eden</div>
+    <p>
+    Harness the power of AI to create art and creative applications. Led by the <a href="https://eden.art">Eden team</a>.
+    </p>
+    <a href="https://marscollege.substack.com/p/creative-ai-major-at-mars-college">Read more</a> | <a href="https://forms.gle/W2hLRMNxvscDRC6k7">Apply here</a>
 </div>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Department of Future Music</b>
-<br/>
-Push the envelope of what's possible in terms of musical creation and experience. Led by Atin.
-<br/>
-<a href="https://marscollege.substack.com/p/announcing-the-mars-college-department">Read more</a> | <a href="https://forms.gle/3nHEcfv2MDyy6qjPA">Apply here</a>
+<div class="course-description">
+    <div class="title">Department of Future Music</div>
+    <p>
+    Push the envelope of what's possible in terms of musical creation and experience. Led by Atin.
+    </p>
+    <a href="https://marscollege.substack.com/p/announcing-the-mars-college-department">Read more</a> | <a href="https://forms.gle/3nHEcfv2MDyy6qjPA">Apply here</a>
 </div>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Department of Physical Art</b>
-<br/>
-Painting, sculpture, installation, traditional craft, and how they interact with the outdoors and digital realm, led by Vanessa and Seamus.
-<br/>
-<a href="https://marscollege.substack.com/p/department-of-physical-art?r=1xb2x&utm_campaign=post&utm_medium=web">Read more</a> | <a href="https://forms.gle/3nHEcfv2MDyy6qjPA">Apply here</a>
+<div class="course-description">
+    <div class="title">Department of Physical Art</div>
+    <p>
+    Painting, sculpture, installation, traditional craft, and how they interact with the outdoors and digital realm, led by Vanessa and Seamus.
+    </p>
+    <a href="https://marscollege.substack.com/p/department-of-physical-art?r=1xb2x&utm_campaign=post&utm_medium=web">Read more</a> | <a href="https://forms.gle/3nHEcfv2MDyy6qjPA">Apply here</a>
 </div>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Culinary institute</b>
-<br/>
-The art of cooking for large groups of Martians in a communal setting. Led by Catherine.
-<br/>
-<a href="https://marscollege.substack.com/p/apply-to-the-culinary-institute-of">Read more</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_NiYA1Wwe-X3gvvkC6BauXk7BK29Cih6S0QUIjur0DjWPGw/viewform">Apply here</a>
+<div class="course-description">
+    <div class="title">Culinary institute</div>
+    <p>The art of cooking for large groups of Martians in a communal setting. Led by Catherine.</p>
+    <a href="https://marscollege.substack.com/p/apply-to-the-culinary-institute-of">Read more</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_NiYA1Wwe-X3gvvkC6BauXk7BK29Cih6S0QUIjur0DjWPGw/viewform">Apply here</a>
 </div>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Yoga</b>
-<br/>
-Yoga and meditation with Chatsubo.
-<br/>
-<a href="https://marscollege.substack.com/p/65f44f54-fa7c-4643-a6b4-505315b0a041">Read more</a>
+<div class="course-description">
+    <div class="title">Yoga</div>
+    <p>Yoga and meditation with Chatsubo.</p>
+    <a href="https://marscollege.substack.com/p/65f44f54-fa7c-4643-a6b4-505315b0a041">Read more</a>
 </div>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Lifestyle Engineering</b>
-<br/>
-How to live a lifestyle on your own terms, with Josh.
-<br/>
-<a href="https://marscollege.substack.com/p/lifestyle-engineering">Read more</a> 
+<div class="course-description">
+    <div class="title">Lifestyle Engineering</div>
+    <p>How to live a lifestyle on your own terms, with Josh.</p>
+    <a href="https://marscollege.substack.com/p/lifestyle-engineering">Read more</a>
+
 </div>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Utopias in the Metaverse</b>
-<br/>
-Virtual spaces, metaverses, video game design, and 3D worlds. Led by Nico.
-<br/>
-<a href="https://agartha1.substack.com/p/bc82f35a-d418-42eb-84a6-28170bcf7a17">Read more</a> 
+<div class="course-description">
+    <div class="title">Utopias in the Metaverse</div>
+    <p>Virtual spaces, metaverses, video game design, and 3D worlds. Led by Nico.</p>
+    <a href="https://agartha1.substack.com/p/bc82f35a-d418-42eb-84a6-28170bcf7a17">Read more</a>
 </div>
 
-<div class="coursedescription">
-<b style="font-size: 110%">Independent study</b>
-<br/>
-For Martians who wish to propose an independent learning plan for the semester.
+<div class="course-description">
+    <div class="title">Independent study</div>
+    <p>For Martians who wish to propose an independent learning plan for the semester.</p>
 </div>
 
 </p>
 
 <!-- <p>
-The following courses are available 
+The following courses are available
 </p>
 <p>
 <ul>
@@ -202,32 +208,24 @@ Applicants who come for the full semester are preferred. People with exceptional
 </p>
 <p>
 
-<div style="text-align: center;">
-    <a href="https://forms.gle/e9yysZdiUHtvht8t8"><span style="color: green; font-size: 300%; font-weight: bold;">Apply here!</span></a>
-</div>
+<a class="apply-button" href="https://forms.gle/e9yysZdiUHtvht8t8">Apply here!</a>
 
 </p>
 
 <h2>FAQ</h2>
 
-<p>
-<b>How much does it cost?</b>
-</p>
-<p>
+<p><b>How much does it cost?</b></p>
+<p style="color: #555;">
 There is no fee to attend Mars College, but participants need to cover their own expenses like food and travel and contribute to group expenses like internet, propane, water delivery, and toilet service.
 </p>
 
-<p>
-<b>When did Mars College start?</b>
-</p>
-<p>
+<p><b>When did Mars College start?</b></p>
+<p style="color: #555;">
 Every Jan-March since 2020, growing out of a precursor in 2020 called <a href="https://brahman.ai/">BRAHMAN</a>. 2024 will be our fifth consecutive year.
 </p>
 
-<p>
-<b>What are you looking for in applicants?</b>
-</p>
-<p>
+<p><b>What are you looking for in applicants?</b></p>
+<p style="color: #555;">
 We seek participants who can stay for most of the duration of the program, commit to a field of study, and help us run camp.
 </p>
 
@@ -239,18 +237,16 @@ Applications open on September 21, but if you'd like to chat before then, <a hre
 ">contact us here</a>.
 </p> -->
 
-
-<!-- 
+<!--
 
 
 
 Build Week + lightning talks in the evenings
 ideas week
 Survey - one month of regular meetings to explore the state of the art in a particular area, make simple demos, and formulate a final project idea.
-Mid Term - People discuss a bit what they've learned and present their idea for their final project   
+Mid Term - People discuss a bit what they've learned and present their idea for their final project
 Project - month where people put together their final project.
 Final Show  -->
-
 
 <!-- Advisors Duties:
 Describe Their field of interest, what they will explore during the survey, the types of projects they'd like to see for the final.
@@ -267,13 +263,13 @@ Vanessa
 Anderson
 ?
 Raph  - maybe he'd be into advising a crypto group
-Nico 
+Nico
 Jmill
 
-Pseudo 
-Marzipan 
+Pseudo
+Marzipan
 
-I'm open to Street Art / Ceramics / Bio / Math / Yoga  if the advisors want to specifically invite people for these topics and follow this structure.  
+I'm open to Street Art / Ceramics / Bio / Math / Yoga  if the advisors want to specifically invite people for these topics and follow this structure.
 
 
 Work Study
@@ -281,12 +277,12 @@ I'm not sure if people coming specifically to work with you on Eden exactly fits
 
 
 Vision Doc
-It would be great if we could pull together a vision doc which describes how we see the metaverse, ai, and crypto tying together in the simulation. Maybe this gows to include the Niland prosperity sphere / Neocity. This feels like something maybe we could pick away at in the blog. Describing bits of it as we have time and clarity that eventually coalesces into a big unified thing. 
+It would be great if we could pull together a vision doc which describes how we see the metaverse, ai, and crypto tying together in the simulation. Maybe this gows to include the Niland prosperity sphere / Neocity. This feels like something maybe we could pick away at in the blog. Describing bits of it as we have time and clarity that eventually coalesces into a big unified thing.
 
 
 -->
 
-<!-- 
+<!--
 
     <h2>
         <span id="calendar">
