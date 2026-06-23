@@ -26,8 +26,8 @@ import aiHist2021 from "../assets/photos/learn/ai-history/2021-abraham.png";
 import aiHist2022 from "../assets/photos/learn/ai-history/2022-mars-bots.jpg";
 import aiHist2023 from "../assets/photos/learn/ai-history/2023-performance.jpg";
 import aiHist2024 from "../assets/photos/learn/ai-history/2024-film-festival.jpg";
-import aiHist2025 from "../assets/photos/learn/ai-history/2025-nomad-android.png";
-import aiHist2026 from "../assets/photos/learn/ai-history/2026-marzipan-muppet.jpg";
+import aiHist2025 from "../assets/photos/learn/supp_marscollege_research-and-learn.jpg";
+import aiHist2026 from "../assets/photos/learn/ai-history/2026-finals-presentation.jpg";
 // Featured video for the §04 Off-Grid AI close (lives in /public).
 const AI_VIDEO_SRC = "/learn-video/2025-mars-research.mp4";
 const AI_VIDEO_POSTER = "/learn-video/2025-mars-research-poster.jpg";
@@ -131,8 +131,8 @@ const AI_HISTORY = [
   {
     year: "2023",
     img: aiHist2023,
-    alt: "Generative projection performance at Mars 2023",
-    captionHtml: `Generative projection performance. AI on stage as instrument.`,
+    alt: "Creative AI major launched at Mars College 2023",
+    captionHtml: `<a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">Creative AI major</a> launched.`,
   },
   {
     year: "2024",
@@ -143,14 +143,14 @@ const AI_HISTORY = [
   {
     year: "2025",
     img: aiHist2025,
-    alt: "Mars Research — cohort agents, films, and Eden video",
-    captionHtml: `<a href="https://marscollege.substack.com/p/mars-research" target="_blank" rel="noopener">Mars Research</a>. Cohort agents, AI films, <a href="https://eden.art" target="_blank" rel="noopener">Eden</a> video — on Mars hardware.`,
+    alt: "Mars Research cohort in the tiered Chiba seating, 2025",
+    captionHtml: `<a href="https://marscollege.substack.com/p/ai-agents-class" target="_blank" rel="noopener">Personal agents</a> for every Martian. <a href="https://eden.art" target="_blank" rel="noopener">Eden</a> on Mars hardware.`,
   },
   {
     year: "2026",
     img: aiHist2026,
-    alt: "Marzipan martians AI muppet portrait",
-    captionHtml: `Marzipan martians, Chiba agents, KDEZ generative radio — AI as connective tissue.`,
+    alt: "Mars 2026 finals presentation — projected geometric diagrams between pallet-rack columns",
+    captionHtml: `<a href="https://marscollege.substack.com/p/creative-ai-at-mars-college-2026" target="_blank" rel="noopener">Creative AI major</a>. Agents, films, generative radio — AI as connective tissue.`,
   },
 ];
 
@@ -318,13 +318,14 @@ const GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
     <div class="u-shell">
       <Eyebrow index="03" label="The Mars AI program — at Mars since the beginning" />
       <h2 class="aihist__lead u-display">Seven years of building AI at Mars.</h2>
-      <p class="aihist__intro u-measure">
-        The AI program goes back to before Mars College had a name. A GAN
-        trained on Bombay Beach in 2019. Eden models trained on the cohort by
-        2021. House bots and a hand-bound zine by 2022. The first AI Film
-        Festival by 2024. Local-model agents on Mars hardware by 2025. The
-        cohort has shipped new work every year since.
-      </p>
+      <p class="aihist__intro u-measure" set:html={`
+        The AI program dates back to before Mars College had a name. A GAN
+        trained on Bombay Beach in 2019. GPT-3 bots and deepfake models
+        trained on Martians by 2021. House bots and a hand-bound zine by 2022.
+        The <a href="https://www.youtube.com/watch?v=ih7okZcBhEA" target="_blank" rel="noopener">first AI Film Festival</a> by 2024.
+        <a href="https://marscollege.substack.com/p/ai-agents-class" target="_blank" rel="noopener">Personal agents for every Martian</a> by 2025.
+        <a href="https://marscollege.substack.com/p/creative-ai-at-mars-college-2026" target="_blank" rel="noopener">Creative AI major</a> in 2026.
+      `}></p>
 
       <ol class="aihist__strip">
         {AI_HISTORY.map((h) => (
@@ -641,8 +642,28 @@ const GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
     .ai__topic { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: var(--rule); align-items: baseline; }
     .ai__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
     .ai__body { margin-top: 0.3rem; color: var(--color-ink-2); max-width: 52ch; }
-    .ai__intro a { color: var(--color-clay-deep); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 50%, transparent); padding-bottom: 1px; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
-    .ai__intro a:hover { color: var(--color-clay); border-color: var(--color-clay); }
+    .ai__intro :global(a) {
+      color: var(--color-clay-deep) !important;
+      font-weight: 600;
+      text-decoration-line: underline;
+      text-decoration-style: dashed;
+      text-decoration-color: var(--color-clay);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+      transition: color var(--dur-fast) var(--ease-out), text-decoration-style var(--dur-fast) var(--ease-out);
+    }
+    .ai__intro :global(a:hover) { color: var(--color-clay) !important; text-decoration-style: solid; }
+    .aihist__intro :global(a) {
+      color: var(--color-bone-on-night) !important;
+      font-weight: 600;
+      text-decoration-line: underline;
+      text-decoration-style: dashed;
+      text-decoration-color: var(--color-clay);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+      transition: color var(--dur-fast) var(--ease-out), text-decoration-style var(--dur-fast) var(--ease-out);
+    }
+    .aihist__intro :global(a:hover) { color: var(--color-clay) !important; text-decoration-style: solid; }
     .ai__quotes { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
     .ai__quote { margin: 0; padding: 0.25rem 0 0.25rem 1.25rem; border-left: 2px solid var(--color-clay); max-width: 48ch; }
     .ai__quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.35; color: var(--color-ink); letter-spacing: -0.01em; }
