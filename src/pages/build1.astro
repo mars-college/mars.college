@@ -1,0 +1,730 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import {
+  BUILD_SCHEDULE,
+  BUILD_PHASES,
+  DPW_CREW_PERKS,
+  BUILD_FAQ,
+  TALLY_BUILD_FORM_ID,
+  BUILD_SUBSTACK_URL,
+  APPLY_URL,
+} from "../data/site";
+
+// Hero & section heroes (atmospheric, story-arc emphasis)
+import heroLong from "../assets/photos/build-curated/047_2025_img_8497_70ffe.jpg";
+import phaseBare from "../assets/photos/build-curated/009_2026_img_3344_fdd4a.jpg";
+import phaseSkeleton from "../assets/photos/build-curated/005_2025_2026_pxl_20251112_235328377_bb796.jpg";
+import phaseFinished from "../assets/photos/aerial-3.jpg";
+import phaseRest from "../assets/photos/build-curated/041_2026_20260130_170446_06ab8.jpg";
+
+// Crew hero (the money shot)
+import crewHero from "../assets/photos/build-curated/047_2026_img_1144_2f1d9.jpg";
+
+// Closer
+import closer from "../assets/photos/build-curated/021_2025_2026_img_20251116_161732_63192.jpg";
+
+const phaseImg = [phaseBare, phaseSkeleton, phaseFinished, phaseRest];
+const phaseCaption = [
+  "Bare playa. October.",
+  "Skeleton up. November.",
+  "The village. January.",
+  "Returned to desert. May.",
+];
+---
+
+<BaseLayout
+  title="Build — Mars College 2027"
+  description="Mars College is built from the ground up every winter in the California desert. Eight months from bare playa to finished off-grid village. Come help."
+>
+  <!-- ============= HERO ============= -->
+  <section class="hero1">
+    <div class="hero1__bg" aria-hidden="true">
+      <Image
+        src={heroLong}
+        alt="A long pallet-rack structure rising from the salt flats at sunset, dramatic shadows extending across the desert"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        format="webp"
+        quality={72}
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero1__scrim"></div>
+    </div>
+    <div class="u-shell hero1__content">
+      <p class="u-eyebrow hero1__eyebrow">
+        <span class="u-index">01</span>
+        <span class="u-label">Build · Season 8</span>
+      </p>
+      <h1 class="hero1__title u-display u-rise">
+        Built from scratch.<br />
+        <span class="hero1__title-em">Every winter.</span>
+      </h1>
+      <p class="hero1__lede u-rise" style="animation-delay:120ms">
+        Mars College is a real off-grid pop-up college. Eight months from bare
+        playa to a finished village of a hundred-plus people, then back to bare
+        playa again. There is no permanent campus. We raise it every year.
+      </p>
+      <div class="hero1__actions u-rise" style="animation-delay:200ms">
+        <a href="#inquire" class="u-cta">Apply to build <span aria-hidden="true">→</span></a>
+        <a href="#arc" class="u-link hero1__what">See the arc <span class="u-arrow" aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= THE FACT ============= -->
+  <section class="u-section fact">
+    <div class="u-shell fact__shell">
+      <p class="fact__text u-display">
+        One mile east of Bombay Beach. Sixty feet below sea level. A leased
+        patch of dirt on the Salton Sea salt flats. By the first Monday of
+        January it has to be a town.
+      </p>
+      <p class="fact__sub">
+        Amphitheater. Pavilion. Gallery. Kitchens. Solar. Water. Internet. Roads,
+        signage, sanitation, the whole civic stack. Then in spring, we take it
+        all apart and leave the land as we found it. Mars is not pretending to
+        be off-grid. Mars <em>is</em> off-grid.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============= THE ARC ============= -->
+  <section id="arc" class="u-section is-night arc">
+    <div class="u-shell">
+      <Eyebrow index="02" label="The arc, in four photographs" />
+      <h2 class="arc__title u-display">From nothing to a town to nothing again.</h2>
+    </div>
+    <div class="u-shell arc__grid">
+      {
+        phaseImg.map((img, i) => (
+          <figure class="arc__cell">
+            <div class="u-plate arc__plate">
+              <Image
+                src={img}
+                alt={phaseCaption[i]}
+                widths={[600, 1000, 1400]}
+                sizes="(max-width: 900px) 100vw, 50vw"
+                format="webp"
+                quality={68}
+                loading="lazy"
+              />
+            </div>
+            <figcaption class="arc__cap">
+              <span class="u-index">{String(i + 1).padStart(2, "0")}</span>
+              <span class="arc__cap-text">{phaseCaption[i]}</span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+    <div class="u-shell arc__coda">
+      <p class="arc__coda-text">
+        Cycle repeats. Year eight in a row in 2027.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============= WHY COME BUILD ============= -->
+  <section class="u-section why">
+    <div class="u-shell why__grid">
+      <div class="why__text">
+        <Eyebrow index="03" label="Why come build" />
+        <h2 class="why__title u-display">
+          The desert doesn't negotiate.
+        </h2>
+        <p class="why__body">
+          The wind takes a tarp off in the night. The forklift battery dies an
+          hour before the truck shows up. Somebody's pump is wired backwards.
+          Somebody else is up on a beam at sunset because the floor of the
+          building you can sit on tomorrow morning was empty desert four hours
+          ago. The town gets built.
+        </p>
+        <p class="why__body">
+          You get to know people in shared physical effort before you know them
+          in conversation. That's the substrate every Mars season is built on.
+          It's the part we most want new people to feel for themselves.
+        </p>
+      </div>
+      <figure class="why__media u-plate">
+        <Image
+          src={crewHero}
+          alt="Six Mars College builders lifting a horizontal orange pallet-rack beam together at sunset"
+          widths={[600, 1000, 1400]}
+          sizes="(max-width: 900px) 100vw, 50vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+        />
+        <figcaption class="why__cap u-label">Build crew, Nov 2026</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============= WHAT YOU GET ============= -->
+  <section class="u-section is-night perks">
+    <div class="u-shell">
+      <Eyebrow index="04" label="What DPW crew gets" />
+      <ul class="perks__list">
+        {
+          DPW_CREW_PERKS.map((p, i) => (
+            <li class="perks__item">
+              <span class="u-index">{String(i + 1).padStart(2, "0")}</span>
+              <span class="perks__text">{p}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="perks__note">
+        DPW (Department of Public Works) runs build, season maintenance, and
+        strike. Applications close <strong>October 1, 2026</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============= TIMELINE STRIP ============= -->
+  <section class="u-section--tight timeline1">
+    <div class="u-shell">
+      <Eyebrow index="05" label="Season timeline" />
+      <ol class="timeline1__list">
+        {
+          BUILD_SCHEDULE.map((s) => (
+            <li class="timeline1__item">
+              <span class="timeline1__date">{s.date}</span>
+              <span class="timeline1__label">{s.label}</span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section class="u-section faq">
+    <div class="u-shell">
+      <Eyebrow index="06" label="Questions builders ask" />
+      <ul class="faq__list">
+        {
+          BUILD_FAQ.map((item, i) => (
+            <li class="faq__item">
+              <details>
+                <summary>
+                  <span class="u-index">{String(i + 1).padStart(2, "0")}</span>
+                  <span class="faq__q">{item.q}</span>
+                  <span class="faq__chevron" aria-hidden="true">+</span>
+                </summary>
+                <p class="faq__a">{item.a}</p>
+              </details>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============= INQUIRY ============= -->
+  <section id="inquire" class="u-section is-night inquire">
+    <div class="u-shell inquire__grid">
+      <div>
+        <Eyebrow index="07" label="Apply to build" />
+        <h2 class="inquire__title u-display">Tell us what you'll bring.</h2>
+        <p class="inquire__body">
+          A short form for anybody interested in build, strike, or running a
+          DPW concession. We'll follow up.
+        </p>
+        <p class="inquire__deep">
+          For the full operational picture — material catalog, deadlines,
+          architecture, economics — read the
+          <a href={BUILD_SUBSTACK_URL} class="u-link inquire__link">DPW deep dive
+            <span class="u-arrow" aria-hidden="true">→</span></a>
+        </p>
+      </div>
+      <div class="inquire__form">
+        {
+          TALLY_BUILD_FORM_ID ? (
+            <iframe
+              data-tally-src={`https://tally.so/embed/${TALLY_BUILD_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              loading="lazy"
+              width="100%"
+              height="600"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Mars DPW build inquiry"
+            />
+          ) : (
+            <div class="inquire__placeholder">
+              <p class="u-label u-label--clay">Form coming soon</p>
+              <p>
+                In the meantime, email <a href="mailto:info@mars.college" class="inquire__email">info@mars.college</a>
+                with subject "DPW 2027" and what phase(s) you'd join — Build (Nov–Dec),
+                Maintain (Jan–Mar), or Strike (Mar–Apr).
+              </p>
+              <a href={APPLY_URL} class="u-cta inquire__fallback">
+                Or apply to Mars College <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </section>
+
+  <!-- ============= CLOSER ============= -->
+  <section class="closer1">
+    <div class="closer1__bg">
+      <Image
+        src={closer}
+        alt="A pallet-rack structure backlit against the night, distant lights on the horizon"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        format="webp"
+        quality={68}
+        loading="lazy"
+      />
+      <div class="closer1__scrim"></div>
+    </div>
+    <div class="u-shell closer1__content">
+      <p class="closer1__text u-display">
+        The town gets built. Come build it.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    /* ---- hero ---- */
+    .hero1 {
+      position: relative;
+      background: var(--color-night);
+      color: var(--color-bone-on-night);
+      overflow: hidden;
+      isolation: isolate;
+      min-height: clamp(36rem, 86vh, 52rem);
+      display: flex;
+      flex-direction: column;
+    }
+    .hero1__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero1__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+    }
+    .hero1__scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(18, 15, 12, 0.95) 0%,
+          rgba(18, 15, 12, 0.6) 45%,
+          rgba(18, 15, 12, 0.18) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(18, 15, 12, 0.7) 0%,
+          rgba(18, 15, 12, 0.15) 60%,
+          rgba(18, 15, 12, 0) 100%
+        );
+    }
+    .hero1__content {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      padding-block: clamp(2rem, 5vh, 3rem);
+      max-width: 60rem;
+    }
+    .hero1__eyebrow {
+      color: var(--color-bone-on-night);
+    }
+    .hero1__eyebrow::after {
+      background: var(--color-rule-night);
+    }
+    .hero1__eyebrow .u-label {
+      color: #b7a98f;
+    }
+    .hero1__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3rem, 7.8vw, 6.5rem);
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+      text-shadow: 0 2px 28px rgba(18, 15, 12, 0.75);
+    }
+    .hero1__title-em {
+      color: var(--color-clay);
+    }
+    .hero1__lede {
+      margin-top: 1.5rem;
+      max-width: 48ch;
+      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+      line-height: 1.5;
+      color: #efe6d4;
+    }
+    .hero1__actions {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .hero1__what {
+      color: var(--color-bone-on-night);
+      border-color: var(--color-bone-on-night);
+    }
+
+    /* ---- the fact ---- */
+    .fact__shell {
+      max-width: 60rem;
+    }
+    .fact__text {
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      line-height: 1.05;
+      max-width: 26ch;
+    }
+    .fact__sub {
+      margin-top: 1.75rem;
+      font-size: var(--text-lg);
+      line-height: 1.55;
+      color: var(--color-ink-2);
+      max-width: 56ch;
+    }
+    .fact__sub em {
+      color: var(--color-clay);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* ---- the arc ---- */
+    .arc__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 22ch;
+      margin-bottom: 2.5rem;
+    }
+    .arc__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.75rem, 1.5vw, 1.5rem);
+      margin-top: 1rem;
+    }
+    .arc__cell {
+      margin: 0;
+    }
+    .arc__plate {
+      aspect-ratio: 4 / 3;
+    }
+    .arc__cap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .arc__cap .u-index {
+      color: var(--color-clay);
+    }
+    .arc__cap-text {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--color-bone-on-night);
+    }
+    .arc__coda {
+      margin-top: 2rem;
+    }
+    .arc__coda-text {
+      color: #b7a98f;
+      font-size: var(--text-base);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      max-width: 40ch;
+    }
+    @media (max-width: 700px) {
+      .arc__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- why ---- */
+    .why__grid {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .why__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      max-width: 14ch;
+    }
+    .why__body {
+      margin-top: 1.5rem;
+      font-size: var(--text-lg);
+      line-height: 1.55;
+      color: var(--color-ink-2);
+      max-width: 52ch;
+    }
+    .why__media {
+      aspect-ratio: 4 / 3;
+    }
+    .why__cap {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 0.65rem 0.75rem;
+      color: var(--color-bone-on-night);
+      background: linear-gradient(
+        to top,
+        rgba(20, 17, 14, 0.8),
+        rgba(20, 17, 14, 0) 100%
+      );
+      width: 100%;
+    }
+    @media (max-width: 880px) {
+      .why__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- perks ---- */
+    .perks__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--color-rule-night);
+    }
+    .perks__item {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 0.6rem;
+      align-items: baseline;
+      padding: 1.5rem 1.25rem 1.5rem 0;
+      border-right: 1px solid var(--color-rule-night);
+      border-bottom: 1px solid var(--color-rule-night);
+    }
+    .perks__item:last-child {
+      border-right: 0;
+    }
+    .perks__text {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-bone-on-night);
+      line-height: 1.1;
+    }
+    .perks__note {
+      margin-top: 1.75rem;
+      color: #cabda6;
+      max-width: 50ch;
+    }
+    .perks__note strong {
+      color: var(--color-clay);
+      font-weight: 700;
+    }
+    @media (max-width: 820px) {
+      .perks__list {
+        grid-template-columns: 1fr 1fr;
+      }
+      .perks__item:nth-child(2n) {
+        border-right: 0;
+      }
+    }
+    @media (max-width: 480px) {
+      .perks__list {
+        grid-template-columns: 1fr;
+      }
+      .perks__item {
+        border-right: 0;
+      }
+    }
+
+    /* ---- timeline ---- */
+    .timeline1__list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      border-top: var(--rule);
+    }
+    .timeline1__item {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: var(--rule);
+      align-items: baseline;
+    }
+    .timeline1__date {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-clay);
+    }
+    .timeline1__label {
+      font-size: var(--text-base);
+    }
+    @media (max-width: 600px) {
+      .timeline1__item {
+        grid-template-columns: 7rem 1fr;
+      }
+    }
+
+    /* ---- faq ---- */
+    .faq__list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      border-top: var(--rule);
+    }
+    .faq__item details {
+      border-bottom: var(--rule);
+    }
+    .faq__item summary {
+      display: grid;
+      grid-template-columns: 3rem 1fr 2rem;
+      gap: 1rem;
+      align-items: baseline;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq__item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq__q {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      color: var(--color-ink);
+    }
+    .faq__chevron {
+      justify-self: end;
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      color: var(--color-clay);
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .faq__item details[open] .faq__chevron {
+      transform: rotate(45deg);
+    }
+    .faq__a {
+      padding: 0 2rem 1.5rem 4rem;
+      color: var(--color-ink-2);
+      max-width: 64ch;
+      line-height: 1.55;
+    }
+    @media (max-width: 600px) {
+      .faq__item summary {
+        grid-template-columns: 2rem 1fr 1.5rem;
+      }
+      .faq__a {
+        padding-left: 3rem;
+      }
+    }
+
+    /* ---- inquire ---- */
+    .inquire__grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .inquire__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 14ch;
+    }
+    .inquire__body {
+      margin-top: 1.25rem;
+      color: #cabda6;
+      max-width: 44ch;
+    }
+    .inquire__deep {
+      margin-top: 1.75rem;
+      color: #b7a98f;
+      max-width: 44ch;
+    }
+    .inquire__link {
+      color: var(--color-bone-on-night);
+      border-color: var(--color-bone-on-night);
+    }
+    .inquire__form iframe {
+      background: var(--color-bone-on-night);
+    }
+    .inquire__placeholder {
+      border: 1px solid var(--color-rule-night);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--color-bone-on-night);
+      max-width: 36rem;
+    }
+    .inquire__placeholder p:not(.u-label) {
+      margin-top: 0.75rem;
+      color: #cabda6;
+    }
+    .inquire__email {
+      color: var(--color-clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .inquire__fallback {
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 820px) {
+      .inquire__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- closer ---- */
+    .closer1 {
+      position: relative;
+      color: var(--color-bone-on-night);
+      overflow: hidden;
+      isolation: isolate;
+      min-height: 22rem;
+      display: flex;
+      align-items: center;
+    }
+    .closer1__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    .closer1__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .closer1__scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(20, 17, 14, 0.92) 0%,
+        rgba(20, 17, 14, 0.7) 50%,
+        rgba(20, 17, 14, 0.35) 100%
+      );
+    }
+    .closer1__content {
+      padding-block: clamp(4rem, 10vw, 7rem);
+      max-width: 50rem;
+    }
+    .closer1__text {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.05;
+    }
+  </style>
+</BaseLayout>

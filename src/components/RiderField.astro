@@ -1,0 +1,134 @@
+---
+// Lazy unicyclist animation. Ported/simplified from the old Next hero.
+// Riders cross the lower desert band on a slight diagonal. Zero JS until
+// idle + in-view; fully skipped under prefers-reduced-motion.
+// Swappable: delete this component from Hero.astro to drop riders entirely.
+---
+
+<div class="riders" data-riders aria-hidden="true"></div>
+
+<style>
+  .riders {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .riders :global(.rider) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+    image-rendering: auto;
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
+  }
+</style>
+
+<script>
+  type Rider = {
+    el: HTMLImageElement;
+    progress: number;
+    speed: number;
+    yBand: number;
+    scale: number;
+  };
+
+  function initRiders() {
+    const host = document.querySelector<HTMLElement>("[data-riders]");
+    if (!host) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const SOURCES = [
+      "/riders/1.png",
+      "/riders/2.png",
+      "/riders/3.png",
+      "/riders/5.png",
+      "/riders/7.png",
+      "/riders/8.png",
+      "/riders/roadrunner.gif",
+    ];
+
+    const riders: Rider[] = [];
+    let raf = 0;
+    let last = performance.now();
+    let running = false;
+
+    SOURCES.forEach((src, i) => {
+      const img = new Image();
+      img.src = src;
+      img.className = "rider";
+      img.alt = "";
+      const isRunner = src.includes("roadrunner");
+      const h = isRunner ? 70 : 104; // px target height
+      img.style.height = h + "px";
+      img.style.width = "auto";
+      const r: Rider = {
+        el: img,
+        progress: Math.random(),
+        speed: 0.02 + Math.random() * 0.012, // fraction of width per second
+        // band as fraction of host height where the rider's FEET land (0..1)
+        yBand: 0.6 + i * 0.045 + Math.random() * 0.02,
+        scale: isRunner ? 70 : 104,
+      };
+      riders.push(r);
+      host.appendChild(img);
+    });
+
+    function place(r: Rider, w: number, h: number) {
+      // travel left (-20%) to right (120%) with a gentle downward drift
+      const x = (-0.2 + 1.4 * r.progress) * w;
+      // feet land at yBand of the host, drifting lower toward the right
+      const footY = (r.yBand + 0.08 * r.progress) * h;
+      // top = footY minus rider height (scale stores px height)
+      const y = footY - r.scale;
+      r.el.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function frame(now: number) {
+      if (!running) return;
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      const w = host.clientWidth;
+      const h = host.clientHeight;
+      for (const r of riders) {
+        r.progress += r.speed * dt;
+        if (r.progress > 1) r.progress -= 1.4; // recycle off-screen
+        place(r, w, h);
+      }
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running) return;
+      running = true;
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+    function stop() {
+      running = false;
+      cancelAnimationFrame(raf);
+    }
+
+    // initial placement
+    const w0 = host.clientWidth,
+      h0 = host.clientHeight;
+    riders.forEach((r) => place(r, w0, h0));
+
+    // pause when scrolled away
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => (e.isIntersecting ? start() : stop()));
+      },
+      { threshold: 0.05 }
+    );
+    io.observe(host);
+  }
+
+  // defer to idle so it never competes with LCP
+  if ("requestIdleCallback" in window) {
+    (window as any).requestIdleCallback(initRiders, { timeout: 1500 });
+  } else {
+    setTimeout(initRiders, 800);
+  }
+</script>

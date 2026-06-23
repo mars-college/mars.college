@@ -1,0 +1,18 @@
+---
+interface Props {
+  index?: string;
+  label: string;
+}
+const { index, label } = Astro.props;
+---
+
+<p class="u-eyebrow eyebrow">
+  {index && <span class="u-index">{index}</span>}
+  <span class="u-label">{label}</span>
+</p>
+
+<style>
+  .eyebrow .u-index {
+    margin-right: -0.4rem;
+  }
+</style>

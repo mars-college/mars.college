@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import Eyebrow from "./Eyebrow.astro";
+
+interface Props {
+  index: string;
+  label: string;
+  title: string;
+  lede: string;
+  image: ImageMetadata;
+  imageAlt: string;
+}
+const { index, label, title, lede, image, imageAlt } = Astro.props;
+---
+
+<header class="ph is-night">
+  <div class="ph__bg">
+    <Image
+      src={image}
+      alt={imageAlt}
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      format="webp"
+      quality={68}
+      class="ph__img"
+    />
+    <div class="ph__scrim" aria-hidden="true"></div>
+  </div>
+  <div class="u-shell ph__content">
+    <Eyebrow index={index} label={label} />
+    <h1 class="ph__title u-display u-rise">{title}</h1>
+    <p class="ph__lede u-rise" style="animation-delay:120ms">{lede}</p>
+  </div>
+</header>
+
+<style>
+  .ph {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .ph__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .ph__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+  }
+  .ph__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(20, 17, 14, 0.94) 0%,
+      rgba(20, 17, 14, 0.6) 50%,
+      rgba(20, 17, 14, 0.5) 100%
+    );
+  }
+  .ph__content {
+    padding-top: clamp(4.5rem, 12vw, 9rem);
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+    max-width: 50rem;
+  }
+  .ph__title {
+    font-size: clamp(2.8rem, 7.5vw, 6rem);
+    line-height: 0.94;
+    color: var(--color-bone-on-night);
+  }
+  .ph__lede {
+    margin-top: 1.75rem;
+    font-size: var(--text-lg);
+    line-height: 1.5;
+    max-width: 52ch;
+    color: #ece2d0;
+  }
+</style>

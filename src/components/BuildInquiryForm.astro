@@ -1,0 +1,182 @@
+---
+import { EMAIL } from "../data/site";
+---
+
+<form class="biq" data-build-form>
+  <div class="biq__row">
+    <label class="biq__field">
+      <span class="biq__lab u-label">Name</span>
+      <input name="name" type="text" autocomplete="name" required />
+    </label>
+    <label class="biq__field">
+      <span class="biq__lab u-label">Email</span>
+      <input name="email" type="email" autocomplete="email" required />
+    </label>
+  </div>
+
+  <fieldset class="biq__field biq__fieldset">
+    <legend class="biq__lab u-label">I want to</legend>
+    <div class="biq__chips">
+      {
+        [
+          "Join the DPW crew",
+          "Rent materials",
+          "Run a concession",
+          "Build a camp structure",
+        ].map((opt) => (
+          <label class="biq__chip">
+            <input type="checkbox" name="interest" value={opt} />
+            <span>{opt}</span>
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  <label class="biq__field">
+    <span class="biq__lab u-label">What are you building?</span>
+    <textarea
+      name="message"
+      rows="4"
+      placeholder="Skills, tools, what you need from DPW..."></textarea>
+  </label>
+
+  <div class="biq__actions">
+    <button type="submit" class="u-cta">
+      Send inquiry <span aria-hidden="true">→</span>
+    </button>
+    <p class="biq__note u-label">
+      Opens email to {EMAIL}. No backend.
+    </p>
+  </div>
+</form>
+
+<style>
+  .biq {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 42rem;
+  }
+  .biq__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .biq__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+  .biq__lab {
+    color: var(--color-ink-2);
+  }
+  .biq input[type="text"],
+  .biq input[type="email"],
+  .biq textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1.5px solid var(--color-ink);
+    padding: 0.55rem 0.1rem;
+    border-radius: 0;
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+  .biq textarea {
+    border: 1.5px solid var(--color-rule);
+    padding: 0.75rem;
+    resize: vertical;
+  }
+  .biq input:focus,
+  .biq textarea:focus {
+    outline: none;
+    border-color: var(--color-clay);
+  }
+  .biq input::placeholder,
+  .biq textarea::placeholder {
+    color: var(--color-ink-3);
+  }
+  .biq__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .biq__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1.5px solid var(--color-rule);
+    padding: 0.5rem 0.85rem;
+    cursor: pointer;
+    font-size: var(--text-sm);
+    transition: border-color var(--dur-fast), background var(--dur-fast);
+    user-select: none;
+  }
+  .biq__chip:hover {
+    border-color: var(--color-ink);
+  }
+  .biq__chip input {
+    accent-color: var(--color-clay);
+    margin: 0;
+  }
+  .biq__chip:has(input:checked) {
+    border-color: var(--color-clay);
+    background: color-mix(in srgb, var(--color-clay) 9%, transparent);
+  }
+  .biq__chip:has(input:focus-visible) {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 2px;
+  }
+  .biq__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .biq__note {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: var(--color-ink-3);
+  }
+  @media (max-width: 560px) {
+    .biq__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  function wire() {
+    const form = document.querySelector<HTMLFormElement>("[data-build-form]");
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = String(fd.get("name") || "").trim();
+      const email = String(fd.get("email") || "").trim();
+      const interests = fd.getAll("interest").map(String);
+      const message = String(fd.get("message") || "").trim();
+
+      const lines = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        interests.length ? `Interested in: ${interests.join(", ")}` : "",
+        "",
+        message,
+      ].filter((l) => l !== undefined);
+
+      const subject = encodeURIComponent(
+        `Build inquiry — ${name || "Mars 2027"}`
+      );
+      const body = encodeURIComponent(lines.join("\n"));
+      window.location.href = `mailto:info@mars.college?subject=${subject}&body=${body}`;
+    });
+  }
+  wire();
+</script>

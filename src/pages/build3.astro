@@ -1,0 +1,798 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import {
+  BUILD_FAQ,
+  BUILD_SCHEDULE,
+  TALLY_BUILD_FORM_ID,
+  BUILD_SUBSTACK_URL,
+  APPLY_URL,
+} from "../data/site";
+
+// Hero — moody night structure
+import hero from "../assets/photos/build-curated/021_2025_2026_img_20251116_161732_63192.jpg";
+
+// Architectural verticals
+import amph from "../assets/photos/build-curated/047_2025_img_8497_70ffe.jpg";
+import pavilion from "../assets/photos/build-curated/035_2025_2026_rn_image_picker_lib_temp_b98e501f_86f0_478_dc559.jpg";
+import gallery from "../assets/photos/build/mural-solar.jpg";
+import projwall from "../assets/photos/build/solar-pyramid.jpg";
+
+// Method
+import methodA from "../assets/photos/build-curated/006_2025_2026_img_4779_a826a.jpg";
+import methodB from "../assets/photos/build-curated/003_2025_2026_pxl_20251111_203710932_2c374.jpg";
+import methodC from "../assets/photos/build-curated/004_2025_2026_pxl_20251112_235256510_f02f7.jpg";
+
+// Land
+import landWide from "../assets/photos/aerial-3.jpg";
+
+// Crew sliver
+import crewSliver from "../assets/photos/build-curated/047_2026_img_1144_2f1d9.jpg";
+
+const structures = [
+  {
+    n: "01",
+    name: "The Amphitheater",
+    role: "Outdoor stage · projection wall · gatherings",
+    img: amph,
+    body: "Open-air stage and seating with north and west wind walls. The north wall doubles as a projection surface. Hosts Thunder Talks, music, algoraves, and large gatherings. A lighter, more honest build than past Chibas.",
+  },
+  {
+    n: "02",
+    name: "The Pavilion",
+    role: "80 ft shade structure · living room · café",
+    img: pavilion,
+    body: "Burning Man Center Camp-style shade structure. Eighty-foot diameter, shade net on a pallet rack frame in concentric rings. Comfortable seating, wind and sun protection, no solid walls. The daily living room. A central tower with a spiral staircase is on the table.",
+  },
+  {
+    n: "03",
+    name: "AI Gallery & Climate Refuge",
+    role: "Enclosed · gallery · compute · classroom",
+    img: gallery,
+    body: "Smaller, fully enclosed, climate-controlled. Part of the AI Department. Plays four roles at once: gallery (screens, projection, darkness), compute room, bad-weather refuge, and AI classroom.",
+  },
+  {
+    n: "04",
+    name: "The Projection Wall",
+    role: "Freestanding 20×60 ft · classrooms behind",
+    img: projwall,
+    body: "A standalone twenty-by-sixty-foot artifact with classrooms tucked behind it. No longer fused into a monolith. The thing you can see from across the playa at sunset.",
+  },
+];
+
+const corners = [
+  { name: "Cahuilla", use: "Kitchen" },
+  { name: "HQB", use: "Gallery" },
+  { name: "Chatsubo", use: "Club / Bar" },
+  { name: "Ba Sing Se", use: "Lounge" },
+];
+---
+
+<BaseLayout
+  title="The Blueprint — Build · Mars College 2027"
+  description="Mars College 2027 architecture: Amphitheater, Pavilion, AI Gallery, Projection Wall, a four-corner town square. Built on pallet racks. Off-grid in the California desert."
+>
+  <!-- ============= HERO ============= -->
+  <section class="hero3">
+    <div class="hero3__bg" aria-hidden="true">
+      <Image
+        src={hero}
+        alt="A two-story pallet-rack structure lit from within at night, with distant city lights on the horizon"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        format="webp"
+        quality={72}
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero3__scrim"></div>
+    </div>
+    <div class="u-shell hero3__content">
+      <p class="u-eyebrow hero3__eyebrow">
+        <span class="u-index">2027 · Season 8</span>
+        <span class="u-label">The blueprint</span>
+      </p>
+      <h1 class="hero3__title u-display u-rise">
+        We're building<br />
+        <span class="hero3__title-em">a town this fall.</span>
+      </h1>
+      <p class="hero3__lede u-rise" style="animation-delay:120ms">
+        Four structures. A four-corner square. A pallet-rack city raised on a
+        leased patch of dirt one mile east of Bombay Beach. Then taken apart
+        in spring.
+      </p>
+      <div class="hero3__actions u-rise" style="animation-delay:200ms">
+        <a href="#structures" class="u-link hero3__look">See what gets built <span class="u-arrow" aria-hidden="true">↓</span></a>
+        <a href="#inquire" class="u-cta">Apply to build <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= STRUCTURES ============= -->
+  <section id="structures" class="u-section structures">
+    <div class="u-shell structures__head">
+      <Eyebrow index="01" label="What gets built" />
+      <h2 class="structures__title u-display">
+        Four structures. No monolith.
+      </h2>
+      <p class="structures__lede">
+        The old Chiba — one big building that held the bar, library, gallery,
+        and stage — splits this year into four purpose-built structures.
+        Each is a different solution to a different problem.
+      </p>
+    </div>
+
+    <div class="u-shell">
+      <ol class="strs__list">
+        {
+          structures.map((s, i) => (
+            <li class:list={["strs", { "is-reverse": i % 2 === 1 }]}>
+              <figure class="u-plate strs__media">
+                <Image
+                  src={s.img}
+                  alt={s.name}
+                  widths={[500, 900, 1300]}
+                  sizes="(max-width: 900px) 100vw, 50vw"
+                  format="webp"
+                  quality={70}
+                  loading="lazy"
+                />
+              </figure>
+              <div class="strs__text">
+                <p class="strs__meta">
+                  <span class="u-index">{s.n} / 04</span>
+                  <span class="u-label u-label--clay">{s.role}</span>
+                </p>
+                <h3 class="strs__name">{s.name}</h3>
+                <p class="strs__body">{s.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============= TOWN SQUARE ============= -->
+  <section class="u-section is-night square">
+    <div class="u-shell square__grid">
+      <div class="square__text">
+        <Eyebrow index="02" label="The town square" />
+        <h2 class="square__title u-display">
+          Four corners around center camp.
+        </h2>
+        <p class="square__body">
+          A commercial district around center camp delivers the civic amenities
+          Mars has been building toward — café, bakery, juice bar, library,
+          cinema, stage. The 2022 elemental names come back as four corner
+          buildings.
+        </p>
+      </div>
+
+      <ul class="square__corners">
+        {
+          corners.map((c, i) => (
+            <li class="corner">
+              <span class="u-index">{String(i + 1).padStart(2, "0")}</span>
+              <h3 class="corner__name">{c.name}</h3>
+              <p class="corner__use u-label">{c.use}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============= METHOD ============= -->
+  <section class="u-section method">
+    <div class="u-shell method__head">
+      <Eyebrow index="03" label="The method" />
+      <h2 class="method__title u-display">
+        Pallet rack. The frame of the city.
+      </h2>
+      <p class="method__lede">
+        The load-bearing skeleton of every structure at Mars is an industrial
+        pallet rack — the heavy steel uprights and beams used in warehouse
+        storage. Fast to put up, modular, reusable, weather-tolerant when
+        capped right, forgiving of imperfect ground. Every season the racks
+        come back out of storage, get re-arranged into that year's
+        architecture, and get clad with plywood, lumber, polycarbonate, shade
+        cloth.
+      </p>
+    </div>
+
+    <div class="u-shell method__photos">
+      <figure class="method__photo u-plate is-tall">
+        <Image
+          src={methodA}
+          alt="Looking up through orange and green pallet rack beams against a blue sky"
+          widths={[400, 700, 1000]}
+          sizes="(max-width: 800px) 50vw, 25vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+        />
+      </figure>
+      <figure class="method__photo u-plate is-tall">
+        <Image
+          src={methodB}
+          alt="Vertical view inside a partially-built pallet rack structure"
+          widths={[400, 700, 1000]}
+          sizes="(max-width: 800px) 50vw, 25vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+        />
+      </figure>
+      <figure class="method__photo u-plate is-wide">
+        <Image
+          src={methodC}
+          alt="Pallet rack assembly at golden hour with IBC water totes in the background"
+          widths={[500, 900, 1300]}
+          sizes="(max-width: 800px) 100vw, 50vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+        />
+      </figure>
+    </div>
+
+    <div class="u-shell method__floor">
+      <p class="method__floor-text">
+        <span class="u-label u-label--clay">Floor method · center camp</span>
+        2×4 supports. Plywood. Rubber mats. Bod's method. Holds up under boots,
+        dust, and an algorave at 2 a.m.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============= THE LAND ============= -->
+  <section class="u-section is-night land">
+    <div class="u-shell land__grid">
+      <figure class="u-plate land__media">
+        <Image
+          src={landWide}
+          alt="Aerial view of a single solar-paneled pyramid structure on the empty Salton Sea salt flats with mountains in the distance"
+          widths={[600, 1000, 1400]}
+          sizes="(max-width: 900px) 100vw, 55vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+        />
+      </figure>
+      <div class="land__text">
+        <Eyebrow index="04" label="The site" />
+        <h2 class="land__title u-display">
+          One mile east of Bombay Beach.<br />Sixty feet below sea level.
+        </h2>
+        <ul class="land__facts">
+          <li><span class="u-index">A</span> Public structures at the north end → commons quad → private camps to the south.</li>
+          <li><span class="u-index">B</span> Noise falls along a north-to-south gradient.</li>
+          <li><span class="u-index">C</span> ~20 acres of off-grid desert leased annually. Returned to bare playa every May.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= BUILDER CALLOUT ============= -->
+  <section class="u-section builder3">
+    <div class="u-shell builder3__grid">
+      <figure class="u-plate builder3__media">
+        <Image
+          src={crewSliver}
+          alt="Mars College builders lifting a pallet-rack beam together at sunset"
+          widths={[500, 900, 1300]}
+          sizes="(max-width: 800px) 100vw, 45vw"
+          format="webp"
+          quality={72}
+          loading="lazy"
+        />
+      </figure>
+      <div class="builder3__text">
+        <Eyebrow index="05" label="Builders" />
+        <h2 class="builder3__title u-display">Who puts all this up.</h2>
+        <p class="builder3__body">
+          Mars DPW (Department of Public Works) is the crew that builds the
+          civic infrastructure each season — and breaks it back down. Build
+          Nov–Dec, maintain through the season, strike late March through
+          April. Housing, fee waived, meal plan.
+        </p>
+        <p class="builder3__deadline u-label u-label--clay">Crew applications close · October 1, 2026</p>
+        <a href="#inquire" class="u-cta builder3__cta">
+          Apply to build <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= TIMELINE ============= -->
+  <section class="u-section--tight is-night timeline3">
+    <div class="u-shell">
+      <Eyebrow index="06" label="Eight-month timeline" />
+      <ol class="timeline3__list">
+        {
+          BUILD_SCHEDULE.map((s) => (
+            <li class="timeline3__item">
+              <span class="timeline3__date">{s.date}</span>
+              <span class="timeline3__label">{s.label}</span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section class="u-section faq3">
+    <div class="u-shell">
+      <Eyebrow index="07" label="Builder FAQ" />
+      <ul class="faq3__list">
+        {
+          BUILD_FAQ.map((item, i) => (
+            <li class="faq3__item">
+              <details>
+                <summary>
+                  <span class="u-index">{String(i + 1).padStart(2, "0")}</span>
+                  <span class="faq3__q">{item.q}</span>
+                  <span class="faq3__chevron" aria-hidden="true">+</span>
+                </summary>
+                <p class="faq3__a">{item.a}</p>
+              </details>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============= INQUIRY ============= -->
+  <section id="inquire" class="u-section is-night inquire3">
+    <div class="u-shell inquire3__grid">
+      <div>
+        <Eyebrow index="08" label="Apply to build" />
+        <h2 class="inquire3__title u-display">
+          Want to help raise it?
+        </h2>
+        <p class="inquire3__body">
+          A short form for build crew, strike crew, or DPW concessions.
+          We'll follow up about phases and skills.
+        </p>
+        <p class="inquire3__deep">
+          For the full operational picture — material catalog, deadlines,
+          economics — read the
+          <a href={BUILD_SUBSTACK_URL} class="u-link inquire3__link">DPW deep dive
+            <span class="u-arrow" aria-hidden="true">→</span></a>
+        </p>
+      </div>
+      <div class="inquire3__form">
+        {
+          TALLY_BUILD_FORM_ID ? (
+            <iframe
+              data-tally-src={`https://tally.so/embed/${TALLY_BUILD_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              loading="lazy"
+              width="100%"
+              height="640"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Mars DPW build inquiry"
+            />
+          ) : (
+            <div class="inquire3__placeholder">
+              <p class="u-label u-label--clay">Form coming soon</p>
+              <p>
+                Email <a href="mailto:info@mars.college" class="inquire3__email">info@mars.college</a>
+                with subject "DPW 2027" — phase(s), what you'd bring, prior Mars
+                seasons.
+              </p>
+              <a href={APPLY_URL} class="u-cta inquire3__fallback">
+                Or apply to Mars College <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </section>
+
+  <style>
+    /* ---- hero ---- */
+    .hero3 {
+      position: relative;
+      background: var(--color-night);
+      color: var(--color-bone-on-night);
+      overflow: hidden;
+      isolation: isolate;
+      min-height: clamp(36rem, 84vh, 50rem);
+      display: flex;
+      flex-direction: column;
+    }
+    .hero3__bg { position: absolute; inset: 0; z-index: 0; }
+    .hero3__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+    .hero3__scrim {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(18, 15, 12, 0.94) 0%,
+          rgba(18, 15, 12, 0.6) 40%,
+          rgba(18, 15, 12, 0.25) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(18, 15, 12, 0.55) 0%,
+          rgba(18, 15, 12, 0.1) 60%,
+          rgba(18, 15, 12, 0) 100%
+        );
+    }
+    .hero3__content {
+      position: relative; z-index: 2;
+      margin-top: auto;
+      padding-block: clamp(2rem, 5vh, 3rem);
+      max-width: 60rem;
+    }
+    .hero3__eyebrow { color: var(--color-bone-on-night); }
+    .hero3__eyebrow::after { background: var(--color-rule-night); }
+    .hero3__eyebrow .u-label { color: #c8b89b; }
+    .hero3__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3rem, 7.5vw, 6.25rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+      text-shadow: 0 2px 28px rgba(18, 15, 12, 0.75);
+    }
+    .hero3__title-em { color: var(--color-clay); }
+    .hero3__lede {
+      margin-top: 1.5rem;
+      max-width: 48ch;
+      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+      line-height: 1.5;
+      color: #efe6d4;
+    }
+    .hero3__actions {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .hero3__look {
+      color: var(--color-bone-on-night);
+      border-color: var(--color-bone-on-night);
+    }
+
+    /* ---- structures ---- */
+    .structures__head { max-width: 60rem; margin-bottom: 3rem; }
+    .structures__title {
+      font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+      max-width: 22ch;
+    }
+    .structures__lede {
+      margin-top: 1.25rem;
+      color: var(--color-ink-2);
+      font-size: var(--text-lg);
+      line-height: 1.55;
+      max-width: 58ch;
+    }
+    .strs__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(3rem, 7vw, 6rem);
+    }
+    .strs {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    .strs.is-reverse {
+      grid-template-columns: 1fr 1.1fr;
+    }
+    .strs.is-reverse .strs__media { order: 2; }
+    .strs.is-reverse .strs__text { order: 1; }
+    .strs__media {
+      aspect-ratio: 5 / 4;
+    }
+    .strs__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .strs__name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    .strs__body {
+      margin-top: 1rem;
+      color: var(--color-ink-2);
+      font-size: var(--text-base);
+      line-height: 1.55;
+      max-width: 50ch;
+    }
+    @media (max-width: 820px) {
+      .strs, .strs.is-reverse {
+        grid-template-columns: 1fr;
+      }
+      .strs.is-reverse .strs__media { order: 0; }
+      .strs.is-reverse .strs__text { order: 0; }
+      .strs__media { aspect-ratio: 4 / 3; }
+    }
+
+    /* ---- town square ---- */
+    .square__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .square__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 18ch;
+    }
+    .square__body {
+      margin-top: 1.25rem;
+      color: #cabda6;
+      max-width: 54ch;
+      font-size: var(--text-lg);
+      line-height: 1.5;
+    }
+    .square__corners {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--color-rule-night);
+      border-left: 1px solid var(--color-rule-night);
+    }
+    .corner {
+      padding: clamp(1.25rem, 2.5vw, 2rem);
+      border-right: 1px solid var(--color-rule-night);
+      border-bottom: 1px solid var(--color-rule-night);
+    }
+    .corner__name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      letter-spacing: -0.025em;
+      color: var(--color-bone-on-night);
+      margin-top: 0.6rem;
+    }
+    .corner__use {
+      margin-top: 0.4rem;
+      color: var(--color-clay);
+    }
+    @media (max-width: 860px) {
+      .square__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- method ---- */
+    .method__head { max-width: 60rem; margin-bottom: 2.5rem; }
+    .method__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      max-width: 22ch;
+    }
+    .method__lede {
+      margin-top: 1.25rem;
+      color: var(--color-ink-2);
+      font-size: var(--text-lg);
+      line-height: 1.55;
+      max-width: 60ch;
+    }
+    .method__photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: clamp(0.5rem, 1.5vw, 1rem);
+    }
+    .method__photo.is-tall { aspect-ratio: 3 / 4; }
+    .method__photo.is-wide { aspect-ratio: 5 / 4; }
+    .method__floor {
+      margin-top: 2.5rem;
+    }
+    .method__floor-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      max-width: 50ch;
+      color: var(--color-ink-2);
+    }
+    @media (max-width: 760px) {
+      .method__photos {
+        grid-template-columns: 1fr 1fr;
+      }
+      .method__photo.is-wide { grid-column: span 2; aspect-ratio: 16 / 9; }
+    }
+
+    /* ---- land ---- */
+    .land__grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .land__media { aspect-ratio: 5 / 3; }
+    .land__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 22ch;
+    }
+    .land__facts {
+      list-style: none;
+      margin: 2rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .land__facts li {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 0.6rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--color-rule-night);
+      align-items: baseline;
+      color: var(--color-bone-on-night);
+      max-width: 56ch;
+    }
+    .land__facts li:last-child { border-bottom: 1px solid var(--color-rule-night); }
+    @media (max-width: 860px) {
+      .land__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- builder ---- */
+    .builder3__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .builder3__media { aspect-ratio: 5 / 4; }
+    .builder3__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      max-width: 14ch;
+    }
+    .builder3__body {
+      margin-top: 1.25rem;
+      color: var(--color-ink-2);
+      max-width: 50ch;
+      font-size: var(--text-lg);
+      line-height: 1.55;
+    }
+    .builder3__deadline {
+      margin-top: 1.75rem;
+    }
+    .builder3__cta { margin-top: 0.75rem; }
+    @media (max-width: 760px) {
+      .builder3__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- timeline ---- */
+    .timeline3__list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      border-top: 1px solid var(--color-rule-night);
+    }
+    .timeline3__item {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--color-rule-night);
+      align-items: baseline;
+    }
+    .timeline3__date {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-clay);
+    }
+    .timeline3__label {
+      font-size: var(--text-base);
+      color: var(--color-bone-on-night);
+    }
+    @media (max-width: 600px) {
+      .timeline3__item { grid-template-columns: 7rem 1fr; }
+    }
+
+    /* ---- faq ---- */
+    .faq3__list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      border-top: var(--rule);
+    }
+    .faq3__item details { border-bottom: var(--rule); }
+    .faq3__item summary {
+      display: grid;
+      grid-template-columns: 3rem 1fr 2rem;
+      gap: 1rem;
+      align-items: baseline;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq3__item summary::-webkit-details-marker { display: none; }
+    .faq3__q {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+    .faq3__chevron {
+      justify-self: end;
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      color: var(--color-clay);
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .faq3__item details[open] .faq3__chevron { transform: rotate(45deg); }
+    .faq3__a {
+      padding: 0 2rem 1.5rem 4rem;
+      color: var(--color-ink-2);
+      max-width: 64ch;
+      line-height: 1.55;
+    }
+
+    /* ---- inquire ---- */
+    .inquire3__grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .inquire3__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 14ch;
+    }
+    .inquire3__body {
+      margin-top: 1.25rem;
+      color: #cabda6;
+      max-width: 44ch;
+    }
+    .inquire3__deep {
+      margin-top: 1.75rem;
+      color: #b7a98f;
+      max-width: 44ch;
+    }
+    .inquire3__link {
+      color: var(--color-bone-on-night);
+      border-color: var(--color-bone-on-night);
+    }
+    .inquire3__form iframe {
+      background: var(--color-bone-on-night);
+    }
+    .inquire3__placeholder {
+      border: 1px solid var(--color-rule-night);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--color-bone-on-night);
+    }
+    .inquire3__placeholder p:not(.u-label) {
+      margin-top: 0.75rem;
+      color: #cabda6;
+    }
+    .inquire3__email {
+      color: var(--color-clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .inquire3__fallback { margin-top: 1.5rem; }
+    @media (max-width: 820px) {
+      .inquire3__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</BaseLayout>

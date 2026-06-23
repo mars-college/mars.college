@@ -1,0 +1,27 @@
+# build
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# system
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# vercel CLI state (linked project, do not commit)
+.vercel

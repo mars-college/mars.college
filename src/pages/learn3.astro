@@ -1,0 +1,373 @@
+---
+// /learn3 — "Two Programs, One Arc"
+// Most pedagogically clear. Side-by-side framing of online cohort and IRL term.
+// Strong week + term + tracks sections. Heavy use of grid comparison.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import {
+  AI_PROGRAM_TOPICS,
+  AI_PROGRAM_LOCK_NOTE,
+  AI_PROGRAM_REQUIREMENTS,
+  AI_PROGRAM_BENEFITS,
+  TRACKS,
+  WEEK,
+  TERM,
+  COHORT,
+} from "../data/learn-program";
+import { APPLY_URL } from "../data/site";
+
+import heroImg from "../assets/photos/learn/045_2024_2026_p1036172_1.JPG"; // colorful lecture night
+import yogaImg from "../assets/photos/learn/supp_2023_acroyoga_desert.jpg";
+import clayImg from "../assets/photos/learn/supp_2022_clay_vessels.jpg";
+import livecodeImg from "../assets/photos/learn/supp_2023_livecode_tidal.jpg";
+import musicImg from "../assets/photos/learn/020_2026_dscf0028_1bd1c.jpg";
+import thunderImg from "../assets/photos/learn/002_2026_dscf1586_ece64.jpg";
+import circleImg from "../assets/photos/learn/038_2022_img_4312_95dfd.jpg";
+import kitchenImg from "../assets/photos/learn/supp_2022_noodle_kitchen.jpg";
+import outdoorImg from "../assets/photos/learn/013_2022_pxl_20220116_020317372_night_dd72d.jpg";
+import celebrateImg from "../assets/photos/learn/050_2024_img_8542_bb32a.jpg";
+
+const onlineTerm = TERM.filter((t) => t.kind === "online");
+const irlTerm = TERM.filter((t) => t.kind !== "online");
+---
+
+<BaseLayout
+  title="Learn — Mars College 2027"
+  description="Two programs. One arc. The Mars College online AI cohort runs August through December; the desert term runs January through March."
+>
+  <PageHeader
+    index="02"
+    label="Learn"
+    title="Two programs. One arc."
+    lede="An online AI cohort from August to December. A three-month off-grid term in the desert from January to March. They feed each other."
+    image={heroImg}
+    imageAlt="Mars College classroom at night with colorful lighting"
+  />
+
+  <!-- ===================== COMPARE ===================== -->
+  <section class="u-section compare">
+    <div class="u-shell">
+      <Eyebrow index="01" label="The shape of the year" />
+      <h2 class="compare__lead u-display">Two programs. One arc.</h2>
+
+      <table class="ct">
+        <colgroup>
+          <col />
+          <col class="ct__online" />
+          <col class="ct__irl" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th></th>
+            <th><span class="u-index">Online</span><br />AI cohort</th>
+            <th><span class="u-index">In the desert</span><br />Mars term</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">When</th>
+            <td>Aug 24 – December</td>
+            <td>Jan 4 – Mar 28 (build Nov–Dec)</td>
+          </tr>
+          <tr><th scope="row">Where</th>
+            <td>Zoom + Eden + your bedroom</td>
+            <td>Bombay Beach, California. Off-grid.</td>
+          </tr>
+          <tr><th scope="row">Cadence</th>
+            <td>Weekly workshops · hackathon · demo day</td>
+            <td>Daily open calendar · Ideas Week · 3 Moons · Electronica</td>
+          </tr>
+          <tr><th scope="row">Curriculum</th>
+            <td>Personal AI · agents · generative media · agentic coding</td>
+            <td>The AI program <em>plus</em> every other track on the open calendar</td>
+          </tr>
+          <tr><th scope="row">Comes with</th>
+            <td>Eden compute · cohort group · office hours</td>
+            <td>Eden compute · Chiba space · housing · meals · community</td>
+          </tr>
+          <tr><th scope="row">Time commitment</th>
+            <td>~6 hrs/week · async-friendly</td>
+            <td>Three months on-site · build crew + co-op + AI program</td>
+          </tr>
+          <tr><th scope="row">Cost</th>
+            <td>Application fee + sliding scale</td>
+            <td>~$1,500 all-in for three months. No tuition.</td>
+          </tr>
+          <tr><th scope="row">Bridge</th>
+            <td colspan="2" class="ct__bridge">
+              People who finish the cohort and want to come to the desert in January get an inside track.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== ONLINE COHORT ===================== -->
+  <section class="u-section is-night cohort">
+    <div class="u-shell cohort__grid">
+      <div>
+        <Eyebrow index="02" label="The online cohort · Aug – Dec" />
+        <h2 class="cohort__lead u-display">A four-month head start.</h2>
+        <p class="cohort__intro u-measure">{COHORT.blurb}</p>
+        <ul class="cohort__list">
+          {COHORT.bullets.map((b) => (
+            <li>
+              <h3>{b.title}</h3>
+              <p>{b.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <aside class="cohort__cal">
+        <p class="u-label u-label--clay">Online milestones</p>
+        <ol>
+          {onlineTerm.map((t) => (
+            <li>
+              <span class="cohort__date">{t.date}</span>
+              <span class="cohort__label">{t.label}</span>
+            </li>
+          ))}
+          <li><span class="cohort__date">Mid-cohort</span><span class="cohort__label">Hackathon weekend</span></li>
+          <li><span class="cohort__date">December</span><span class="cohort__label">Demo day</span></li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== THE TERM — WEEK ===================== -->
+  <section class="u-section week">
+    <div class="u-shell">
+      <Eyebrow index="03" label="The Mars term · a week" />
+      <h2 class="week__lead u-display">A week, as it tends to run.</h2>
+      <p class="week__intro u-measure">
+        Mornings are quiet and movement-led. Middays are workshops on the open
+        calendar. Evenings are screenings, demos, and the show.
+      </p>
+
+      <ul class="week__cards">
+        {WEEK.map((d) => (
+          <li class="day">
+            <h3 class="day__name">{d.day}</h3>
+            <p><span class="u-label">Morning</span>{d.morning}</p>
+            <p><span class="u-label">Midday</span>{d.midday}</p>
+            <p><span class="u-label">Evening</span>{d.evening}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== THE TERM — ARC ===================== -->
+  <section class="u-section is-night arc-section">
+    <div class="u-shell">
+      <Eyebrow index="04" label="The Mars term · the arc" />
+      <h2 class="arc__lead u-display">Build Week to the desert returning.</h2>
+      <ol class="arc__list">
+        {irlTerm.map((t) => (
+          <li>
+            <span class="arc__date">{t.date}</span>
+            <div>
+              <h3 class="arc__label">{t.label}</h3>
+              <p>{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== AI PROGRAM ===================== -->
+  <section class="u-section ai">
+    <div class="u-shell">
+      <Eyebrow index="05" label="The AI program — running through both" />
+      <h2 class="ai__lead u-display">Five things every cohort Martian learns.</h2>
+
+      <ol class="ai__topics">
+        {AI_PROGRAM_TOPICS.map((t) => (
+          <li class="ai__topic">
+            <span class="ai__n u-index">{t.n}</span>
+            <div>
+              <h3 class="ai__title">{t.title}</h3>
+              <p class="ai__body">{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="ai__split">
+        <div>
+          <p class="u-label u-label--clay">Requirements</p>
+          <ul>{AI_PROGRAM_REQUIREMENTS.map((r) => <li>{r}</li>)}</ul>
+        </div>
+        <div>
+          <p class="u-label u-label--clay">Comes with</p>
+          <ul>{AI_PROGRAM_BENEFITS.map((b) => <li>{b}</li>)}</ul>
+        </div>
+      </div>
+
+      <p class="ai__note">
+        <span class="u-label u-label--clay">Note</span>
+        {AI_PROGRAM_LOCK_NOTE}
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== TRACKS ===================== -->
+  <section class="u-section--tight tracks">
+    <div class="u-shell">
+      <Eyebrow index="06" label="Beyond AI — the open calendar" />
+      <h2 class="tracks__lead u-display">Tracks that recur across the years.</h2>
+      <p class="tracks__intro u-measure">
+        AI is the spine. The calendar is the engine. Past terms have held:
+      </p>
+      <ul class="tracks__grid">
+        {TRACKS.map((t) => (
+          <li class="trk">
+            <h3 class="trk__name">{t.name}</h3>
+            <p class="trk__since">since {t.since}</p>
+            <p class="trk__body">{t.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="u-section--tight gallery">
+    <div class="u-shell">
+      <Eyebrow index="07" label="Past terms, briefly" />
+      <ul class="gal">
+        {[
+          { img: yogaImg, cap: "Acroyoga on the lake bed" },
+          { img: clayImg, cap: "Ceramics" },
+          { img: livecodeImg, cap: "Live-coded music" },
+          { img: musicImg, cap: "Music theory" },
+          { img: thunderImg, cap: "Thunder Talks" },
+          { img: outdoorImg, cap: "Ideas Week" },
+          { img: kitchenImg, cap: "Noodle bar" },
+          { img: circleImg, cap: "Circle in the hangar" },
+          { img: celebrateImg, cap: "Mars Electronica" },
+        ].map((p) => (
+          <li class="gal__cell u-plate">
+            <Image
+              src={p.img}
+              alt={p.cap}
+              widths={[400, 700, 1000]}
+              sizes="(max-width: 700px) 50vw, 28vw"
+              format="webp"
+              quality={66}
+              loading="lazy"
+            />
+            <figcaption class="gal__cap u-label">{p.cap}</figcaption>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="u-section--tight">
+    <div class="u-shell cta-band">
+      <p class="cta-band__text u-display">
+        Start online in August. Cross to the desert in January.
+      </p>
+      <a href={APPLY_URL} class="u-cta">
+        Apply for 2027 <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .compare__lead { font-size: var(--text-3xl); max-width: 22ch; margin-bottom: 2.5rem; }
+    .ct { width: 100%; border-collapse: collapse; }
+    .ct th, .ct td { padding: 1.1rem 1rem; text-align: left; vertical-align: top; border-bottom: var(--rule); }
+    .ct thead th { border-top: var(--rule-strong); border-bottom: var(--rule-strong); font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+    .ct thead th .u-index { display: inline-block; margin-bottom: 0.25rem; }
+    .ct tbody th { font-family: var(--font-body); font-size: var(--text-meta); letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-3); font-weight: 700; width: 12rem; }
+    .ct tbody td { color: var(--color-ink-2); }
+    .ct__bridge { background: color-mix(in srgb, var(--color-clay) 10%, transparent); font-style: italic; color: var(--color-ink); }
+    @media (max-width: 720px) {
+      .ct, .ct thead, .ct tbody, .ct tr, .ct th, .ct td { display: block; }
+      .ct thead tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .ct tbody tr { padding: 1rem 0; border-bottom: var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 0.75rem; }
+      .ct tbody th { grid-column: 1 / -1; width: auto; padding: 0; border: 0; }
+      .ct tbody td { padding: 0; border: 0; }
+      .ct tbody td[colspan="2"] { grid-column: 1 / -1; }
+    }
+
+    /* cohort */
+    .cohort__grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .cohort__lead { font-size: clamp(1.9rem, 4vw, 3rem); color: var(--color-bone-on-night); max-width: 18ch; }
+    .cohort__intro { color: #cabda6; margin-top: 1rem; font-size: var(--text-lg); }
+    .cohort__list { list-style: none; margin: 2rem 0 0; padding: 0; }
+    .cohort__list li { padding: 1.25rem 0; border-top: 1px solid var(--color-rule-night); }
+    .cohort__list h3 { font-family: var(--font-display); font-weight: 800; color: var(--color-bone-on-night); font-size: 1.15rem; }
+    .cohort__list p { margin-top: 0.4rem; color: #d2c5af; max-width: 50ch; }
+    .cohort__cal { background: var(--color-paper); color: var(--color-ink); padding: 1.5rem; }
+    .cohort__cal ol { list-style: none; padding: 0; margin: 1rem 0 0; }
+    .cohort__cal li { display: grid; grid-template-columns: 7rem 1fr; gap: 0.5rem; padding: 0.65rem 0; border-bottom: var(--rule); }
+    .cohort__date { font-family: var(--font-mono); font-size: var(--text-meta); color: var(--color-clay); }
+    .cohort__label { color: var(--color-ink); font-weight: 600; }
+    @media (max-width: 820px) { .cohort__grid { grid-template-columns: 1fr; } }
+
+    /* week cards */
+    .week__lead { font-size: var(--text-3xl); max-width: 22ch; }
+    .week__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2rem; }
+    .week__cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; border-top: var(--rule); border-left: var(--rule); }
+    .day { padding: 1rem; border-right: var(--rule); border-bottom: var(--rule); }
+    .day__name { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; letter-spacing: -0.02em; color: var(--color-clay); }
+    .day p { margin: 0.65rem 0 0; color: var(--color-ink-2); font-size: 0.95rem; line-height: 1.4; }
+    .day p .u-label { display: block; margin-bottom: 0.2rem; font-size: 0.7rem; }
+    @media (max-width: 1000px) { .week__cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .week__cards { grid-template-columns: 1fr; } }
+
+    /* arc */
+    .arc__lead { font-size: var(--text-3xl); max-width: 22ch; color: var(--color-bone-on-night); margin-bottom: 2rem; }
+    .arc__list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--color-rule-night); }
+    .arc__list li { display: grid; grid-template-columns: 10rem 1fr; gap: clamp(1rem, 3vw, 2.5rem); padding: 1.25rem 0; border-bottom: 1px solid var(--color-rule-night); align-items: baseline; }
+    .arc-section .arc__date { font-family: var(--font-mono); font-size: var(--text-meta); color: var(--color-clay); }
+    .arc-section .arc__label { font-family: var(--font-display); font-weight: 800; color: var(--color-bone-on-night); font-size: 1.4rem; letter-spacing: -0.02em; }
+    .arc-section p { color: #d2c5af; margin-top: 0.4rem; max-width: 60ch; }
+    @media (max-width: 560px) { .arc__list li { grid-template-columns: 1fr; gap: 0.3rem; } }
+
+    /* AI */
+    .ai__lead { font-size: var(--text-3xl); max-width: 24ch; }
+    .ai__topics { list-style: none; margin: 2rem 0 0; padding: 0; border-top: var(--rule-strong); }
+    .ai__topic { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: var(--rule); align-items: baseline; }
+    .ai__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
+    .ai__body { margin-top: 0.3rem; color: var(--color-ink-2); max-width: 52ch; }
+    .ai__split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); margin-top: 2rem; }
+    .ai__split ul { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
+    .ai__split ul li { padding-left: 1.1rem; position: relative; color: var(--color-ink); }
+    .ai__split ul li::before { content: "→"; position: absolute; left: 0; color: var(--color-clay); }
+    .ai__note { margin-top: 2rem; border-left: 2px solid var(--color-clay); padding: 0.25rem 0 0.25rem 1.25rem; max-width: 60ch; font-size: var(--text-lg); }
+    .ai__note .u-label { display: block; margin-bottom: 0.4rem; }
+    @media (max-width: 640px) { .ai__split { grid-template-columns: 1fr; } .ai__topic { grid-template-columns: 1fr; } }
+
+    /* tracks */
+    .tracks__lead { font-size: clamp(1.9rem, 3.6vw, 2.6rem); max-width: 22ch; }
+    .tracks__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2rem; }
+    .tracks__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: var(--rule); border-left: var(--rule); }
+    .trk { padding: 1.25rem; border-right: var(--rule); border-bottom: var(--rule); }
+    .trk__name { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .trk__since { margin-top: 0.25rem; font-family: var(--font-mono); font-size: var(--text-meta); color: var(--color-clay); }
+    .trk__body { margin-top: 0.6rem; color: var(--color-ink-2); font-size: 0.95rem; }
+    @media (max-width: 980px) { .tracks__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .tracks__grid { grid-template-columns: 1fr; } }
+
+    /* gallery */
+    .gal { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 13rem; gap: clamp(0.5rem, 1.2vw, 1rem); }
+    .gal__cell { position: relative; overflow: hidden; }
+    .gal__cell :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
+    .gal__cell:hover :global(img) { transform: scale(1.04); }
+    .gal__cap { position: absolute; left: 0; bottom: 0; padding: 0.55rem 0.75rem; color: var(--color-paper); background: linear-gradient(to top, rgba(20,17,14,0.8), transparent); width: 100%; }
+    @media (max-width: 720px) { .gal { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 11rem; } }
+    @media (max-width: 460px) { .gal { grid-template-columns: 1fr; grid-auto-rows: 14rem; } }
+
+    /* cta */
+    .cta-band { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-top: var(--rule-strong); padding-top: 2.5rem; }
+    .cta-band__text { font-size: clamp(1.6rem, 3.4vw, 2.6rem); max-width: 24ch; }
+  </style>
+</BaseLayout>

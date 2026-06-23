@@ -1,0 +1,451 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import BuildInquiryForm from "../components/BuildInquiryForm.astro";
+import {
+  DPW_CATALOG,
+  BUILD_SCHEDULE,
+  DPW_CREW_PERKS,
+  CONCESSIONS,
+} from "../data/site";
+
+import headerImg from "../assets/photos/build/skeleton.jpg";
+import gridA from "../assets/photos/build/frame-sky.jpg";
+import gridB from "../assets/photos/build/solar-pyramid.jpg";
+import gridC from "../assets/photos/build/mural-solar.jpg";
+import gridD from "../assets/photos/build/celebrate.jpg";
+
+const buildPhotos = [
+  { img: gridA, cap: "Frame against sky" },
+  { img: gridB, cap: "Solar pyramid" },
+  { img: gridC, cap: "Solar mural" },
+  { img: gridD, cap: "Topping out" },
+];
+---
+
+<BaseLayout
+  title="Build — Mars College 2027"
+  description="Build the 2027 Mars village. Rent materials through DPW, run a concession, or join the build crew."
+>
+  <PageHeader
+    index="01"
+    label="Build"
+    title="Raise a village. Then return it to desert."
+    lede="No permanent campus. Nov-Dec build. Jan-Mar season. April unbuild. We need hands."
+    image={headerImg}
+    imageAlt="The bare skeleton of a Mars College structure under construction in the desert"
+  />
+
+  <!-- DPW -->
+  <section class="u-section">
+    <div class="u-shell">
+      <Eyebrow index="01" label="Mars DPW — Department of Public Works" />
+      <div class="dpw__intro">
+        <h2 class="u-display dpw__lead">You don't own the village. You rent it.</h2>
+        <p class="dpw__body">
+          Camps rent power, shelter, water, and gear through DPW, then return it
+          at unbuild. Sign up and pay ahead; little money changes hands onsite.
+        </p>
+      </div>
+
+      <ul class="catalog">
+        {
+          DPW_CATALOG.map((cat) => (
+            <li class="catalog__group">
+              <h3 class="catalog__title">{cat.title}</h3>
+              <ul class="catalog__items">
+                {cat.items.map((it) => (
+                  <li class="catalog__item">{it}</li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Build photos -->
+  <section class="u-section--tight">
+    <div class="u-shell">
+      <ul class="bphotos">
+        {
+          buildPhotos.map((p) => (
+            <li class="bphotos__cell">
+              <div class="u-plate bphotos__plate">
+                <Image
+                  src={p.img}
+                  alt={p.cap}
+                  widths={[400, 700, 1000]}
+                  sizes="(max-width: 800px) 50vw, 25vw"
+                  format="webp"
+                  quality={68}
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="u-label bphotos__cap">{p.cap}</figcaption>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Schedule + crew -->
+  <section class="u-section is-night">
+    <div class="u-shell sched__grid">
+      <div class="sched">
+        <Eyebrow index="02" label="Build schedule" />
+        <ol class="sched__list">
+          {
+            BUILD_SCHEDULE.map((s) => (
+              <li class="sched__item">
+                <span class="sched__date">{s.date}</span>
+                <span class="sched__label">{s.label}</span>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="sched__warn u-label">
+          Pallet racks: Aug 1. Solar: Sep 1. Late grants can't beat lead times.
+        </p>
+      </div>
+
+      <aside class="crew">
+        <h3 class="crew__title u-display">Join the DPW crew</h3>
+        <p class="crew__body">
+          Build the amphitheater, pavilion, gallery, water, and power. Take it
+          down in spring. Housing, meals, and fee waiver included.
+        </p>
+        <ul class="crew__perks">
+          {DPW_CREW_PERKS.map((perk) => <li>{perk}</li>)}
+        </ul>
+        <p class="crew__deadline u-label">Crew applications close Oct 1.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Concessions -->
+  <section class="u-section">
+    <div class="u-shell">
+      <Eyebrow index="03" label="Concessions" />
+      <h2 class="conc__lead u-display">
+        Run a service Mars needs.
+      </h2>
+      <ul class="conc__list">
+        {CONCESSIONS.map((c) => <li class="conc__item">{c}</li>)}
+      </ul>
+      <p class="conc__note">
+        Some need a pickup truck or a house. Credits, grants, and
+        <a href="/thrive" class="conc__inline">micro-businesses</a> make the
+        season affordable.
+      </p>
+    </div>
+  </section>
+
+  <!-- Inquiry form -->
+  <section class="u-section is-night" id="inquire">
+    <div class="u-shell form__grid">
+      <div class="form__intro">
+        <Eyebrow index="04" label="Build inquiry" />
+        <h2 class="form__title u-display">Want to help build the next Mars?</h2>
+        <p class="form__body">
+          Tell us what you'll build, rent, or run. This opens a prefilled email.
+        </p>
+      </div>
+      <BuildInquiryForm />
+    </div>
+  </section>
+
+  <style>
+    .dpw__intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: end;
+      margin-bottom: 3rem;
+    }
+    .dpw__lead {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      max-width: 16ch;
+    }
+    .dpw__body {
+      color: var(--color-ink-2);
+      max-width: 50ch;
+    }
+    @media (max-width: 760px) {
+      .dpw__intro {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .catalog {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: var(--rule-strong);
+    }
+    .catalog__group {
+      padding: 1.75rem 1.5rem 1.75rem 0;
+      border-right: var(--rule);
+    }
+    .catalog__group:last-child {
+      border-right: 0;
+    }
+    .catalog__title {
+      font-family: var(--font-body);
+      font-size: var(--text-meta);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-clay);
+      margin-bottom: 1rem;
+    }
+    .catalog__items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .catalog__item {
+      font-size: var(--text-base);
+      color: var(--color-ink);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .catalog__item::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--color-rule);
+    }
+    @media (max-width: 760px) {
+      .catalog {
+        grid-template-columns: 1fr 1fr;
+      }
+      .catalog__group {
+        padding-right: 1rem;
+      }
+      .catalog__group:nth-child(2n) {
+        border-right: 0;
+      }
+      .catalog__group:nth-child(-n + 2) {
+        border-bottom: var(--rule);
+      }
+    }
+    @media (max-width: 460px) {
+      .catalog {
+        grid-template-columns: 1fr;
+      }
+      .catalog__group {
+        border-right: 0;
+        border-bottom: var(--rule);
+      }
+    }
+
+    /* build photos */
+    .bphotos {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(0.5rem, 1.2vw, 1rem);
+    }
+    .bphotos__plate {
+      aspect-ratio: 3 / 4;
+    }
+    .bphotos__plate img {
+      transition: transform 700ms var(--ease-out);
+    }
+    .bphotos__cell:hover .bphotos__plate img {
+      transform: scale(1.04);
+    }
+    .bphotos__cap {
+      margin-top: 0.6rem;
+    }
+    @media (max-width: 760px) {
+      .bphotos {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* schedule */
+    .sched__grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .sched__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: none;
+    }
+    .sched__item {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: 1rem;
+      padding: 0.95rem 0;
+      border-top: 1px solid var(--color-rule-night);
+      align-items: baseline;
+    }
+    .sched__item:last-child {
+      border-bottom: 1px solid var(--color-rule-night);
+    }
+    .sched__date {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-clay);
+    }
+    .sched__label {
+      font-size: var(--text-base);
+      color: var(--color-bone-on-night);
+    }
+    .sched__warn {
+      margin-top: 1.5rem;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      color: #9c8e76;
+      max-width: 48ch;
+      line-height: 1.5;
+    }
+    .crew {
+      border: 1px solid var(--color-rule-night);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+    .crew__title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--color-bone-on-night);
+    }
+    .crew__body {
+      margin-top: 1rem;
+      color: #cabda6;
+      max-width: 40ch;
+    }
+    .crew__perks {
+      list-style: none;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .crew__perks li {
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--color-bone-on-night);
+    }
+    .crew__perks li::before {
+      content: "+";
+      position: absolute;
+      left: 0;
+      color: var(--color-clay);
+      font-family: var(--font-mono);
+    }
+    .crew__deadline {
+      margin-top: 1.5rem;
+      color: var(--color-clay);
+    }
+    @media (max-width: 820px) {
+      .sched__grid {
+        grid-template-columns: 1fr;
+      }
+      .sched__item {
+        grid-template-columns: 7rem 1fr;
+      }
+    }
+
+    /* concessions */
+    .conc__lead {
+      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+      max-width: 22ch;
+      margin-bottom: 2rem;
+    }
+    .conc__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: var(--rule);
+    }
+    .conc__item {
+      padding: 0.9rem 0.5rem 0.9rem 0;
+      border-bottom: var(--rule);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-ink-2);
+    }
+    .conc__note {
+      margin-top: 1.75rem;
+      color: var(--color-ink-2);
+      max-width: 54ch;
+    }
+    .conc__inline {
+      color: var(--color-clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    @media (max-width: 700px) {
+      .conc__list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* form */
+    .form__grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .form__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 14ch;
+    }
+    .form__body {
+      margin-top: 1rem;
+      color: #cabda6;
+      max-width: 38ch;
+    }
+    /* dark-section form overrides */
+    #inquire :global(.biq__lab) {
+      color: #b7a98f;
+    }
+    #inquire :global(.biq input[type="text"]),
+    #inquire :global(.biq input[type="email"]) {
+      color: var(--color-bone-on-night);
+      border-bottom-color: var(--color-bone-on-night);
+    }
+    #inquire :global(.biq textarea) {
+      color: var(--color-bone-on-night);
+      border-color: var(--color-rule-night);
+    }
+    #inquire :global(.biq__chip) {
+      border-color: var(--color-rule-night);
+      color: var(--color-bone-on-night);
+    }
+    #inquire :global(.biq__chip:hover) {
+      border-color: var(--color-bone-on-night);
+    }
+    #inquire :global(.biq__note) {
+      color: #9c8e76;
+    }
+    @media (max-width: 820px) {
+      .form__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>

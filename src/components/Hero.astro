@@ -1,0 +1,208 @@
+---
+import { APPLY_URL, TIMELINE_MINI } from "../data/site";
+// Current live-site hero video mirrored locally while newer drone candidates
+// are reviewed. Muted autoplay loop with poster for instant LCP; reduced-motion
+// shows the poster only.
+---
+
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <video
+      class="hero__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/video/mars-current-hero-poster.webp"
+    >
+      <source src="/video/mars-current-hero-720.mp4" type="video/mp4" media="(max-width: 768px)" />
+      <source src="/video/mars-current-hero-1080.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="u-shell hero__content">
+    <h1 class="hero__title u-rise" style="animation-delay:80ms">
+      Off-grid college.<br />
+      <span class="hero__title-em">Built from scratch.</span>
+    </h1>
+
+    <p class="hero__lede u-rise" style="animation-delay:160ms">
+      Mars College is an off-grid pop-up college built literally from the ground
+      up every winter in the California desert.
+    </p>
+
+    <div class="hero__actions u-rise" style="animation-delay:240ms">
+      <a href={APPLY_URL} class="u-cta hero__cta">
+        Apply for 2027 <span aria-hidden="true">→</span>
+      </a>
+      <a href="#paths" class="u-link hero__what">
+        Explore 2027 <span class="u-arrow" aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__timeline u-rise" style="animation-delay:360ms">
+    <div class="u-shell hero__timeline-inner">
+      {
+        TIMELINE_MINI.map((t, i) => (
+          <div class="hero__tl-item">
+            <span class="hero__tl-date">{t.date}</span>
+            <span class="hero__tl-label">{t.label}</span>
+            {i < TIMELINE_MINI.length - 1 && (
+              <span class="hero__tl-sep" aria-hidden="true">→</span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: var(--color-night);
+    color: var(--color-bone-on-night);
+    overflow: hidden;
+    min-height: clamp(40rem, 94vh, 56rem);
+    display: flex;
+    flex-direction: column;
+  }
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    /* poster shows until/while video loads */
+    background: var(--color-night) url("/video/mars-current-hero-poster.webp") center 22% / cover no-repeat;
+  }
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        to top,
+        rgba(18, 15, 12, 0.62) 0%,
+        rgba(18, 15, 12, 0.42) 22%,
+        rgba(18, 15, 12, 0.12) 45%,
+        rgba(18, 15, 12, 0) 65%,
+        rgba(18, 15, 12, 0) 88%,
+        rgba(18, 15, 12, 0.2) 100%
+      );
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    /* content sits in the lower-left dark band; MARS letters read above it */
+    margin-top: auto;
+    padding-top: 1.5rem;
+    padding-bottom: clamp(2rem, 5vh, 3.5rem);
+    max-width: 58rem;
+  }
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(3rem, 7.5vw, 6.25rem);
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    margin-top: 1rem;
+    text-wrap: balance;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.6);
+  }
+  .hero__title-em {
+    color: var(--color-clay);
+  }
+  .hero__lede {
+    margin-top: 1.5rem;
+    max-width: 42ch;
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+    line-height: 1.5;
+    color: #efe6d4;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  }
+  .hero__actions {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero__what {
+    color: var(--color-bone-on-night);
+    border-color: var(--color-bone-on-night);
+  }
+  .hero__what:hover {
+    color: var(--color-clay);
+    border-color: var(--color-clay);
+  }
+  /* timeline strip pinned to bottom of hero */
+  .hero__timeline {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid var(--color-rule-night);
+    background: color-mix(in srgb, var(--color-night) 72%, transparent);
+    backdrop-filter: blur(4px);
+  }
+  .hero__timeline-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    padding-block: 1.15rem;
+  }
+  .hero__tl-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .hero__tl-date {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-clay);
+    letter-spacing: 0.01em;
+  }
+  .hero__tl-label {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: #d8ccb4;
+  }
+  .hero__tl-sep {
+    color: #6f6453;
+    margin-left: 0.6rem;
+  }
+  @media (max-width: 720px) {
+    .hero__tl-sep {
+      display: none;
+    }
+    .hero__tl-item {
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+  }
+  /* reduced motion: don't autoplay; the poster background remains */
+  @media (prefers-reduced-motion: reduce) {
+    .hero__video {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Honor reduced-motion at runtime: pause the looping video.
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document
+      .querySelectorAll<HTMLVideoElement>(".hero__video")
+      .forEach((v) => {
+        v.removeAttribute("autoplay");
+        v.pause();
+      });
+  }
+</script>

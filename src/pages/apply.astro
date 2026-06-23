@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const TALLY_FORM_ID = "ZjWDVv";
+---
+
+<BaseLayout
+  title="Apply for Mars College 2027"
+  description="Apply for Mars College, the off-grid pop-up college in the California desert."
+  noindex={true}
+>
+  <section class="u-section apply">
+    <div class="u-shell apply__shell">
+      <h1 class="apply__title u-display">Apply for 2027</h1>
+      <p class="apply__lede">
+        Mars College runs on rolling admissions. Tell us about you and what
+        you'd bring to the desert.
+      </p>
+
+      <div class="apply__form">
+        <iframe
+          data-tally-src={`https://tally.so/embed/${TALLY_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+          loading="lazy"
+          width="100%"
+          height="600"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Mars College 2027 application"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <script async src="https://tally.so/widgets/embed.js"></script>
+</BaseLayout>
+
+<style>
+  .apply {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+  }
+  .apply__shell {
+    max-width: 44rem;
+  }
+  .apply__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .apply__lede {
+    margin-top: 1.25rem;
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--color-ink-2);
+    max-width: 38ch;
+  }
+  .apply__form {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    border-top: var(--rule);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+  }
+</style>

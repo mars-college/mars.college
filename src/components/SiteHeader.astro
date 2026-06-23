@@ -1,0 +1,127 @@
+---
+import { Image } from "astro:assets";
+import { NAV, APPLY_URL } from "../data/site";
+import marsLogo from "../assets/brand/mars-logo.png";
+const path = Astro.url.pathname;
+---
+
+<header class="hdr">
+  <div class="u-shell hdr__inner">
+    <a href="/" class="hdr__brand" aria-label="Mars College — home">
+      <Image src={marsLogo} alt="" class="hdr__logo" width={64} height={64} loading="eager" />
+      <span class="hdr__word">Mars College</span>
+    </a>
+
+    <nav class="hdr__nav" aria-label="Primary">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class="hdr__link"
+            aria-current={path.startsWith(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={APPLY_URL} class="hdr__apply">Apply</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .hdr {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--color-paper) 86%, transparent);
+    backdrop-filter: saturate(1.1) blur(6px);
+    border-bottom: var(--rule);
+  }
+  .hdr__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 4.25rem;
+  }
+  .hdr__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .hdr__logo {
+    height: 2rem;
+    width: 2rem;
+    max-height: 2rem;
+    display: block;
+    object-fit: contain;
+  }
+  .hdr__word {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .hdr__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2rem);
+  }
+  .hdr__link {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-ink-2);
+    padding-block: 0.25rem;
+    border-bottom: 2px solid transparent;
+    transition: color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+  .hdr__link:hover {
+    color: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+  .hdr__link[aria-current="page"] {
+    color: var(--color-clay);
+    border-color: var(--color-clay);
+  }
+  .hdr__apply {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-paper);
+    background: var(--color-clay);
+    padding: 0.55rem 1.1rem;
+    border: 1.5px solid var(--color-clay);
+    transition: background var(--dur-fast) var(--ease-out);
+  }
+  .hdr__apply:hover {
+    background: var(--color-clay-deep);
+    border-color: var(--color-clay-deep);
+  }
+  @media (max-width: 640px) {
+    .hdr__nav {
+      gap: 0.9rem;
+    }
+    .hdr__word {
+      font-size: 1.05rem;
+    }
+    .hdr__logo {
+      height: 1.75rem;
+    }
+  }
+  @media (max-width: 430px) {
+    .hdr__link {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,711 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import {
+  BUILD_FAQ,
+  TALLY_BUILD_FORM_ID,
+  BUILD_SUBSTACK_URL,
+  APPLY_URL,
+} from "../data/site";
+
+// Hero — forklift + skeleton
+import hero from "../assets/photos/build-curated/005_2025_2026_pxl_20251112_235328377_bb796.jpg";
+
+// Timeline milestone photos
+import tNov from "../assets/photos/build-curated/006_2025_2026_img_4779_a826a.jpg";
+import tDec from "../assets/photos/build-curated/043_2025_2026_84e299b5_828c_4af6_98e0_7c33283dd54a_a1ef4.jpg";
+import tJan from "../assets/photos/build-curated/041_2026_20260130_170446_06ab8.jpg";
+import tMar from "../assets/photos/build/celebrate.jpg";
+import tApr from "../assets/photos/aerial-3.jpg";
+
+// First Camp + footer photo strip
+import firstCamp from "../assets/photos/build-curated/018_2026_img_0719_447b0f6a4a91d505.jpg";
+import strip1 from "../assets/photos/build-curated/035_2025_2026_rn_image_picker_lib_temp_b98e501f_86f0_478_dc559.jpg";
+import strip2 from "../assets/photos/build-curated/046_2025_img_8471_9edae.jpg";
+import strip3 from "../assets/photos/build-curated/047_2026_img_1144_2f1d9.jpg";
+import strip4 from "../assets/photos/build-curated/004_2025_2026_pxl_20251112_235256510_f02f7.jpg";
+import strip5 from "../assets/photos/build-curated/009_2026_img_3344_fdd4a.jpg";
+import strip6 from "../assets/photos/build-curated/021_2025_2026_img_20251116_161732_63192.jpg";
+
+// Timeline — each entry: date, label, sub, optional photo
+const TIMELINE = [
+  { date: "Aug 1", label: "Pallet rack orders placed", sub: "DPW orders the year's racks. Late means no rack." },
+  { date: "Sep 1", label: "Solar orders placed", sub: "Panels, batteries, controllers, wiring." },
+  { date: "Oct 1", label: "DPW crew applications close", sub: "Hard deadline. Crew needs to be confirmed before build starts.", img: tNov, imgAlt: "Pallet rack frame against a blue sky" },
+  { date: "Nov 1", label: "Placement deadline", sub: "Camps and structures needing a spot on the urban plan." },
+  { date: "Nov 2", label: "Build begins", sub: "Civic infrastructure first. The skeleton goes up.", img: tDec, imgAlt: "Forklift raising workers to attach roof beams" },
+  { date: "Dec 1", label: "Grants close", sub: "Many issued as DPW credits — late grants can't beat lead times." },
+  { date: "Jan 1", label: "Public infrastructure done", sub: "Mars begins the first Monday of January." },
+  { date: "Jan 4", label: "Build Week", sub: "All-hands dressing the standing skeletons.", img: tJan, imgAlt: "Two people sitting under the finished pallet rack structure at golden hour" },
+  { date: "Jan 8", label: "Final material delivery", sub: "Last DPW shipment hits the desert." },
+  { date: "Jan 11", label: "Ideas Week", sub: "Lightning Talks. The cohort meets itself." },
+  { date: "Feb 20", label: "Mid-terms", sub: "Full moon. Lunar eclipse." },
+  { date: "Mar 26-28", label: "Mars Electronica", sub: "End-of-season exhibition and festival.", img: tMar, imgAlt: "Two figures with arms raised at sunset on the playa" },
+  { date: "Mar 29", label: "Unbuild begins", sub: "Camp wifi comes down. Center camp still active." },
+  { date: "Apr 5", label: "DPW breakdown", sub: "Structures struck, inventoried, stored." },
+  { date: "May 1", label: "Desert returns", sub: "Land left as we found it.", img: tApr, imgAlt: "Aerial of a single structure alone on the empty Salton Sea salt flats" },
+];
+
+const STATS = [
+  { num: "8 yrs", label: "Mars seasons" },
+  { num: "~20 ac", label: "Off-grid desert" },
+  { num: "-60 ft", label: "Salton Sea elevation" },
+  { num: "80 ft", label: "Pavilion diameter" },
+  { num: "6 hrs", label: "DPW day during build" },
+  { num: "~$500", label: "Treasury fee waived for crew" },
+];
+
+const TRACKS = [
+  {
+    title: "DPW crew",
+    when: "Apply by Oct 1, 2026",
+    body: "Build (Nov–Dec), maintain (Jan–Mar), strike (Mar–Apr). Housing, fee waived, meal plan.",
+  },
+  {
+    title: "Concession operator",
+    when: "Inquire any time",
+    body: "Run a service Mars needs — fridge, ice, water, solar, food co-op, EUC repair, dump runs. Vendor channel through DPW.",
+  },
+  {
+    title: "Grant applicant",
+    when: "Open July → Dec 1, 2026",
+    body: "Gallery, bakery, kiln, tool library, large-scale art. Issued as DPW credits, spendable on materials and services.",
+  },
+  {
+    title: "First Camp build-track",
+    when: "Arrive late December",
+    body: "New to Mars. Enter through the build. Earn your season through infrastructure work. Lighter academic load.",
+  },
+];
+---
+
+<BaseLayout
+  title="Field Manual — Build · Mars College 2027"
+  description="A field manual for Mars College Build 2027. Eight-month timeline, four entry tracks, what gets built, and how to come help."
+>
+  <!-- ============= HERO ============= -->
+  <section class="hero4">
+    <div class="hero4__bg" aria-hidden="true">
+      <Image
+        src={hero}
+        alt="A forklift parked next to a tall pallet-rack skeleton at golden hour, mountains behind"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        format="webp"
+        quality={72}
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero4__scrim"></div>
+    </div>
+    <div class="u-shell hero4__content">
+      <p class="u-eyebrow hero4__eyebrow">
+        <span class="u-index">FIELD MANUAL</span>
+        <span class="u-label">Build · Season 8 · 2027</span>
+      </p>
+      <h1 class="hero4__title u-display u-rise">
+        Eight months.<br />
+        <span class="hero4__title-em">From playa to village to playa.</span>
+      </h1>
+      <p class="hero4__lede u-rise" style="animation-delay:120ms">
+        Mars College builds an off-grid pop-up college from the ground up each
+        winter and takes it apart each spring. Here is the timeline, the work,
+        the tracks in, and the form.
+      </p>
+      <div class="hero4__actions u-rise" style="animation-delay:200ms">
+        <a href="#timeline" class="u-link hero4__look">Read the timeline <span class="u-arrow" aria-hidden="true">↓</span></a>
+        <a href="#inquire" class="u-cta">Apply to build <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= STATS ============= -->
+  <section class="u-section--tight stats4">
+    <div class="u-shell">
+      <ul class="stats4__list">
+        {
+          STATS.map((s) => (
+            <li class="stats4__item">
+              <span class="stats4__num u-display">{s.num}</span>
+              <span class="stats4__label u-label">{s.label}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============= TIMELINE — THE SPINE ============= -->
+  <section id="timeline" class="u-section is-night timeline4">
+    <div class="u-shell timeline4__head">
+      <Eyebrow index="01" label="The spine" />
+      <h2 class="timeline4__title u-display">
+        From August order deadlines to May 1 strike-out.
+      </h2>
+      <p class="timeline4__lede">
+        Every season runs to the same calendar. Material orders precede crew
+        applications precede placement precede build. Late means no rack.
+      </p>
+    </div>
+    <div class="u-shell">
+      <ol class="tl4__list">
+        {
+          TIMELINE.map((t, i) => (
+            <li class="tl4__row">
+              <div class="tl4__main">
+                <span class="tl4__index u-index">{String(i + 1).padStart(2, "0")}</span>
+                <span class="tl4__date">{t.date}</span>
+                <span class="tl4__label">{t.label}</span>
+                <span class="tl4__sub">{t.sub}</span>
+              </div>
+              {
+                t.img && (
+                  <figure class="u-plate tl4__media">
+                    <Image
+                      src={t.img}
+                      alt={t.imgAlt}
+                      widths={[300, 500, 700]}
+                      sizes="(max-width: 800px) 100vw, 22vw"
+                      format="webp"
+                      quality={68}
+                      loading="lazy"
+                    />
+                  </figure>
+                )
+              }
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============= TRACKS ============= -->
+  <section class="u-section tracks4">
+    <div class="u-shell">
+      <Eyebrow index="02" label="Four ways in" />
+      <h2 class="tracks4__title u-display">
+        Pick a track. Each one earns its way differently.
+      </h2>
+      <ul class="tracks4__grid">
+        {
+          TRACKS.map((t, i) => (
+            <li class="track">
+              <p class="track__meta">
+                <span class="u-index">{String(i + 1).padStart(2, "0")}</span>
+                <span class="u-label u-label--clay">{t.when}</span>
+              </p>
+              <h3 class="track__title">{t.title}</h3>
+              <p class="track__body">{t.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============= FIRST CAMP ============= -->
+  <section class="u-section is-night firstcamp">
+    <div class="u-shell firstcamp__grid">
+      <figure class="u-plate firstcamp__media">
+        <Image
+          src={firstCamp}
+          alt="A small modular pallet-rack housing pod with plywood walls and a ladder, isolated on the desert at twilight"
+          widths={[500, 900, 1300]}
+          sizes="(max-width: 800px) 100vw, 50vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+        />
+      </figure>
+      <div class="firstcamp__text">
+        <Eyebrow index="03" label="First Camp · Build-track" />
+        <h2 class="firstcamp__title u-display">
+          Never been to Mars? Enter through the build.
+        </h2>
+        <p class="firstcamp__body">
+          First Camp is the new structured co-op for first-year Martians, led
+          by Freeman. Two arrival tracks:
+        </p>
+        <ul class="firstcamp__tracks">
+          <li>
+            <span class="u-label u-label--clay">Build-track</span>
+            <p>Arrive late December. Help build the infrastructure. Earn your season through that work. Lighter academic load.</p>
+          </li>
+          <li>
+            <span class="u-label u-label--clay">AI-track</span>
+            <p>Arrive Jan 5. Fly into a ready camp. Full academic / programming participation required.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= PHOTO STRIP ============= -->
+  <section class="u-section--tight strip">
+    <div class="u-shell strip__head">
+      <Eyebrow index="04" label="Field notes" />
+    </div>
+    <div class="strip__row">
+      {
+        [strip1, strip2, strip3, strip4, strip5, strip6].map((img, i) => (
+          <figure class="u-plate strip__cell">
+            <Image
+              src={img}
+              alt={`Build moment ${i + 1}`}
+              widths={[300, 500, 800]}
+              sizes="(max-width: 700px) 50vw, 18vw"
+              format="webp"
+              quality={66}
+              loading="lazy"
+            />
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section class="u-section faq4">
+    <div class="u-shell">
+      <Eyebrow index="05" label="Frequently asked" />
+      <ul class="faq4__list">
+        {
+          BUILD_FAQ.map((item, i) => (
+            <li class="faq4__item">
+              <details>
+                <summary>
+                  <span class="u-index">Q{String(i + 1).padStart(2, "0")}</span>
+                  <span class="faq4__q">{item.q}</span>
+                  <span class="faq4__chevron" aria-hidden="true">+</span>
+                </summary>
+                <p class="faq4__a">{item.a}</p>
+              </details>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============= INQUIRY ============= -->
+  <section id="inquire" class="u-section is-night inquire4">
+    <div class="u-shell inquire4__shell">
+      <Eyebrow index="06" label="Apply to build" />
+      <h2 class="inquire4__title u-display">
+        Sign in. Tell us what you'll bring.
+      </h2>
+      <p class="inquire4__body">
+        For build crew, strike crew, or DPW concessions. For full operational
+        depth — material catalog, deadlines, architecture, economics — read
+        the <a href={BUILD_SUBSTACK_URL} class="u-link inquire4__link">DPW deep dive
+          <span class="u-arrow" aria-hidden="true">→</span></a>
+      </p>
+
+      <div class="inquire4__form">
+        {
+          TALLY_BUILD_FORM_ID ? (
+            <iframe
+              data-tally-src={`https://tally.so/embed/${TALLY_BUILD_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              loading="lazy"
+              width="100%"
+              height="640"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Mars DPW build inquiry"
+            />
+          ) : (
+            <div class="inquire4__placeholder">
+              <p class="u-label u-label--clay">Form coming soon</p>
+              <p>
+                Email <a href="mailto:info@mars.college" class="inquire4__email">info@mars.college</a>
+                with subject "DPW 2027" — phase(s), what you'd bring, prior Mars
+                seasons.
+              </p>
+              <a href={APPLY_URL} class="u-cta inquire4__fallback">
+                Or apply to Mars College <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </section>
+
+  <style>
+    /* ---- hero ---- */
+    .hero4 {
+      position: relative;
+      background: var(--color-night);
+      color: var(--color-bone-on-night);
+      overflow: hidden;
+      isolation: isolate;
+      min-height: clamp(34rem, 80vh, 48rem);
+      display: flex;
+      flex-direction: column;
+    }
+    .hero4__bg { position: absolute; inset: 0; z-index: 0; }
+    .hero4__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+    .hero4__scrim {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(18, 15, 12, 0.95) 0%,
+          rgba(18, 15, 12, 0.65) 40%,
+          rgba(18, 15, 12, 0.25) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(18, 15, 12, 0.6) 0%,
+          rgba(18, 15, 12, 0.1) 60%,
+          rgba(18, 15, 12, 0) 100%
+        );
+    }
+    .hero4__content {
+      position: relative; z-index: 2;
+      margin-top: auto;
+      padding-block: clamp(2rem, 5vh, 3rem);
+      max-width: 60rem;
+    }
+    .hero4__eyebrow { color: var(--color-bone-on-night); }
+    .hero4__eyebrow::after { background: var(--color-rule-night); }
+    .hero4__eyebrow .u-label { color: #c8b89b; }
+    .hero4__eyebrow .u-index {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--color-clay);
+      color: var(--color-clay);
+    }
+    .hero4__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+      text-shadow: 0 2px 28px rgba(18, 15, 12, 0.75);
+    }
+    .hero4__title-em { color: var(--color-clay); }
+    .hero4__lede {
+      margin-top: 1.5rem;
+      max-width: 50ch;
+      font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+      line-height: 1.5;
+      color: #efe6d4;
+    }
+    .hero4__actions {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .hero4__look {
+      color: var(--color-bone-on-night);
+      border-color: var(--color-bone-on-night);
+    }
+
+    /* ---- stats ---- */
+    .stats4__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border-top: var(--rule);
+      border-bottom: var(--rule);
+    }
+    .stats4__item {
+      padding: 1.25rem 0.5rem;
+      border-right: var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .stats4__item:last-child { border-right: 0; }
+    .stats4__num {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      color: var(--color-clay);
+      line-height: 1;
+    }
+    .stats4__label {
+      color: var(--color-ink-3);
+    }
+    @media (max-width: 820px) {
+      .stats4__list { grid-template-columns: repeat(3, 1fr); }
+      .stats4__item:nth-child(3n) { border-right: 0; }
+      .stats4__item:nth-child(-n+3) { border-bottom: var(--rule); }
+    }
+    @media (max-width: 480px) {
+      .stats4__list { grid-template-columns: 1fr 1fr; }
+      .stats4__item:nth-child(3n) { border-right: var(--rule); }
+      .stats4__item:nth-child(2n) { border-right: 0; }
+      .stats4__item:nth-child(-n+4) { border-bottom: var(--rule); }
+    }
+
+    /* ---- timeline ---- */
+    .timeline4__head { max-width: 60rem; margin-bottom: 2.5rem; }
+    .timeline4__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      max-width: 22ch;
+      color: var(--color-bone-on-night);
+    }
+    .timeline4__lede {
+      margin-top: 1.25rem;
+      color: #cabda6;
+      font-size: var(--text-lg);
+      line-height: 1.55;
+      max-width: 58ch;
+    }
+    .tl4__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--color-rule-night);
+    }
+    .tl4__row {
+      display: grid;
+      grid-template-columns: 1fr 14rem;
+      gap: 2rem;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--color-rule-night);
+    }
+    .tl4__main {
+      display: grid;
+      grid-template-columns: 3rem 9rem 1fr;
+      gap: 1.25rem;
+      align-items: baseline;
+    }
+    .tl4__index {
+      color: #b7a98f;
+    }
+    .tl4__date {
+      font-family: var(--font-mono);
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--color-clay);
+    }
+    .tl4__label {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      letter-spacing: -0.02em;
+      color: var(--color-bone-on-night);
+    }
+    .tl4__sub {
+      grid-column: 2 / -1;
+      margin-top: 0.25rem;
+      font-size: var(--text-sm);
+      color: #b7a98f;
+      max-width: 56ch;
+    }
+    .tl4__media {
+      aspect-ratio: 4 / 3;
+    }
+    @media (max-width: 820px) {
+      .tl4__row { grid-template-columns: 1fr; }
+      .tl4__main { grid-template-columns: 2.5rem 7rem 1fr; }
+      .tl4__media { aspect-ratio: 16 / 10; max-height: 14rem; }
+    }
+    @media (max-width: 520px) {
+      .tl4__main { grid-template-columns: 1fr; }
+      .tl4__sub { grid-column: 1 / -1; }
+    }
+
+    /* ---- tracks ---- */
+    .tracks4__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      max-width: 22ch;
+      margin-bottom: 2.5rem;
+    }
+    .tracks4__grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: var(--rule);
+      border-left: var(--rule);
+    }
+    .track {
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      border-right: var(--rule);
+      border-bottom: var(--rule);
+    }
+    .track__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .track__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    .track__body {
+      margin-top: 0.75rem;
+      color: var(--color-ink-2);
+      max-width: 46ch;
+    }
+    @media (max-width: 640px) {
+      .tracks4__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- first camp ---- */
+    .firstcamp__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .firstcamp__media { aspect-ratio: 5 / 4; }
+    .firstcamp__title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 22ch;
+    }
+    .firstcamp__body {
+      margin-top: 1.25rem;
+      color: #cabda6;
+      max-width: 54ch;
+      font-size: var(--text-lg);
+      line-height: 1.55;
+    }
+    .firstcamp__tracks {
+      list-style: none;
+      margin: 1.75rem 0 0;
+      padding: 0;
+    }
+    .firstcamp__tracks li {
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--color-rule-night);
+    }
+    .firstcamp__tracks li:last-child {
+      border-bottom: 1px solid var(--color-rule-night);
+    }
+    .firstcamp__tracks p {
+      margin-top: 0.5rem;
+      color: var(--color-bone-on-night);
+      max-width: 50ch;
+    }
+    @media (max-width: 820px) {
+      .firstcamp__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- photo strip ---- */
+    .strip__head { margin-bottom: 1rem; }
+    .strip__row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+    }
+    .strip__cell {
+      aspect-ratio: 3 / 4;
+    }
+    .strip__cell :global(img) {
+      transition: transform 700ms var(--ease-out);
+    }
+    .strip__cell:hover :global(img) {
+      transform: scale(1.06);
+    }
+    @media (max-width: 820px) {
+      .strip__row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .strip__row { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ---- faq ---- */
+    .faq4__list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      border-top: var(--rule);
+    }
+    .faq4__item details { border-bottom: var(--rule); }
+    .faq4__item summary {
+      display: grid;
+      grid-template-columns: 3rem 1fr 2rem;
+      gap: 1rem;
+      align-items: baseline;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq4__item summary::-webkit-details-marker { display: none; }
+    .faq4__q {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+    .faq4__chevron {
+      justify-self: end;
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      color: var(--color-clay);
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .faq4__item details[open] .faq4__chevron { transform: rotate(45deg); }
+    .faq4__a {
+      padding: 0 2rem 1.5rem 4rem;
+      color: var(--color-ink-2);
+      max-width: 64ch;
+      line-height: 1.55;
+    }
+
+    /* ---- inquire ---- */
+    .inquire4__shell { max-width: 56rem; }
+    .inquire4__title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-bone-on-night);
+      max-width: 20ch;
+    }
+    .inquire4__body {
+      margin-top: 1.5rem;
+      color: #cabda6;
+      max-width: 56ch;
+      font-size: var(--text-lg);
+      line-height: 1.5;
+    }
+    .inquire4__link {
+      color: var(--color-bone-on-night);
+      border-color: var(--color-bone-on-night);
+    }
+    .inquire4__form {
+      margin-top: 2.5rem;
+    }
+    .inquire4__form iframe {
+      background: var(--color-bone-on-night);
+    }
+    .inquire4__placeholder {
+      border: 1px solid var(--color-rule-night);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--color-bone-on-night);
+    }
+    .inquire4__placeholder p:not(.u-label) {
+      margin-top: 0.75rem;
+      color: #cabda6;
+    }
+    .inquire4__email {
+      color: var(--color-clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .inquire4__fallback { margin-top: 1.5rem; }
+  </style>
+</BaseLayout>
