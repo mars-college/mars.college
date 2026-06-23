@@ -49,7 +49,6 @@ export const AI_PROGRAM_BENEFITS = [
   "Compute grant on Eden.art.",
   "Access to Chiba space — screens, projection, materials budget.",
   "Limited housing inside the AI camp pallet-rack quarters.",
-  "Eligibility for the AI Camp Living Co-Op.",
 ];
 
 // ─────────────────────────────────────────────────────────────
