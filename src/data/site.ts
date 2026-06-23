@@ -9,8 +9,9 @@ export const EMAIL = "info@mars.college";
 export const TALLY_APPLY_FORM_ID = "ZjWDVv"; // matches mars.college/apply
 // Build/DPW inquiry form at https://tally.so/forms/xXgvOk/edit
 export const TALLY_BUILD_FORM_ID = "xXgvOk";
-// Off-Grid AI online cohort signup — paste the Tally form id once the form ships.
-export const TALLY_OFFGRID_FORM_ID = "";
+// Off-Grid AI online cohort signup. Currently pointed at the Mars College 2027
+// Application form (same as apply). Swap to a dedicated form id when one ships.
+export const TALLY_OFFGRID_FORM_ID = "ZjWDVv";
 
 // Substack post URL for the build deep-dive (TBD — published)
 export const BUILD_SUBSTACK_URL = "https://marscollege.substack.com/";
