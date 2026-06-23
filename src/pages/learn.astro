@@ -12,7 +12,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Eyebrow from "../components/Eyebrow.astro";
 import {
-  AI_PROGRAM_LOCK_NOTE,
   AI_PROGRAM_REQUIREMENTS,
   AI_PROGRAM_BENEFITS,
 } from "../data/learn-program";
@@ -73,7 +72,7 @@ const OFF_GRID_AI_TIMELINE = [
 ];
 
 const MARS_COLLEGE_TIMELINE = [
-  { date: "Nov – Dec", label: "Build the village" },
+  { date: "Nov – Dec", label: "Build the village", href: "/build" },
   { date: "Jan 4", label: "Mars College begins" },
   { date: "Jan 11 – 17", label: "Ideas Week" },
   { date: "Wed nights", label: "Thunder Talks · weekly" },
@@ -87,7 +86,7 @@ const MARS_COLLEGE_TIMELINE = [
 const PILLARS = [
   {
     n: "01",
-    title: "Uncollege",
+    title: "An uncollege",
     body: "A self-organizing semester on an open calendar. Anyone in the cohort can propose and teach, and the curriculum is built each year out of what shows up.",
     img: pillarUnconf,
     alt: "Mars cohort in the dark Chiba hangar watching a projected class",
@@ -101,7 +100,7 @@ const PILLARS = [
   },
   {
     n: "03",
-    title: "Off-Grid AI",
+    title: "Learning off-grid AI",
     body: "A program in self-aligned AI agents for art, knowledge, productivity, and commerce. Participants present final work at the AI Film Festival and Mars Electronica.",
     img: pillarAI,
     alt: "Marzipan teaching AI art at Mars — Burroughs Quotes screen with AI-generated mandala imagery",
@@ -298,7 +297,11 @@ const GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
             {MARS_COLLEGE_TIMELINE.map((t) => (
               <li class="ptl__item">
                 <span class="ptl__date">{t.date}</span>
-                <span class="ptl__label">{t.label}</span>
+                {t.href ? (
+                  <a href={t.href} class="ptl__label ptl__label--link">{t.label}</a>
+                ) : (
+                  <span class="ptl__label">{t.label}</span>
+                )}
               </li>
             ))}
           </ol>
@@ -351,12 +354,14 @@ const GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
       <Eyebrow index="04" label="Off-Grid AI" />
       <h2 class="ai__lead u-display">Outsmart the superintelligence.</h2>
       <div class="ai__intro u-measure">
-        <p>
+        <p set:html={`
           The year is 2033. Superintelligence has taken hold of the economy.
-          Unemployment is at 90%. Bay Area rent is $50,000 a month. Sound crazy?
-          It's the future every frontier-AI CEO is openly predicting, and the
-          future we've been preparing for since we started Mars College.
-        </p>
+          <a href="https://www.entrepreneur.com/business-news/ai-could-lead-to-mass-joblessness-within-the-next-5-years/496742" target="_blank" rel="noopener">Unemployment is at 90%</a>.
+          <a href="https://www.inc.com/moses-jeanfrancois/san-francisco-rents-rose-by-22-percent-even-some-tech-workers-blaming-ai-boom/91351374" target="_blank" rel="noopener">Bay Area rent is $50,000 a month</a>. Sound crazy?
+          It's the future
+          <a href="https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/" target="_blank" rel="noopener">every frontier-AI CEO is openly predicting</a>, and the
+          future <a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">we've been preparing for</a> since we started Mars College.
+        `}></p>
         <p>
           Here are the four things every Off-Grid AI student learns to do.
         </p>
@@ -374,21 +379,22 @@ const GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
         ))}
       </ol>
 
-      <div class="ai__split">
-        <div>
-          <p class="u-label u-label--clay">Requirements</p>
-          <ul>{AI_PROGRAM_REQUIREMENTS.map((r) => <li>{r}</li>)}</ul>
-        </div>
-        <div>
-          <p class="u-label u-label--clay">Comes with</p>
-          <ul>{AI_PROGRAM_BENEFITS.map((b) => <li>{b}</li>)}</ul>
-        </div>
+      <div class="ai__quotes">
+        <figure class="ai__quote">
+          <blockquote>"I think that AI will probably, most likely, sort of lead to the end of the world."</blockquote>
+          <figcaption>
+            — Sam Altman,
+            <a href="https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise" target="_blank" rel="noopener">SIEPR / Stanford</a>
+          </figcaption>
+        </figure>
+        <figure class="ai__quote">
+          <blockquote>"There's a 25% chance that things go really, really badly."</blockquote>
+          <figcaption>
+            — Dario Amodei,
+            <a href="https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent" target="_blank" rel="noopener">Axios</a>
+          </figcaption>
+        </figure>
       </div>
-
-      <p class="ai__note">
-        <span class="u-label u-label--clay">Note</span>
-        {AI_PROGRAM_LOCK_NOTE}
-      </p>
 
       <figure class="ai__feature">
         <video
@@ -412,6 +418,17 @@ const GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
       <p class="opencal__intro u-measure">
         Past terms have held creative AI, agentic coding, AI film, music theory, live coding, ceramics and clay, breadmaking, fermentation, the writers' workshop, screenwriting, yoga, Thai bodywork, acroyoga, contact improv, geometry, philosophy, solar literacy, vanlife skills, 3D printing, digital architecture, foraging, and desert ecology — and whatever else a Martian wants to teach gets added to the calendar.
       </p>
+
+      <div class="opencal__split">
+        <div>
+          <p class="u-label u-label--clay">Requirements</p>
+          <ul class="opencal__list">{AI_PROGRAM_REQUIREMENTS.map((r) => <li>{r}</li>)}</ul>
+        </div>
+        <div>
+          <p class="u-label u-label--clay">Comes with</p>
+          <ul class="opencal__list">{AI_PROGRAM_BENEFITS.map((b) => <li>{b}</li>)}</ul>
+        </div>
+      </div>
 
       <ul class="opencal__grid">
         {OPEN_CAL_PHOTOS.map((p, i) => (
@@ -624,18 +641,28 @@ const GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
     .ai__topic { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: var(--rule); align-items: baseline; }
     .ai__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
     .ai__body { margin-top: 0.3rem; color: var(--color-ink-2); max-width: 52ch; }
-    .ai__split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); margin-top: 2rem; }
-    .ai__split ul { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
-    .ai__split ul li { padding-left: 1.1rem; position: relative; color: var(--color-ink); }
-    .ai__split ul li::before { content: "→"; position: absolute; left: 0; color: var(--color-clay); }
-    .ai__note { margin-top: 2rem; border-left: 2px solid var(--color-clay); padding: 0.25rem 0 0.25rem 1.25rem; max-width: 60ch; font-size: var(--text-lg); }
-    .ai__note .u-label { display: block; margin-bottom: 0.4rem; }
-    @media (max-width: 640px) { .ai__split { grid-template-columns: 1fr; } .ai__topic { grid-template-columns: 1fr; } }
+    .ai__intro a { color: var(--color-clay-deep); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 50%, transparent); padding-bottom: 1px; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .ai__intro a:hover { color: var(--color-clay); border-color: var(--color-clay); }
+    .ai__quotes { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
+    .ai__quote { margin: 0; padding: 0.25rem 0 0.25rem 1.25rem; border-left: 2px solid var(--color-clay); max-width: 48ch; }
+    .ai__quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.35; color: var(--color-ink); letter-spacing: -0.01em; }
+    .ai__quote figcaption { margin-top: 0.75rem; font-size: var(--text-meta); letter-spacing: 0.06em; color: var(--color-ink-3); }
+    .ai__quote figcaption a { color: var(--color-clay); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 50%, transparent); padding-bottom: 1px; }
+    .ai__quote figcaption a:hover { color: var(--color-clay-deep); border-color: var(--color-clay-deep); }
+    @media (max-width: 720px) { .ai__quotes { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .ai__topic { grid-template-columns: 1fr; } }
+    .ptl__label--link { color: var(--color-ink); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 60%, transparent); padding-bottom: 1px; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .ptl__label--link:hover { color: var(--color-clay); border-color: var(--color-clay); }
 
 
     /* ─── opencal ─── */
     .opencal__lead { font-size: var(--text-3xl); max-width: 16ch; }
     .opencal__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2.5rem; font-size: var(--text-lg); line-height: 1.55; max-width: 70ch; }
+    .opencal__split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: var(--rule); }
+    .opencal__list { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
+    .opencal__list li { padding-left: 1.1rem; position: relative; color: var(--color-ink); }
+    .opencal__list li::before { content: "→"; position: absolute; left: 0; color: var(--color-clay); }
+    @media (max-width: 640px) { .opencal__split { grid-template-columns: 1fr; gap: 1.5rem; } }
     .opencal__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
     .opencal__cell { position: relative; aspect-ratio: 4 / 3; cursor: zoom-in; border: 0; padding: 0; background: var(--color-paper-2); overflow: hidden; display: block; width: 100%; }
     .opencal__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
