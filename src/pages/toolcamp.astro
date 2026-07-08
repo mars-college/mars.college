@@ -1,0 +1,659 @@
+---
+// /toolcamp — Tool Camp, Mars College's makerspace.
+// Sections below the header copy the camp lead's mockup at
+// https://toolcamp.lovable.app/ : DM Serif Display headings + Space Grotesk
+// body, bone / dust sections, a 12-col heading-left / prose-right grid, rust &
+// ochre section numbers, and a large photograph directly below every content
+// section (Overview → 3D printer, What we do → racks, Applying → ceramics,
+// etc.). The restrained PageHeader and the Mars header/footer are kept from the
+// Mars 2027 system. All photography is pulled from the mockup.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { EMAIL, APPLY_URL } from "../data/site";
+
+// Header + per-section images (from the mockup, in the mockup's placement).
+import heroImg from "../assets/photos/toolcamp/tool-camp-hero-sunset.jpg";
+import printerImg from "../assets/photos/toolcamp/workshop-3d-printer.jpg"; // Overview
+import racksImg from "../assets/photos/toolcamp/tool-camp-racks.png"; // What we do
+import ceramicsImg from "../assets/photos/toolcamp/tool-camp-ceramics-2.jpg"; // Applying
+import muralImg from "../assets/photos/toolcamp/tool-camp-mural.png"; // Who we're looking for
+import shopDuskImg from "../assets/photos/toolcamp/applying-workshop.png"; // Facilities
+import shopInteriorImg from "../assets/photos/toolcamp/tool-camp-workshop-interior.png"; // Facilities
+import cartImg from "../assets/photos/toolcamp/tool-camp-cart.png"; // Food & housing
+import sunsetImg from "../assets/photos/toolcamp/snapshot-3.png"; // Cost
+import seasonImg from "../assets/photos/toolcamp/snapshot-5.png"; // Season
+
+// Snapshot gallery — glob every snapshot-* and sort numerically.
+const snapModules = import.meta.glob(
+  "../assets/photos/toolcamp/snapshot-*.{jpg,png}",
+  { eager: true, import: "default" }
+);
+const snapNum = (p) => parseInt(p.match(/snapshot-(\d+)/)[1], 10);
+const SNAP_ALTS = {
+  1: "Building the workshop frame in the desert",
+  2: "Night work under a red headlamp glow",
+  3: "The camp gathered around a dome frame at sunset",
+  4: "Sealing a window into a plywood wall with a drill",
+  5: "Weaving on a large loom at sunset",
+  6: "Residents raising the pallet-rack workshop frame at dusk",
+  7: "Camp and mountains in the evening light",
+  8: "A deployable structure lit blue and pink against the night",
+  10: "A ceramic vessel cooling in campfire coals",
+  11: "Two residents tinkering with a 3D printer in the workshop",
+  12: "A rocket contrail swirl over the desert at dusk",
+  13: "Grilling dinner under a fiery sunset sky",
+  14: "A geometric wooden sculpture beneath a desert rainbow",
+  15: "Pouring molten metal at an outdoor foundry",
+  16: "The camp gathered in a circle for a meeting",
+  17: "Throwing pottery on a wheel with mountains behind",
+  18: "Greenware drying on the shelves of the ceramics studio",
+  19: "The workshop lit blue against the night sky",
+  20: "Standing beside a glowing kiln inside the workshop at night",
+  22: "A blue flame rising from a small furnace on the workshop floor",
+};
+const SNAPS = Object.entries(snapModules)
+  .map(([path, img]) => {
+    const n = snapNum(path);
+    return { n, img, alt: SNAP_ALTS[n] ?? "Tool Camp, past seasons" };
+  })
+  .sort((a, b) => a.n - b.n);
+
+// Quick facts — mockup had five; "Location · Bombay Beach, CA" removed.
+const FACTS = [
+  { k: "Dates", v: "Jan 4 – Apr 4, 2027" },
+  { k: "Cohort", v: "20 residents" },
+  { k: "Duration", v: "3 months" },
+  { k: "Cost", v: "$1,000 – 1,500" },
+];
+
+const PROJECTS = [
+  "Building & maintaining a solar microgrid",
+  "Rainwater collection",
+  "Rainwater & solar-powered showers",
+  "IBC waste-water biofiltration",
+  "Large-scale earthen 3D printing",
+  "Ceramics / rocket kilns",
+  "Waste biomass gasification",
+  "Wind turbines",
+  "Concentrating solar power",
+  "Hydroponic food production",
+  "Mars rovers",
+  "Robotics",
+  "Decentralized internet & comms",
+  "Biome automation",
+  "Solar-powered kitchens",
+  "Metal casting with aluminum cans",
+  "Geopolymers",
+  "Deployable structures",
+];
+
+const LIVING = [
+  {
+    title: "Shared groceries",
+    body: "Residents may buy into a communal grocery fund, sharing the cost of staples and common foods — reducing both expense and the need for everyone to shop individually. Those who prefer to buy and prepare all of their own food are equally welcome.",
+  },
+  {
+    title: "Communal kitchen & meal rotation",
+    body: "Participation in the communal kitchen is optional. Residents who opt in share responsibility for cooking for the group on a rotating schedule. Those who don't are still welcome in the communal spaces to hang out and escape the elements.",
+  },
+  {
+    title: "Housing",
+    body: "Bring your own mobile housing whenever possible — a vehicle, camper, van, or RV (tents are discouraged, but not unprecedented). If that isn't possible, it isn't necessarily a barrier: housing may be available through the broader Mars community, often in exchange for helping DPW with setup or teardown. We work with applicants individually to find solutions.",
+  },
+];
+
+const COSTS = [
+  {
+    amount: "$500",
+    title: "Mars College contribution",
+    body: "May be reduced or waived for residents working with the Department of Public Works.",
+  },
+  {
+    amount: "$500 – 1000",
+    title: "Tool Camp contribution",
+    body: "Depending on whether you opt into the communal grocery fund and kitchen.",
+  },
+  {
+    amount: "Self-funded",
+    title: "Personal projects",
+    body: "Limited micro-grants may be available for projects that align with Tool Camp's mission or contribute to shared infrastructure.",
+  },
+];
+
+const SEASON = [
+  { date: "Dec 28", title: "Build team arrives", body: "We start our build." },
+  { date: "Jan 4", title: "The rest of camp arrives", body: "For those who couldn't come early." },
+  { date: "Jan 5", title: "Build week", body: "We finish the common space, kitchen, and workshop." },
+  { date: "Jan 10", title: "Ideas week", body: "Settle in and start thinking about your project. Nightly lectures where Martians share who they are and what they'll work on." },
+  { date: "Jan 18", title: "The semester begins", body: "From here to midterms: work on your project and join the general collaboration of Tool Camp." },
+  { date: "Feb 12", title: "Midterms weekend", body: "The Mars campus pauses and comes together to present where each of us is at." },
+  { date: "Mar 8", title: "Final projects begin", body: "A two-week push to finish projects and compile documentation." },
+  { date: "Mar 26 – 28", title: "Mars Electronica", body: "A weekend where Martians present their final projects." },
+  { date: "Mar 30", title: "Unbuild", body: "" },
+  { date: "Apr 4", title: "Departure", body: "" },
+];
+---
+
+<BaseLayout
+  title="Tool Camp — Mars College 2027"
+  description="A three-month desert residency inside Mars College for building, stress-testing, and open-sourcing off-grid, DIY, deployable infrastructure."
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <PageHeader
+    index=""
+    label="Mars College · Jan – Apr 2027"
+    title="Tool Camp is Mars College's Makerspace"
+    lede="A three-month desert residency inside Mars College for building, stress-testing, and open-sourcing off-grid, DIY, deployable infrastructure."
+    image={heroImg}
+    imageAlt="Two people silhouetted on a pallet-rack structure against a vivid desert sunset"
+  />
+
+  <div class="tc2">
+    <!-- ===== QUICK FACTS ===== -->
+    <section class="tc2-facts">
+      <ul class="tc2-facts__grid">
+        {FACTS.map((f) => (
+          <li class="tc2-facts__cell">
+            <p class="tc2-facts__k">{f.k}</p>
+            <p class="tc2-facts__v">{f.v}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- ===== 01 · THE OVERVIEW ===== -->
+    <section id="overview" class="tc2-sec">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">01</span><span class="tc2-num__lbl">The Overview</span></div>
+        <div class="tc2-grid">
+          <h2 class="tc2-h">Tool Camp is a field laboratory for life after certainty.</h2>
+          <div class="tc2-prose">
+            <p>The Salton Sea region is a difficult place to live. With no direct hookup to water, power, or waste-disposal services, the Mars College campus is an experiment in off-grid living. As the workshop and R&D arm of Mars, Tool Camp treats this environment as a unique opportunity and design challenge: to see how affordably we can meet as many of our living needs as possible, reduce our waste streams, and have fun doing it.</p>
+            <p>The stakes on Mars are ultimately low, but we think the importance of developing these systems is high. Whether for environmental or human-made disasters, occupy movements, or just reducing our collective costs and material dependencies, there's something to be learned by figuring out how to live where there are no systems to support us.</p>
+          </div>
+        </div>
+        <figure class="tc2-feature">
+          <Image src={printerImg} alt="The camp gathered around a 3D-printer demo inside the Tool Camp workshop" widths={[700, 1100, 1400]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={74} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 02 · WHAT DO WE DO ===== -->
+    <section id="camp" class="tc2-sec tc2-sec--dust">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">02</span><span class="tc2-num__lbl">What Do We Do</span></div>
+        <div class="tc2-grid">
+          <h2 class="tc2-h">A collaborative research and fabrication residency.</h2>
+          <div class="tc2-prose">
+            <p>Every resident arrives with an ambitious project of their own — a machine to prototype, a material to investigate, a sculpture to fabricate, a system to test, or an idea to bring into the physical world. Most days are spent immersed in that work, supported by a workshop full of tools and a community of people eager to help solve difficult problems.</p>
+            <p class="tc2-lead">But Tool Camp has a second project: Tool Camp itself.</p>
+            <p>The workshop, the kitchen, the shared spaces, and the camp's infrastructure are all collectively built, maintained, and improved by the people who use them. Residents help set up the spaces we inhabit, keep the shop running safely, share responsibility for communal systems, and leave the camp better than we found it.</p>
+          </div>
+        </div>
+        <figure class="tc2-feature">
+          <Image src={racksImg} alt="Residents raising the pallet-rack framing that becomes the desert workshop" widths={[700, 1100, 1400]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={74} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 03 · APPLYING ===== -->
+    <section id="applying" class="tc2-sec tc2-sec--dust">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">03</span><span class="tc2-num__lbl">Applying</span></div>
+        <div class="tc2-grid">
+          <h2 class="tc2-h">Come with a project. Come prepared.</h2>
+          <div class="tc2-prose">
+            <p>Tool Camp is a project-based residency. Every participant is selected on a proposed project or area of investigation they intend to pursue during the program. We welcome projects at many stages — from well-defined prototypes to focused research questions — but the strongest applications arrive with a clear plan and realistic goals. The more groundwork done before arriving, the more time you'll have to build, test, iterate, and collaborate once you're here.</p>
+            <p>Mars is an excellent place to stress-test ideas under real-world conditions. It's less well suited to discovering halfway through a build that you're missing a specialized fitting from the hardware store. Projects that are thoughtfully prepared, largely self-contained, or designed to work within the constraints of a remote environment are far more likely to succeed.</p>
+            <p>Finally, Tool Camp follows a Leave No Trace philosophy. The camp is temporary, and we strive to leave the landscape exactly as we found it. Permanent construction, lasting alterations to the site, or work that can't be cleanly removed at the end of the residency will generally not be accepted.</p>
+          </div>
+        </div>
+        <figure class="tc2-frame tc2-frame--16x9 tc2-below">
+          <Image src={ceramicsImg} alt="Residents gathered around a workshop table, shaping clay together" widths={[700, 1100, 1600]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={72} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 04 · WHO WE ARE LOOKING FOR ===== -->
+    <section id="ideas" class="tc2-sec">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">04</span><span class="tc2-num__lbl">Who We Are Looking For</span></div>
+        <div class="tc2-grid">
+          <div>
+            <h2 class="tc2-h">Ideas that get us excited.</h2>
+            <p class="tc2-prose" style="margin-top:1.5rem">Some are practical. Some are speculative. Some are works of engineering, some of art, and many live somewhere in between.</p>
+          </div>
+          <ul class="tc2-ideas">
+            {PROJECTS.map((p) => <li>{p}</li>)}
+            <li class="is-you">Your project…</li>
+          </ul>
+        </div>
+        <figure class="tc2-feature">
+          <Image src={muralImg} alt="A mural of intertwined pipes and machinery painted across a solar-panel wall" widths={[700, 1100, 1400]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={74} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 05 · FACILITIES ===== -->
+    <section id="facilities" class="tc2-sec">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">05</span><span class="tc2-num__lbl">Facilities</span></div>
+        <div class="tc2-grid">
+          <h2 class="tc2-h">The Workshop.</h2>
+          <div class="tc2-prose">
+            <p>Tool Camp is centered on a shared fabrication workshop equipped with power, tools, and common work areas for a wide range of projects. Every resident gets a dedicated personal workspace plus full access to the shared shop and its equipment.</p>
+            <p>The workshop itself is an evolving prototype. Each year we refine, expand, and improve the infrastructure. Last season we built a dedicated solar-powered tool trailer and significantly expanded our mobile workshop; this year's residents inherit that work — and help shape what comes next. Our structures are modular, portable, and designed to be assembled, disassembled, and transported each season.</p>
+            <p>Tool Camp is not a pristine laboratory; it's a field workshop. Expect dust, wind, sun, rain, and the occasional improvisation. Working within those constraints is part of the experience — and part of the design challenge.</p>
+          </div>
+        </div>
+        <div class="tc2-duo">
+          <figure class="tc2-frame tc2-frame--4x3">
+            <Image src={shopDuskImg} alt="The workshop at dusk, warm string lights under a deep blue sky" widths={[500, 800, 1100]} sizes="(max-width: 760px) 100vw, 50vw" format="webp" quality={72} loading="lazy" />
+          </figure>
+          <figure class="tc2-frame tc2-frame--4x3">
+            <Image src={shopInteriorImg} alt="The tool-trailer interior at night, green LEDs above the tool shelves" widths={[500, 800, 1100]} sizes="(max-width: 760px) 100vw, 50vw" format="webp" quality={72} loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06 · FOOD AND HOUSING ===== -->
+    <section id="life" class="tc2-sec tc2-sec--dust">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">06</span><span class="tc2-num__lbl">Food and Housing</span></div>
+        <div class="tc2-grid">
+          <h2 class="tc2-h">Life on Mars.</h2>
+          <div>
+            <p class="tc2-prose">Tool Camp supports a range of living styles. Some residents arrive in fully equipped vans or campers and want to cook independently; others opt into a communal meal plan. Rather than expecting everyone to participate the same way, we offer flexible options and let residents decide what works best.</p>
+            <dl class="tc2-sub">
+              {LIVING.map((l) => (
+                <div class="tc2-sub__row">
+                  <dt class="tc2-sub__t">{l.title}</dt>
+                  <dd class="tc2-sub__d">{l.body}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+        <figure class="tc2-feature">
+          <Image src={cartImg} alt="A modified golf cart parked at the workshop, loaded with water totes and bladders" widths={[700, 1100, 1400]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={74} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 07 · COST & CONTRIBUTIONS ===== -->
+    <section id="cost" class="tc2-sec">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">07</span><span class="tc2-num__lbl">Cost & Contributions</span></div>
+        <div class="tc2-grid">
+          <h2 class="tc2-h">Run by its participants.</h2>
+          <div>
+            <p class="tc2-prose">Nobody is an employee, and nobody is making a profit. Every dollar contributed goes directly toward the shared costs of running the camp: food, water, internet, power, porta-potties, workshop infrastructure, and the countless practical needs that make three months of building together possible.</p>
+            <div class="tc2-costs">
+              {COSTS.map((c) => (
+                <div class="tc2-cost">
+                  <p class="tc2-cost__amt">{c.amount}</p>
+                  <div>
+                    <p class="tc2-cost__t">{c.title}</p>
+                    <p class="tc2-cost__d">{c.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <ul class="tc2-notes">
+              <li><span class="tc2-notes__k">Stewardship</span> A budget circle manages our pooled funds.</li>
+              <li><span class="tc2-notes__k">Surplus</span> If money is left over, a group process decides where it goes.</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="tc2-feature">
+          <Image src={sunsetImg} alt="The camp silhouetted together against a desert sunset" widths={[700, 1100, 1400]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={74} loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 08 · THE SEASON ===== -->
+    <section id="season" class="tc2-sec">
+      <div class="tc2-wrap">
+        <div class="tc2-num"><span class="tc2-num__no">08</span><span class="tc2-num__lbl">The Season</span></div>
+        <div class="tc2-grid tc2-grid--season">
+          <div class="tc2-season__side">
+            <h2 class="tc2-h">From build to departure.</h2>
+            <p class="tc2-prose" style="margin-top:1.5rem">Mars is full of offerings, happening on any given day across all the camps. This is our camp's schedule.</p>
+            <figure class="tc2-frame tc2-frame--4x5 tc2-season__img">
+              <Image src={seasonImg} alt="Weaving on a large loom at sunset in the desert" widths={[500, 800]} sizes="(max-width: 768px) 100vw, 40vw" format="webp" quality={74} loading="lazy" />
+            </figure>
+          </div>
+          <ol class="tc2-timeline">
+            {SEASON.map((s) => (
+              <li class="tc2-tl">
+                <span class="tc2-tl__date">{s.date}</span>
+                <div>
+                  <h3 class="tc2-tl__t">{s.title}</h3>
+                  {s.body && <p class="tc2-tl__b">{s.body}</p>}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 09 · SNAPSHOTS ===== -->
+    <section id="snapshots" class="tc2-sec tc2-sec--ink">
+      <div class="tc2-wrap tc2-snaps__wrap">
+        <div class="tc2-num"><span class="tc2-num__no">09</span><span class="tc2-num__lbl">Snapshots From Past Years</span></div>
+        <h2 class="tc2-h tc2-snaps__title">Snapshots from past years.</h2>
+      </div>
+      <ul class="tc2-strip">
+        {SNAPS.map((s) => (
+          <li class="tc2-strip__item">
+            <Image src={s.img} alt={s.alt} widths={[400, 720]} sizes="60vw" format="webp" quality={70} loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- ===== 10 · JOIN US ===== -->
+    <section id="apply" class="tc2-sec tc2-sec--flush">
+      <div class="tc2-wrap tc2-apply">
+        <div class="tc2-num tc2-apply__num"><span class="tc2-num__no">10</span><span class="tc2-num__lbl">Join Us</span></div>
+        <div class="tc2-apply__body">
+          <h2 class="tc2-h tc2-apply__h">Once you apply, you'll find a role and start shaping the camp.</h2>
+          <p class="tc2-apply__open">Applications open August 1st.</p>
+          <div class="tc2-apply__actions">
+            <a href={APPLY_URL} class="tc2-btn">Apply to the camp <span aria-hidden="true">→</span></a>
+            <a href={`mailto:${EMAIL}?subject=Tool%20Camp%20—%20question`} class="tc2-apply__email">{EMAIL}</a>
+          </div>
+          <p class="tc2-apply__foot">Tool Camp · A program of Mars College</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    /* ============================================================
+       Tool Camp — mockup design language (DM Serif Display + Space
+       Grotesk, bone / dust / ink, 12-col grids, a photo below each
+       section). Scoped under .tc2 so the rest of the site is untouched.
+       ============================================================ */
+    .tc2 {
+      --bone: oklch(96.5% 0.014 78);
+      --dust: oklch(90% 0.02 75);
+      --sand: oklch(78% 0.055 65);
+      --ochre: oklch(70% 0.14 55);
+      --rust: oklch(50% 0.16 38);
+      --ink: oklch(20% 0.02 60);
+      --stencil: oklch(35% 0.03 50);
+      --hair: color-mix(in oklab, var(--ink) 15%, transparent);
+      --hair-ink: color-mix(in oklab, var(--bone) 12%, transparent);
+      --serif: "DM Serif Display", ui-serif, Georgia, serif;
+      --sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+      background: var(--bone);
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+    .tc2 :where(h2, h3) {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: 0;
+      margin: 0;
+    }
+
+    .tc2-sec { position: relative; border-bottom: 1px solid var(--hair); }
+    .tc2-sec--dust { background: color-mix(in oklab, var(--dust) 45%, var(--bone)); }
+    .tc2-sec--ink {
+      background: var(--ink);
+      color: var(--bone);
+      border-bottom-color: var(--hair-ink);
+    }
+    .tc2-sec--flush { border-bottom: 0; }
+    .tc2-wrap {
+      max-width: 1400px;
+      margin-inline: auto;
+      padding-inline: clamp(1.5rem, 4vw, 2.5rem);
+      padding-block: clamp(4.5rem, 9vw, 8rem);
+    }
+
+    /* ---- facts bar ---- */
+    .tc2-facts { border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+    .tc2-facts__grid {
+      max-width: 1400px;
+      margin-inline: auto;
+      list-style: none;
+      padding: 0;
+      margin-block: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tc2-facts__cell {
+      padding: clamp(1.25rem, 3vw, 1.6rem) clamp(1.25rem, 3vw, 2rem);
+      border-right: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair);
+    }
+    .tc2-facts__cell:nth-child(2n) { border-right: 0; }
+    .tc2-facts__cell:nth-last-child(-n + 2) { border-bottom: 0; }
+    .tc2-facts__k {
+      font-size: 0.625rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--stencil);
+      margin: 0 0 0.5rem;
+    }
+    .tc2-facts__v {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1rem + 0.7vw, 1.45rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 0;
+    }
+    @media (min-width: 768px) {
+      .tc2-facts__grid { grid-template-columns: repeat(4, 1fr); }
+      .tc2-facts__cell { border-bottom: 0; }
+      .tc2-facts__cell:nth-child(2n) { border-right: 1px solid var(--hair); }
+      .tc2-facts__cell:last-child { border-right: 0; }
+    }
+
+    /* ---- section number ---- */
+    .tc2-num {
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      margin-bottom: clamp(2.25rem, 5vw, 3.5rem);
+    }
+    .tc2-num__no { font-family: var(--serif); font-size: 1.6rem; line-height: 1; color: var(--rust); }
+    .tc2-num__lbl {
+      font-size: 0.6875rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--stencil);
+      font-weight: 500;
+    }
+    .tc2-sec--ink .tc2-num__no { color: var(--ochre); }
+    .tc2-sec--ink .tc2-num__lbl { color: color-mix(in oklab, var(--bone) 60%, transparent); }
+
+    /* ---- 12-col heading / prose grid ---- */
+    .tc2-grid { display: grid; gap: clamp(1.75rem, 4vw, 2.5rem); align-items: start; }
+    @media (min-width: 768px) {
+      .tc2-grid { grid-template-columns: 5fr 7fr; gap: clamp(2.5rem, 5vw, 4rem); }
+    }
+    .tc2-h {
+      font-size: clamp(2rem, 1.2rem + 2.6vw, 3.15rem);
+      line-height: 1.06;
+      color: inherit;
+      max-width: 18ch;
+    }
+    .tc2-prose {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+      line-height: 1.65;
+      color: color-mix(in oklab, var(--ink) 82%, transparent);
+      max-width: 62ch;
+      margin: 0;
+    }
+    .tc2-sec--dust .tc2-prose { color: color-mix(in oklab, var(--ink) 84%, transparent); }
+    .tc2-lead {
+      font-family: var(--serif);
+      font-size: 1.3em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 0.25rem 0;
+    }
+
+    /* ---- feature / framed images (below each section) ---- */
+    .tc2-feature { margin: clamp(2.5rem, 5vw, 4rem) 0 0; }
+    .tc2-feature :global(img) { width: 100%; height: auto; display: block; }
+    .tc2-below { margin-top: clamp(2.5rem, 5vw, 4rem); }
+    .tc2-frame { overflow: hidden; background: var(--sand); }
+    .tc2-frame :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tc2-frame--16x9 { aspect-ratio: 16 / 9; }
+    .tc2-frame--4x3 { aspect-ratio: 4 / 3; }
+    .tc2-frame--4x5 { aspect-ratio: 4 / 5; }
+    .tc2-duo {
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+      display: grid;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .tc2-duo { grid-template-columns: 1fr 1fr; } }
+
+    /* ---- ideas list ---- */
+    .tc2-ideas {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--hair);
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 560px) { .tc2-ideas { grid-template-columns: 1fr 1fr; column-gap: 2rem; } }
+    .tc2-ideas li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--hair);
+      font-size: 1rem;
+      color: color-mix(in oklab, var(--ink) 88%, transparent);
+    }
+    .tc2-ideas li.is-you { color: var(--rust); font-weight: 600; }
+
+    /* ---- food & housing sub-topics ---- */
+    .tc2-sub { margin: 1.9rem 0 0; border-top: 1px solid var(--hair); }
+    .tc2-sub__row { padding: 1.3rem 0; border-bottom: 1px solid var(--hair); margin: 0; }
+    .tc2-sub__t { font-family: var(--serif); font-size: 1.3rem; margin: 0 0 0.4rem; color: var(--ink); }
+    .tc2-sub__d {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: color-mix(in oklab, var(--ink) 82%, transparent);
+      max-width: 60ch;
+    }
+
+    /* ---- cost cards ---- */
+    .tc2-costs { margin-top: 2rem; }
+    .tc2-cost {
+      display: grid;
+      grid-template-columns: minmax(6.5rem, auto) 1fr;
+      gap: 0.5rem 1.75rem;
+      padding: 1.4rem 0;
+      border-top: 1px solid var(--hair);
+      align-items: baseline;
+    }
+    .tc2-cost__amt { font-family: var(--serif); font-size: clamp(1.6rem, 1rem + 1.6vw, 2.1rem); color: var(--rust); line-height: 1; margin: 0; }
+    .tc2-cost__t { font-weight: 600; margin: 0 0 0.25rem; }
+    .tc2-cost__d { margin: 0; color: color-mix(in oklab, var(--ink) 78%, transparent); font-size: 1rem; line-height: 1.55; }
+    .tc2-notes { list-style: none; margin: 1.75rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--hair); display: flex; flex-direction: column; gap: 0.9rem; }
+    .tc2-notes li { color: color-mix(in oklab, var(--ink) 80%, transparent); }
+    .tc2-notes__k {
+      display: inline-block;
+      min-width: 8rem;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 600;
+    }
+
+    /* ---- season ---- */
+    @media (min-width: 768px) { .tc2-grid--season { grid-template-columns: 5fr 7fr; } }
+    .tc2-season__img { margin-top: clamp(2rem, 4vw, 2.75rem); max-width: 26rem; }
+    .tc2-timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hair); }
+    .tc2-tl {
+      display: grid;
+      grid-template-columns: 6.5rem 1fr;
+      gap: 1.25rem;
+      padding: 1.15rem 0;
+      border-bottom: 1px solid var(--hair);
+      align-items: baseline;
+    }
+    .tc2-tl__date { font-size: 0.82rem; letter-spacing: 0.06em; color: var(--rust); font-weight: 500; }
+    .tc2-tl__t { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); }
+    .tc2-tl__b { margin: 0.25rem 0 0; font-size: 0.98rem; line-height: 1.55; color: color-mix(in oklab, var(--ink) 78%, transparent); }
+    @media (max-width: 480px) { .tc2-tl { grid-template-columns: 1fr; gap: 0.3rem; } }
+
+    /* ---- snapshots (dark) ---- */
+    .tc2-snaps__wrap { padding-bottom: clamp(2rem, 4vw, 3rem); }
+    .tc2-snaps__title { color: var(--bone); max-width: 24ch; }
+    .tc2-strip {
+      list-style: none;
+      margin: 0;
+      padding: 0 clamp(1.5rem, 4vw, 2.5rem) clamp(4rem, 8vw, 7rem);
+      display: flex;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--ochre) transparent;
+    }
+    .tc2-strip__item {
+      flex: 0 0 auto;
+      height: clamp(240px, 40vh, 380px);
+      scroll-snap-align: start;
+      background: color-mix(in oklab, var(--bone) 8%, transparent);
+    }
+    .tc2-strip__item :global(img) { height: 100%; width: auto; display: block; object-fit: cover; }
+
+    /* ---- apply ---- */
+    .tc2-apply { display: grid; gap: clamp(1.5rem, 4vw, 2.5rem); }
+    @media (min-width: 768px) { .tc2-apply { grid-template-columns: 3fr 9fr; align-items: start; } }
+    .tc2-apply__num { margin-bottom: 0; }
+    .tc2-apply__h { font-size: clamp(2.3rem, 1.4rem + 3.8vw, 4.6rem); line-height: 1.0; max-width: 20ch; }
+    .tc2-apply__open { margin: 1.75rem 0 0; font-size: 1.2rem; color: color-mix(in oklab, var(--ink) 80%, transparent); }
+    .tc2-apply__actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; }
+    .tc2-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--ochre);
+      color: var(--ink);
+      padding: 1rem 1.6rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: background 150ms ease;
+    }
+    .tc2-btn:hover { background: color-mix(in oklab, var(--ochre) 82%, var(--ink)); }
+    .tc2-apply__email {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rust);
+      padding-bottom: 2px;
+      font-size: 1rem;
+    }
+    .tc2-apply__email:hover { color: var(--rust); }
+    .tc2-apply__foot {
+      margin: 2.5rem 0 0;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stencil);
+    }
+  </style>
+</BaseLayout>

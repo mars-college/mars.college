@@ -26,42 +26,70 @@ export const SOCIAL = {
 export const NAV = [
   { label: "Build", href: "/build" },
   { label: "Learn", href: "/learn" },
-  { label: "Thrive", href: "/thrive" },
+  { label: "Apply", href: "/#paths" },
 ];
 
 // The minified public timeline shown on the home page.
 export const TIMELINE_MINI = [
-  { date: "Aug 24", label: "AI cohort begins" },
+  { date: "Sep 15", label: "AI cohort begins" },
   { date: "Nov – Dec", label: "Build the village" },
   { date: "Jan 4", label: "Mars College begins" },
   { date: "Mar 26 – 28", label: "Mars Electronica" },
 ];
 
-// Three pillars.
+// Four ways into Mars College — each camp has its own application.
 export const PILLARS = [
   {
     index: "01",
-    title: "Build",
+    title: "DPW",
     href: "/build",
-    cta: "Help build the next Mars",
+    cta: "Apply to the Department of Public Works",
     blurb:
-      "From pallet racks to solar power and internet, Mars campus is built over November and December.",
+      "Build the village. Run its physical systems. Raise the campus from bare lake bed with the DPW crew from November through spring.",
   },
   {
     index: "02",
-    title: "Learn",
-    href: "/learn",
-    cta: "Explore the program",
+    title: "Tool Camp",
+    href: "/toolcamp",
+    cta: "Apply to Tool Camp",
     blurb:
-      "Martians self-organize a three-month semester on off-grid technology, self-preservation, and future technology.",
+      "Mars's makerspace and shared workshop: saws, drills, 3D printers, kilns, tools, and desks for people building things with their hands.",
   },
   {
     index: "03",
-    title: "Thrive",
-    href: "/thrive",
-    cta: "See how Martians live",
+    title: "Study AI",
+    href: "/learn",
+    cta: "Apply to study AI at Mars",
     blurb:
-      "A deep community, daily rituals, and Mars Electronica: the end-semester exhibition and festival.",
+      "Take classes, make art, and learn off-grid AI: how to engage the digital world while sustaining an off-grid life.",
+  },
+  {
+    index: "04",
+    title: "Co Lab",
+    href: "/colab",
+    cta: "Apply to Co Lab",
+    blurb:
+      "A three-month immersion in coherent community: sociocratic governance, relational practice, and daily ritual.",
+  },
+];
+
+// ---- homepage FAQ ----
+export const HOME_FAQ = [
+  {
+    q: "What's the catch?",
+    a: "You have to show up and contribute — with your time, your effort, and your presence. Mars is not a resort or a festival. It runs because Martians run it, and every year we ask each person to leave something behind: a presentation, a performance, an installation, a class, a ritual, a service. Something the rest of us can carry with us.",
+  },
+  {
+    q: "How much does this cost?",
+    a: "The base cost is about $1,500 for three months on the ground — roughly $500 in Treasury fees (toilets, internet, shared water, aid) plus about $900 in camp dues (mostly food) plus $100–$600 for a place to sleep if you don't have a van. On top of that, camp-specific programs like Study AI or Co-Lab may have their own fees or scholarship tracks. Building crew (DPW), grant recipients, and micro-business operators earn most or all of it back.",
+  },
+  {
+    q: "What do I have to do?",
+    a: "Contribute in a real way. Everyone participates in the Mars economy: cook, teach, build, repair, run a concession, offer a service, or take a role in DPW, Treasury, or a camp. Everyone contributes to the culture: shows in the film festival, art at Mars Electronica, work in one of the three gallery Moon shows, or classes on the open calendar. There is no passive tier.",
+  },
+  {
+    q: "Why are you doing this?",
+    a: "Because we love the scene Mars cultivates and we think more people should live like this. Mars is an experiment in what a small community can build together — off-grid, self-organized, deeply strange, aggressively creative — and it works. We want to keep making it, and we want to share it with the people who'd be at home here.",
   },
 ];
 

@@ -1,0 +1,181 @@
+/* Community Lab (/colab) — faithful reproduction of marscommunitylab.lovable.app.
+   All rules namespaced under .colab so nothing leaks to the rest of the Mars site. */
+
+.colab {
+  --bone: #f8f3eb;
+  --sand: #f0e2d1;
+  --ink: #251712;
+  --clay: #e29572;
+  --clay-deep: #cf7a55;
+  --sienna: #ba4823;
+  --ochre: #f4a34b;
+  --card: #fbf8f3;
+  --muted: #674f47;
+  --border: #d8c8b6;
+  --font-disp: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter Tight", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+/* ---- shared shell + sections ---- */
+.colab .wrap { max-width: 80rem; margin-inline: auto; padding-inline: 1.5rem; }
+.colab .sec { padding-block: clamp(4rem, 9vw, 7rem); }
+.colab .sec--bone { background: var(--bone); }
+.colab .sec--sand { background: var(--sand); }
+.colab .sec--ink { background: var(--ink); color: var(--bone); }
+.colab .sec--clay { background: var(--clay); color: var(--ink); }
+.colab .sec--ruled { border-block: 1px solid var(--border); }
+
+/* 12-col grid */
+.colab .grid12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2.5rem; }
+.colab .col4 { grid-column: span 4; }
+.colab .col5 { grid-column: span 5; }
+.colab .col6 { grid-column: span 6; }
+.colab .col7 { grid-column: span 7; }
+.colab .col8 { grid-column: span 8; }
+.colab .colstart7 { grid-column: 7 / span 6; }
+@media (max-width: 820px) {
+  .colab .grid12 { grid-template-columns: 1fr; gap: 2.5rem; }
+  .colab .col4, .colab .col5, .colab .col6, .colab .col7, .colab .col8, .colab .colstart7 { grid-column: 1 / -1; }
+}
+
+/* eyebrow: mono, uppercase, with a hairline rule */
+.colab .eyebrow { display: flex; align-items: center; gap: 1rem; margin: 0; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+.colab .eyebrow__n { color: var(--sienna); }
+.colab .eyebrow__rule { width: 2.5rem; height: 1px; background: currentColor; opacity: 0.4; }
+.colab .sec--ink .eyebrow, .colab .chero .eyebrow { color: rgba(248, 243, 235, 0.75); }
+.colab .sec--clay .eyebrow { color: rgba(37, 23, 18, 0.7); }
+
+/* headings + text */
+.colab .h2 { font-family: var(--font-disp); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.08; letter-spacing: -0.01em; margin: 1.75rem 0 0; }
+.colab .h2--xl { font-size: clamp(2.2rem, 5vw, 4.5rem); }
+.colab .h3 { font-family: var(--font-disp); font-weight: 300; font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 0; }
+.colab .measure { max-width: 36rem; }
+.colab .lede { margin: 1.5rem 0 0; font-size: 1.125rem; line-height: 1.6; color: var(--muted); }
+.colab .sec--ink .lede { color: rgba(248, 243, 235, 0.72); }
+.colab .sec--clay .lede { color: rgba(37, 23, 18, 0.78); }
+
+/* buttons */
+.colab .btns { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.colab .btn { display: inline-flex; align-items: center; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; padding: 0.8em 1.4em; border-radius: 3px; text-decoration: none; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
+.colab .btn--clay { background: var(--clay); color: var(--ink); border: 1px solid var(--clay); }
+.colab .btn--clay:hover { background: var(--clay-deep); border-color: var(--clay-deep); }
+.colab .btn--ghost { border: 1px solid currentColor; color: inherit; }
+.colab .btn--ghost:hover { background: var(--ink); color: var(--bone); }
+.colab .sec--ink .btn--ghost:hover, .colab .chero .btn--ghost:hover { background: var(--bone); color: var(--ink); }
+
+/* ============ HERO ============ */
+.colab .chero { position: relative; isolation: isolate; overflow: hidden; color: var(--ink); }
+.colab .chero__bg { position: absolute; inset: 0; z-index: -1; }
+.colab .chero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+.colab .chero__grad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(248,243,235,0.35) 0%, rgba(248,243,235,0.08) 32%, rgba(248,243,235,0.55) 78%, rgba(248,243,235,0.92) 100%); }
+.colab .chero__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; min-height: 92vh; align-content: end; padding-block: 8rem 4rem; }
+.colab .chero__lead { grid-column: span 9; align-self: end; }
+.colab .chero__title { font-family: var(--font-disp); font-weight: 300; font-size: clamp(2.75rem, 8vw, 7.5rem); line-height: 0.95; letter-spacing: -0.02em; margin: 1.5rem 0 0; max-width: 15ch; }
+.colab .chero__sub { margin: 2rem 0 0; max-width: 34rem; font-size: 1.2rem; line-height: 1.55; color: rgba(37, 23, 18, 0.82); }
+.colab .chero__facts { grid-column: span 12; display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid rgba(37, 23, 18, 0.18); border-radius: 3px; background: rgba(248, 243, 235, 0.5); backdrop-filter: blur(2px); }
+.colab .cfact { padding: 1rem 1.25rem; }
+.colab .cfact + .cfact { border-left: 1px solid rgba(37, 23, 18, 0.14); }
+.colab .cfact__k { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(37, 23, 18, 0.55); }
+.colab .cfact__v { margin-top: 0.45rem; font-size: 0.95rem; color: var(--ink); line-height: 1.3; }
+@media (max-width: 820px) {
+  .colab .chero__lead { grid-column: 1 / -1; }
+  .colab .chero__facts { grid-template-columns: repeat(2, 1fr); }
+  .colab .cfact { border-top: 1px solid rgba(37,23,18,0.14); }
+  .colab .cfact + .cfact { border-left: 0; }
+}
+@media (max-width: 480px) { .colab .chero__facts { grid-template-columns: 1fr; } }
+
+/* ============ 01 OVERVIEW ============ */
+.colab .overview-lead { font-family: var(--font-disp); font-weight: 300; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.4; letter-spacing: -0.01em; margin: 0; color: var(--ink); }
+
+/* ============ 02 CAMP ============ */
+.colab .camp__media { margin: 0; overflow: hidden; border-radius: 3px; }
+.colab .camp__media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+.colab .camp__body { margin: 1.5rem 0 0; font-size: 1.125rem; line-height: 1.6; color: rgba(37, 23, 18, 0.8); }
+.colab .methods { margin-top: 4rem; }
+.colab .method-grid { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.colab .card { border: 1px solid rgba(37, 23, 18, 0.1); background: var(--card); border-radius: 0.6rem; padding: 1.5rem; box-shadow: 0 1px 2px rgba(37,23,18,0.04); }
+.colab .card__n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--sienna); }
+.colab .card__title { font-family: var(--font-disp); font-weight: 400; font-size: 1.35rem; margin: 0.5rem 0 0; }
+.colab .card__body { margin: 0.6rem 0 0; color: rgba(37, 23, 18, 0.8); line-height: 1.55; }
+@media (max-width: 640px) { .colab .method-grid { grid-template-columns: 1fr; } }
+
+/* ============ 04 RHYTHM ============ */
+.colab .rhythm__cols { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(248, 243, 235, 0.15); border-radius: 3px; overflow: hidden; }
+.colab .rpanel { background: var(--ink); padding: clamp(1.75rem, 3vw, 3.5rem); }
+.colab .rpanel__top { display: flex; align-items: center; gap: 1rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ochre); }
+.colab .rpanel__top::after { content: ""; flex: 1; height: 1px; background: rgba(248, 243, 235, 0.2); }
+.colab .rpanel__name { font-family: var(--font-disp); font-weight: 300; font-size: clamp(2.25rem, 4vw, 3rem); margin: 1.5rem 0 0; color: var(--bone); }
+.colab .rpanel__intro { margin: 1rem 0 0; max-width: 30rem; color: rgba(248, 243, 235, 0.72); line-height: 1.6; }
+.colab .rlist { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 1.5rem; }
+.colab .rlist__title { font-family: var(--font-disp); font-size: 1.25rem; color: var(--bone); }
+.colab .rlist__body { margin-top: 0.3rem; font-size: 0.9rem; line-height: 1.55; color: rgba(248, 243, 235, 0.65); }
+@media (max-width: 820px) { .colab .rhythm__cols { grid-template-columns: 1fr; } }
+
+/* ============ 05 ADDITIONS ============ */
+.colab .add-grid { margin-top: 3.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+.colab .add { border-top: 1px solid rgba(37, 23, 18, 0.2); padding-top: 1.5rem; }
+.colab .add__tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sienna); margin: 0; }
+.colab .add__title { font-family: var(--font-disp); font-weight: 300; font-size: clamp(1.5rem, 2.4vw, 1.9rem); margin: 1rem 0 0; line-height: 1.1; }
+.colab .add__body { margin: 1rem 0 0; color: rgba(37, 23, 18, 0.75); line-height: 1.6; }
+@media (max-width: 760px) { .colab .add-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* ============ 06 SEASON ============ */
+.colab .season__media { margin: 2.5rem 0 0; overflow: hidden; border-radius: 3px; }
+.colab .season__media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+.colab .tl { list-style: none; margin: 0; padding: 0; }
+.colab .tlrow { display: grid; grid-template-columns: 7rem 1fr; gap: 1.5rem; align-items: baseline; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.colab .tlrow:first-child { border-top: 1px solid var(--border); }
+.colab .tldate { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sienna); }
+.colab .tltitle { font-family: var(--font-disp); font-weight: 300; font-size: 1.5rem; line-height: 1.15; color: var(--ink); }
+.colab .tlbody { margin-top: 0.4rem; font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+@media (max-width: 520px) { .colab .tlrow { grid-template-columns: 5rem 1fr; gap: 1rem; } }
+@media (max-width: 820px) { .colab .season__media { display: none; } }
+
+/* ============ 07 GOVERNANCE ============ */
+.colab .gov { border-top: 1px solid rgba(37, 23, 18, 0.18); }
+.colab .govcell { padding: 2rem 0; border-bottom: 1px solid rgba(37, 23, 18, 0.18); }
+.colab .govcell__title { font-family: var(--font-disp); font-weight: 300; font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 0; }
+.colab .govcell__body { margin: 0.75rem 0 0; color: rgba(37, 23, 18, 0.8); line-height: 1.6; max-width: 48rem; }
+
+/* ============ 08 FINANCES ============ */
+.colab .fin { border-top: 1px solid var(--border); }
+.colab .finrow { display: grid; grid-template-columns: 1fr; gap: 0.4rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+.colab .finrow__k { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.colab .finrow__v { font-family: var(--font-disp); font-weight: 300; font-size: clamp(1.15rem, 2vw, 1.5rem); color: var(--ink); line-height: 1.25; }
+
+/* ============ 09 GALLERY ============ */
+.colab .gscroll { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2.5rem 0 1.5rem; scrollbar-width: thin; }
+.colab .gfig { position: relative; flex: none; scroll-snap-align: center; overflow: hidden; border-radius: 3px; height: clamp(20rem, 42vw, 32rem); background: var(--sand); margin: 0; }
+.colab .gfig img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.colab .gfig--45 { aspect-ratio: 4 / 5; }
+.colab .gfig--43 { aspect-ratio: 4 / 3; }
+.colab .gnote { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin: 0.5rem 0 0; }
+
+/* ============ 10 FOUNDERS ============ */
+.colab .founders { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 3rem); }
+.colab .founder__media { margin: 0; overflow: hidden; border-radius: 3px; background: var(--bone); }
+.colab .founder__media img { display: block; width: 100%; object-fit: cover; aspect-ratio: 3 / 4; }
+.colab .founder__head { margin: 1.5rem 0 0; display: flex; align-items: baseline; gap: 1rem; }
+.colab .founder__name { font-family: var(--font-disp); font-weight: 300; font-size: clamp(1.75rem, 3vw, 2.25rem); margin: 0; }
+.colab .founder__head::after { content: ""; flex: 1; height: 1px; background: rgba(37, 23, 18, 0.2); }
+.colab .founder__kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sienna); margin: 0.6rem 0 0; }
+.colab .founder__bio { margin: 1.5rem 0 0; color: rgba(37, 23, 18, 0.8); line-height: 1.65; }
+@media (max-width: 760px) { .colab .founders { grid-template-columns: 1fr; gap: 3rem; } .colab .founder__media img { aspect-ratio: 4 / 5; } }
+
+/* ============ APPLY ============ */
+.colab .apply { position: relative; isolation: isolate; overflow: hidden; }
+.colab .apply__bg { position: absolute; right: -3rem; bottom: 0; height: 110%; width: auto; opacity: 0.22; z-index: -1; pointer-events: none; }
+.colab .apply .wrap { padding-block: clamp(5rem, 10vw, 8rem); }
+.colab .apply__h2 { font-family: var(--font-disp); font-weight: 300; font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.01em; margin: 1.75rem 0 0; max-width: 22ch; color: var(--bone); }
+.colab .apply__sub { margin: 2rem 0 0; max-width: 40rem; font-size: 1.125rem; line-height: 1.6; color: rgba(248, 243, 235, 0.75); }
+@media (max-width: 700px) { .colab .apply__bg { display: none; } }
+
+/* camp footer strip */
+.colab .campftr { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-block: 1.5rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--border); }

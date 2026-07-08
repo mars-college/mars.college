@@ -3,78 +3,384 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import Eyebrow from "../components/Eyebrow.astro";
-import { PILLARS, APPLY_URL } from "../data/site";
+import { PILLARS, HOME_FAQ } from "../data/site";
 
-// Pillar plates
-import buildImg from "../assets/photos/build-sunset.jpg";
+// Pillar plates — the four ways into Mars
+import buildImg from "../assets/photos/build-curated/041_2026_20260130_170446_06ab8.jpg";
+import toolcampImg from "../assets/photos/learn/supp_2026_clay_kickwheel.jpg";
 import learnImg from "../assets/photos/learn-workshop.jpg";
-import thriveImg from "../assets/photos/community-group.jpg";
+import colabImg from "../assets/photos/community-group.jpg";
 
-// Activities mosaic
-import aDinner from "../assets/photos/activities/dinner.jpg";
-import aEuc from "../assets/photos/activities/euc.jpg";
-import aFireDome from "../assets/photos/activities/fire-dome.jpg";
-import aAlgorave from "../assets/photos/activities/algorave.jpg";
-import aMaker from "../assets/photos/activities/maker.jpg";
-import aGroup from "../assets/photos/activities/group.jpg";
-import aAerial from "../assets/photos/aerial-3.jpg";
-import aPerformance from "../assets/photos/performance-moon.jpg";
+// Year-by-year aerials of the Mars campus / Chiba, 2020–2026.
+import chiba2020 from "../assets/photos/chiba-years/chiba-2020.jpg";
+import chiba2021 from "../assets/photos/chiba-years/chiba-2021.jpg";
+import chiba2022 from "../assets/photos/chiba-years/chiba-2022-village.jpg";
+import chiba2023 from "../assets/photos/chiba-years/chiba-2023.jpg";
+import chiba2024 from "../assets/photos/chiba-years/chiba-2024.jpg";
+import chiba2025 from "../assets/photos/chiba-years/chiba-2025.jpg";
+import chiba2026 from "../assets/photos/chiba-years/chiba-2026.jpg";
 
-// Mars 2027 closer
-import nightGlow from "../assets/photos/night-glow.jpg";
+// "Mars is hard" — the elements and the DIY of off-grid life.
+import hardDust from "../assets/photos/marshard/dust.jpg";
+import hardBuild from "../assets/photos/marshard/build.jpg";
+import hardKitchen from "../assets/photos/marshard/kitchen.jpg";
+import hardPower from "../assets/photos/marshard/power.jpg";
+import hardWater from "../assets/photos/marshard/water.jpg";
+import hardHeavy from "../assets/photos/marshard/heavy-forklift.jpg";
+
+// Open calendar (moved from /learn): classes anyone can teach.
+import pMusicTheory from "../assets/photos/learn/020_2026_dscf0028_1bd1c.jpg";
+import pColorClass from "../assets/photos/learn/045_2024_2026_p1036172_1.JPG";
+import pMcResearchLearn from "../assets/photos/learn/supp_marscollege_research-and-learn.jpg";
+import pThunderProjection from "../assets/photos/learn/002_2026_dscf1586_ece64.jpg";
+import pClaySubstack from "../assets/photos/learn/supp_substack_clay.jpeg";
+import pClaySubstack2 from "../assets/photos/learn/supp_substack_clay2.jpeg";
+import pClay2026Wheel from "../assets/photos/learn/supp_2026_clay_kickwheel.jpg";
+import pClay2026Shelf from "../assets/photos/learn/supp_2026_clay_shelf.jpg";
+import pWorkshopPano from "../assets/photos/learn/supp_2021_workshop_panoramic.jpg";
+import pMcLivecoding from "../assets/photos/learn/supp_marscollege_live-coding.jpg";
+import pLivecodeIntro from "../assets/photos/learn/supp_2023_livecoding_intro.jpg";
+import pOutdoorTalk from "../assets/photos/learn/013_2022_pxl_20220116_020317372_night_dd72d.jpg";
+import pYogaDesert from "../assets/photos/learn/supp_2023_acroyoga_desert.jpg";
+import pYogaSunset from "../assets/photos/learn/supp_2023_acroyoga_sunset.jpg";
+import pGym from "../assets/photos/learn/supp_2022_outdoor_gym.jpg";
+import pHangarTalk from "../assets/photos/learn/049_2022_pxl_20220116_025716120_night_55447.jpg";
+import pLaptopClass from "../assets/photos/learn/001_2022_img_0517_a1dd1.jpg";
+import pMcMarzipanAI from "../assets/photos/learn/supp_marscollege_marzipan-aiart.jpeg";
+import pMcHydroponics from "../assets/photos/learn/supp_marscollege_hydroponics.jpeg";
+import pMcChibaGallery from "../assets/photos/learn/supp_marscollege_chiba-gallery.jpg";
 
 const pillarImg: Record<string, any> = {
-  Build: buildImg,
-  Learn: learnImg,
-  Thrive: thriveImg,
+  DPW: buildImg,
+  "Tool Camp": toolcampImg,
+  "Study AI": learnImg,
+  "Co Lab": colabImg,
 };
 
-// Deterministic mosaic: two 2x2 feature plates anchor a 6-col contact sheet,
-// the rest are 2x1. Tiles cleanly with no gaps at every breakpoint.
-const activities = [
-  { img: aDinner, cap: "Communal dinner", span: "feature" },
-  { img: aEuc, cap: "Electric unicycles", span: "" },
-  { img: aFireDome, cap: "Fire & dome", span: "" },
-  { img: aAlgorave, cap: "Algorave", span: "" },
-  { img: aGroup, cap: "The village", span: "feature" },
-  { img: aMaker, cap: "Maker space", span: "" },
-  { img: aAerial, cap: "Mars campus", span: "" },
-  { img: aPerformance, cap: "Performance", span: "" },
+// One image per winter — the campus (and Chiba) rebuilt new each year.
+const CHIBA_YEARS = [
+  { year: "2020", img: chiba2020, cap: "The Portal, Mars's first structure, on the Bombay Beach shore" },
+  { year: "2021", img: chiba2021, cap: "The first pallet-rack build rising on the open lake bed" },
+  { year: "2022", img: chiba2022, cap: "The village strung along the lake bed below the desert mountains, murals and solar going up" },
+  { year: "2023", img: chiba2023, cap: "Chiba under construction, solar panels going up" },
+  { year: "2024", img: chiba2024, cap: "The village spread across the playa" },
+  { year: "2025", img: chiba2025, cap: "Chiba and the surrounding camp" },
+  { year: "2026", img: chiba2026, cap: "The muraled Chiba hall and the village ring" },
+];
+
+// Open-calendar gallery — classes (indoor and outdoor), not parties.
+const OPEN_CAL_PHOTOS = [
+  { img: pMusicTheory, alt: "Music theory class · 2026" },
+  { img: pColorClass, alt: "Evening lecture · 2024" },
+  { img: pMcResearchLearn, alt: "Cohort in the tiered Chiba seating" },
+  { img: pThunderProjection, alt: "Class in the Chiba hangar · 2026" },
+  { img: pClaySubstack, alt: "Ceramics workshop in the hangar · 2026" },
+  { img: pClaySubstack2, alt: "Ceramics circle on the desert lakebed" },
+  { img: pClay2026Wheel, alt: "Throwing on the kick wheel at Tool Camp · 2026" },
+  { img: pClay2026Shelf, alt: "Workshop shelf of unfired clay · 2026" },
+  { img: pWorkshopPano, alt: "Workshop in the main hall · 2021" },
+  { img: pMcLivecoding, alt: "Live-coding class with code on the wall" },
+  { img: pLivecodeIntro, alt: "Live Coding Club intro session · 2023" },
+  { img: pOutdoorTalk, alt: "Outdoor evening class · 2022" },
+  { img: pYogaDesert, alt: "Acroyoga on the lake bed · 2023" },
+  { img: pYogaSunset, alt: "Sunset acroyoga on the plywood deck · 2023" },
+  { img: pGym, alt: "Outdoor gym on the playa · 2022" },
+  { img: pHangarTalk, alt: "Outdoor evening seminar · 2022" },
+  { img: pLaptopClass, alt: "Workshop in the library · 2022" },
+  { img: pMcMarzipanAI, alt: "Marzipan teaching AI art" },
+  { img: pMcHydroponics, alt: "Hydroponics" },
+  { img: pMcChibaGallery, alt: "Chiba Art Gallery" },
+];
+
+// Gallery list for the lightbox carousel.
+const OC_GALLERY = OPEN_CAL_PHOTOS.map((p, i) => ({
+  img: p.img,
+  alt: p.alt,
+  id: `oc-${i}`,
+}));
+
+// Year-by-year aerials also open in the lightbox (bigger view).
+const VIL_GALLERY = CHIBA_YEARS.map((y, i) => ({
+  img: y.img,
+  alt: `${y.year} · ${y.cap}`,
+  id: `vil-${i}`,
+}));
+
+// "Outsmart the superintelligence" — copied verbatim from /learn (Off-Grid AI).
+const AI_VIDEO_SRC = "/learn-video/2025-mars-research.mp4";
+const AI_VIDEO_POSTER = "/learn-video/2025-mars-research-poster.jpg";
+const TOPICS = [
+  {
+    n: "01",
+    title: "Sovereign AI",
+    body: "Your coach, digital twin, chief of staff, guardian angel, or second brain. A local, open-source, self-hosted AI that answers only to you and supports your living, not the reverse.",
+  },
+  {
+    n: "02",
+    title: "Art with AI",
+    body: "Film, music, performance, live code. AI as an instrument, not a cliche.",
+  },
+  {
+    n: "03",
+    title: "Earning a living",
+    body: "How people using AI are making money now, and how you might.",
+  },
+];
+
+// "Mars is hard" — a representative spread of off-grid life.
+const HARD_PHOTOS = [
+  { img: hardDust, cap: "The elements", alt: "Two Martians out in a desert dust storm" },
+  { img: hardBuild, cap: "Raising the racks", alt: "The crew assembling a pallet-rack structure at golden hour" },
+  { img: hardKitchen, cap: "The kitchen", alt: "The 2026 camp kitchen at night, cooking and serving under string lights" },
+  { img: hardPower, cap: "Power", alt: "The camp battery bank and inverter" },
+  { img: hardWater, cap: "Water", alt: "An IBC water tank hauled on a trailer" },
+  { img: hardHeavy, cap: "Department of Public Works", alt: "A forklift parked by a half-built pallet-rack structure on the desert lake bed during the build" },
 ];
 ---
 
 <BaseLayout
-  title="Mars College — Off-grid college built from scratch"
-  description="Mars College is an off-grid pop-up college built from the ground up every winter in the California desert. Build Nov-Dec. Mars begins Jan 4."
+  title="Mars College — Off-grid AI school in the California desert"
+  description="An annual off-grid AI school and pop-up college in the California desert. Learn sovereign, off-grid AI engineering: personal AI agents, art with AI, and earning a living with AI."
+  preloadImage="/video/mars-current-hero-poster.webp"
 >
   <Hero />
 
-  <!-- ===================== PILLARS ===================== -->
-  <section id="paths" class="u-section is-night pillars">
+  <!-- ===================== THE VILLAGE, YEAR BY YEAR ===================== -->
+  <section id="village" class="u-section village">
+    <div class="u-shell village__head">
+      <Eyebrow index="01" label="Seven years and counting" />
+      <h2 class="village__lead u-display">Same time, same place.</h2>
+      <p class="village__lede">
+        Every winter since 2020, Mars College builds a temporary off-grid campus on
+        a dry lake bed in the California desert. It's assembled mostly by-hand from
+        pallet racks and plywood, powered by solar, with water, internet, and the
+        other camp services figured out together, from first principles. For three
+        months it runs like a full college town: classes, art, events, a co-op
+        gallery, a film festival, and whatever else Martians come up with while we're
+        there. Each spring it's torn down and the desert is left empty as it was
+        found, until next year when we renew it again. Each season of Martians brings
+        a new and unpredictable cohort: every age, nationality, background, and skill,
+        all here for reasons of their own.
+      </p>
+    </div>
+    <ol class="village__row">
+      {
+        CHIBA_YEARS.map((y, i) => (
+          <li class="village__cell">
+            <p class="village__year">{y.year}</p>
+            <button
+              type="button"
+              class="village__plate u-plate lb"
+              data-lb-id={`vil-${i}`}
+              aria-label={`Enlarge aerial of Mars ${y.year}`}
+            >
+              <Image
+                src={y.img}
+                alt={`${y.year} · ${y.cap}`}
+                widths={[400, 700, 1100]}
+                sizes="(max-width: 640px) 50vw, (min-width: 641px) 33vw"
+                format="webp"
+                quality={64}
+                loading="lazy"
+              />
+            </button>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- ============ MARS IS HARD ============ -->
+  <section id="hard" class="u-section is-night marshard">
+    <div class="u-shell">
+      <Eyebrow index="02" label="Off-grid reality" />
+      <h2 class="marshard__lead u-display">Mars takes work.</h2>
+      <div class="marshard__intro u-measure">
+        <p>
+          Wind, sun, and dust are constant, and nothing here comes ready-made. Food
+          storage, power, internet, water, and waste, things usually taken for
+          granted, all get worked out from first principles by Martians every year.
+        </p>
+        <p>
+          Enter the <strong>Mars Department of Public Works</strong>. DPW is the
+          crew that builds and runs every physical system at Mars: power, water,
+          shelter, gear. They arrive in November to bare desert and hand the
+          village over to everybody else the first Monday of January. DPW members
+          get housing for the season, meals, and the general Mars fee waived.
+        </p>
+        <p>
+          There's deep expertise on the ground for every piece of it, and people who
+          love to teach it. You don't have to arrive knowing how any of it works. You
+          just have to come with an open mind, and a willingness to help.
+        </p>
+      </div>
+
+      <ul class="marshard__grid">
+        {HARD_PHOTOS.map((p) => (
+          <li class="marshard__cell u-plate">
+            <Image
+              src={p.img}
+              alt={p.alt}
+              widths={[400, 700, 1000]}
+              sizes="(max-width: 720px) 50vw, 33vw"
+              format="webp"
+              quality={62}
+              loading="lazy"
+            />
+            <figcaption class="marshard__cap u-label">{p.cap}</figcaption>
+          </li>
+        ))}
+      </ul>
+
+      <div class="marshard__cta">
+        <a href="/build" class="u-cta">
+          Apply to the Mars Department of Public Works
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AN UNCOLLEGE ===================== -->
+  <section class="u-section opencal">
+    <div class="u-shell">
+      <Eyebrow index="03" label="Life on Mars" />
+      <h2 class="opencal__lead u-display">An Uncollege</h2>
+      <p class="opencal__intro u-measure">
+        Mars runs on an open calendar. Everyone teaches and everyone learns. Past
+        terms have included creative AI, agentic coding, AI film, music theory, live
+        coding, ceramics and clay, breadmaking, fermentation, the writers'
+        workshop, screenwriting, yoga, Thai bodywork, acroyoga, contact improv,
+        geometry, philosophy, solar literacy, vanlife skills, 3D printing, digital
+        architecture, foraging, and desert ecology.
+      </p>
+
+      <ul class="opencal__grid">
+        {OPEN_CAL_PHOTOS.map((p, i) => (
+          <li>
+            <button
+              type="button"
+              class="opencal__cell u-plate lb"
+              data-lb-id={`oc-${i}`}
+              aria-label={`Open photo: ${p.alt}`}
+            >
+              <Image
+                src={p.img}
+                alt={p.alt}
+                widths={[400, 700, 1000]}
+                sizes="(max-width: 720px) 50vw, 22vw"
+                format="webp"
+                quality={62}
+                loading="lazy"
+              />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OUTSMART THE SUPERINTELLIGENCE (dark) ============ -->
+  <section class="u-section is-night ai">
+    <div class="u-shell">
+      <Eyebrow index="04" label="Off-Grid AI" />
+      <h2 class="ai__lead u-display">Outsmart the superintelligence.</h2>
+      <div class="ai__intro u-measure">
+        <p set:html={`
+          The year is 2033. <a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener">Recursively self-improving AGI</a> has taken hold of the economy.
+          <a href="https://www.entrepreneur.com/business-news/ai-could-lead-to-mass-joblessness-within-the-next-5-years/496742" target="_blank" rel="noopener">Unemployment is at 90%</a>.
+          <a href="https://www.inc.com/moses-jeanfrancois/san-francisco-rents-rose-by-22-percent-even-some-tech-workers-blaming-ai-boom/91351374" target="_blank" rel="noopener">Bay Area rent is $50,000 a month</a>. Sound crazy?
+          It's the future
+          <a href="https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/" target="_blank" rel="noopener">every frontier-AI CEO is openly predicting</a>, and the
+          future <a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">we've been preparing for</a> since we started Mars College.
+        `}></p>
+      </div>
+
+      <div class="ai__quotes">
+        <figure class="ai__quote">
+          <blockquote>"I think that AI will probably, most likely, sort of lead to the end of the world."</blockquote>
+          <figcaption>
+            — <a href="https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise" target="_blank" rel="noopener">Sam Altman</a>
+          </figcaption>
+        </figure>
+        <figure class="ai__quote">
+          <blockquote>"There's a 25% chance that things go really, really badly."</blockquote>
+          <figcaption>
+            — <a href="https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent" target="_blank" rel="noopener">Dario Amodei</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <figure class="ai__feature">
+        <video
+          class="ai__video"
+          src={AI_VIDEO_SRC}
+          poster={AI_VIDEO_POSTER}
+          controls
+          playsinline
+          preload="none"
+          aria-label="Mars 2025 trailer"
+        ></video>
+      </figure>
+
+      <h2 class="ai__lead ai__lead--b u-display">Learn Off-Grid AI engineering</h2>
+      <p class="ai__subhead u-measure">
+        Here are the things every Off-Grid AI engineer learns to do at the Mars
+        College AI program.
+      </p>
+      <ol class="ai__topics">
+        {TOPICS.map((t) => (
+          <li class="ai__topic">
+            <span class="ai__n u-index">{t.n}</span>
+            <div>
+              <h3 class="ai__title">{t.title}</h3>
+              <p class="ai__body">{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <a href="/learn" class="u-cta ai__enroll">
+        Enroll in the Mars College AI program <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== APPLY HERO ===================== -->
+  <section id="paths" class="u-section pillars">
+    <div class="u-shell pillars__head">
+      <Eyebrow index="05" label="Four ways into Mars College" />
+      <h2 class="pillars__lead u-display">Apply to Mars College.</h2>
+      <p class="pillars__intro u-measure">
+        Joining Mars starts with applying to one of the camps or
+        <a href="mailto:info@mars.college" class="pillars__inline">proposing a new one</a>.
+      </p>
+    </div>
     <div class="u-shell">
       <ol class="pillars__list">
         {
           PILLARS.map((p) => (
             <li class="pillar">
-              <div class="pillar__media u-plate">
-                <Image
-                  src={pillarImg[p.title]}
-                  alt={`${p.title} at Mars College`}
-                  widths={[480, 760, 1000]}
-                  sizes="(max-width: 900px) 100vw, 33vw"
-                  format="webp"
-                  quality={68}
-                  loading="lazy"
-                />
-              </div>
-              <div class="pillar__text">
-                <p class="pillar__index u-index">{p.index} / 03</p>
-                <h3 class="pillar__title">{p.title}</h3>
-                <p class="pillar__blurb">{p.blurb}</p>
-                <a href={p.href} class="u-link pillar__cta">
-                  {p.cta} <span class="u-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
+              <a href={p.href} class="pillar__link">
+                <div class="pillar__media u-plate">
+                  <Image
+                    src={pillarImg[p.title]}
+                    alt={`${p.title} at Mars College`}
+                    widths={[480, 760, 1000]}
+                    sizes="(max-width: 900px) 100vw, 33vw"
+                    format="webp"
+                    quality={62}
+                    loading="lazy"
+                  />
+                </div>
+                <div class="pillar__text">
+                  <p class="pillar__index u-index">{p.index} / {String(PILLARS.length).padStart(2, "0")}</p>
+                  <h3 class="pillar__title">{p.title}</h3>
+                  <p class="pillar__blurb">{p.blurb}</p>
+                  <span class="pillar__cta">
+                    {p.cta} <span class="u-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
             </li>
           ))
         }
@@ -82,131 +388,202 @@ const activities = [
     </div>
   </section>
 
-  <!-- ===================== SOVEREIGN AI ===================== -->
-  <section class="u-section sovereign">
-    <div class="u-shell sovereign__grid">
-      <div class="sovereign__text">
-        <Eyebrow index="01" label="Sovereign AI" />
-        <h2 class="sovereign__title u-display">Outsmart AGI.</h2>
-        <p class="sovereign__lede">
-          Run AI locally, on your own power, with tools you control. Personal
-          agents, automation, art, income. The machine works for the human life,
-          not the other way around.
-        </p>
-        <ul class="sovereign__points">
-          <li>
-            <span class="u-index">A</span>
-            Run models and agents on hardware you control.
-          </li>
-          <li>
-            <span class="u-index">B</span>
-            Build a personal AI that answers only to you.
-          </li>
-          <li>
-            <span class="u-index">C</span>
-            Keep your data, work, and judgment in your hands.
-          </li>
-        </ul>
-        <a href="/learn" class="u-link sovereign__cta">
-          How we teach it <span class="u-arrow" aria-hidden="true">→</span>
-        </a>
-      </div>
-      <figure class="sovereign__media u-plate">
-        <Image
-          src={aMaker}
-          alt="A Martian working with gear inside the village"
-          widths={[600, 900, 1200]}
-          sizes="(max-width: 900px) 100vw, 45vw"
-          format="webp"
-          quality={70}
-          loading="lazy"
-        />
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===================== ACTIVITIES ===================== -->
-  <section class="u-section is-night activities">
+  <!-- ===================== FAQ ===================== -->
+  <section class="u-section is-night faq">
     <div class="u-shell">
-      <Eyebrow index="02" label="Life on Mars" />
-      <div class="activities__head">
-        <h2 class="activities__title u-display">
-          Dinners. Algoraves. Unicycles. Campus at night.
-        </h2>
-      </div>
-    </div>
-    <div class="u-shell">
-      <ul class="mosaic">
-        {
-          activities.map((a) => (
-            <li
-              class:list={[
-                "mosaic__cell u-plate",
-                { "is-feature": a.span === "feature" },
-              ]}
-            >
-              <Image
-                src={a.img}
-                alt={a.cap}
-                widths={[400, 700, 1000]}
-                sizes="(max-width: 700px) 100vw, 30vw"
-                format="webp"
-                quality={66}
-                loading="lazy"
-              />
-              <figcaption class="mosaic__cap u-label">{a.cap}</figcaption>
-            </li>
-          ))
-        }
+      <Eyebrow index="06" label="Frequently asked questions" />
+      <h2 class="faq__lead u-display">The frank version.</h2>
+      <ul class="faq__list">
+        {HOME_FAQ.map((item, i) => (
+          <li class="faq__item">
+            <details>
+              <summary>
+                <span class="u-index">{String(i + 1).padStart(2, "0")}</span>
+                <span class="faq__q">{item.q}</span>
+                <span class="faq__chevron" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq__a">{item.a}</p>
+            </details>
+          </li>
+        ))}
       </ul>
     </div>
   </section>
 
-  <!-- ===================== MARS 2027 CLOSER ===================== -->
-  <section class="closer">
-    <div class="closer__bg">
-      <Image
-        src={nightGlow}
-        alt="The village glowing at night under a desert sky"
-        widths={[768, 1280, 1920]}
-        sizes="100vw"
-        format="webp"
-        quality={68}
-        loading="lazy"
-      />
-      <div class="closer__scrim" aria-hidden="true"></div>
-    </div>
-    <div class="u-shell closer__content">
-      <Eyebrow index="03" label="Mars 2027 · Season 8" />
-      <h2 class="closer__title u-display">
-        The next village starts now.
-      </h2>
-      <p class="closer__lede">
-        Rolling admissions. AI cohort Aug 24. Build Nov-Dec. Mars begins Jan 4.
-        Mars Electronica Mar 26-28. Materials take time. Apply early.
-      </p>
-      <div class="closer__actions">
-        <a href={APPLY_URL} class="u-cta">
-          Apply for 2027 <span aria-hidden="true">→</span>
-        </a>
-        <span class="closer__note u-label">Form coming soon. Substack for now.</span>
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div
+    id="lightbox"
+    class="lb-box"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photo gallery"
+    hidden
+  >
+    <button type="button" class="lb-box__close" aria-label="Close gallery">×</button>
+    <button type="button" class="lb-box__nav lb-box__nav--prev" aria-label="Previous">‹</button>
+    <button type="button" class="lb-box__nav lb-box__nav--next" aria-label="Next">›</button>
+    <figure class="lb-box__figure">
+      <div class="lb-box__imgwrap">
+        {[...VIL_GALLERY, ...OC_GALLERY].map((g) => (
+          <Image
+            src={g.img}
+            alt={g.alt}
+            widths={[900, 1400, 1920]}
+            sizes="(max-width: 900px) 100vw, 90vw"
+            format="webp"
+            quality={60}
+            loading="lazy"
+            data-lb-slide={g.id}
+          />
+        ))}
       </div>
-    </div>
-  </section>
+      <figcaption class="lb-box__cap">
+        <span class="lb-box__cap-text"></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const box = document.getElementById("lightbox");
+      if (!box) return;
+      const slides = Array.from(box.querySelectorAll("[data-lb-slide]"));
+      const capText = box.querySelector(".lb-box__cap-text");
+      const triggers = Array.from(document.querySelectorAll(".lb[data-lb-id]"));
+      const order = slides.map((el) => el.dataset.lbSlide);
+      const meta = {};
+      triggers.forEach((t) => {
+        const id = t.dataset.lbId;
+        const img = t.querySelector("img");
+        meta[id] = { cap: (img && img.alt) || "" };
+      });
+      let cur = 0;
+      const show = (i) => {
+        cur = (i + order.length) % order.length;
+        slides.forEach((el, idx) => el.classList.toggle("is-active", idx === cur));
+        const m = meta[order[cur]] || {};
+        capText.textContent = m.cap || "";
+      };
+      const open = (id) => {
+        const idx = order.indexOf(id);
+        if (idx < 0) return;
+        box.hidden = false;
+        document.body.style.overflow = "hidden";
+        show(idx);
+      };
+      const close = () => {
+        box.hidden = true;
+        document.body.style.overflow = "";
+      };
+      triggers.forEach((t) => {
+        t.addEventListener("click", (e) => {
+          e.preventDefault();
+          open(t.dataset.lbId);
+        });
+      });
+      box.querySelector(".lb-box__close").addEventListener("click", close);
+      box.querySelector(".lb-box__nav--prev").addEventListener("click", () => show(cur - 1));
+      box.querySelector(".lb-box__nav--next").addEventListener("click", () => show(cur + 1));
+      box.addEventListener("click", (e) => {
+        if (e.target === box) close();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (box.hidden) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowLeft") show(cur - 1);
+        if (e.key === "ArrowRight") show(cur + 1);
+      });
+    })();
+  </script>
 
   <style>
+    /* ---- village (year by year) — full-bleed, epic ---- */
+    .village__lead {
+      font-size: var(--text-3xl);
+      margin-top: 0.5rem;
+      max-width: 20ch;
+    }
+    .village__row {
+      list-style: none;
+      margin: clamp(1.75rem, 3.5vw, 2.75rem) 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: clamp(0.4rem, 0.7vw, 0.7rem);
+    }
+    /* two rows: 3 on top (span 4 each), 4 on the bottom (span 3 each) */
+    .village__cell {
+      grid-column: span 3;
+    }
+    .village__cell:nth-child(-n + 3) {
+      grid-column: span 4;
+    }
+    .village__plate {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      cursor: zoom-in;
+      background: var(--color-paper-2);
+    }
+    .village__plate :global(img) {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms var(--ease-out);
+    }
+    .village__plate:hover :global(img),
+    .village__plate:focus-visible :global(img) {
+      transform: scale(1.05);
+    }
+    .village__plate:focus-visible {
+      outline: 2px solid var(--color-clay);
+      outline-offset: 2px;
+    }
+    .village__year {
+      margin: 0 0 0.6rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--color-ink);
+    }
+    .village__lede {
+      margin-top: clamp(2rem, 4vw, 3rem);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      color: var(--color-ink-2);
+      max-width: 66ch;
+    }
+    @media (max-width: 640px) {
+      /* mobile: 2 + 2 + 2 + 1 (last one full width) */
+      .village__row { grid-template-columns: repeat(2, 1fr); }
+      .village__cell,
+      .village__cell:nth-child(-n + 3) { grid-column: span 1; }
+      .village__cell:last-child { grid-column: 1 / -1; }
+    }
+
     /* ---- pillars ---- */
     .pillars__list {
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(1.5rem, 3vw, 2.5rem);
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(1.25rem, 2.5vw, 2rem);
     }
-    .pillar {
+    .pillar { display: flex; }
+    .pillar__link {
       display: flex;
       flex-direction: column;
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
     }
     .pillar__media {
       aspect-ratio: 4 / 5;
@@ -215,7 +592,7 @@ const activities = [
     .pillar__media img {
       transition: transform 600ms var(--ease-out);
     }
-    .pillar:hover .pillar__media img {
+    .pillar__link:hover .pillar__media img {
       transform: scale(1.03);
     }
     .pillar__index {
@@ -224,45 +601,71 @@ const activities = [
     }
     .pillar__title {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 3.6vw, 3rem);
+      font-size: clamp(2rem, 3.4vw, 2.75rem);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1;
-      color: var(--color-bone-on-night);
+      color: var(--color-ink);
     }
     .pillar__blurb {
-      margin-top: 0.9rem;
-      color: #d2c5af;
+      margin-top: 0.85rem;
+      color: var(--color-ink-2);
       font-size: var(--text-base);
       line-height: 1.5;
-      max-width: 38ch;
+      max-width: 34ch;
     }
     .pillar__cta {
-      margin-top: 1.25rem;
+      margin-top: 1.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      background: var(--color-clay);
+      color: var(--color-paper);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      padding: 0.72em 1.15em;
+      border: 1.5px solid var(--color-clay);
+      transition: background var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out);
     }
-    @media (max-width: 820px) {
+    .pillar__link:hover .pillar__cta {
+      background: var(--color-clay-deep);
+      border-color: var(--color-clay-deep);
+    }
+    .pillar__link:hover .u-arrow {
+      transform: translateX(3px);
+    }
+    @media (max-width: 1040px) {
+      .pillars__list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 620px) {
       .pillars__list {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.25rem;
       }
-      .pillar {
+      .pillar__link {
         flex-direction: row;
         gap: 1.5rem;
-        align-items: start;
+        align-items: center;
       }
       .pillar__media {
-        width: 40%;
+        width: 38%;
         flex: none;
         margin-bottom: 0;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 4 / 3;
       }
       .pillar__text {
         flex: 1;
       }
     }
     @media (max-width: 520px) {
-      .pillar {
+      .pillar__link {
         flex-direction: column;
+        align-items: stretch;
       }
       .pillar__media {
         width: 100%;
@@ -270,189 +673,176 @@ const activities = [
       }
     }
 
-    /* ---- sovereign ---- */
-    .sovereign__grid {
-      display: grid;
-      grid-template-columns: 1fr 0.85fr;
-      gap: clamp(2rem, 6vw, 5rem);
-      align-items: center;
+    /* ---- three ways in: section head ---- */
+    .pillars__head {
+      margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
     }
-    .sovereign__title {
+    .pillars__lead {
       font-size: var(--text-3xl);
-      margin-top: 0.5rem;
-    }
-    .sovereign__lede {
-      margin-top: 1.5rem;
-      font-size: var(--text-lg);
-      line-height: 1.5;
-      max-width: 46ch;
-      color: var(--color-ink-2);
-    }
-    .sovereign__lede em {
-      color: var(--color-clay);
-      font-style: normal;
-      font-weight: 700;
-    }
-    .sovereign__points {
-      list-style: none;
-      margin: 2rem 0 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .sovereign__points li {
-      display: grid;
-      grid-template-columns: 2.5rem 1fr;
-      gap: 0.5rem;
-      align-items: baseline;
-      padding: 1rem 0;
-      border-top: var(--rule);
-      max-width: 50ch;
       color: var(--color-ink);
-    }
-    .sovereign__cta {
-      margin-top: 1.75rem;
-    }
-    .sovereign__media {
-      aspect-ratio: 4 / 5;
-    }
-    @media (max-width: 820px) {
-      .sovereign__grid {
-        grid-template-columns: 1fr;
-      }
-      .sovereign__media {
-        aspect-ratio: 16 / 10;
-        order: -1;
-      }
-    }
-
-    /* ---- activities mosaic ---- */
-    .activities__head {
-      max-width: 24ch;
-      margin-bottom: 2.5rem;
-    }
-    .activities__title {
-      font-size: var(--text-3xl);
-      color: var(--color-bone-on-night);
-    }
-    .mosaic {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: 10rem;
-      grid-auto-flow: dense;
-      gap: clamp(0.5rem, 1.2vw, 1rem);
-    }
-    .mosaic__cell {
-      /* base 2x1: each plate spans 2 of 6 columns, one row */
-      grid-column: span 2;
-      grid-row: span 1;
-    }
-    .mosaic__cell :global(img) {
-      transition: transform 700ms var(--ease-out);
-    }
-    .mosaic__cell:hover :global(img) {
-      transform: scale(1.04);
-    }
-    .mosaic__cap {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      z-index: 2;
-      margin: 0;
-      padding: 0.65rem 0.75rem;
-      color: var(--color-bone-on-night);
-      background: linear-gradient(
-        to top,
-        rgba(20, 17, 14, 0.78),
-        rgba(20, 17, 14, 0) 100%
-      );
-      width: 100%;
-    }
-    .mosaic__cell.is-feature {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-    @media (max-width: 820px) {
-      .mosaic {
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 9rem;
-      }
-      .mosaic__cell {
-        grid-column: span 2;
-      }
-      .mosaic__cell.is-feature {
-        grid-column: span 4;
-        grid-row: span 2;
-      }
-    }
-    @media (max-width: 520px) {
-      .mosaic {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .mosaic__cell,
-      .mosaic__cell.is-feature {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-    }
-
-    /* ---- closer ---- */
-    .closer {
-      position: relative;
-      color: var(--color-bone-on-night);
-      overflow: hidden;
-      isolation: isolate;
-    }
-    .closer__bg {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-    }
-    .closer__bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .closer__scrim {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(20, 17, 14, 0.92) 0%,
-        rgba(20, 17, 14, 0.78) 45%,
-        rgba(20, 17, 14, 0.45) 100%
-      );
-    }
-    .closer__content {
-      padding-block: clamp(5rem, 12vw, 9rem);
-      max-width: 50rem;
-    }
-    .closer__title {
-      font-size: var(--text-3xl);
-      line-height: 0.98;
       margin-top: 0.5rem;
+      max-width: 18ch;
     }
-    .closer__lede {
-      margin-top: 1.5rem;
+    .pillars__intro {
+      margin-top: 1rem;
+      color: var(--color-ink-2);
       font-size: var(--text-lg);
-      line-height: 1.5;
-      max-width: 50ch;
-      color: #e6dccb;
+      line-height: 1.55;
     }
-    .closer__actions {
-      margin-top: 2.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+    .pillars__inline {
+      color: var(--color-clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    .closer__note {
-      color: #b7a98f;
-      text-transform: none;
-      letter-spacing: 0.02em;
+    .pillars__inline:hover { color: var(--color-clay-deep); }
+    /* tighter title on the 4-column layout */
+    .pillar__title {
+      font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+    }
+    .pillar__blurb {
+      font-size: 0.95rem;
+      max-width: 30ch;
+    }
+    .pillar__cta {
+      font-size: 0.85rem;
+      padding: 0.62em 0.95em;
+    }
+
+    /* ---- mars is hard ---- */
+    .marshard__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); }
+    .marshard__intro { margin-top: 1rem; color: #cabda6; font-size: var(--text-lg); line-height: 1.55; }
+    .marshard__intro p + p { margin-top: 1rem; }
+    .marshard__intro strong { color: var(--color-bone-on-night); font-weight: 700; }
+    .marshard__grid { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+    .marshard__cell { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--color-night); border: 1px solid var(--color-rule-night); }
+    .marshard__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+    .marshard__cell:hover :global(img) { transform: scale(1.04); }
+    .marshard__cell .marshard__cap { position: absolute; left: 0; bottom: 0; z-index: 2; margin: 0; padding: 0.6rem 0.75rem; width: 100%; color: var(--color-bone-on-night); background: linear-gradient(to top, rgba(20, 17, 14, 0.8), rgba(20, 17, 14, 0) 100%); }
+    .marshard__cta { margin-top: clamp(2rem, 4vw, 3rem); }
+    @media (max-width: 720px) { .marshard__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 460px) { .marshard__grid { grid-template-columns: 1fr; } }
+
+    /* ---- open calendar ---- */
+    .opencal__lead { font-size: var(--text-3xl); max-width: 18ch; }
+    .opencal__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2.5rem; font-size: var(--text-lg); line-height: 1.55; max-width: 72ch; }
+    .opencal__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+    .opencal__cell { position: relative; aspect-ratio: 4 / 3; cursor: zoom-in; border: 0; padding: 0; background: var(--color-paper-2); overflow: hidden; display: block; width: 100%; }
+    .opencal__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+    .opencal__cell:hover :global(img), .opencal__cell:focus-visible :global(img) { transform: scale(1.04); }
+    .opencal__cell:focus-visible { outline: 2px solid var(--color-clay); outline-offset: 2px; }
+    @media (max-width: 980px) { .opencal__grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px) { .opencal__grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ---- outsmart the superintelligence (dark) ---- */
+    .ai__lead { font-size: var(--text-3xl); max-width: 24ch; color: var(--color-bone-on-night); }
+    .ai__lead--b { margin-top: clamp(3rem, 6vw, 4.5rem); }
+    .ai__intro { margin-top: 1rem; color: #cabda6; font-size: var(--text-lg); line-height: 1.5; }
+    .ai__intro p + p { margin-top: 1rem; }
+    .ai__subhead { margin-top: 1rem; color: #cabda6; font-size: var(--text-lg); line-height: 1.5; }
+    .ai__topics { list-style: none; margin: 2rem 0 0; padding: 0; border-top: 1px solid var(--color-rule-night); }
+    .ai__topic { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--color-rule-night); align-items: baseline; }
+    .ai__n { color: var(--color-clay); }
+    .ai__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.8rem); color: var(--color-bone-on-night); }
+    .ai__body { margin-top: 0.3rem; color: #cabda6; max-width: 52ch; }
+    .ai__intro :global(a) {
+      color: inherit;
+      font-weight: inherit;
+      text-decoration-line: underline;
+      text-decoration-style: dashed;
+      text-decoration-color: var(--color-clay);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: color var(--dur-fast) var(--ease-out), text-decoration-style var(--dur-fast) var(--ease-out);
+    }
+    .ai__intro :global(a:hover) { color: var(--color-clay) !important; text-decoration-style: solid; }
+    .ai__quotes { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
+    .ai__quote { margin: 0; padding: 0.25rem 0 0.25rem 1.25rem; border-left: 2px solid var(--color-clay); max-width: 48ch; }
+    .ai__quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.35; color: var(--color-bone-on-night); letter-spacing: -0.01em; }
+    .ai__quote figcaption { margin-top: 0.75rem; font-size: var(--text-meta); letter-spacing: 0.06em; color: #b7a98f; }
+    .ai__quote figcaption a { color: var(--color-clay); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 50%, transparent); padding-bottom: 1px; }
+    .ai__quote figcaption a:hover { color: var(--color-clay-deep); border-color: var(--color-clay-deep); }
+    @media (max-width: 720px) { .ai__quotes { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .ai__topic { grid-template-columns: 1fr; } }
+    .ai__feature { margin: 3rem 0 0; }
+    .ai__enroll { margin-top: 2.5rem; }
+    .ai__video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--color-night); border: 1px solid var(--color-rule-night); }
+
+    /* ---- FAQ ---- */
+    .faq__lead {
+      font-size: var(--text-3xl);
+      color: var(--color-bone-on-night);
+      max-width: 18ch;
+      margin-bottom: 1.5rem;
+    }
+    .faq__list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      border-top: 1px solid var(--color-rule-night);
+    }
+    .faq__item details {
+      border-bottom: 1px solid var(--color-rule-night);
+    }
+    .faq__item summary {
+      display: grid;
+      grid-template-columns: 3rem 1fr 2rem;
+      gap: 1rem;
+      align-items: baseline;
+      padding: 1.4rem 0;
+      cursor: pointer;
+      list-style: none;
+      color: var(--color-bone-on-night);
+    }
+    .faq__item summary::-webkit-details-marker { display: none; }
+    .faq__item summary .u-index { color: var(--color-clay); }
+    .faq__q {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      color: var(--color-bone-on-night);
+    }
+    .faq__chevron {
+      justify-self: end;
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      color: var(--color-clay);
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .faq__item details[open] .faq__chevron {
+      transform: rotate(45deg);
+    }
+    .faq__a {
+      padding: 0 2rem 1.75rem 4rem;
+      color: #cabda6;
+      max-width: 66ch;
+      line-height: 1.6;
+      font-size: var(--text-base);
+    }
+    @media (max-width: 600px) {
+      .faq__item summary { grid-template-columns: 2rem 1fr 1.5rem; }
+      .faq__a { padding-left: 3rem; padding-right: 0.5rem; }
+    }
+
+    /* ---- lightbox ---- */
+    .lb-box { position: fixed; inset: 0; z-index: 100; background: rgba(10, 8, 6, 0.95); display: flex; align-items: center; justify-content: center; }
+    .lb-box[hidden] { display: none; }
+    .lb-box__figure { margin: 0; max-width: min(94vw, 1400px); max-height: 88vh; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .lb-box__imgwrap { position: relative; width: 100%; max-height: 76vh; display: flex; align-items: center; justify-content: center; }
+    .lb-box__imgwrap :global(img) { display: none; max-width: 100%; max-height: 76vh; width: auto; height: auto; object-fit: contain; }
+    .lb-box__imgwrap :global(img.is-active) { display: block; }
+    .lb-box__cap { text-align: center; color: var(--color-bone-on-night); font-family: var(--font-body); font-size: var(--text-meta); }
+    .lb-box__cap-text { font-style: italic; }
+    .lb-box__close, .lb-box__nav { position: absolute; background: transparent; color: var(--color-bone-on-night); border: 1.5px solid color-mix(in srgb, var(--color-bone-on-night) 40%, transparent); width: 3rem; height: 3rem; cursor: pointer; font-family: var(--font-display); font-size: 1.5rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+    .lb-box__close:hover, .lb-box__nav:hover { color: var(--color-clay); border-color: var(--color-clay); }
+    .lb-box__close { top: 1.25rem; right: 1.25rem; }
+    .lb-box__nav--prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+    .lb-box__nav--next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+    @media (max-width: 640px) {
+      .lb-box__nav--prev { left: 0.5rem; }
+      .lb-box__nav--next { right: 0.5rem; }
+      .lb-box__close { top: 0.75rem; right: 0.75rem; }
     }
   </style>
 </BaseLayout>

@@ -25,3 +25,9 @@ yarn-error.log*
 
 # vercel CLI state (linked project, do not commit)
 .vercel
+
+# local scratch: video/media staging, backups, unused candidates
+_media-candidates/
+
+# Claude Code / preview tooling (local dev config)
+.claude/

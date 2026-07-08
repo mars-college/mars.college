@@ -2,14 +2,40 @@
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import { SOCIAL } from "../data/site";
 
 interface Props {
   title: string;
   description: string;
   noindex?: boolean;
+  image?: string; // og/twitter image path (in /public)
+  preloadImage?: string; // LCP image to preload on this page
+  jsonLd?: object; // extra page-specific structured data (e.g. Course)
 }
-const { title, description, noindex = false } = Astro.props;
+const {
+  title,
+  description,
+  noindex = false,
+  image = "/og-image.jpg",
+  preloadImage,
+  jsonLd,
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site).href;
+
+// Site-wide organization schema — tells search engines Mars College is a school.
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Mars College",
+  alternateName: "Mars College AI School",
+  url: Astro.site?.href,
+  logo: new URL("/og-image.jpg", Astro.site).href,
+  image: ogImage,
+  description:
+    "Mars College is an annual off-grid AI school and pop-up college in the California desert. Learn sovereign, off-grid AI engineering: personal AI agents, art with AI, and earning a living with AI.",
+  sameAs: [SOCIAL.substack, SOCIAL.instagram, SOCIAL.x, SOCIAL.github],
+};
 ---
 
 <!doctype html>
@@ -23,10 +49,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Mars College" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <meta name="theme-color" content="#f3ede1" />
+    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>

@@ -1,0 +1,432 @@
+---
+// /colab — Community Lab / Dojo Camp, a Mars College 2027 camp.
+// Faithful reproduction of marscommunitylab.lovable.app: same sections, copy,
+// images, layout, and palette. Only the shell is "absorbed" into Mars — the
+// global SiteHeader nav and SiteFooter come from BaseLayout.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/colab.css";
+
+// Images mirrored from the Community Lab site.
+import heroDesert from "../assets/photos/colab/hero-desert.jpg";
+import circle from "../assets/photos/colab/circle.jpg";
+import campNight from "../assets/photos/colab/camp-night.jpg";
+import yucca from "../assets/photos/colab/yucca.jpg";
+import bodhi from "../assets/photos/colab/bodhi.png";
+import magnus from "../assets/photos/colab/magnus.png";
+import gallery1 from "../assets/photos/colab/gallery-1.png";
+import gallery2 from "../assets/photos/colab/gallery-2.png";
+import gallery3 from "../assets/photos/colab/gallery-3.png";
+import gallery4 from "../assets/photos/colab/gallery-4.png";
+
+const EMAIL = "hello@communitylab.camp";
+
+const FACTS = [
+  { k: "Dates", v: "Dec 28, 2026 — Apr 4, 2027" },
+  { k: "Location", v: "Bombay Beach, CA" },
+  { k: "Cost", v: "≈ $1,500 / person" },
+  { k: "Governance", v: "Sociocracy" },
+  { k: "Our Camp Size", v: "8 – 12 Camp Members" },
+];
+
+const METHODS = [
+  { n: "1", title: "Immersions", body: "4 day experiences lead by one of our camp members that bring us into connection with each other, ourselves and the earth." },
+  { n: "2", title: "Governance structure", body: "We will use the method of sociocracy to support the group in sharing responsibility and making thoughtful decisions while listening to the needs of each individual." },
+  { n: "3", title: "Relational Practices and Conflict Resolution", body: "We as a group will have continuous group time where we can emotionally clear with one another to create emotional intimacy, transparency and build trust." },
+  { n: "4", title: "A coherent value system", body: "Which includes self responsibility, self reflection, and a willingness to be vulnerable." },
+  { n: "+", title: "Many more.", body: "" },
+];
+
+const WEEK_A = [
+  { title: "Four-day intensive", body: "A camp member leads an immersive experience for the rest of the camp (and will open to other Martians as well). The intention of these immersions will be to create transformative journeys, deepen connection, and enrich our lives. Examples of immersions could include: (but are not limited to) Bodywork, breathwork, clowning, impro theater, authentic relating practices, grief work, days of silence, meditation, tantric arts, dream work, nature immersion, contact improve seminars and more." },
+  { title: "Shared meals", body: "We will most likely share lunch and dinner as a camp, rotating who cooks and shops" },
+  { title: "Emotional clearing", body: "A practice we hold both weeks." },
+  { title: "Logistics meeting", body: "Roles and the daily maintenance of camp life." },
+];
+
+const WEEK_B = [
+  { title: "Community day", body: "One full day as a camp — on this day we will focus on logistical planning, emotional clearing, physical cleaning, group bonding." },
+  { title: "Group sharings", body: "Check-ins as touch points through the week." },
+  { title: "Shared meals", body: "We will most likely share lunch and dinner as a camp, rotating who cooks and shops" },
+  { title: "Workshops for Mars", body: "We will have the possibility to offer workshops to the wider community — this can include authentic relating, morning meditation, yoga, improv comedy, painting, a running club. Whatever inspires you." },
+];
+
+const ADDITIONS = [
+  { tag: "Final project", title: "Our Final Project", body: "The last two weeks before takedown, we focus on a presentation for the wider Mars community — we will split into groups or create personal projects that reflect the learnings we harvested from our time together as a camp. This might include: an animated short, a mini documentary, an art installation, or anything that reflects what coherent community looked like for us." },
+  { tag: "Recurring events", title: "Camp Offerings", body: "We'd love to host recurring events for the rest of Mars as a camp — something gathering and joyful, like a weekly ecstatic dance." },
+  { tag: "Hands in Bombay Beach", title: "Bodywork Clinic", body: "If you're a bodyworker and want to join us, we'll hold a clinic in the nearby town — roughly every other week" },
+];
+
+const TIMELINE = [
+  { n: "01", date: "Dec 28", title: "Build team arrives", body: "we start our build" },
+  { n: "02", date: "Jan 4", title: "The rest of camp arrives", body: "For those who couldn't come" },
+  { n: "03", date: "Jan 5", title: "Build week", body: "We build a common house and kitchen, separate living pods, and we will build and steward a dojo for our immersions and workshops that will also be a shared space for the wider mars community" },
+  { n: "04", date: "Jan 10", title: "Ideas week", body: "All of Mars will take a week to start planning and dreaming about the semester. This will be our focus time for those who want to hold immersions and workshops for Mars" },
+  { n: "05", date: "Jan 18", title: "First intensive", body: "This will be our camps first step into our bi-weekly rhythm." },
+  { n: "06", date: "Feb 12", title: "Midterms weekend", body: "This will be where the Mars campus pauses and comes together to present where each of us are at in our Mars journeys." },
+  { n: "07", date: "Mar 8", title: "Final projects begin", body: "Our camp will step into a two week period where we will have time to create our final projects to harvest and present to all of Mars during Mars Electronica" },
+  { n: "08", date: "Mar 26 – 28", title: "Mars Electronica", body: "A weekend where Martians present their final projects" },
+  { n: "09", date: "Mar 30", title: "Unbuild", body: "" },
+  { n: "10", date: "Apr 4", title: "Departure", body: "" },
+];
+
+const GOVERNANCE = [
+  { title: "Proposals", body: "Anyone can write a concrete suggestion. Proposals gather the needs of the group, are refined through feedback, and are designed to be easy to pass." },
+  { title: "Shared responsibility", body: "Each camp member takes one or two roles. Work is distributed; everyone co-creates the experience." },
+  { title: "Consent", body: "A proposal passes not when everyone loves it, but when no one objects. Is this within my window of tolerance, and will it help the group meet its aim?" },
+];
+
+const FINANCE_FACTS = [
+  { k: "Camp cost", v: "≈ $1,500 per person" },
+  { k: "Covers", v: "Food, materials, shared infrastructure, daily living" },
+  { k: "Personal extras", v: "Budget ~$200 more for yourself" },
+  { k: "Stewardship", v: "A budget circle manages our pooled funds" },
+  { k: "Surplus", v: "If money is left over, a group process decides where it goes" },
+];
+
+const GALLERY = [
+  { img: gallery1, alt: "A camp pod built from plywood at sunset", ar: "gfig--45" },
+  { img: gallery2, alt: "Building frame rising from the desert", ar: "gfig--43" },
+  { img: gallery3, alt: "Standing on a rooftop pointing across the camp", ar: "gfig--45" },
+  { img: gallery4, alt: "Two campmates inside a wooden shelter", ar: "gfig--45" },
+];
+---
+
+<BaseLayout
+  title="Community Lab / Dojo Camp — Mars College 2027"
+  description="A three-month immersion in coherent community at Mars College, near Bombay Beach. January – April 2027."
+>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter+Tight:wght@400;500;600&display=swap"
+  />
+
+  <div class="colab">
+    <!-- ============ HERO ============ -->
+    <section class="chero">
+      <div class="chero__bg" aria-hidden="true">
+        <Image src={heroDesert} alt="" widths={[768, 1280, 1920]} sizes="100vw" format="webp" quality={66} loading="eager" fetchpriority="high" />
+        <div class="chero__grad"></div>
+      </div>
+      <div class="wrap chero__grid">
+        <div class="chero__lead">
+          <p class="eyebrow"><span>Mars College · Jan – Apr 2027</span></p>
+          <h1 class="chero__title">A camp for coherent community in the desert.</h1>
+          <p class="chero__sub">
+            Community Lab Camp - is a three-month immersion at Mars College, in the
+            California desert near Bombay Beach. Our camp will be researching what it
+            means to be an “organismic being”.
+          </p>
+          <div class="btns">
+            <a href="#apply" class="btn btn--clay">Apply to the camp</a>
+            <a href="#overview" class="btn btn--ghost">What it is →</a>
+          </div>
+        </div>
+        <div class="chero__facts">
+          {FACTS.map((f) => (
+            <div class="cfact">
+              <div class="cfact__k">{f.k}</div>
+              <div class="cfact__v">{f.v}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 OVERVIEW ============ -->
+    <section id="overview" class="sec sec--bone sec--ruled">
+      <div class="wrap grid12">
+        <div class="col4">
+          <p class="eyebrow"><span class="eyebrow__n">01</span><span class="eyebrow__rule"></span><span>The Overview</span></p>
+        </div>
+        <div class="col8">
+          <p class="overview-lead">
+            Mars College is a three-month, learning focused, Burning Man–inspired
+            container. Participants — Martians — organize into different camps, each
+            with its own focus and culture, building a temporary village together
+            from the ground up and sharing skills, workshops, and events across camps
+            throughout the season.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 OUR CAMP ============ -->
+    <section class="sec sec--sand">
+      <div class="wrap">
+        <div class="grid12">
+          <div class="col5">
+            <p class="eyebrow"><span class="eyebrow__n">02</span><span class="eyebrow__rule"></span><span>Our camp at Mars</span></p>
+            <h2 class="h2">To explore an intentional co-created organismic consciousness</h2>
+          </div>
+          <div class="col6 colstart7">
+            <figure class="camp__media">
+              <Image src={circle} alt="A circle of hands meeting in the desert" widths={[500, 800, 1100]} sizes="(max-width: 820px) 100vw, 45vw" format="webp" quality={66} loading="lazy" />
+            </figure>
+            <p class="camp__body">
+              Within Mars, we form a camp called Community Lab, focused on researching
+              “coherent community” — a group “state” where a collection of individuals
+              become “a communal being” while remaining deeply connected to themselves.
+              We research this through intensive, immersive experiences that develop
+              awareness and connection: personal, relational, and with the land.
+            </p>
+          </div>
+        </div>
+
+        <div class="methods">
+          <h3 class="h3">Our methods for building coherant community:</h3>
+          <ol class="method-grid">
+            {METHODS.map((m) => (
+              <li class="card">
+                <span class="card__n">{m.n}</span>
+                <h4 class="card__title">{m.title}</h4>
+                {m.body && <p class="card__body">{m.body}</p>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 RHYTHM ============ -->
+    <section class="sec sec--ink">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow__n">04</span><span class="eyebrow__rule"></span><span>Our rhythm</span></p>
+        <h2 class="h2" style="max-width: 30ch;">Alternating weeks. Immersion, then integration.</h2>
+        <p class="lede measure" style="max-width: 42rem;">
+          After the first weeks of arriving and building camp — physically and
+          culturally — we settle into a tide of focused dives and spacious integration.
+        </p>
+
+        <div class="rhythm__cols">
+          <article class="rpanel">
+            <p class="rpanel__top"><span>Week A</span></p>
+            <h3 class="rpanel__name">Immersion</h3>
+            <p class="rpanel__intro">
+              Our main focus time — Monday through Thursday we are together in our
+              immersion, and then Friday, Saturday, Sunday we have off. During this
+              time we dive into experiences that cultivate awareness, attunement, and
+              bonding with ourselves, each other, and the world around us.
+            </p>
+            <ul class="rlist">
+              {WEEK_A.map((i) => (
+                <li>
+                  <div class="rlist__title">{i.title}</div>
+                  <div class="rlist__body">{i.body}</div>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article class="rpanel">
+            <p class="rpanel__top"><span>Week B</span></p>
+            <h3 class="rpanel__name">Integration</h3>
+            <p class="rpanel__intro">
+              During integration weeks, there's a ton of personal time. We'll keep
+              having meals together, we'll have a focused camp day once a week and
+              perhaps a few meetings/ sharing throughout the week to keep us connected,
+              but the bulk is for you to explore and offer things in the wider Mars
+              schedule and to digest our immersion.
+            </p>
+            <ul class="rlist">
+              {WEEK_B.map((i) => (
+                <li>
+                  <div class="rlist__title">{i.title}</div>
+                  <div class="rlist__body">{i.body}</div>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 ADDITIONS ============ -->
+    <section class="sec sec--sand">
+      <div class="wrap">
+        <p class="eyebrow"><span>In addition to our bi-weekly schedule our camp will:</span></p>
+        <div class="add-grid">
+          {ADDITIONS.map((a) => (
+            <article class="add">
+              <p class="add__tag">{a.tag}</p>
+              <h3 class="add__title">{a.title}</h3>
+              <p class="add__body">{a.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 SEASON ============ -->
+    <section class="sec sec--bone">
+      <div class="wrap grid12">
+        <div class="col5">
+          <p class="eyebrow"><span class="eyebrow__n">06</span><span class="eyebrow__rule"></span><span>The season</span></p>
+          <h2 class="h2">From build to departure.</h2>
+          <p class="lede" style="max-width: 24rem;">
+            Mars is full of offerings, happening on any given day across all the camps.
+            This is our camps frame.
+          </p>
+          <figure class="season__media">
+            <Image src={campNight} alt="Geodesic dome glowing at dusk" widths={[500, 800, 1100]} sizes="(max-width: 820px) 100vw, 40vw" format="webp" quality={66} loading="lazy" />
+          </figure>
+        </div>
+        <ol class="col7 tl">
+          {TIMELINE.map((t) => (
+            <li class="tlrow">
+              <span class="tldate">{t.n} · {t.date}</span>
+              <div>
+                <div class="tltitle">{t.title}</div>
+                {t.body && <div class="tlbody">{t.body}</div>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 07 GOVERNANCE ============ -->
+    <section class="sec sec--clay">
+      <div class="wrap grid12">
+        <div class="col5">
+          <p class="eyebrow"><span class="eyebrow__n">07</span><span class="eyebrow__rule"></span><span>How we decide</span></p>
+          <h2 class="h2 h2--xl">Sociocracy, in three pillars.</h2>
+          <p class="lede" style="max-width: 24rem;">
+            Rather than one person making decisions for everyone, decision-making power
+            is shared by the whole group.
+          </p>
+        </div>
+        <div class="col7 gov">
+          {GOVERNANCE.map((g) => (
+            <div class="govcell">
+              <h3 class="govcell__title">{g.title}</h3>
+              <p class="govcell__body">{g.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08 FINANCES ============ -->
+    <section class="sec sec--bone sec--ruled">
+      <div class="wrap grid12">
+        <div class="col5">
+          <p class="eyebrow"><span class="eyebrow__n">08</span><span class="eyebrow__rule"></span><span>Finances</span></p>
+          <h2 class="h2">One pooled budget, stewarded together.</h2>
+          <p class="lede" style="max-width: 24rem;">
+            Our money is pooled into a shared group budget that covers food, materials,
+            and daily living during our time together. A budget circle manages our
+            money and spending on behalf of the camp. The cost is meant to be pretty
+            inclusive of our time together. You might factor in another ~$200 for
+            personal extras — eating out in town from time to time, or picking up
+            extra food you'd like for yourself.
+          </p>
+        </div>
+        <div class="col7 fin">
+          {FINANCE_FACTS.map((f) => (
+            <div class="finrow">
+              <div class="finrow__k">{f.k}</div>
+              <div class="finrow__v">{f.v}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 09 GALLERY ============ -->
+    <section class="sec sec--bone" style="padding-top: 0;">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow__n">09</span><span class="eyebrow__rule"></span><span>From the desert</span></p>
+        <h2 class="h2" style="max-width: 28ch;">A few moments from the Mars 2026.</h2>
+      </div>
+      <div class="wrap">
+        <div class="gscroll">
+          {GALLERY.map((g) => (
+            <figure class={`gfig ${g.ar}`}>
+              <Image src={g.img} alt={g.alt} widths={[500, 900]} sizes="60vw" format="webp" quality={66} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+        <p class="gnote">Swipe or drag to explore</p>
+      </div>
+    </section>
+
+    <!-- ============ 10 FOUNDERS ============ -->
+    <section class="sec sec--sand">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow__n">10</span><span class="eyebrow__rule"></span><span>Who we are</span></p>
+        <h2 class="h2" style="max-width: 28ch;">The initiators of the camp.</h2>
+        <div class="founders">
+          <article>
+            <figure class="founder__media">
+              <Image src={bodhi} alt="Bodhi" widths={[360, 560]} sizes="(max-width: 760px) 100vw, 40vw" format="webp" quality={66} loading="lazy" />
+            </figure>
+            <div class="founder__head"><h3 class="founder__name">Bodhi</h3></div>
+            <p class="founder__kicker">A passionate human</p>
+            <p class="founder__bio">
+              His main joy and passions are in the worlds of space holding, community
+              building, relational arts, Zenthai Shiatsu, Circling, and Western
+              Tropical Astrology. Ultimately, whatever content he's studying, he loves
+              sharing and teaching it. He loves being in connection with others and
+              cultivating deep, intentional relational spaces. Underneath all of his
+              practices, his soul calling is community building — cultivating
+              intentional communities and micro cultures. He has spent extensive time
+              living in community, practicing in mystery schools, meditating in
+              retreats, and exploring what it means to co-create culture that brings
+              togetherness, collaboration, and symbiosis with each other and the earth.
+              He is on a mission to co-create a post-capitalist eco-village and be part
+              of an education team that shares the seeds of culture with other curious
+              creatures.
+            </p>
+          </article>
+          <article>
+            <figure class="founder__media">
+              <Image src={magnus} alt="Magnus" widths={[360, 560]} sizes="(max-width: 760px) 100vw, 40vw" format="webp" quality={66} loading="lazy" />
+            </figure>
+            <div class="founder__head"><h3 class="founder__name">Magnus</h3></div>
+            <p class="founder__kicker">Sensitive attunement, expansion, experimentation</p>
+            <p class="founder__bio">
+              Magnus grew up in a communal setting and has explored different forms of
+              communal living throughout much of his life. One of his deep passions is
+              Human Design — he has studied it for 14 years, also teaching and reading
+              charts. Another side of him revolves around a deep love for plants,
+              nature, and natural medicines. He spent time studying with indigenous
+              tribes in South America, learning from their ancestral wisdom and
+              integrating it into his life. His meditation practice is essential to him;
+              he has been practising and studying Buddhist philosophy and Vipassana on
+              and off for the last 8 years. For the last year his focus has moved toward
+              body-related practices. After completing a 3-month Zenthai Shiatsu
+              training, he is continuing to deep-dive into bodywork. As his material
+              grounding for the last decade, he has worked self-employed as a 'Jack of
+              all Trades' — construction, painting, tree felling, and various practical
+              work.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPLY ============ -->
+    <section id="apply" class="sec sec--ink apply">
+      <Image class="apply__bg" src={yucca} alt="" aria-hidden="true" widths={[600, 900]} sizes="50vw" format="webp" quality={64} loading="lazy" />
+      <div class="wrap">
+        <p class="eyebrow"><span>Join us</span></p>
+        <h2 class="apply__h2">Once you apply, you'll find a role and start shaping the camp.</h2>
+        <p class="apply__sub">
+          We value collaboration, shared contribution, and active participation. Bring
+          your craft, your curiosity, and your willingness to be changed by the people
+          around you.
+        </p>
+        <div class="btns">
+          <a href={`mailto:${EMAIL}?subject=Community%20Lab%20—%20application`} class="btn btn--clay">Start your application</a>
+          <a href={`mailto:${EMAIL}?subject=Community%20Lab%20—%20question`} class="btn btn--ghost">Ask a question</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="campftr wrap">
+      <span>Community Lab / Dojo Camp · Mars College · 2027</span>
+      <span>Bombay Beach, California</span>
+    </div>
+  </div>
+</BaseLayout>

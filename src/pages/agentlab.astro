@@ -1,0 +1,348 @@
+---
+// /agentlab — Agent Lab (Fall 2026 online cohort), spun off from the
+// "Off-Grid AI" column on /learn. This is the canonical route in the navbar.
+// Candidate layouts live at /agentlab1–4; promote the chosen one here.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import { EMAIL, TALLY_OFFGRID_FORM_ID } from "../data/site";
+import {
+  AGENTLAB,
+  AGENTLAB_TOPICS,
+  AGENTLAB_SCHEDULE,
+  AGENTLAB_TIERS,
+  AGENTLAB_GRANTS,
+  AGENTLAB_FACTS,
+  AGENTLAB_WINTER,
+  AGENTLAB_LINEAGE,
+  AGENTLAB_LINKS,
+  HERO_IMG,
+  IMG_DESERT,
+} from "../data/agentlab";
+---
+
+<BaseLayout noindex={true}
+  title="Agent Lab — Off-Grid AI · Fall 2026"
+  description={AGENTLAB.blurb}
+>
+  <PageHeader
+    index=""
+    label={`${AGENTLAB.name} · ${AGENTLAB.season}`}
+    title="Off-Grid AI."
+    lede={AGENTLAB.lede}
+    image={HERO_IMG}
+    imageAlt="A class at Mars College — laptops open, an instructor at the front, AI work projected on the wall"
+  />
+
+  <!-- ============ WHAT YOU'LL BUILD ============ -->
+  <section class="u-section">
+    <div class="u-shell">
+      <Eyebrow index="01" label="What you'll build" />
+      <h2 class="lead u-display">An agent that works for you.</h2>
+      <p class="intro u-measure">
+        Agent Lab is a hands-on cohort for building <strong>personal AI agents</strong>.
+        Over twelve weeks you'll go from your first agent to a sovereign stack you
+        own — agents that research and organize your life, make art and money, and
+        ultimately run off-grid on hardware you control.
+        <em>Off-Grid AI</em> is the lineage this comes from; you'll leave with the real thing.
+      </p>
+
+      <ol class="topics">
+        {AGENTLAB_TOPICS.map((t) => (
+          <li class="topic">
+            <span class="topic__n u-index">{t.n}</span>
+            <div>
+              <h3 class="topic__title">{t.title}</h3>
+              <p class="topic__body">{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SCHEDULE ============ -->
+  <section class="u-section is-night sked">
+    <div class="u-shell sked__grid">
+      <div class="sked__head">
+        <Eyebrow index="02" label="The cohort · 12 Tuesdays" />
+        <h2 class="sked__lead u-display">Every Tuesday this fall.</h2>
+        <dl class="facts">
+          {AGENTLAB_FACTS.map((f) => (
+            <div class="facts__row">
+              <dt class="facts__k u-label">{f.k}</dt>
+              <dd class="facts__v">{f.v}</dd>
+            </div>
+          ))}
+        </dl>
+        <a href={AGENTLAB_LINKS.enroll} class="u-cta sked__cta">
+          Join the cohort <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <ol class="weeks">
+        {AGENTLAB_SCHEDULE.map((s) => (
+          <li class="week">
+            <span class="week__date">{s.date}</span>
+            <span class="week__arc u-label">{s.arc}</span>
+            <span class="week__title">{s.title}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ JOIN / PRICING + GRANTS ============ -->
+  <section class="u-section join">
+    <div class="u-shell">
+      <Eyebrow index="03" label="Join" />
+      <h2 class="lead u-display">Four ways in — from free to full service.</h2>
+
+      <!-- Grants ribbon — featured prominently above pricing -->
+      <div class="grants" id="grant">
+        <div class="grants__text">
+          <p class="grants__badge u-label">{AGENTLAB_GRANTS.badge}</p>
+          <h3 class="grants__headline u-display">{AGENTLAB_GRANTS.headline}</h3>
+          <p class="grants__body">{AGENTLAB_GRANTS.body}</p>
+        </div>
+        <a href={AGENTLAB_LINKS.grant} class="u-cta grants__cta">
+          {AGENTLAB_GRANTS.cta} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <ul class="tiers">
+        {AGENTLAB_TIERS.map((tier) => (
+          <li class={`tier${"free" in tier && tier.free ? " tier--free" : ""}`}>
+            <p class="tier__name u-label u-label--clay">{tier.name}</p>
+            <p class="tier__price">
+              <span class="tier__amount">{tier.price}</span>
+              <span class="tier__unit">{tier.unit}</span>
+            </p>
+            <p class="tier__tagline">
+              {tier.tagline}
+              {"abbr" in tier && tier.abbr ? <span class="tier__abbr">{tier.abbr}</span> : null}
+            </p>
+            <ul class="tier__features">
+              {tier.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a href={AGENTLAB_LINKS.enroll} class="u-cta tier__cta">
+              {"free" in tier && tier.free ? "Join free" : `Enroll · ${tier.name}`}
+              {" "}<span aria-hidden="true">→</span>
+            </a>
+            {"link" in tier && tier.link && (
+              <a href={tier.link.href} class="tier__learn" target="_blank" rel="noopener">
+                {tier.link.label} <span aria-hidden="true">→</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OFF-GRID AI LINEAGE ============ -->
+  <section class="u-section is-night lineage">
+    <div class="u-shell">
+      <Eyebrow index="04" label="Off-Grid AI — at Mars since the beginning" />
+      <h2 class="lineage__lead u-display">This isn't our first cohort.</h2>
+      <p class="lineage__intro u-measure">
+        Agent Lab comes out of <em>Off-Grid AI</em>, the AI program that's run at
+        Mars since before it had a name — a GAN trained on Bombay Beach in 2019,
+        GPT-3 house bots by 2022, an AI Film Festival by 2024, a personal agent for
+        every Martian by 2025.
+      </p>
+      <ol class="lineage__strip">
+        {AGENTLAB_LINEAGE.map((h) => (
+          <li class="ly">
+            <div class="ly__plate u-plate">
+              <Image
+                src={h.img}
+                alt={h.alt}
+                widths={[300, 500, 800]}
+                sizes="(max-width: 720px) 50vw, 14vw"
+                format="webp"
+                quality={70}
+                loading="lazy"
+              />
+            </div>
+            <p class="ly__year u-index">{h.year}</p>
+            <p class="ly__cap" set:html={h.captionHtml}></p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ WINTER CONNECTION ============ -->
+  <section class="u-section winter">
+    <div class="u-shell winter__grid">
+      <div class="winter__media u-plate">
+        <Image
+          src={IMG_DESERT}
+          alt="The off-grid Mars College village lit by warm cabin lights at night"
+          widths={[600, 1000, 1400]}
+          sizes="(max-width: 880px) 100vw, 45vw"
+          format="webp"
+          quality={72}
+          loading="lazy"
+        />
+      </div>
+      <div class="winter__text">
+        <Eyebrow index="05" label={AGENTLAB_WINTER.eyebrow} />
+        <h2 class="winter__lead u-display">{AGENTLAB_WINTER.headline}</h2>
+        <p class="winter__body">{AGENTLAB_WINTER.body}</p>
+        <a href={AGENTLAB_LINKS.winter} class="u-link">
+          {AGENTLAB_WINTER.cta} <span class="u-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEMO DAY + SIGNUP ============ -->
+  <section id="signup" class="u-section is-night signup">
+    <div class="u-shell signup__grid">
+      <div class="signup__text">
+        <Eyebrow index="06" label="Sign up · Demo Day Nov 24" />
+        <h2 class="signup__lead u-display">Twelve weeks. One agent. Demo Day.</h2>
+        <p class="signup__intro u-measure">
+          The cohort ends with Demo Day — you ship something cool with the agent
+          you built. Sessions are recorded, lectures come throughout, and it all
+          happens online over Discord. Save your seat below.
+        </p>
+        <ul class="signup__list">
+          <li>{AGENTLAB.cadence}</li>
+          <li>{AGENTLAB.time}</li>
+          <li>{AGENTLAB.where}</li>
+        </ul>
+      </div>
+
+      <div class="signup__form">
+        <p class="u-label u-label--clay signup__form-eyebrow">Save your seat</p>
+        {
+          TALLY_OFFGRID_FORM_ID ? (
+            <iframe
+              data-tally-src={`https://tally.so/embed/${TALLY_OFFGRID_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              loading="lazy"
+              width="100%"
+              height="600"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Agent Lab signup"
+            />
+          ) : (
+            <div class="signup__form-placeholder">
+              <p class="signup__form-headline">Form coming soon.</p>
+              <p>
+                Email{" "}
+                <a href={`mailto:${EMAIL}?subject=Agent%20Lab%20cohort`}>{EMAIL}</a>{" "}
+                with subject "Agent Lab" and we'll save you a seat.
+              </p>
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </section>
+
+  <style>
+    .lead { font-size: var(--text-3xl); max-width: 18ch; }
+    .intro { margin-top: 1rem; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.5; }
+    .intro em { color: var(--color-clay-deep); font-style: normal; font-weight: 700; }
+    .intro strong { font-weight: 800; color: var(--color-ink); }
+
+    /* ── topics ── */
+    .topics { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: var(--rule-strong); }
+    .topic { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: var(--rule); align-items: baseline; }
+    .topic__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.02em; }
+    .topic__body { margin-top: 0.4rem; color: var(--color-ink-2); max-width: 60ch; }
+    @media (max-width: 640px) { .topic { grid-template-columns: 1fr; } }
+
+    /* ── schedule ── */
+    .sked__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .sked__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); max-width: 12ch; }
+    .sked__cta { margin-top: 2rem; }
+    .facts { margin: 2rem 0 0; padding: 0; border-top: 1px solid var(--color-rule-night); }
+    .facts__row { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-rule-night); align-items: baseline; }
+    .facts__k { color: #b7a98f; }
+    .facts__v { color: var(--color-bone-on-night); font-size: 1.0625rem; line-height: 1.4; }
+    .weeks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-rule-night); }
+    .week { display: grid; grid-template-columns: 4.5rem 9rem 1fr; gap: 1rem; padding: 0.95rem 0; border-bottom: 1px solid var(--color-rule-night); align-items: baseline; }
+    .week__date { font-family: var(--font-mono); font-size: var(--text-meta); color: var(--color-clay); }
+    .week__arc { color: #b7a98f !important; }
+    .week__title { color: var(--color-bone-on-night); font-weight: 500; line-height: 1.35; }
+    @media (max-width: 880px) { .sked__grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    @media (max-width: 560px) {
+      .week { grid-template-columns: 4rem 1fr; }
+      .week__arc { grid-column: 2; order: 3; margin-top: 0.15rem; }
+    }
+
+    /* ── join: grants + tiers ── */
+    .grants { margin: 2.25rem 0 2.75rem; padding: clamp(1.5rem, 3vw, 2.25rem); background: var(--color-clay); color: var(--color-paper); display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .grants__badge { color: color-mix(in srgb, var(--color-paper) 82%, transparent) !important; margin-bottom: 0.6rem; }
+    .grants__headline { font-size: clamp(1.6rem, 3.2vw, 2.4rem); color: var(--color-paper); max-width: 18ch; line-height: 1.02; }
+    .grants__body { margin-top: 0.75rem; max-width: 54ch; color: color-mix(in srgb, var(--color-paper) 92%, transparent); line-height: 1.5; }
+    .grants__cta { background: var(--color-paper); color: var(--color-clay-deep); border-color: var(--color-paper); flex-shrink: 0; }
+    .grants__cta:hover { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+
+    .tiers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.9rem, 1.6vw, 1.25rem); align-items: stretch; }
+    .tier { position: relative; display: flex; flex-direction: column; padding: clamp(1.25rem, 1.8vw, 1.6rem); border: var(--rule); background: var(--color-paper); }
+    .tier--free { background: transparent; border-style: dashed; }
+    .tier--featured { border: 2px solid var(--color-clay); background: var(--color-paper-2); }
+    .tier__flag { position: absolute; top: -0.7rem; left: clamp(1.25rem, 1.8vw, 1.6rem); background: var(--color-clay); color: var(--color-paper) !important; padding: 0.2rem 0.6rem; }
+    .tier__name { margin-bottom: 0.6rem; }
+    .tier__price { display: flex; align-items: baseline; gap: 0.4rem; flex-wrap: wrap; }
+    .tier__amount { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 3.4vw, 2.75rem); letter-spacing: -0.03em; line-height: 1; }
+    .tier__unit { color: var(--color-ink-3); font-size: var(--text-meta); }
+    .tier__tagline { margin-top: 0.75rem; font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.01em; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .tier__abbr { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; color: var(--color-clay); border: 1px solid color-mix(in srgb, var(--color-clay) 45%, transparent); padding: 0.1rem 0.4rem; }
+    .tier__body { margin-top: 0.65rem; color: var(--color-ink-2); line-height: 1.45; font-size: var(--text-sm); }
+    .tier__features { list-style: none; margin: 1rem 0 1.5rem; padding: 0; display: grid; gap: 0.5rem; }
+    .tier__features li { padding-left: 1.4rem; position: relative; color: var(--color-ink); line-height: 1.35; font-size: var(--text-sm); }
+    .tier__features li::before { content: "✓"; position: absolute; left: 0; color: var(--color-clay); font-weight: 800; }
+    .tier__cta { margin-top: auto; align-self: flex-start; font-size: var(--text-sm); padding: 0.7em 1.1em; }
+    .tier__learn { display: inline-block; margin-top: 0.85rem; font-size: var(--text-meta); color: var(--color-ink-2); text-decoration: underline; text-decoration-color: var(--color-clay); text-decoration-style: dashed; text-underline-offset: 4px; }
+    .tier__learn:hover { color: var(--color-clay); }
+    @media (max-width: 980px) { .tiers { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .tiers { grid-template-columns: 1fr; } }
+
+    /* ── lineage ── */
+    .lineage__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); max-width: 16ch; }
+    .lineage__intro { margin-top: 1rem; color: #cabda6; font-size: var(--text-lg); line-height: 1.5; margin-bottom: 2.5rem; }
+    .lineage__intro em { color: var(--color-clay); font-style: normal; font-weight: 700; }
+    .lineage__strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: clamp(0.6rem, 1.2vw, 1rem); }
+    .ly { display: flex; flex-direction: column; gap: 0.5rem; }
+    .ly__plate { aspect-ratio: 3 / 4; background: var(--color-night); border: 1px solid var(--color-rule-night); }
+    .ly__plate :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ly__year { color: var(--color-clay); }
+    .ly__cap { color: #d2c5af; font-size: 0.8125rem; line-height: 1.4; }
+    .ly__cap :global(a) { color: var(--color-bone-on-night); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 65%, transparent); padding-bottom: 1px; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .ly__cap :global(a:hover) { color: var(--color-clay); border-color: var(--color-clay); }
+    @media (max-width: 1100px) { .lineage__strip { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 720px) { .lineage__strip { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── winter ── */
+    .winter__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .winter__media { aspect-ratio: 5 / 4; }
+    .winter__lead { font-size: var(--text-3xl); max-width: 16ch; margin-top: 0.5rem; }
+    .winter__body { margin-top: 1rem; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.5; margin-bottom: 1.75rem; }
+    @media (max-width: 880px) { .winter__grid { grid-template-columns: 1fr; } .winter__media { aspect-ratio: 16 / 10; } }
+
+    /* ── signup ── */
+    .signup__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .signup__lead { font-size: clamp(1.9rem, 4vw, 3rem); color: var(--color-bone-on-night); max-width: 16ch; }
+    .signup__intro { color: #cabda6; margin-top: 1rem; font-size: var(--text-lg); }
+    .signup__list { list-style: none; margin: 2rem 0 0; padding: 0; border-top: 1px solid var(--color-rule-night); }
+    .signup__list li { padding: 0.85rem 0 0.85rem 1.4rem; border-bottom: 1px solid var(--color-rule-night); color: var(--color-bone-on-night); position: relative; }
+    .signup__list li::before { content: "→"; position: absolute; left: 0; color: var(--color-clay); font-weight: 700; }
+    .signup__form { background: var(--color-bone-on-night); color: var(--color-ink); padding: clamp(1.25rem, 2.5vw, 2rem); }
+    .signup__form-eyebrow { margin-bottom: 1rem; }
+    .signup__form iframe { background: transparent; display: block; }
+    .signup__form-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.85rem); letter-spacing: -0.02em; margin-bottom: 0.85rem; }
+    .signup__form-placeholder p:not(.signup__form-headline) { color: var(--color-ink-2); line-height: 1.55; }
+    .signup__form-placeholder a { color: var(--color-clay); text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 820px) { .signup__grid { grid-template-columns: 1fr; } }
+  </style>
+</BaseLayout>

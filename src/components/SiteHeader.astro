@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { NAV, APPLY_URL } from "../data/site";
+import { NAV } from "../data/site";
 import marsLogo from "../assets/brand/mars-logo.png";
 const path = Astro.url.pathname;
 ---
@@ -14,17 +14,21 @@ const path = Astro.url.pathname;
 
     <nav class="hdr__nav" aria-label="Primary">
       {
-        NAV.map((item) => (
-          <a
-            href={item.href}
-            class="hdr__link"
-            aria-current={path.startsWith(item.href) ? "page" : undefined}
-          >
-            {item.label}
-          </a>
-        ))
+        NAV.map((item) => {
+          const isApply = item.label === "Apply";
+          return (
+            <a
+              href={item.href}
+              class={isApply ? "hdr__apply" : "hdr__link"}
+              aria-current={
+                !isApply && path.startsWith(item.href) ? "page" : undefined
+              }
+            >
+              {item.label}
+            </a>
+          );
+        })
       }
-      <a href={APPLY_URL} class="hdr__apply">Apply</a>
     </nav>
   </div>
 </header>

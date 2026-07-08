@@ -1,0 +1,7 @@
+# local holding folder for moved videos / unused source assets — never deploy
+_media-candidates/
+
+# rebuilt / reinstalled remotely
+node_modules/
+dist/
+.astro/
