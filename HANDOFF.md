@@ -49,6 +49,7 @@ Key facts already on the site: timeline (AI cohort **Aug 24** · Build **Nov–D
 ```
 src/
   pages/        index.astro, build.astro, learn.astro, thrive.astro,
+                mit.astro (Mars Institute of Technology), mff.astro (AI Film Festival),
                 apply.astro (hidden — Tally form embed; noindex),
                 build1.astro–build4.astro (variant scratch)
   components/    Hero.astro, SiteHeader.astro, SiteFooter.astro, PageHeader.astro,
@@ -98,8 +99,12 @@ In `src/assets/photos/**` (and `brand/**`), copied from the old repo's curated s
 - **/** home: aerial hero + timeline strip → "What is Mars College" intro → Build/Learn/Thrive pillars → **Outsmart AGI** (Sovereign AI) → Activities mosaic → Mars 2027 apply.
 - **/build**: DPW (rents all materials: Structure/Power/Water/Camp gear), concessions, build schedule, crew perks, build photos, **inquiry form** (`BuildInquiryForm.astro` — client-side, opens prefilled `mailto:info@mars.college`; no backend).
 - **/learn**: headed by **"Outsmart AGI"**, the 5 core AI topics, remote-work/vanlife, AI Department.
+- **/mit** — **Mars Institute of Technology (MIT)**, the AI school, rebranded from the "AI camp". Emblem-led header (seal at `src/assets/brand/mit-emblem.png`); sections: What MIT is (pillars) → **Eight years of AI studies** (2019–2027 full-bleed justified-masonry gallery, each image opens a lightbox) → Upcoming programs (give/get + "The semester") → **Off-Grid AI Engineering** course (topics, doom quotes, "year is 2033", Takeoff video) → **The gallery** (carousel) → **The Film Festival** (full-bleed banner → /mff) → off-season cohort. The homepage AI section + CTA now point here (was /learn). Derived from /learn but diverged; edit independently.
+- **/mff** — **Mars AI Film Festival**. Embeds all four annual festival reels (2023–2026) from the [Mars College YouTube channel](https://www.youtube.com/@MarsCollege-k7t/videos) via `youtube-nocookie`, plus a gallery of past screenings (assets in `src/assets/photos/mff/`). Linked from the Film Festival banner on /mit.
 - **/thrive**: desert nomad economics (cost breakdown), micro-businesses/grants, shared amenities.
 - **/apply** (hidden): Tally application form embed. `noindex,nofollow`; not in the nav. Reached by direct URL only until Gene decides to promote it. See "Tally forms" below.
+
+> **Nav caveat:** the site header/footer still link **"Learn" → /learn**, not /mit. /mit and /mff are reachable by direct URL and the on-page CTAs only. Wire them into the nav when Gene decides /mit supersedes /learn.
 
 The **"Outsmart AGI"** copy (founder-approved) lives on the home Sovereign-AI section and atop /learn:
 > It's a strange time to be human — the whole world is busy announcing our replacement. Mars takes the other side of the bet. We run AI locally, on our own power, by our own hand: local-first, renewable, DIY, self-sovereign. We don't work for the machine — we make it work for us, in service of a human-first life.
