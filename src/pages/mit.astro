@@ -6,7 +6,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Eyebrow from "../components/Eyebrow.astro";
-import { APPLY_URL, EMAIL, TALLY_OFFGRID_FORM_ID } from "../data/site";
+import { EMAIL, TALLY_APPLY_FORM_ID } from "../data/site";
 
 // Hero — DSCF1587, Thunder Talks 2026: chess engines and charts projected in
 // the Chiba hangar. Full-res original also at
@@ -18,12 +18,12 @@ import emblemImg from "../assets/brand/mit-emblem.png";
 
 // AI history grid (2019 → 2027)
 import aiHist2019 from "../assets/photos/learn/ai-history/2019-bbgan.png";
-import aiHist2020 from "../assets/photos/learn/ai-history/2021-abraham.png";
-import aiHist2021 from "../assets/photos/learn/ai-history/2021-brahman-ml-class.jpg";
-import aiHist2022 from "../assets/photos/learn/ai-history/2022-mars-bots.jpg";
+import aiHist2020 from "../assets/photos/learn/ai-history/2020-little-martians.jpg";
+import aiHist2021 from "../assets/photos/learn/ai-history/2022-mars-bots.jpg";
+import aiHist2022 from "../assets/photos/learn/ai-history/2022-ba-sing-se.png";
 import aiHist2023 from "../assets/photos/learn/ai-history/2023-desert-nomads.png";
 import aiHist2024 from "../assets/photos/learn/ai-history/2024-film-festival.jpg";
-import aiHist2025 from "../assets/photos/learn/supp_marscollege_research-and-learn.jpg";
+import aiHist2025 from "../assets/photos/learn/ai-history/2025-painted-canyons.jpg";
 import aiHist2026 from "../assets/photos/learn/ai-history/2026-finals-presentation.jpg";
 // Featured video for the §04 Off-Grid AI close (lives in /public).
 const AI_VIDEO_SRC = "/learn-video/2025-mars-research.mp4";
@@ -60,7 +60,7 @@ const TOPICS = [
 
 // Semester timeline used in §02 Upcoming programs.
 const MARS_COLLEGE_TIMELINE = [
-  { date: "Nov – Dec", label: "Build the village", href: "/build" },
+  { date: "Nov – Dec", label: "DPW builds Mars campus", href: "/build" },
   { date: "Jan 4", label: "Mars College begins" },
   { date: "Jan 11 – 17", label: "Ideas Week" },
   { date: "Wed nights", label: "Thunder Talks · weekly" },
@@ -108,19 +108,19 @@ const AI_HISTORY = [
   {
     year: "2020",
     img: aiHist2020,
-    alt: "Abraham — early Eden generative model output",
-    captionHtml: `<a href="https://abraham.ai" target="_blank" rel="noopener">Abraham</a>, and <a href="https://www.instagram.com/stories/highlights/17849566153934165/" target="_blank" rel="noopener">The Portal</a>.`,
+    alt: "A photogrammetry scan of a Little Martians ceramic face open in a 3D viewport",
+    captionHtml: `<a href="https://abraham.ai" target="_blank" rel="noopener">Abraham</a>, <a href="https://www.instagram.com/stories/highlights/17849566153934165/" target="_blank" rel="noopener">The Portal</a>, and <a href="https://marscollege.substack.com/p/little-martians-from-ceramics-to" target="_blank" rel="noopener">Little Martians</a>.`,
   },
   {
     year: "2021",
     img: aiHist2021,
-    alt: "A speaker rig wired to a tablet on a wooden tower at brahman.ai — the first creative AI class",
+    alt: "Mars Bots and Mulabonding — AI art series, SolarPunk Strength",
     captionHtml: `<a href="https://marscollege.substack.com/p/machine-learning-and-feedback-in" target="_blank" rel="noopener">First creative AI class</a>, and <a href="https://marscollege.substack.com/p/telepresence-completes-the-metaverse" target="_blank" rel="noopener">telepresence robots</a>.`,
   },
   {
     year: "2022",
     img: aiHist2022,
-    alt: "Mars Bots and Mulabonding — 2022 AI Art series, SolarPunk Strength",
+    alt: "Plate from the Mulabonding book — AI-generated animals and figures linked by ribboned paths, illustrating Ba Sing Se's line \"All beings have different paths, different time ways\"",
     captionHtml: `<a href="https://marscollege.substack.com/p/the-fifth-element" target="_blank" rel="noopener">Mars Bots</a> and <a href="https://vault.jmill.dev/project/Mulabonding" target="_blank" rel="noopener">Mulabonding</a>. GPT-3 house bots and the cohort AI art they generated.`,
   },
   {
@@ -138,8 +138,8 @@ const AI_HISTORY = [
   {
     year: "2025",
     img: aiHist2025,
-    alt: "Mars Research cohort in the tiered Chiba seating, 2025",
-    captionHtml: `<a href="https://marscollege.substack.com/p/ai-agents-class" target="_blank" rel="noopener">Personal agents</a> for every Martian. <a href="https://ygormarotta.substack.com/p/painted-canyons" target="_blank" rel="noopener">First gallery</a>.`,
+    alt: "A giant AI-generated face projected onto a canyon wall at night, cars parked on the desert floor below — Painted Canyons, 2025",
+    captionHtml: `<a href="https://marscollege.substack.com/p/ai-agents-class" target="_blank" rel="noopener">Personal agents</a> for every Martian. First gallery, and <a href="https://ygormarotta.substack.com/p/painted-canyons" target="_blank" rel="noopener">Painted Canyons</a>.`,
   },
   {
     year: "2026",
@@ -181,16 +181,22 @@ const ART_HERO = pGalInterior;
 
 // "The gallery" — the working gallery in Chiba + AI artworks, as a carousel.
 const ART_PHOTOS = [
+  { img: pMcChibaGallery, alt: "Hanging work in the Chiba Art Gallery — a wall of AI portraits under LED strip light" },
   { img: pGalViewing, alt: "Martians viewing AI video work on the gallery wall · 2026" },
   { img: pGalAiArt, alt: "An AI artwork series shown in the gallery · 2026" },
   { img: pGalScreens, alt: "AI art panels and screens mounted on the gallery wall · 2026" },
   { img: pGalScreensRow, alt: "A row of screens running generative work · 2026" },
-  { img: pMcChibaGallery, alt: "The Chiba Art Gallery" },
 ];
 
-// Combined gallery list for the lightbox carousel (history, then art).
+// The §04 feature image is a lightbox slide of its own, so it opens like the
+// carousel cells do.
+const ART_HERO_ALT =
+  "The AI gallery inside the Chiba hangar — screens mounted on pallet racks · 2026";
+
+// Combined gallery list for the lightbox carousel (history, feature, then art).
 const GALLERY = [
   ...AI_HISTORY.map((h, i) => ({ img: h.img, alt: h.alt, id: `hist-${i}` })),
+  { img: ART_HERO, alt: ART_HERO_ALT, id: "art-hero" },
   ...ART_PHOTOS.map((p, i) => ({ img: p.img, alt: p.alt, id: `art-${i}` })),
 ];
 
@@ -260,10 +266,15 @@ const courseLd = {
           loading="eager"
           class="mith__seal u-rise"
         />
-        <p class="mith__lede u-rise" style="animation-delay:120ms">
-          The camp of future technology at Mars. Art gallery, film academy,
-          and boot camp for off-grid AI engineering.
-        </p>
+        <div class="mith__say">
+          <p class="mith__lede u-rise" style="animation-delay:120ms">
+            The camp of future technology at Mars. Art gallery, film academy,
+            and boot camp for off-grid AI engineering.
+          </p>
+          <a href="#apply" class="mith__cta u-rise" style="animation-delay:200ms">
+            Apply to MIT <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -299,7 +310,7 @@ const courseLd = {
   <section id="history" class="u-section is-night aihist">
     <div class="u-shell">
       <Eyebrow index="02" label="Mars Institute of Technology — at Mars since the beginning" />
-      <h2 class="aihist__lead u-display">Eight years of AI studies on Mars.</h2>
+      <h2 class="aihist__lead u-display">Eight years of AI on Mars.</h2>
       <p class="aihist__intro u-measure" set:html={`
         AI studies on Mars date back to
         <a href="https://x.com/genekogan/status/1165684548241416193" target="_blank" rel="noopener">before Mars College had its name</a>.
@@ -344,11 +355,10 @@ const courseLd = {
   <!-- ===================== UPCOMING PROGRAMS ===================== -->
   <section class="u-section compare">
     <div class="u-shell">
-      <Eyebrow index="03" label="Upcoming programs" />
-      <h2 class="compare__lead u-display">Two tracks: IRL and online.</h2>
+      <Eyebrow index="03" label="How it works" />
+      <h2 class="compare__lead u-display">MIT Curriculum</h2>
       <p class="compare__intro u-measure">
-        An online AI cohort in fall, an off-grid term in winter. Shared
-        curriculum, shared instructors. Many people do one; some do both.
+        The calendar and program for MIT.
       </p>
 
       <div class="compare__cols">
@@ -362,9 +372,9 @@ const courseLd = {
           </ul>
           <p class="compare__col-tag u-label compare__col-tag--second">What you get</p>
           <ul class="compare__list">
-            <li>Compute grant for AI.</li>
+            <li>Compute grant for AI projects.</li>
             <li>Space: screens, projectors, materials to create with.</li>
-            <li>Access to housing inside the MIT pallet-rack quarters.</li>
+            <li>Access to housing inside the MIT buildings.</li>
           </ul>
         </article>
 
@@ -389,10 +399,97 @@ const courseLd = {
     </div>
   </section>
 
+  <!-- ===================== LEARN AI THROUGH ART ===================== -->
+  <section class="u-section is-night art">
+    <div class="u-shell">
+      <Eyebrow index="04" label="The gallery" />
+      <h2 class="art__lead u-display">The gallery ties the school together.</h2>
+      <p class="art__intro u-measure">
+        The Mars semester is anchored to monthly group exhibitions in a shared
+        gallery we build in the open desert.
+      </p>
+
+      <button
+        type="button"
+        class="art__feature u-plate lb"
+        data-lb-id="art-hero"
+        aria-label={`Open photo: ${ART_HERO_ALT}`}
+      >
+        <Image
+          src={ART_HERO}
+          alt={ART_HERO_ALT}
+          widths={[760, 1200, 1800]}
+          sizes="100vw"
+          format="webp"
+          quality={64}
+          loading="lazy"
+        />
+      </button>
+
+      <div class="art__carousel" id="art-carousel">
+        <ul class="art__track">
+          {ART_PHOTOS.map((p, i) => (
+            <li class="art__slide">
+              <button
+                type="button"
+                class="art__cell u-plate lb"
+                data-lb-id={`art-${i}`}
+                aria-label={`Open photo: ${p.alt}`}
+              >
+                <Image
+                  src={p.img}
+                  alt={p.alt}
+                  widths={[400, 700, 1000]}
+                  sizes="(max-width: 720px) 80vw, 32vw"
+                  format="webp"
+                  quality={62}
+                  loading="lazy"
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+        <button type="button" class="art__nav art__nav--prev" aria-label="Previous photos">‹</button>
+        <button type="button" class="art__nav art__nav--next" aria-label="Next photos">›</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== THE FILM FESTIVAL ===================== -->
+  <section class="is-night mff">
+    <div class="mff__bg">
+      <Image
+        src={mffBg}
+        alt="The 2026 AI Film Festival screened outdoors at the Bombay Beach Arts Center — audience in folding chairs under the recycled-metal fish sculpture, palm tree beside the glowing screen"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        format="webp"
+        quality={62}
+        loading="lazy"
+        class="mff__img"
+      />
+      <div class="mff__scrim" aria-hidden="true"></div>
+    </div>
+    <div class="u-shell mff__content">
+      <Eyebrow index="05" label="Mars Electronica · finals" />
+      <h2 class="mff__lead u-display">The Film Festival.</h2>
+      <div class="mff__bottom">
+        <p class="mff__sub">
+          The fourth annual AI Film Festival will be screened during Mars
+          Electronica, our year end celebration.
+        </p>
+        <a href="/mff" class="u-cta">
+          Learn more about our AI Film Festival <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== OFF-GRID AI PROGRAM ===================== -->
   <section class="u-section ai">
     <div class="u-shell">
-      <Eyebrow index="04" label="Outsmart the superintelligence" />
+      <Eyebrow index="06" label="Outsmart the superintelligence" />
       <h2 class="ai__lead u-display">Off-Grid AI Engineering.</h2>
       <div class="ai__intro u-measure">
         <p>
@@ -454,128 +551,44 @@ const courseLd = {
     </div>
   </section>
 
-  <!-- ===================== LEARN AI THROUGH ART ===================== -->
-  <section class="u-section art">
-    <div class="u-shell">
-      <Eyebrow index="05" label="The gallery" />
-      <h2 class="art__lead u-display">The gallery ties the school together.</h2>
-      <p class="art__intro u-measure">
-        The Mars semester is anchored to monthly group exhibitions in a shared
-        gallery we build in the open desert.
-      </p>
-
-      <figure class="art__feature u-plate">
-        <Image
-          src={ART_HERO}
-          alt="The AI gallery inside the Chiba hangar — screens mounted on pallet racks · 2026"
-          widths={[760, 1200, 1800]}
-          sizes="100vw"
-          format="webp"
-          quality={64}
-          loading="lazy"
-        />
-      </figure>
-
-      <div class="art__carousel" id="art-carousel">
-        <ul class="art__track">
-          {ART_PHOTOS.map((p, i) => (
-            <li class="art__slide">
-              <button
-                type="button"
-                class="art__cell u-plate lb"
-                data-lb-id={`art-${i}`}
-                aria-label={`Open photo: ${p.alt}`}
-              >
-                <Image
-                  src={p.img}
-                  alt={p.alt}
-                  widths={[400, 700, 1000]}
-                  sizes="(max-width: 720px) 80vw, 32vw"
-                  format="webp"
-                  quality={62}
-                  loading="lazy"
-                />
-              </button>
-            </li>
-          ))}
-        </ul>
-        <button type="button" class="art__nav art__nav--prev" aria-label="Previous photos">‹</button>
-        <button type="button" class="art__nav art__nav--next" aria-label="Next photos">›</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================== THE FILM FESTIVAL ===================== -->
-  <section class="is-night mff">
-    <div class="mff__bg">
-      <Image
-        src={mffBg}
-        alt="The 2026 AI Film Festival screened outdoors at the Bombay Beach Arts Center — audience in folding chairs under the recycled-metal fish sculpture, palm tree beside the glowing screen"
-        widths={[768, 1280, 1920]}
-        sizes="100vw"
-        format="webp"
-        quality={62}
-        loading="lazy"
-        class="mff__img"
-      />
-      <div class="mff__scrim" aria-hidden="true"></div>
-    </div>
-    <div class="u-shell mff__content">
-      <Eyebrow index="06" label="Mars Electronica · finals" />
-      <h2 class="mff__lead u-display">The Film Festival.</h2>
-      <div class="mff__bottom">
-        <p class="mff__sub">
-          The fourth annual AI Film Festival will be screened during Mars
-          Electronica, our year end celebration.
-        </p>
-        <a href="/mff" class="u-cta">
-          Learn more about our AI Film Festival <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== OFF-SEASON COHORT ===================== -->
-  <section id="offgrid-signup" class="u-section is-night cohort">
+  <!-- ===================== APPLY ===================== -->
+  <section id="apply" class="u-section is-night cohort">
     <div class="u-shell cohort__grid">
       <div class="cohort__text">
-        <Eyebrow index="07" label="The off-season cohort · Aug 31 – Dec" />
-        <h2 class="cohort__lead u-display">Off-Grid AI, online.</h2>
+        <Eyebrow index="07" label="Apply · rolling admissions" />
+        <h2 class="cohort__lead u-display">Apply to MIT.</h2>
         <p class="cohort__intro u-measure">
-          Fourteen weeks of asynchronous tutorials and a weekly live lab on
-          Discord. Curriculum on local and sovereign AI, agents for personal
-          productivity and growth, and creative agents. People who finish the
-          cohort get an inside track on the winter term in the desert.
+          One application for the Mars Institute of Technology. Tell us who you
+          are and what you'd build in the desert. We read them as they come in.
         </p>
         <ul class="cohort__list">
-          <li>~3 hrs/week · async tutorials + weekly live lab on Discord</li>
-          <li>Eden compute grant for the full 14 weeks</li>
-          <li>Three tiers · starts free (curriculum and labs access)</li>
+          <li>Rolling admissions · the earlier the better</li>
+          <li>The term runs Jan 4 – Mar 28 at Mars</li>
+          <li>Questions? <a href={`mailto:${EMAIL}?subject=MIT%20application`} class="cohort__form-link">{EMAIL}</a></li>
         </ul>
       </div>
 
       <div class="cohort__form">
-        <p class="u-label u-label--clay cohort__form-eyebrow">Sign up</p>
+        <p class="u-label u-label--clay cohort__form-eyebrow">The application</p>
         {
-          TALLY_OFFGRID_FORM_ID ? (
+          TALLY_APPLY_FORM_ID ? (
             <iframe
-              data-tally-src={`https://tally.so/embed/${TALLY_OFFGRID_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              data-tally-src={`https://tally.so/embed/${TALLY_APPLY_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
               loading="lazy"
               width="100%"
               height="640"
               frameborder="0"
               marginheight="0"
               marginwidth="0"
-              title="Off-Grid AI cohort signup"
+              title="Mars Institute of Technology application"
             />
           ) : (
             <div class="cohort__form-placeholder">
               <p class="cohort__form-headline">Form coming soon.</p>
               <p>
                 Until the form ships, email
-                {" "}<a href={`mailto:${EMAIL}?subject=Off-Grid%20AI%20cohort`} class="cohort__form-link">{EMAIL}</a>
-                {" "}with subject "Off-Grid AI cohort" and we'll save you a seat.
+                {" "}<a href={`mailto:${EMAIL}?subject=MIT%20application`} class="cohort__form-link">{EMAIL}</a>
+                {" "}with subject "MIT application" and we'll save you a seat.
               </p>
             </div>
           )
@@ -583,18 +596,6 @@ const courseLd = {
       </div>
     </div>
     <script async src="https://tally.so/widgets/embed.js"></script>
-  </section>
-
-  <!-- ===================== CTA ===================== -->
-  <section class="u-section--tight">
-    <div class="u-shell cta-band">
-      <p class="cta-band__text u-display">
-        Start online in August. Cross to the desert in January.
-      </p>
-      <a href={APPLY_URL} class="u-cta">
-        Apply for 2027 <span aria-hidden="true">→</span>
-      </a>
-    </div>
   </section>
 
   <!-- ===================== LIGHTBOX ===================== -->
@@ -715,7 +716,9 @@ const courseLd = {
     /* ─── combined header: hero image + emblem ─── */
     /* --seal-w is the single source of truth for emblem size; the media
        queries below override it per breakpoint. */
-    .mith { position: relative; overflow: hidden; isolation: isolate; --seal-w: clamp(12rem, 18vw, 17rem); }
+    /* --seal-max is a hard ceiling: the seal never grows past it, so it can't
+       creep across the frame and cover the teacher in the hero photo. */
+    .mith { position: relative; overflow: hidden; isolation: isolate; --seal-max: 550px; --seal-w: min(clamp(12rem, 18vw, 17rem), var(--seal-max)); }
     .mith__bg { position: absolute; inset: 0; z-index: -1; }
     /* Left-anchored crop: as the viewport narrows, the right side of the
        photo is trimmed first, keeping the teacher + projection in view.
@@ -742,22 +745,29 @@ const courseLd = {
       /* The rail hugs the TOP of the header — no dead space above "MIT" —
          and the freed vertical room goes to a BIG seal. The hero grows
          taller if the seal needs it. */
-      .mith { --seal-w: clamp(24rem, 52vw, 32rem); --seal-ml: clamp(5.5rem, 13vw, 8rem); }
+      .mith { --seal-w: min(clamp(18rem, 39vw, 24rem), var(--seal-max)); --seal-ml: clamp(5.5rem, 13vw, 8rem); }
       .mith__content { justify-content: flex-start; padding-top: clamp(1.25rem, 2.5vw, 2rem); }
       .mith__content :global(.u-eyebrow) { max-width: var(--seal-w); margin-bottom: 0; margin-left: var(--seal-ml); }
-      .mith__crest { margin-top: clamp(1rem, 2vw, 1.5rem); max-width: var(--seal-w); margin-left: var(--seal-ml); }
+      /* The crest rail is wider than the seal so the lede and the Apply
+         button can sit on one line beside each other. */
+      .mith__crest { margin-top: clamp(1rem, 2vw, 1.5rem); max-width: min(48rem, 66vw); margin-left: var(--seal-ml); }
     }
     @media (min-width: 1061px) {
       /* Wide widths: seal anchored left, sized well past the dark column —
          vertical space is there for it now. */
-      .mith { --seal-w: min(32vw, 38rem); --seal-ml: 0rem; }
+      .mith { --seal-w: min(24vw, var(--seal-max)); --seal-ml: 0rem; }
     }
     /* circular crop hides the seal's off-white square on the dark hero */
     .mith__seal { width: var(--seal-w); height: auto; flex: 0 0 auto; border-radius: 50%; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5); }
-    .mith__lede { font-size: clamp(1.1rem, 1.5vw, 1.5rem); line-height: 1.5; color: #ece2d0; }
+    /* Lede + CTA sit side by side once there's room; stacked on phones. */
+    .mith__say { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem); flex-wrap: wrap; }
+    .mith__lede { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.015em; font-size: clamp(1.35rem, 2.2vw, 2rem); line-height: 1.3; color: #ece2d0; max-width: 26ch; }
+    .mith__cta { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-body); font-size: 0.9375rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; color: var(--color-paper); background: var(--color-clay); border: 1.5px solid var(--color-clay); padding: 0.7rem 1.25rem; transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .mith__cta:hover { background: var(--color-clay-deep); border-color: var(--color-clay-deep); }
     @media (max-width: 640px) {
       .mith__crest { max-width: none; }
       .mith { --seal-w: clamp(11rem, 50vw, 14rem); }
+      .mith__say { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     }
 
     /* ─── two programs ─── */
@@ -826,21 +836,25 @@ const courseLd = {
     .ptl__label--link:hover { color: var(--color-clay); border-color: var(--color-clay); }
 
 
-    /* ─── learn AI through art ─── */
-    .art__lead { font-size: var(--text-3xl); max-width: 18ch; }
-    .art__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2rem; font-size: var(--text-lg); line-height: 1.55; max-width: 70ch; }
-    .art__feature { position: relative; aspect-ratio: 16 / 9; margin: 0 0 clamp(0.5rem, 1.2vw, 1rem); overflow: hidden; background: var(--color-paper-2); }
-    .art__feature :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* ─── learn AI through art (dark section) ─── */
+    .art__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); max-width: 18ch; }
+    .art__intro { margin-top: 1rem; color: #cabda6; margin-bottom: 2rem; font-size: var(--text-lg); line-height: 1.55; max-width: 70ch; }
+    .art__feature { position: relative; aspect-ratio: 16 / 9; margin: 0 0 clamp(0.5rem, 1.2vw, 1rem); overflow: hidden; background: var(--color-night); border: 1px solid var(--color-rule-night); padding: 0; cursor: zoom-in; display: block; width: 100%; transition: border-color var(--dur-fast) var(--ease-out); }
+    .art__feature:hover, .art__feature:focus-visible { border-color: var(--color-clay); }
+    .art__feature:focus-visible { outline: 2px solid var(--color-clay); outline-offset: 2px; }
+    .art__feature :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+    .art__feature:hover :global(img), .art__feature:focus-visible :global(img) { transform: scale(1.02); }
     /* gallery carousel: scroll-snap track with prev/next arrows */
     .art__carousel { position: relative; }
     .art__track { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(0.5rem, 1.2vw, 1rem); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .art__track::-webkit-scrollbar { display: none; }
     .art__slide { flex: 0 0 clamp(17rem, 32vw, 26rem); scroll-snap-align: start; }
-    .art__cell { position: relative; aspect-ratio: 4 / 3; cursor: zoom-in; border: 0; padding: 0; background: var(--color-paper-2); overflow: hidden; display: block; width: 100%; }
+    .art__cell { position: relative; aspect-ratio: 4 / 3; cursor: zoom-in; border: 1px solid var(--color-rule-night); padding: 0; background: var(--color-night); overflow: hidden; display: block; width: 100%; transition: border-color var(--dur-fast) var(--ease-out); }
+    .art__cell:hover, .art__cell:focus-visible { border-color: var(--color-clay); }
     .art__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
     .art__cell:hover :global(img), .art__cell:focus-visible :global(img) { transform: scale(1.04); }
     .art__cell:focus-visible { outline: 2px solid var(--color-clay); outline-offset: 2px; }
-    .art__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; background: var(--color-paper); border: 1px solid var(--color-rule); color: var(--color-ink); font-family: var(--font-display); font-size: 1.4rem; line-height: 1; cursor: pointer; z-index: 2; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .art__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; background: var(--color-night); border: 1px solid var(--color-rule-night); color: var(--color-bone-on-night); font-family: var(--font-display); font-size: 1.4rem; line-height: 1; cursor: pointer; z-index: 2; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
     .art__nav:hover { color: var(--color-clay); border-color: var(--color-clay); }
     .art__nav--prev { left: 0.5rem; }
     .art__nav--next { right: 0.5rem; }
@@ -849,15 +863,23 @@ const courseLd = {
     /* ─── The Film Festival (full-bleed background section) ─── */
     .mff { position: relative; overflow: hidden; isolation: isolate; }
     .mff__bg { position: absolute; inset: 0; z-index: -1; }
-    .mff__img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+    /* Top-anchored crop: the extra height is taken off the bottom of the
+       frame, so the plane above the screen stays in view. */
+    .mff__img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .mff__scrim { position: absolute; inset: 0; background:
       linear-gradient(to top, rgba(10, 8, 6, 0.88) 0%, rgba(10, 8, 6, 0.35) 40%, rgba(10, 8, 6, 0.45) 100%); }
-    .mff__content { display: flex; flex-direction: column; min-height: clamp(28rem, 82vh, 44rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
+    .mff__content { display: flex; flex-direction: column; min-height: clamp(34rem, 96vh, 54rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
     .mff__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); max-width: 16ch; }
     .mff__bottom { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
     .mff__sub { color: #ece2d0; font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.5; max-width: 44ch; }
     @media (max-width: 640px) {
       .mff__bottom { flex-direction: column; align-items: flex-start; }
+      /* On a phone the section is far narrower than the 4:3 photo, so cover
+         crops horizontally. Keep it shorter than the viewport (less height =
+         less width thrown away) and anchor right, which is where the screen
+         is — the frame then reads as screen + audience rather than palms. */
+      .mff__content { min-height: clamp(24rem, 58vh, 32rem); }
+      .mff__img { object-position: 88% top; }
     }
 
     /* ─── cohort ─── */
@@ -925,10 +947,6 @@ const courseLd = {
     .ai__feature { margin: 3rem 0 0; }
     .ai__video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--color-night); border: 1px solid var(--color-rule); }
     .ai__feature-cap { display: block; margin-top: 0.85rem; color: var(--color-ink-3); }
-
-    /* ─── cta ─── */
-    .cta-band { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-top: var(--rule-strong); padding-top: 2.5rem; }
-    .cta-band__text { font-size: clamp(1.6rem, 3.4vw, 2.6rem); max-width: 24ch; }
 
     /* ─── lightbox ─── */
     .lb-box { position: fixed; inset: 0; z-index: 100; background: rgba(10, 8, 6, 0.95); display: flex; align-items: center; justify-content: center; }
