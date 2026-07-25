@@ -1,0 +1,154 @@
+---
+// /mff — the Mars AI Film Festival. Four annual editions (2023–2026),
+// screened outdoors during Mars Electronica. Embeds the full festival
+// reels from the Mars College YouTube channel and collects photos of
+// past screenings. Linked from the Film Festival section on /mit.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import { APPLY_URL } from "../data/site";
+
+// Header — the 2026 festival at the Bombay Beach Arts Center.
+import heroImg from "../assets/photos/mff/screening-2026-wide.jpg";
+
+// Photos of past festivals.
+import pFish from "../assets/photos/learn/electronica/bbac-screening-2026.jpg";
+import pCrowd from "../assets/photos/learn/electronica/crowd.jpg";
+import pAbstract from "../assets/photos/learn/electronica/abstract.jpg";
+import pAnimated from "../assets/photos/learn/electronica/animated.jpg";
+import p2024 from "../assets/photos/learn/ai-history/2024-film-festival.jpg";
+import pAnimation26 from "../assets/photos/mff/screening-2026-animation.jpg";
+import pFractal26 from "../assets/photos/mff/screening-2026-fractal.jpg";
+import pArt26 from "../assets/photos/mff/screening-2026-art.jpg";
+
+// The four festivals on the Mars College YouTube channel:
+// https://www.youtube.com/@MarsCollege-k7t/videos
+const FESTIVALS = [
+  { year: "2023", id: "SL--NeP0iHo" },
+  { year: "2024", id: "ih7okZcBhEA" },
+  { year: "2025", id: "olxXcD4Tjko" },
+  { year: "2026", id: "jkm9IK16URU" },
+];
+
+const PHOTOS = [
+  { img: pFish, alt: "The 2026 festival under the recycled-metal fish sculpture at the Bombay Beach Arts Center" },
+  { img: p2024, alt: "The first outdoor AI Film Festival screening at Bombay Beach · 2024" },
+  { img: pAnimation26, alt: "The audience watching an animated AI film · 2026" },
+  { img: pCrowd, alt: "Night screening at the Bombay Beach Arts Center · 2026" },
+  { img: pFractal26, alt: "A generative fractal film glowing over silhouetted viewers · 2026" },
+  { img: pAbstract, alt: "Abstract generative film projected under the desert sky · 2026" },
+  { img: pArt26, alt: "An AI art film screening outdoors at night · 2026" },
+  { img: pAnimated, alt: "The audience watching an animated AI film at BBAC · 2026" },
+];
+---
+
+<BaseLayout
+  title="Mars AI Film Festival (MFF) — Mars College"
+  description="The Mars AI Film Festival: four annual editions of films made with AI at Mars College, screened outdoors at the Bombay Beach Arts Center during Mars Electronica. Watch all four festivals, 2023–2026."
+>
+  <PageHeader
+    index="02"
+    label="MFF"
+    title="The AI Film Festival."
+    lede="Films made with AI at Mars, screened outdoors under the desert sky during Mars Electronica. Four editions and counting."
+    image={heroImg}
+    imageAlt="An outdoor night screening at the Bombay Beach Arts Center — audience in folding chairs, palm tree beside the glowing screen, recycled-metal fish sculpture overhead"
+  />
+
+  <!-- ===================== THE FOUR FESTIVALS ===================== -->
+  <section class="u-section films">
+    <div class="u-shell">
+      <Eyebrow index="01" label="Four festivals · 2023 – 2026" />
+      <h2 class="films__lead u-display">Watch every festival.</h2>
+      <p class="films__intro u-measure">
+        Every film is made by Martians during the semester — generative video,
+        voice, music, and story — and premiered as one reel at the festival.
+        The full programs are on the
+        <a href="https://www.youtube.com/@MarsCollege-k7t/videos" target="_blank" rel="noopener">Mars College YouTube channel</a>.
+      </p>
+
+      <div class="films__grid">
+        {FESTIVALS.map((f) => (
+          <figure class="film">
+            <div class="film__frame">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${f.id}`}
+                title={`AI Film Festival ${f.year}`}
+                loading="lazy"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <figcaption class="film__cap">
+              <span class="u-index">{f.year}</span>
+              <span>AI Film Festival {f.year}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCENES FROM THE FESTIVAL ===================== -->
+  <section class="u-section is-night scenes">
+    <div class="u-shell">
+      <Eyebrow index="02" label="Scenes from past festivals" />
+      <h2 class="scenes__lead u-display">Screened under the desert sky.</h2>
+      <ul class="scenes__grid">
+        {PHOTOS.map((p) => (
+          <li class="scenes__cell u-plate">
+            <Image
+              src={p.img}
+              alt={p.alt}
+              widths={[500, 900, 1300]}
+              sizes="(max-width: 720px) 100vw, 45vw"
+              format="webp"
+              quality={64}
+              loading="lazy"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="u-section--tight">
+    <div class="u-shell cta-band">
+      <p class="cta-band__text u-display">
+        Make a film with us at the next one.
+      </p>
+      <a href={APPLY_URL} class="u-cta">
+        Apply for 2027 <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    /* ─── the four festivals ─── */
+    .films__lead { font-size: var(--text-3xl); max-width: 18ch; }
+    .films__intro { margin-top: 1rem; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; margin-bottom: 2.5rem; }
+    .films__intro a { color: inherit; text-decoration-line: underline; text-decoration-style: dashed; text-decoration-color: var(--color-clay); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color var(--dur-fast) var(--ease-out); }
+    .films__intro a:hover { color: var(--color-clay); }
+    .films__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.25rem, 3vw, 2.5rem); }
+    .film { margin: 0; }
+    .film__frame { position: relative; aspect-ratio: 16 / 9; background: var(--color-night); border: 1px solid var(--color-rule); }
+    .film__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .film__cap { margin-top: 0.75rem; display: flex; align-items: baseline; gap: 0.75rem; color: var(--color-ink-2); font-weight: 500; }
+    @media (max-width: 820px) { .films__grid { grid-template-columns: 1fr; } }
+
+    /* ─── scenes ─── */
+    .scenes__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); max-width: 18ch; margin-bottom: 2.5rem; }
+    .scenes__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(0.6rem, 1.4vw, 1.1rem); }
+    .scenes__cell { position: relative; aspect-ratio: 3 / 2; background: var(--color-night); border: 1px solid var(--color-rule-night); overflow: hidden; }
+    .scenes__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+    .scenes__cell:hover :global(img) { transform: scale(1.03); }
+    @media (max-width: 640px) { .scenes__grid { grid-template-columns: 1fr; } }
+
+    /* ─── cta ─── */
+    .cta-band { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-top: var(--rule-strong); padding-top: 2.5rem; }
+    .cta-band__text { font-size: clamp(1.6rem, 3.4vw, 2.6rem); max-width: 24ch; }
+  </style>
+</BaseLayout>

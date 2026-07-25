@@ -1,0 +1,954 @@
+---
+// /mit — Mars Institute of Technology (MIT). Derived from /learn with the
+// AI camp rebranded as the Mars Institute of Technology; "Off-Grid AI
+// Engineering" remains the name of the course. Adds an emblem section
+// (the MIT seal) right under the page header.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import { APPLY_URL, EMAIL, TALLY_OFFGRID_FORM_ID } from "../data/site";
+
+// Hero — DSCF1587, Thunder Talks 2026: chess engines and charts projected in
+// the Chiba hangar. Full-res original also at
+// media/posts/2026 Recap article (duplicates)/DSCF1587.jpg
+import heroImg from "../assets/photos/learn/005_2026_dscf1587_2f9fb.jpg";
+
+// The MIT emblem (seal).
+import emblemImg from "../assets/brand/mit-emblem.png";
+
+// AI history grid (2019 → 2027)
+import aiHist2019 from "../assets/photos/learn/ai-history/2019-bbgan.png";
+import aiHist2020 from "../assets/photos/learn/ai-history/2021-abraham.png";
+import aiHist2021 from "../assets/photos/learn/ai-history/2021-brahman-ml-class.jpg";
+import aiHist2022 from "../assets/photos/learn/ai-history/2022-mars-bots.jpg";
+import aiHist2023 from "../assets/photos/learn/ai-history/2023-desert-nomads.png";
+import aiHist2024 from "../assets/photos/learn/ai-history/2024-film-festival.jpg";
+import aiHist2025 from "../assets/photos/learn/supp_marscollege_research-and-learn.jpg";
+import aiHist2026 from "../assets/photos/learn/ai-history/2026-finals-presentation.jpg";
+// Featured video for the §04 Off-Grid AI close (lives in /public).
+const AI_VIDEO_SRC = "/learn-video/2025-mars-research.mp4";
+const AI_VIDEO_POSTER = "/learn-video/2025-mars-research-poster.jpg";
+
+// Pillar photos.
+import pillarLab from "../assets/photos/aerial-2.jpg";
+import pillarGallery from "../assets/photos/learn/gallery-2026-opening.jpg";
+
+// Topic list inlined here (replaces AI_PROGRAM_TOPICS from shared data,
+// so the candidate pages /learn1–4 are not affected by these edits).
+const TOPICS = [
+  {
+    n: "01",
+    title: "Personal AI",
+    body: "A coach, digital twin, chief of staff, guardian angel, second brain. An agent that knows you and answers only to you.",
+  },
+  {
+    n: "02",
+    title: "Off-Grid Agents",
+    body: "Open-source, self-hosted, local models. A stack that doesn't go down when the cloud does.",
+  },
+  {
+    n: "03",
+    title: "Art with AI",
+    body: "Film, music, performance, live code. AI as an instrument, not a style.",
+  },
+  {
+    n: "04",
+    title: "Earning a living",
+    body: "How people using AI are making money now, and how you might.",
+  },
+];
+
+// Semester timeline used in §02 Upcoming programs.
+const MARS_COLLEGE_TIMELINE = [
+  { date: "Nov – Dec", label: "Build the village", href: "/build" },
+  { date: "Jan 4", label: "Mars College begins" },
+  { date: "Jan 11 – 17", label: "Ideas Week" },
+  { date: "Wed nights", label: "Thunder Talks · weekly" },
+  { date: "Jan · Feb · Mar", label: "Moons of Mars · 3 gallery shows" },
+  { date: "Feb 13 – 15", label: "Declaration Days · midterm" },
+  { date: "Mar 26 – 28", label: "Mars Electronica · finals" },
+  { date: "April", label: "Unbuild" },
+];
+
+// Three-pillars block — what the Mars Institute of Technology is.
+const PILLARS = [
+  {
+    n: "01",
+    title: "An off-grid applied research lab",
+    body: "MIT is part camp, part academy that builds a gallery and engineering school dedicated to technological self-reliance.",
+    img: pillarLab,
+    alt: "Drone view of the multi-story pallet-rack campus at Mars — plywood mezzanines, solar panels, and open desert behind",
+  },
+  {
+    n: "02",
+    title: "Outsmart the superintelligence",
+    body: "Classes on AI tools and skills, for art, knowledge, productivity, and commerce.",
+    img: pMcMarzipanAI,
+    alt: "Marzipan teaching AI art at Mars — Burroughs Quotes screen with AI-generated mandala imagery",
+  },
+  {
+    n: "03",
+    title: "Learning by making",
+    body: "The semester culminates with a group exhibition, film festival, and conference.",
+    img: pillarGallery,
+    alt: "Visitors viewing video works on wall-mounted screens at the Chiba gallery opening, Mars 2026",
+  },
+];
+
+// AI history — eight years of AI studies on Mars, 2019 → 2027, shown as a
+// 3×3 gallery grid. Captions accept inline HTML so we can link out to source
+// posts, model homepages, and project pages.
+const AI_HISTORY = [
+  {
+    year: "2019",
+    img: aiHist2019,
+    alt: "BBGAN — early generative AI video trained on Bombay Beach",
+    captionHtml: `<a href="https://x.com/Mars_College/status/1440013890369187842" target="_blank" rel="noopener">BBGAN</a> at Bombay Beach Biennale, early generative video trained on town and desert.`,
+  },
+  {
+    year: "2020",
+    img: aiHist2020,
+    alt: "Abraham — early Eden generative model output",
+    captionHtml: `<a href="https://abraham.ai" target="_blank" rel="noopener">Abraham</a>, and <a href="https://www.instagram.com/stories/highlights/17849566153934165/" target="_blank" rel="noopener">The Portal</a>.`,
+  },
+  {
+    year: "2021",
+    img: aiHist2021,
+    alt: "A speaker rig wired to a tablet on a wooden tower at brahman.ai — the first creative AI class",
+    captionHtml: `<a href="https://marscollege.substack.com/p/machine-learning-and-feedback-in" target="_blank" rel="noopener">First creative AI class</a>, and <a href="https://marscollege.substack.com/p/telepresence-completes-the-metaverse" target="_blank" rel="noopener">telepresence robots</a>.`,
+  },
+  {
+    year: "2022",
+    img: aiHist2022,
+    alt: "Mars Bots and Mulabonding — 2022 AI Art series, SolarPunk Strength",
+    captionHtml: `<a href="https://marscollege.substack.com/p/the-fifth-element" target="_blank" rel="noopener">Mars Bots</a> and <a href="https://vault.jmill.dev/project/Mulabonding" target="_blank" rel="noopener">Mulabonding</a>. GPT-3 house bots and the cohort AI art they generated.`,
+  },
+  {
+    year: "2023",
+    img: aiHist2023,
+    alt: "Three shrouded desert nomads on glowing electric unicycles in a red rock canyon — AI artwork from the Mars bots channel, 2023",
+    captionHtml: `<a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">Creative AI major</a> launched.`,
+  },
+  {
+    year: "2024",
+    img: aiHist2024,
+    alt: "Outdoor projection of the first AI Film Festival at Bombay Beach",
+    captionHtml: `First <a href="https://marscollege.substack.com/p/creative-ai-at-mars-college-2026" target="_blank" rel="noopener">AI Film Festival</a>.`,
+  },
+  {
+    year: "2025",
+    img: aiHist2025,
+    alt: "Mars Research cohort in the tiered Chiba seating, 2025",
+    captionHtml: `<a href="https://marscollege.substack.com/p/ai-agents-class" target="_blank" rel="noopener">Personal agents</a> for every Martian. <a href="https://ygormarotta.substack.com/p/painted-canyons" target="_blank" rel="noopener">First gallery</a>.`,
+  },
+  {
+    year: "2026",
+    img: aiHist2026,
+    alt: "Mars 2026 finals presentation — projected geometric diagrams between pallet-rack columns",
+    captionHtml: `<a href="https://marscollege.substack.com/p/creative-ai-at-mars-college-2026" target="_blank" rel="noopener">AI Camp</a>, <a href="https://marscollege.substack.com/p/recap-of-mars-2026" target="_blank" rel="noopener">second gallery</a>.`,
+  },
+  {
+    year: "2027",
+    img: emblemImg,
+    alt: "The seal of the Mars Institute of Technology — Mens et Terra, established 2020",
+    captionHtml: `Launch of the <strong>Mars Institute of Technology</strong>.`,
+  },
+];
+
+// Justified masonry rows: 3 per row, each image at its native aspect ratio,
+// scaled to a shared row height so every row spans the full viewport width.
+const HIST = AI_HISTORY.map((h, i) => ({
+  ...h,
+  id: `hist-${i}`,
+  ar: Number((h.img.width / h.img.height).toFixed(4)),
+}));
+const HIST_ROWS = [HIST.slice(0, 3), HIST.slice(3, 6), HIST.slice(6, 9)];
+
+// "Learn AI through art" — AI artworks + the working gallery in Chiba.
+import pMcMarzipanAI from "../assets/photos/learn/supp_marscollege_marzipan-aiart.jpeg";
+import pMcChibaGallery from "../assets/photos/learn/supp_marscollege_chiba-gallery.jpg";
+import pGalInterior from "../assets/photos/learn/gallery/interior.jpg";
+import pGalViewing from "../assets/photos/learn/gallery/viewing.jpg";
+import pGalScreens from "../assets/photos/learn/gallery/screens.jpg";
+import pGalScreensRow from "../assets/photos/learn/gallery/screens-row.jpg";
+import pGalAiArt from "../assets/photos/learn/gallery/ai-art.jpg";
+// The Film Festival — full-bleed background: the 2026 AI Film Festival
+// screening at the Bombay Beach Arts Center, under the fish sculpture.
+import mffBg from "../assets/photos/learn/electronica/bbac-screening-2026.jpg";
+
+// Feature image for the "Learn AI through art" section.
+const ART_HERO = pGalInterior;
+
+// "The gallery" — the working gallery in Chiba + AI artworks, as a carousel.
+const ART_PHOTOS = [
+  { img: pGalViewing, alt: "Martians viewing AI video work on the gallery wall · 2026" },
+  { img: pGalAiArt, alt: "An AI artwork series shown in the gallery · 2026" },
+  { img: pGalScreens, alt: "AI art panels and screens mounted on the gallery wall · 2026" },
+  { img: pGalScreensRow, alt: "A row of screens running generative work · 2026" },
+  { img: pMcChibaGallery, alt: "The Chiba Art Gallery" },
+];
+
+// Combined gallery list for the lightbox carousel (history, then art).
+const GALLERY = [
+  ...AI_HISTORY.map((h, i) => ({ img: h.img, alt: h.alt, id: `hist-${i}` })),
+  ...ART_PHOTOS.map((p, i) => ({ img: p.img, alt: p.alt, id: `art-${i}` })),
+];
+
+// Filter the term to IRL beats only — online cohort gets its own section.
+
+// Course schema for the AI program (search rich results).
+const courseLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Off-Grid AI Engineering",
+  description:
+    "The flagship course of the Mars Institute of Technology (MIT): build sovereign, off-grid AI — personal AI agents, art with AI, and earning a living with AI. An online cohort plus a winter term at Mars College in the California desert.",
+  provider: {
+    "@type": "EducationalOrganization",
+    name: "Mars Institute of Technology",
+    parentOrganization: {
+      "@type": "EducationalOrganization",
+      name: "Mars College",
+    },
+    sameAs: "https://mars.college",
+  },
+  url: "https://mars.college/mit",
+  hasCourseInstance: [
+    { "@type": "CourseInstance", courseMode: "Online", name: "Off-Grid AI online cohort" },
+    {
+      "@type": "CourseInstance",
+      courseMode: "Onsite",
+      name: "Mars College winter term",
+      location: { "@type": "Place", name: "Bombay Beach, California" },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Mars Institute of Technology (MIT) — Mars College"
+  description="The Mars Institute of Technology (MIT) is the AI school of Mars College. Study Off-Grid AI Engineering: build sovereign personal AI agents, make art with AI, and earn a living with AI. An online cohort and a winter term in the California desert."
+  jsonLd={courseLd}
+>
+  <!-- ============ HEADER: hero image + emblem, combined ============ -->
+  <header class="mith is-night">
+    <div class="mith__bg">
+      <Image
+        src={heroImg}
+        alt="A Thunder Talk in the Chiba hangar at night — a presenter with a microphone in front of a projection of chess engines and live charts, audience watching from the dark"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        format="webp"
+        quality={68}
+        class="mith__img"
+      />
+      <div class="mith__scrim" aria-hidden="true"></div>
+    </div>
+    <div class="mith__content">
+      <Eyebrow label="MIT" />
+      <h1 class="mith__sr-title">Mars Institute of Technology</h1>
+      <div class="mith__crest">
+        <Image
+          src={emblemImg}
+          alt="The seal of the Mars Institute of Technology — two engraved figures flank a pedestal reading Vanlife and Superintelligence over the year 2020, above the motto Mens et Terra"
+          widths={[360, 600, 900]}
+          sizes="(max-width: 640px) 50vw, 18vw"
+          format="webp"
+          quality={78}
+          loading="eager"
+          class="mith__seal u-rise"
+        />
+        <p class="mith__lede u-rise" style="animation-delay:120ms">
+          The camp of future technology at Mars. Art gallery, film academy,
+          and boot camp for off-grid AI engineering.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== THREE PILLARS ===================== -->
+  <section class="u-section pillars">
+    <div class="u-shell">
+      <Eyebrow index="01" label="What Mars Institute of Technology is" />
+      <ol class="pillars__list">
+        {PILLARS.map((p) => (
+          <li class="pillar">
+            <div class="pillar__media u-plate">
+              <Image
+                src={p.img}
+                alt={p.alt}
+                widths={[400, 700, 1000]}
+                sizes="(max-width: 820px) 100vw, 30vw"
+                format="webp"
+                quality={64}
+                loading="lazy"
+              />
+            </div>
+            <span class="pillar__n u-index">{p.n}</span>
+            <h3 class="pillar__title">{p.title}</h3>
+            <p class="pillar__body">{p.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== EIGHT YEARS OF MARS ===================== -->
+  <section id="history" class="u-section is-night aihist">
+    <div class="u-shell">
+      <Eyebrow index="02" label="Mars Institute of Technology — at Mars since the beginning" />
+      <h2 class="aihist__lead u-display">Eight years of AI studies on Mars.</h2>
+      <p class="aihist__intro u-measure" set:html={`
+        AI studies on Mars date back to
+        <a href="https://x.com/genekogan/status/1165684548241416193" target="_blank" rel="noopener">before Mars College had its name</a>.
+        Starting as a creative AI class in the desert, and evolving from major
+        to department to institute, Martians predict and invoke the future
+        through bots, films, zines, galleries, and installations.
+      `}></p>
+
+    </div>
+
+    <div class="aihist__mason">
+      {HIST_ROWS.map((row) => (
+        <ol class="aihist__row">
+          {row.map((h) => (
+            <li class="aiyr" style={`flex: ${h.ar} 1 0%`}>
+              <button
+                type="button"
+                class="aiyr__plate u-plate lb"
+                data-lb-id={h.id}
+                aria-label={`Open photo: ${h.alt}`}
+                style={`aspect-ratio: ${h.ar}`}
+              >
+                <Image
+                  src={h.img}
+                  alt={h.alt}
+                  widths={[500, 900, 1400]}
+                  sizes="(max-width: 640px) 100vw, 40vw"
+                  format="webp"
+                  quality={66}
+                  loading="lazy"
+                />
+              </button>
+              <p class="aiyr__year u-index">{h.year}</p>
+              <p class="aiyr__cap" set:html={h.captionHtml}></p>
+            </li>
+          ))}
+        </ol>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===================== UPCOMING PROGRAMS ===================== -->
+  <section class="u-section compare">
+    <div class="u-shell">
+      <Eyebrow index="03" label="Upcoming programs" />
+      <h2 class="compare__lead u-display">Two tracks: IRL and online.</h2>
+      <p class="compare__intro u-measure">
+        An online AI cohort in fall, an off-grid term in winter. Shared
+        curriculum, shared instructors. Many people do one; some do both.
+      </p>
+
+      <div class="compare__cols">
+        <article class="compare__col">
+          <p class="compare__col-tag u-label">What you give</p>
+          <ul class="compare__list">
+            <li>A lightning talk during Ideas Week.</li>
+            <li>Contribute to galleries and Mars Electronica.</li>
+            <li>Organize a workshop, screening, or study group of your own.</li>
+            <li>Basic chores in shared spaces.</li>
+          </ul>
+          <p class="compare__col-tag u-label compare__col-tag--second">What you get</p>
+          <ul class="compare__list">
+            <li>Compute grant for AI.</li>
+            <li>Space: screens, projectors, materials to create with.</li>
+            <li>Access to housing inside the MIT pallet-rack quarters.</li>
+          </ul>
+        </article>
+
+        <article class="compare__col">
+          <p class="compare__col-tag u-label">In the desert · Jan – Mar</p>
+          <h3 class="compare__col-name u-display">The semester</h3>
+          <p class="compare__col-meta">3 months on-site · Mars</p>
+          <ol class="ptl">
+            {MARS_COLLEGE_TIMELINE.map((t) => (
+              <li class="ptl__item">
+                <span class="ptl__date">{t.date}</span>
+                {t.href ? (
+                  <a href={t.href} class="ptl__label ptl__label--link">{t.label}</a>
+                ) : (
+                  <span class="ptl__label">{t.label}</span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OFF-GRID AI PROGRAM ===================== -->
+  <section class="u-section ai">
+    <div class="u-shell">
+      <Eyebrow index="04" label="Outsmart the superintelligence" />
+      <h2 class="ai__lead u-display">Off-Grid AI Engineering.</h2>
+      <div class="ai__intro u-measure">
+        <p>
+          MIT is dedicated to cultivating technological self-reliance, and
+          harnessing AI to support your lifestyle, not your employer. Here's
+          what we work on.
+        </p>
+      </div>
+
+      <ol class="ai__topics">
+        {TOPICS.map((t) => (
+          <li class="ai__topic">
+            <span class="ai__n u-index">{t.n}</span>
+            <div>
+              <h3 class="ai__title">{t.title}</h3>
+              <p class="ai__body">{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="ai__quotes">
+        <figure class="ai__quote">
+          <blockquote>"I think that AI will probably, most likely, sort of lead to the end of the world."</blockquote>
+          <figcaption>
+            — <a href="https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise" target="_blank" rel="noopener">Sam Altman</a>
+          </figcaption>
+        </figure>
+        <figure class="ai__quote">
+          <blockquote>"There's a 25% chance that things go really, really badly."</blockquote>
+          <figcaption>
+            — <a href="https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent" target="_blank" rel="noopener">Dario Amodei</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="ai__intro ai__scenario u-measure">
+        <p set:html={`
+          The year is 2033. Superintelligence has taken hold of the economy.
+          <a href="https://www.entrepreneur.com/business-news/ai-could-lead-to-mass-joblessness-within-the-next-5-years/496742" target="_blank" rel="noopener">Unemployment is at 90%</a>.
+          <a href="https://www.inc.com/moses-jeanfrancois/san-francisco-rents-rose-by-22-percent-even-some-tech-workers-blaming-ai-boom/91351374" target="_blank" rel="noopener">Bay Area rent is $50,000 a month</a>. Sound crazy?
+          It's the future
+          <a href="https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/" target="_blank" rel="noopener">every frontier-AI CEO is openly predicting</a>, and the
+          future <a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">we've been preparing for</a> since we started Mars College.
+        `}></p>
+      </div>
+
+      <figure class="ai__feature">
+        <video
+          class="ai__video"
+          src={AI_VIDEO_SRC}
+          poster={AI_VIDEO_POSTER}
+          controls
+          playsinline
+          preload="none"
+          aria-label="Mars 2025 trailer"
+        ></video>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== LEARN AI THROUGH ART ===================== -->
+  <section class="u-section art">
+    <div class="u-shell">
+      <Eyebrow index="05" label="The gallery" />
+      <h2 class="art__lead u-display">The gallery ties the school together.</h2>
+      <p class="art__intro u-measure">
+        The Mars semester is anchored to monthly group exhibitions in a shared
+        gallery we build in the open desert.
+      </p>
+
+      <figure class="art__feature u-plate">
+        <Image
+          src={ART_HERO}
+          alt="The AI gallery inside the Chiba hangar — screens mounted on pallet racks · 2026"
+          widths={[760, 1200, 1800]}
+          sizes="100vw"
+          format="webp"
+          quality={64}
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="art__carousel" id="art-carousel">
+        <ul class="art__track">
+          {ART_PHOTOS.map((p, i) => (
+            <li class="art__slide">
+              <button
+                type="button"
+                class="art__cell u-plate lb"
+                data-lb-id={`art-${i}`}
+                aria-label={`Open photo: ${p.alt}`}
+              >
+                <Image
+                  src={p.img}
+                  alt={p.alt}
+                  widths={[400, 700, 1000]}
+                  sizes="(max-width: 720px) 80vw, 32vw"
+                  format="webp"
+                  quality={62}
+                  loading="lazy"
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+        <button type="button" class="art__nav art__nav--prev" aria-label="Previous photos">‹</button>
+        <button type="button" class="art__nav art__nav--next" aria-label="Next photos">›</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== THE FILM FESTIVAL ===================== -->
+  <section class="is-night mff">
+    <div class="mff__bg">
+      <Image
+        src={mffBg}
+        alt="The 2026 AI Film Festival screened outdoors at the Bombay Beach Arts Center — audience in folding chairs under the recycled-metal fish sculpture, palm tree beside the glowing screen"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        format="webp"
+        quality={62}
+        loading="lazy"
+        class="mff__img"
+      />
+      <div class="mff__scrim" aria-hidden="true"></div>
+    </div>
+    <div class="u-shell mff__content">
+      <Eyebrow index="06" label="Mars Electronica · finals" />
+      <h2 class="mff__lead u-display">The Film Festival.</h2>
+      <div class="mff__bottom">
+        <p class="mff__sub">
+          The fourth annual AI Film Festival will be screened during Mars
+          Electronica, our year end celebration.
+        </p>
+        <a href="/mff" class="u-cta">
+          Learn more about our AI Film Festival <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OFF-SEASON COHORT ===================== -->
+  <section id="offgrid-signup" class="u-section is-night cohort">
+    <div class="u-shell cohort__grid">
+      <div class="cohort__text">
+        <Eyebrow index="07" label="The off-season cohort · Aug 31 – Dec" />
+        <h2 class="cohort__lead u-display">Off-Grid AI, online.</h2>
+        <p class="cohort__intro u-measure">
+          Fourteen weeks of asynchronous tutorials and a weekly live lab on
+          Discord. Curriculum on local and sovereign AI, agents for personal
+          productivity and growth, and creative agents. People who finish the
+          cohort get an inside track on the winter term in the desert.
+        </p>
+        <ul class="cohort__list">
+          <li>~3 hrs/week · async tutorials + weekly live lab on Discord</li>
+          <li>Eden compute grant for the full 14 weeks</li>
+          <li>Three tiers · starts free (curriculum and labs access)</li>
+        </ul>
+      </div>
+
+      <div class="cohort__form">
+        <p class="u-label u-label--clay cohort__form-eyebrow">Sign up</p>
+        {
+          TALLY_OFFGRID_FORM_ID ? (
+            <iframe
+              data-tally-src={`https://tally.so/embed/${TALLY_OFFGRID_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              loading="lazy"
+              width="100%"
+              height="640"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Off-Grid AI cohort signup"
+            />
+          ) : (
+            <div class="cohort__form-placeholder">
+              <p class="cohort__form-headline">Form coming soon.</p>
+              <p>
+                Until the form ships, email
+                {" "}<a href={`mailto:${EMAIL}?subject=Off-Grid%20AI%20cohort`} class="cohort__form-link">{EMAIL}</a>
+                {" "}with subject "Off-Grid AI cohort" and we'll save you a seat.
+              </p>
+            </div>
+          )
+        }
+      </div>
+    </div>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="u-section--tight">
+    <div class="u-shell cta-band">
+      <p class="cta-band__text u-display">
+        Start online in August. Cross to the desert in January.
+      </p>
+      <a href={APPLY_URL} class="u-cta">
+        Apply for 2027 <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div
+    id="lightbox"
+    class="lb-box"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photo gallery"
+    hidden
+  >
+    <button type="button" class="lb-box__close" aria-label="Close gallery">×</button>
+    <button type="button" class="lb-box__nav lb-box__nav--prev" aria-label="Previous">‹</button>
+    <button type="button" class="lb-box__nav lb-box__nav--next" aria-label="Next">›</button>
+    <figure class="lb-box__figure">
+      <div class="lb-box__imgwrap">
+        {GALLERY.map((g) => (
+          <Image
+            src={g.img}
+            alt={g.alt}
+            widths={[900, 1400, 1920]}
+            sizes="(max-width: 900px) 100vw, 90vw"
+            format="webp"
+            quality={60}
+            loading="lazy"
+            data-lb-slide={g.id}
+          />
+        ))}
+      </div>
+      <figcaption class="lb-box__cap">
+        <span class="lb-box__cap-text"></span>
+        <span class="lb-box__cap-meta"></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const wrap = document.getElementById("art-carousel");
+      if (!wrap) return;
+      const track = wrap.querySelector(".art__track");
+      const step = () => {
+        const slide = track.querySelector(".art__slide");
+        const gap = parseFloat(getComputedStyle(track).gap) || 16;
+        return slide.getBoundingClientRect().width + gap;
+      };
+      wrap.querySelector(".art__nav--prev").addEventListener("click", () =>
+        track.scrollBy({ left: -step(), behavior: "smooth" })
+      );
+      wrap.querySelector(".art__nav--next").addEventListener("click", () =>
+        track.scrollBy({ left: step(), behavior: "smooth" })
+      );
+    })();
+  </script>
+
+  <script is:inline>
+    (() => {
+      const box = document.getElementById("lightbox");
+      if (!box) return;
+      const slides = Array.from(box.querySelectorAll("[data-lb-slide]"));
+      const capText = box.querySelector(".lb-box__cap-text");
+      const capMeta = box.querySelector(".lb-box__cap-meta");
+      const triggers = Array.from(document.querySelectorAll(".lb[data-lb-id]"));
+      // id → index in slides
+      const order = slides.map((el) => el.dataset.lbSlide);
+      // For caption lookup: id → { cap, track } from data attrs on the trigger.
+      const meta = {};
+      triggers.forEach((t) => {
+        const id = t.dataset.lbId;
+        const img = t.querySelector("img");
+        meta[id] = {
+          cap: (img && img.alt) || "",
+          track: "",
+        };
+      });
+      let cur = 0;
+      const show = (i) => {
+        cur = (i + order.length) % order.length;
+        slides.forEach((el, idx) => el.classList.toggle("is-active", idx === cur));
+        const id = order[cur];
+        const m = meta[id] || {};
+        capText.textContent = m.cap || "";
+        capMeta.textContent = m.track || "";
+      };
+      const open = (id) => {
+        const idx = order.indexOf(id);
+        if (idx < 0) return;
+        box.hidden = false;
+        document.body.style.overflow = "hidden";
+        show(idx);
+      };
+      const close = () => {
+        box.hidden = true;
+        document.body.style.overflow = "";
+      };
+      triggers.forEach((t) => {
+        t.addEventListener("click", (e) => {
+          e.preventDefault();
+          open(t.dataset.lbId);
+        });
+      });
+      box.querySelector(".lb-box__close").addEventListener("click", close);
+      box.querySelector(".lb-box__nav--prev").addEventListener("click", () => show(cur - 1));
+      box.querySelector(".lb-box__nav--next").addEventListener("click", () => show(cur + 1));
+      box.addEventListener("click", (e) => {
+        if (e.target === box) close();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (box.hidden) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowLeft") show(cur - 1);
+        if (e.key === "ArrowRight") show(cur + 1);
+      });
+    })();
+  </script>
+
+  <style>
+    /* ─── combined header: hero image + emblem ─── */
+    /* --seal-w is the single source of truth for emblem size; the media
+       queries below override it per breakpoint. */
+    .mith { position: relative; overflow: hidden; isolation: isolate; --seal-w: clamp(12rem, 18vw, 17rem); }
+    .mith__bg { position: absolute; inset: 0; z-index: -1; }
+    /* Left-anchored crop: as the viewport narrows, the right side of the
+       photo is trimmed first, keeping the teacher + projection in view.
+       The x-position steps up on small screens so the crop stops at the
+       projector's right edge (~55% of the frame). */
+    .mith__img { width: 100%; height: 100%; object-fit: cover; object-position: 0% 32%; }
+    @media (max-width: 700px) { .mith__img { object-position: 18% 32%; } }
+    @media (max-width: 460px) { .mith__img { object-position: 25% 32%; } }
+    /* darkest in the bottom-left corner where the seal + text sit; the
+       projected screens (upper area) stay clear */
+    .mith__scrim { position: absolute; inset: 0; background:
+      linear-gradient(to top, rgba(20, 17, 14, 0.92) 0%, rgba(20, 17, 14, 0.42) 45%, rgba(20, 17, 14, 0.3) 100%),
+      linear-gradient(100deg, rgba(20, 17, 14, 0.65) 0%, rgba(20, 17, 14, 0.2) 42%, rgba(20, 17, 14, 0) 65%); }
+    /* Content hugs the true left edge of the viewport (no centered shell) so
+       the crest rail sits over the photo's dark left column at any width,
+       opening the stage — teacher + projection — to the right of it. */
+    .mith__content { display: flex; flex-direction: column; min-height: clamp(30rem, 78vh, 44rem); padding-top: clamp(2.5rem, 5vw, 4rem); padding-bottom: clamp(2.25rem, 5vw, 3.5rem); padding-inline: var(--gutter); }
+    .mith__sr-title { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    /* Crest rail: big seal with the tagline stacked beneath it. */
+    .mith__crest { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: clamp(1.1rem, 2vw, 1.6rem); max-width: clamp(16rem, 27vw, 23rem); }
+    /* Desktop: one tight left-justified rail — MIT label, emblem, text —
+       vertically centered as a group. Mobile keeps label top / crest bottom. */
+    @media (min-width: 641px) {
+      /* The rail hugs the TOP of the header — no dead space above "MIT" —
+         and the freed vertical room goes to a BIG seal. The hero grows
+         taller if the seal needs it. */
+      .mith { --seal-w: clamp(24rem, 52vw, 32rem); --seal-ml: clamp(5.5rem, 13vw, 8rem); }
+      .mith__content { justify-content: flex-start; padding-top: clamp(1.25rem, 2.5vw, 2rem); }
+      .mith__content :global(.u-eyebrow) { max-width: var(--seal-w); margin-bottom: 0; margin-left: var(--seal-ml); }
+      .mith__crest { margin-top: clamp(1rem, 2vw, 1.5rem); max-width: var(--seal-w); margin-left: var(--seal-ml); }
+    }
+    @media (min-width: 1061px) {
+      /* Wide widths: seal anchored left, sized well past the dark column —
+         vertical space is there for it now. */
+      .mith { --seal-w: min(32vw, 38rem); --seal-ml: 0rem; }
+    }
+    /* circular crop hides the seal's off-white square on the dark hero */
+    .mith__seal { width: var(--seal-w); height: auto; flex: 0 0 auto; border-radius: 50%; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5); }
+    .mith__lede { font-size: clamp(1.1rem, 1.5vw, 1.5rem); line-height: 1.5; color: #ece2d0; }
+    @media (max-width: 640px) {
+      .mith__crest { max-width: none; }
+      .mith { --seal-w: clamp(11rem, 50vw, 14rem); }
+    }
+
+    /* ─── two programs ─── */
+    .compare__lead { font-size: var(--text-3xl); max-width: 16ch; }
+    .compare__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2.5rem; }
+    .compare__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); border-top: var(--rule-strong); padding-top: 2rem; }
+    .compare__col { display: flex; flex-direction: column; }
+    .compare__col-tag { color: var(--color-clay); }
+    .compare__col-name { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-top: 0.6rem; line-height: 1; }
+    .compare__col-meta { margin-top: 0.65rem; color: var(--color-ink-2); font-size: var(--text-meta); font-family: var(--font-mono); letter-spacing: 0.02em; }
+    .ptl { list-style: none; margin: 1.75rem 0 0; padding: 0; border-top: var(--rule); }
+    .ptl__item { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; padding: 0.95rem 0; border-bottom: var(--rule); align-items: baseline; }
+    .ptl__date { font-family: var(--font-mono); font-size: var(--text-meta); color: var(--color-clay); letter-spacing: 0.02em; }
+    .ptl__label { color: var(--color-ink); font-weight: 500; }
+    .compare__list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+    .compare__list li { padding-left: 1.1rem; position: relative; color: var(--color-ink); line-height: 1.45; }
+    .compare__list li::before { content: "→"; position: absolute; left: 0; color: var(--color-clay); }
+    .compare__col-tag--second { margin-top: 2rem; }
+    @media (max-width: 820px) {
+      .compare__cols { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 500px) {
+      .ptl__item { grid-template-columns: 6.5rem 1fr; gap: 0.75rem; }
+    }
+
+    /* ─── creative AI ─── */
+    .ai__lead { font-size: var(--text-3xl); max-width: 24ch; }
+    .ai__intro { margin-top: 1rem; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.5; }
+    .ai__intro p + p { margin-top: 1rem; }
+    .ai__intro em { color: var(--color-clay-deep); font-style: normal; font-weight: 700; }
+    .ai__topics { list-style: none; margin: 2rem 0 0; padding: 0; border-top: var(--rule-strong); }
+    .ai__topic { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: var(--rule); align-items: baseline; }
+    .ai__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
+    .ai__body { margin-top: 0.3rem; color: var(--color-ink-2); max-width: 52ch; }
+    .ai__intro :global(a) {
+      color: inherit;
+      font-weight: inherit;
+      text-decoration-line: underline;
+      text-decoration-style: dashed;
+      text-decoration-color: var(--color-clay);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: color var(--dur-fast) var(--ease-out), text-decoration-style var(--dur-fast) var(--ease-out);
+    }
+    .ai__intro :global(a:hover) { color: var(--color-clay) !important; text-decoration-style: solid; }
+    .aihist__intro :global(a) {
+      color: inherit;
+      font-weight: inherit;
+      text-decoration-line: underline;
+      text-decoration-style: dashed;
+      text-decoration-color: var(--color-clay);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: color var(--dur-fast) var(--ease-out), text-decoration-style var(--dur-fast) var(--ease-out);
+    }
+    .aihist__intro :global(a:hover) { color: var(--color-clay) !important; text-decoration-style: solid; }
+    .ai__quotes { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
+    .ai__quote { margin: 0; padding: 0.25rem 0 0.25rem 1.25rem; border-left: 2px solid var(--color-clay); max-width: 48ch; }
+    .ai__quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.35; color: var(--color-ink); letter-spacing: -0.01em; }
+    .ai__quote figcaption { margin-top: 0.75rem; font-size: var(--text-meta); letter-spacing: 0.06em; color: var(--color-ink-3); }
+    .ai__quote figcaption a { color: var(--color-clay); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 50%, transparent); padding-bottom: 1px; }
+    .ai__quote figcaption a:hover { color: var(--color-clay-deep); border-color: var(--color-clay-deep); }
+    @media (max-width: 720px) { .ai__quotes { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .ai__topic { grid-template-columns: 1fr; } }
+    .ptl__label--link { color: var(--color-ink); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 60%, transparent); padding-bottom: 1px; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .ptl__label--link:hover { color: var(--color-clay); border-color: var(--color-clay); }
+
+
+    /* ─── learn AI through art ─── */
+    .art__lead { font-size: var(--text-3xl); max-width: 18ch; }
+    .art__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2rem; font-size: var(--text-lg); line-height: 1.55; max-width: 70ch; }
+    .art__feature { position: relative; aspect-ratio: 16 / 9; margin: 0 0 clamp(0.5rem, 1.2vw, 1rem); overflow: hidden; background: var(--color-paper-2); }
+    .art__feature :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* gallery carousel: scroll-snap track with prev/next arrows */
+    .art__carousel { position: relative; }
+    .art__track { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(0.5rem, 1.2vw, 1rem); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .art__track::-webkit-scrollbar { display: none; }
+    .art__slide { flex: 0 0 clamp(17rem, 32vw, 26rem); scroll-snap-align: start; }
+    .art__cell { position: relative; aspect-ratio: 4 / 3; cursor: zoom-in; border: 0; padding: 0; background: var(--color-paper-2); overflow: hidden; display: block; width: 100%; }
+    .art__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+    .art__cell:hover :global(img), .art__cell:focus-visible :global(img) { transform: scale(1.04); }
+    .art__cell:focus-visible { outline: 2px solid var(--color-clay); outline-offset: 2px; }
+    .art__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; background: var(--color-paper); border: 1px solid var(--color-rule); color: var(--color-ink); font-family: var(--font-display); font-size: 1.4rem; line-height: 1; cursor: pointer; z-index: 2; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .art__nav:hover { color: var(--color-clay); border-color: var(--color-clay); }
+    .art__nav--prev { left: 0.5rem; }
+    .art__nav--next { right: 0.5rem; }
+    @media (max-width: 640px) { .art__slide { flex-basis: 78vw; } }
+
+    /* ─── The Film Festival (full-bleed background section) ─── */
+    .mff { position: relative; overflow: hidden; isolation: isolate; }
+    .mff__bg { position: absolute; inset: 0; z-index: -1; }
+    .mff__img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+    .mff__scrim { position: absolute; inset: 0; background:
+      linear-gradient(to top, rgba(10, 8, 6, 0.88) 0%, rgba(10, 8, 6, 0.35) 40%, rgba(10, 8, 6, 0.45) 100%); }
+    .mff__content { display: flex; flex-direction: column; min-height: clamp(28rem, 82vh, 44rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
+    .mff__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); max-width: 16ch; }
+    .mff__bottom { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .mff__sub { color: #ece2d0; font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.5; max-width: 44ch; }
+    @media (max-width: 640px) {
+      .mff__bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── cohort ─── */
+    .cohort__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .cohort__lead { font-size: clamp(1.9rem, 4vw, 3rem); color: var(--color-bone-on-night); max-width: 20ch; }
+    .cohort__intro { color: #cabda6; margin-top: 1rem; font-size: var(--text-lg); max-width: 60ch; }
+    .cohort__list { list-style: none; margin: 2rem 0 0; padding: 0; border-top: 1px solid var(--color-rule-night); }
+    .cohort__list li { padding: 0.9rem 0 0.9rem 1.4rem; border-bottom: 1px solid var(--color-rule-night); color: var(--color-bone-on-night); position: relative; font-size: 1.0625rem; line-height: 1.45; }
+    .cohort__list li::before { content: "→"; position: absolute; left: 0; color: var(--color-clay); font-weight: 700; }
+    .cohort__form { background: var(--color-bone-on-night); color: var(--color-ink); padding: clamp(1.25rem, 2.5vw, 2rem); }
+    .cohort__form-eyebrow { margin-bottom: 1rem; }
+    .cohort__form iframe { background: transparent; display: block; }
+    .cohort__form-placeholder { color: var(--color-ink); }
+    .cohort__form-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.85rem); letter-spacing: -0.02em; margin-bottom: 0.85rem; }
+    .cohort__form-placeholder p:not(.cohort__form-headline) { color: var(--color-ink-2); line-height: 1.55; }
+    .cohort__form-link { color: var(--color-clay); text-decoration: underline; text-underline-offset: 3px; }
+    .cohort__form-link:hover { color: var(--color-clay-deep); }
+    @media (max-width: 820px) { .cohort__grid { grid-template-columns: 1fr; } }
+
+    /* ─── pillars ─── */
+    .pillars__list { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.25rem, 2.5vw, 2.25rem); }
+    .pillar { display: flex; flex-direction: column; }
+    .pillar__media { aspect-ratio: 4 / 3; margin-bottom: 1.25rem; }
+    .pillar__media :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
+    .pillar:hover .pillar__media :global(img) { transform: scale(1.03); }
+    .pillar__n { display: block; margin-bottom: 0.5rem; }
+    .pillar__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.02em; line-height: 1.05; max-width: 22ch; }
+    .pillar__body { margin-top: 0.85rem; color: var(--color-ink-2); font-size: var(--text-base); line-height: 1.5; max-width: 38ch; }
+    @media (max-width: 820px) {
+      .pillars__list { grid-template-columns: 1fr; gap: 2rem; }
+      .pillar__media { aspect-ratio: 16 / 10; }
+    }
+
+    /* ─── aihist (seven years of Mars — timeline strip) ─── */
+    .aihist__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); max-width: 18ch; }
+    .aihist__intro { margin-top: 1rem; color: #cabda6; font-size: var(--text-lg); line-height: 1.5; margin-bottom: 2.5rem; }
+    /* full-bleed justified masonry: rows span 100% of the viewport; within a
+       row every image shares one height (flex-grow = aspect ratio), so row
+       heights vary with the photos in them */
+    .aihist__mason { margin-top: clamp(1.5rem, 3vw, 2.5rem); display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vw, 0.75rem); }
+    .aihist__row { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(0.4rem, 0.8vw, 0.75rem); }
+    .aiyr { min-width: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .aiyr__year { padding-inline: clamp(0.6rem, 1.2vw, 1rem); }
+    .aiyr__cap { padding-inline: clamp(0.6rem, 1.2vw, 1rem); }
+    .aiyr__plate { background: var(--color-night); border: 1px solid var(--color-rule-night); padding: 0; cursor: zoom-in; display: block; width: 100%; transition: border-color var(--dur-fast) var(--ease-out); }
+    .aiyr__plate :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+    .aiyr__plate:hover, .aiyr__plate:focus-visible { border-color: var(--color-clay); }
+    .aiyr__plate:hover :global(img), .aiyr__plate:focus-visible :global(img) { transform: scale(1.05); }
+    .aiyr__plate:focus-visible { outline: 2px solid var(--color-clay); outline-offset: 2px; }
+    .aiyr__year { color: var(--color-clay); display: block; font-size: 1rem; }
+    .aiyr__cap { color: #d2c5af; font-size: 0.875rem; line-height: 1.45; max-width: 44ch; }
+    .aiyr__cap :global(strong) { color: var(--color-bone-on-night); }
+    .aihist__intro { margin-bottom: 0; }
+    .aiyr__cap :global(a) { color: var(--color-bone-on-night); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 65%, transparent); padding-bottom: 1px; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+    .aiyr__cap :global(a:hover) { color: var(--color-clay); border-color: var(--color-clay); }
+    @media (max-width: 640px) {
+      .aihist__row { flex-direction: column; }
+      .aiyr { flex: none !important; }
+    }
+
+    /* "The year is 2033" scenario — sits between the quotes and the video */
+    .ai__scenario { margin-top: 2.5rem; }
+
+    /* Featured video at the end of §04 Off-Grid AI */
+    .ai__feature { margin: 3rem 0 0; }
+    .ai__video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--color-night); border: 1px solid var(--color-rule); }
+    .ai__feature-cap { display: block; margin-top: 0.85rem; color: var(--color-ink-3); }
+
+    /* ─── cta ─── */
+    .cta-band { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-top: var(--rule-strong); padding-top: 2.5rem; }
+    .cta-band__text { font-size: clamp(1.6rem, 3.4vw, 2.6rem); max-width: 24ch; }
+
+    /* ─── lightbox ─── */
+    .lb-box { position: fixed; inset: 0; z-index: 100; background: rgba(10, 8, 6, 0.95); display: flex; align-items: center; justify-content: center; }
+    .lb-box[hidden] { display: none; }
+    .lb-box__figure { margin: 0; max-width: min(94vw, 1400px); max-height: 88vh; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .lb-box__imgwrap { position: relative; width: 100%; max-height: 76vh; display: flex; align-items: center; justify-content: center; }
+    .lb-box__imgwrap :global(img) { display: none; max-width: 100%; max-height: 76vh; width: auto; height: auto; object-fit: contain; }
+    .lb-box__imgwrap :global(img.is-active) { display: block; }
+    .lb-box__cap { text-align: center; color: var(--color-bone-on-night); font-family: var(--font-body); font-size: var(--text-meta); display: flex; flex-direction: column; gap: 0.2rem; }
+    .lb-box__cap-text { font-style: italic; }
+    .lb-box__cap-meta { letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-clay); font-weight: 700; }
+    .lb-box__close, .lb-box__nav { position: absolute; background: transparent; color: var(--color-bone-on-night); border: 1.5px solid color-mix(in srgb, var(--color-bone-on-night) 40%, transparent); width: 3rem; height: 3rem; cursor: pointer; font-family: var(--font-display); font-size: 1.5rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+    .lb-box__close:hover, .lb-box__nav:hover { color: var(--color-clay); border-color: var(--color-clay); }
+    .lb-box__close { top: 1.25rem; right: 1.25rem; }
+    .lb-box__nav--prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+    .lb-box__nav--next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+    @media (max-width: 640px) {
+      .lb-box__nav--prev { left: 0.5rem; }
+      .lb-box__nav--next { right: 0.5rem; }
+      .lb-box__close { top: 0.75rem; right: 0.75rem; }
+    }
+  </style>
+</BaseLayout>

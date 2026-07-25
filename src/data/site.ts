@@ -32,7 +32,7 @@ export const NAV = [
 // The minified public timeline shown on the home page.
 export const TIMELINE_MINI = [
   { date: "Sep 15", label: "AI cohort begins" },
-  { date: "Nov – Dec", label: "Build the village" },
+  { date: "Nov – Dec", label: "Build Mars" },
   { date: "Jan 4", label: "Mars College begins" },
   { date: "Mar 26 – 28", label: "Mars Electronica" },
 ];
@@ -43,7 +43,7 @@ export const PILLARS = [
     index: "01",
     title: "DPW",
     href: "/build",
-    cta: "Apply to the Department of Public Works",
+    cta: "Apply to Build Mars",
     blurb:
       "Build the village. Run its physical systems. Raise the campus from bare lake bed with the DPW crew from November through spring.",
   },
@@ -76,20 +76,20 @@ export const PILLARS = [
 // ---- homepage FAQ ----
 export const HOME_FAQ = [
   {
-    q: "What's the catch?",
-    a: "You have to show up and contribute — with your time, your effort, and your presence. Mars is not a resort or a festival. It runs because Martians run it, and every year we ask each person to leave something behind: a presentation, a performance, an installation, a class, a ritual, a service. Something the rest of us can carry with us.",
+    q: "Can I maintain my full-time remote job while I'm at Mars?",
+    a: "Yes, absolutely. Part of Mars College's raison d'être is to enable the dream life of remote workers. Mars's open calendar makes it easy to plan around your schedule, and our wifi is better than San Francisco's. In practice, remote workers make up a good share of every cohort: they keep their hours and live the rest of the day on Mars.",
   },
   {
     q: "How much does this cost?",
-    a: "The base cost is about $1,500 for three months on the ground — roughly $500 in Treasury fees (toilets, internet, shared water, aid) plus about $900 in camp dues (mostly food) plus $100–$600 for a place to sleep if you don't have a van. On top of that, camp-specific programs like Study AI or Co-Lab may have their own fees or scholarship tracks. Building crew (DPW), grant recipients, and micro-business operators earn most or all of it back.",
+    a: "The base cost is about $1,500 for three months on the ground — roughly $500 in Treasury fees (toilets, internet, shared water, aid) plus about $900 in camp dues (mostly food) plus $100–$600 for a place to sleep if you don't have a van. Building crew (DPW), grant recipients, and micro-business operators earn most or all of it back.",
   },
   {
     q: "What do I have to do?",
-    a: "Contribute in a real way. Everyone participates in the Mars economy: cook, teach, build, repair, run a concession, offer a service, or take a role in DPW, Treasury, or a camp. Everyone contributes to the culture: shows in the film festival, art at Mars Electronica, work in one of the three gallery Moon shows, or classes on the open calendar. There is no passive tier.",
+    a: "Contribute in a real way. There are a multitude of ways to participate in the Mars economy: cook, teach, build, repair, run a concession, offer a service, or take a role in DPW, Treasury, or a camp. Every year we ask each person to leave something behind: a presentation, a performance, an installation, a class, a ritual, a service.",
   },
   {
     q: "Why are you doing this?",
-    a: "Because we love the scene Mars cultivates and we think more people should live like this. Mars is an experiment in what a small community can build together — off-grid, self-organized, deeply strange, aggressively creative — and it works. We want to keep making it, and we want to share it with the people who'd be at home here.",
+    a: "Because we love the scene Mars cultivates and we think more people should live like this. Mars is an experiment in what a small, self-organized, deeply strange community can build together. We want to keep making it, and we want to share it with the people who'd be at home here.",
   },
 ];
 

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { SOCIAL, EMAIL, NAV, APPLY_URL } from "../data/site";
+import { SOCIAL, EMAIL, NAV } from "../data/site";
 import footerBg from "../assets/photos/night-glow.jpg";
 const year = new Date().getFullYear();
 ---
@@ -23,7 +23,6 @@ const year = new Date().getFullYear();
       <p class="u-label ftr__h">Pages</p>
       <ul>
         {NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
-        <li><a href={APPLY_URL}>Apply</a></li>
       </ul>
     </nav>
 

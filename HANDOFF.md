@@ -42,17 +42,19 @@ Optional, if Gene wants a stable URL: set up a *named* Cloudflare tunnel (`cloud
 
 All site copy comes from the planning space: **`/Users/gene/Mars/planning/2027/`** — `README.md` (index), `timeline.md`, `ai-program.md`, `dpw.md`, `economics.md`, `services.md`, `admissions.md`, `architecture.md`, `website-content.md`, `organization.md`, `agent-olympics.md`, `medical.md`, `open-items.md`. Don't invent program facts; pull from there.
 
-Key facts already on the site: timeline (AI cohort **Aug 24** · Build **Nov–Dec** · Mars begins **Jan 4** · Mars Electronica **Mar 26–28**); applications are **rolling**; all Apply CTAs → `https://marscollege.substack.com/` (no real form yet — "form coming soon").
+Key facts already on the site: timeline (AI cohort **Aug 24** · Build **Nov–Dec** · Mars begins **Jan 4** · Mars Electronica **Mar 26–28**); applications are **rolling**; **the real application form is live** as an embedded Tally form on the hidden `/apply` page — see the "Tally forms" section below. Site-header/footer Apply CTAs currently still point to `APPLY_URL` (the Substack placeholder) in `src/data/site.ts`; flip them to `/apply` when ready.
 
 ## Project structure
 
 ```
 src/
-  pages/        index.astro, build.astro, learn.astro, thrive.astro
+  pages/        index.astro, build.astro, learn.astro, thrive.astro,
+                apply.astro (hidden — Tally form embed; noindex),
+                build1.astro–build4.astro (variant scratch)
   components/    Hero.astro, SiteHeader.astro, SiteFooter.astro, PageHeader.astro,
                  Eyebrow.astro, BuildInquiryForm.astro, RiderField.astro (retired, unused)
-  layouts/       BaseLayout.astro  (fonts loaded here via Google Fonts <link>)
-  data/          site.ts  (APPLY_URL, PILLARS, TIMELINE_MINI, nav, etc.)
+  layouts/       BaseLayout.astro  (system fonts — no external font requests)
+  data/          site.ts  (APPLY_URL, PILLARS, TIMELINE_MINI, nav, TALLY_APPLY_FORM_ID, etc.)
   styles/        global.css  (the token system — single source of truth)
   assets/        photos/** and brand/**  (imported, optimized via astro:assets)
 public/
@@ -63,10 +65,7 @@ public/
 
 Editorial desert-minimalism, **but big and bold (Y Combinator–scale type)**. Tokens live in `src/styles/global.css` (`@theme` block + `:root`). Consume tokens, never raw values.
 
-- **Fonts** (loaded in `BaseLayout.astro` via one Google Fonts stylesheet):
-  - Display: **Bricolage Grotesque** (weights 600/700/800) — headings, weight 800.
-  - Body: **Hanken Grotesk** (400/500/700), base **1.25rem** / line-height ~1.58.
-  - Mono: **Spline Sans Mono** — TINY accent only (timeline dates, a few numerals). Do NOT spread mono onto buttons/links/labels.
+- **Fonts** — **system stack** (`-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`) for both display and body; system mono for the tiny mono accents. **No external font requests** — Google Fonts + Bricolage/Hanken/Spline were removed at Gene's request ("standard/readable"). Do not re-introduce webfonts without asking.
   - **No serif.** (Fraunces was removed — Gene rejected it.)
 - **Color:** warm bone paper `--color-paper`, warm ink, a single rust/clay accent `--color-clay`. Dark sections invert via `.is-night`.
 - Hairline 1px rules over shadows; radius ~0–2px; motion fast (<200ms) and respects `prefers-reduced-motion`; visible focus rings; AA contrast.
@@ -100,15 +99,67 @@ In `src/assets/photos/**` (and `brand/**`), copied from the old repo's curated s
 - **/build**: DPW (rents all materials: Structure/Power/Water/Camp gear), concessions, build schedule, crew perks, build photos, **inquiry form** (`BuildInquiryForm.astro` — client-side, opens prefilled `mailto:info@mars.college`; no backend).
 - **/learn**: headed by **"Outsmart AGI"**, the 5 core AI topics, remote-work/vanlife, AI Department.
 - **/thrive**: desert nomad economics (cost breakdown), micro-businesses/grants, shared amenities.
+- **/apply** (hidden): Tally application form embed. `noindex,nofollow`; not in the nav. Reached by direct URL only until Gene decides to promote it. See "Tally forms" below.
 
 The **"Outsmart AGI"** copy (founder-approved) lives on the home Sovereign-AI section and atop /learn:
 > It's a strange time to be human — the whole world is busy announcing our replacement. Mars takes the other side of the bet. We run AI locally, on our own power, by our own hand: local-first, renewable, DIY, self-sovereign. We don't work for the machine — we make it work for us, in service of a human-first life.
 
+## Tally forms (applications & inquiries)
+
+The **2027 application form** is a [Tally.so](https://tally.so) form embedded on the hidden `/apply` page. Edits to the form happen in the Tally dashboard — no code change or redeploy needed for question changes. Submissions collect in Tally's Submissions tab.
+
+### Application form (LIVE)
+
+- **Slug:** `ZjWDVv`
+- **Public URL:** https://tally.so/r/ZjWDVv
+- **Site page:** `src/pages/apply.astro` — hidden (`noindex,nofollow`, not linked from nav; access by direct URL only)
+- **Edit:** https://tally.so/forms/ZjWDVv/edit
+- **Submissions / Insights / Integrations / Settings:** https://tally.so/forms/ZjWDVv (tabs at top)
+- **Tally account:** `Mars` workspace, created and owned by Gene. Anyone editing needs to be signed in as Gene or added as a member.
+
+**Where the slug lives in code (keep both in sync):**
+- `src/pages/apply.astro` — frontmatter constant `TALLY_FORM_ID = "ZjWDVv"`
+- `src/data/site.ts` — `export const TALLY_APPLY_FORM_ID = "ZjWDVv"` (mirror; useful if header/footer CTAs get flipped from `APPLY_URL` to `/apply`)
+
+**Embed technique:**
+- Tally serves an iframe at `https://tally.so/embed/<slug>?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1` plus a small `https://tally.so/widgets/embed.js` script that expands the iframe height dynamically. Both are in `apply.astro`.
+- The `dynamicHeight=1` param + `embed.js` script are what let the iframe grow to fit the form content without a scrollbar. Don't remove them.
+- Because it's a third-party iframe, the form's theme lives in the Tally dashboard (Customize panel), not in this repo's CSS.
+
+**Form structure** (as built, June 2026):
+- **Page 1** About you: name, email, location, portfolio link (optional).
+- **Page 2** Connection to Mars: `Have you been to Mars College before?` (Yes/No) — branches to either (a) which seasons + camp/affiliation or (b) how did you hear.
+- **Page 3** Arrival track: `AI-track (Jan 5)` / `Build-track (late Dec)` / `Either` — shown only if returning = No.
+- **Page 4** What you're bringing: open text + areas-of-practice multi-select + optional class offering.
+- **Page 5** Cinema: favorite movie + willingness to host a screening (see `planning/2027/admissions.md` for the rationale).
+- **Page 6** Participation: academic-intent linear scale 1–5 + volunteer preferences multi-select.
+- **Page 7** AI program interest: which of the 5 core topics + interest in the online Sep–Dec cohort.
+- **Page 8** Anything else → thank-you screen with "Back to mars.college" button.
+- Conditional logic: 4 rules (returning=No → how-you-heard, returning=Yes → seasons+camp, returning=No → arrival track, vehicle=Yes → what kind).
+- **Theme:** Inter, Light background, accent `#b6442a` (matches `--color-clay`).
+- **Known quirk:** the Tally AI put "Are you bringing a vehicle?" on Page 3 (Arrival) rather than Page 6 (Participation) as originally scoped. Leave or move — Gene hasn't decided.
+
+### Build inquiry form (DRAFT — not published)
+
+- **Slug (draft):** `xXgvOk` — see the `TALLY_BUILD_FORM_ID` comment block in `src/data/site.ts`.
+- **Edit:** https://tally.so/forms/xXgvOk/edit
+- **Status:** needs cleanup + publish. Until then, `TALLY_BUILD_FORM_ID = ""` in `site.ts` and the `/build` page falls back to a "coming soon" panel.
+- To go live: publish in Tally → paste the slug into `TALLY_BUILD_FORM_ID` → the `/build` fallback flips to the real embed.
+
+### Common tasks
+
+- **Change a question, add a page, tweak logic** → edit at Tally, save. Embed pulls the live version — no redeploy.
+- **Point `/apply` at a different form** → update `TALLY_FORM_ID` in `src/pages/apply.astro` AND `TALLY_APPLY_FORM_ID` in `src/data/site.ts`.
+- **See who applied** → Submissions tab at tally.so/forms/ZjWDVv/submissions. Insights tab shows counts and completion funnels.
+- **Send email notifications / Slack pings / Google Sheets rows** → Integrations tab.
+- **Custom subdomain `forms.mars.college`** → Tally offers this on the Share tab; requires a DNS CNAME. Not set up yet.
+- **Delete a form or move to trash** → careful — Tally-side edits are permanent from Gene's account. Do not delete without asking.
+
 ## Open / next steps
 
-- **Preload the Bricolage 800 woff2** (`<link rel="preload" as="font" crossorigin>`) so the LCP hero headline paints in-brand on first frame (currently swaps from fallback). Biggest remaining polish.
-- Real **2027 application form** (CTAs are placeholder → Substack).
-- Decide **deployment**: this Astro build isn't wired to anything yet; the live domain still serves the old Next repo.
+- Decide **deployment**: this Astro build isn't wired to anything yet; the live domain still serves the old Next repo. Cutover plan is: copy `mars-v2/` contents into `github.com/genekogan/mars.college` repo, commit on a branch, push, redeploy.
+- Publish the **Build inquiry form** (Tally slug `xXgvOk`) and populate `TALLY_BUILD_FORM_ID`.
+- Flip site-header/footer Apply CTAs from `APPLY_URL` (Substack) → `/apply` when the form is ready to be public.
 - **Unicyclists**: retired from the hero (RiderField.astro kept on disk, unused). Gene may want them represented in Activities.
 - Old Next site also has additive scratch sections (`components/mars-2027.tsx`, `components/m27/`, `app/2027/`) from earlier iterations — ignore unless asked; this Astro build supersedes them.
 

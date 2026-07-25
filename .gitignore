@@ -31,3 +31,6 @@ _media-candidates/
 
 # Claude Code / preview tooling (local dev config)
 .claude/
+
+# local dev-server supervisor + logs (remote tailscale access)
+.devserver/

@@ -59,7 +59,7 @@ const pillarImg: Record<string, any> = {
 
 // One image per winter — the campus (and Chiba) rebuilt new each year.
 const CHIBA_YEARS = [
-  { year: "2020", img: chiba2020, cap: "The Portal, Mars's first structure, on the Bombay Beach shore" },
+  { year: "2020", img: chiba2020, cap: "The Portal, Mars's first structure" },
   { year: "2021", img: chiba2021, cap: "The first pallet-rack build rising on the open lake bed" },
   { year: "2022", img: chiba2022, cap: "The village strung along the lake bed below the desert mountains, murals and solar going up" },
   { year: "2023", img: chiba2023, cap: "Chiba under construction, solar panels going up" },
@@ -72,21 +72,21 @@ const CHIBA_YEARS = [
 const OPEN_CAL_PHOTOS = [
   { img: pMusicTheory, alt: "Music theory class · 2026" },
   { img: pColorClass, alt: "Evening lecture · 2024" },
-  { img: pMcResearchLearn, alt: "Cohort in the tiered Chiba seating" },
-  { img: pThunderProjection, alt: "Class in the Chiba hangar · 2026" },
-  { img: pClaySubstack, alt: "Ceramics workshop in the hangar · 2026" },
+  { img: pMcResearchLearn, alt: "Thunder talks are a weekly tradition that brings the whole community together." },
+  { img: pThunderProjection, alt: "Watching thunder talks · 2026" },
+  { img: pClaySubstack, alt: "Ceramics workshop at Tool Camp · 2026" },
   { img: pClaySubstack2, alt: "Ceramics circle on the desert lakebed" },
   { img: pClay2026Wheel, alt: "Throwing on the kick wheel at Tool Camp · 2026" },
   { img: pClay2026Shelf, alt: "Workshop shelf of unfired clay · 2026" },
   { img: pWorkshopPano, alt: "Workshop in the main hall · 2021" },
-  { img: pMcLivecoding, alt: "Live-coding class with code on the wall" },
+  { img: pMcLivecoding, alt: "Live coders algo raving in 2024" },
   { img: pLivecodeIntro, alt: "Live Coding Club intro session · 2023" },
-  { img: pOutdoorTalk, alt: "Outdoor evening class · 2022" },
+  { img: pOutdoorTalk, alt: "Ideas week · 2022" },
   { img: pYogaDesert, alt: "Acroyoga on the lake bed · 2023" },
-  { img: pYogaSunset, alt: "Sunset acroyoga on the plywood deck · 2023" },
+  { img: pYogaSunset, alt: "Sunset acroyoga on the roof of Chiba · 2023" },
   { img: pGym, alt: "Outdoor gym on the playa · 2022" },
   { img: pHangarTalk, alt: "Outdoor evening seminar · 2022" },
-  { img: pLaptopClass, alt: "Workshop in the library · 2022" },
+  { img: pLaptopClass, alt: "Digital architecture class in the library · 2022" },
   { img: pMcMarzipanAI, alt: "Marzipan teaching AI art" },
   { img: pMcHydroponics, alt: "Hydroponics" },
   { img: pMcChibaGallery, alt: "Chiba Art Gallery" },
@@ -149,18 +149,18 @@ const HARD_PHOTOS = [
   <section id="village" class="u-section village">
     <div class="u-shell village__head">
       <Eyebrow index="01" label="Seven years and counting" />
-      <h2 class="village__lead u-display">Same time, same place.</h2>
+      <h2 class="village__lead u-display">An uncollege in the desert</h2>
       <p class="village__lede">
         Every winter since 2020, Mars College builds a temporary off-grid campus on
-        a dry lake bed in the California desert. It's assembled mostly by-hand from
-        pallet racks and plywood, powered by solar, with water, internet, and the
-        other camp services figured out together, from first principles. For three
-        months it runs like a full college town: classes, art, events, a co-op
-        gallery, a film festival, and whatever else Martians come up with while we're
-        there. Each spring it's torn down and the desert is left empty as it was
-        found, until next year when we renew it again. Each season of Martians brings
-        a new and unpredictable cohort: every age, nationality, background, and skill,
-        all here for reasons of their own.
+        a dry lake bed by the Salton Sea, near Bombay Beach, California. It's
+        assembled mostly by-hand from pallet racks and plywood, powered by solar,
+        with water, internet, and the other camp services figured out together, from
+        first principles. For three months it runs like a full college town: classes,
+        art, events, a co-op gallery, a film festival, and whatever else Martians come
+        up with while we're there. Each spring it's torn down and the desert is left
+        empty as it was found, until next year when we renew it again. Each season of
+        Martians brings a new and unpredictable cohort: every age, nationality,
+        background, and skill, all here for reasons of their own.
       </p>
     </div>
     <ol class="village__row">
@@ -190,21 +190,138 @@ const HARD_PHOTOS = [
     </ol>
   </section>
 
-  <!-- ============ MARS IS HARD ============ -->
-  <section id="hard" class="u-section is-night marshard">
+  <!-- ===================== AN UNCOLLEGE ===================== -->
+  <section class="u-section opencal">
     <div class="u-shell">
-      <Eyebrow index="02" label="Off-grid reality" />
-      <h2 class="marshard__lead u-display">Mars takes work.</h2>
-      <div class="marshard__intro u-measure">
+      <Eyebrow index="02" label="Life on Mars" />
+      <h2 class="opencal__lead u-display">Everyone teaches, everyone learns</h2>
+      <div class="opencal__intro u-measure">
         <p>
-          Wind, sun, and dust are constant, and nothing here comes ready-made. Food
-          storage, power, internet, water, and waste, things usually taken for
-          granted, all get worked out from first principles by Martians every year.
+          Mars runs on an open calendar. Past terms have included creative AI, vibe
+          coding, filmmaking, music theory, ceramics and clay, breadmaking,
+          fermentation, creative writing, screenwriting, yoga, acroyoga, Thai
+          bodywork, contact improv, geometry, philosophy, solar power literacy,
+          vanlife skills, 3D printing, digital architecture, foraging, desert
+          ecology, and much more.
         </p>
         <p>
-          Enter the <strong>Mars Department of Public Works</strong>. DPW is the
-          crew that builds and runs every physical system at Mars: power, water,
-          shelter, gear. They arrive in November to bare desert and hand the
+          The end of the term is marked by a tradition we call Mars Electronica, a
+          final week celebrating our work, which includes a film festival, art
+          exhibition, and presentations for locals and Martians alike.
+        </p>
+      </div>
+
+      <ul class="opencal__grid">
+        {OPEN_CAL_PHOTOS.map((p, i) => (
+          <li>
+            <button
+              type="button"
+              class="opencal__cell u-plate lb"
+              data-lb-id={`oc-${i}`}
+              aria-label={`Open photo: ${p.alt}`}
+            >
+              <Image
+                src={p.img}
+                alt={p.alt}
+                widths={[400, 700, 1000]}
+                sizes="(max-width: 720px) 50vw, 22vw"
+                format="webp"
+                quality={62}
+                loading="lazy"
+              />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OUTSMART THE SUPERINTELLIGENCE (dark) ============ -->
+  <section class="u-section is-night ai">
+    <div class="u-shell">
+      <Eyebrow index="03" label="Mars Institute of Technology (MIT)" />
+      <h2 class="ai__lead u-display">Outsmart the superintelligence.</h2>
+      <div class="ai__intro u-measure">
+        <p set:html={`
+          The year is 2033. <a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener">Recursively self-improving AGI</a> has taken hold of the economy.
+          <a href="https://www.entrepreneur.com/business-news/ai-could-lead-to-mass-joblessness-within-the-next-5-years/496742" target="_blank" rel="noopener">Unemployment is at 90%</a>.
+          <a href="https://www.inc.com/moses-jeanfrancois/san-francisco-rents-rose-by-22-percent-even-some-tech-workers-blaming-ai-boom/91351374" target="_blank" rel="noopener">Bay Area rent is $50,000 a month</a>. Sound crazy?
+          It's the future
+          <a href="https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/" target="_blank" rel="noopener">every frontier-AI CEO is openly predicting</a>, and the
+          future <a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">we've been preparing for</a> since we started Mars College.
+        `}></p>
+        <p>
+          Against the backdrop of impending societal collapse, we are studying what we
+          call "off-grid AI engineering", the art of being a human in an AI-dominated
+          world.
+        </p>
+      </div>
+
+      <div class="ai__quotes">
+        <figure class="ai__quote">
+          <blockquote>"I think that AI will probably, most likely, sort of lead to the end of the world."</blockquote>
+          <figcaption>
+            — <a href="https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise" target="_blank" rel="noopener">Sam Altman</a>
+          </figcaption>
+        </figure>
+        <figure class="ai__quote">
+          <blockquote>"There's a 25% chance that things go really, really badly."</blockquote>
+          <figcaption>
+            — <a href="https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent" target="_blank" rel="noopener">Dario Amodei</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <figure class="ai__feature">
+        <video
+          class="ai__video"
+          src={AI_VIDEO_SRC}
+          poster={AI_VIDEO_POSTER}
+          controls
+          playsinline
+          preload="none"
+          aria-label="Mars 2025 trailer"
+        ></video>
+      </figure>
+
+      <h2 class="ai__lead ai__lead--b u-display">Learn Off-Grid AI engineering</h2>
+      <p class="ai__subhead u-measure">
+        Here are the things every Off-Grid AI engineer learns to do at the Mars
+        Institute of Technology (MIT).
+      </p>
+      <ol class="ai__topics">
+        {TOPICS.map((t) => (
+          <li class="ai__topic">
+            <span class="ai__n u-index">{t.n}</span>
+            <div>
+              <h3 class="ai__title">{t.title}</h3>
+              <p class="ai__body">{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <a href="/mit" class="u-cta ai__enroll">
+        Enroll in the Mars Institute of Technology <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ MARS IS HARD ============ -->
+  <section id="hard" class="u-section marshard">
+    <div class="u-shell">
+      <Eyebrow index="04" label="Off-grid reality" />
+      <h2 class="marshard__lead u-display">Help build Mars.</h2>
+      <div class="marshard__intro u-measure">
+        <p>
+          Mars takes work. Wind, sun, and dust are constant, and nothing here comes
+          ready-made. Food storage, power, internet, water, and waste, things usually
+          taken for granted, all get worked out from first principles by Martians
+          every year.
+        </p>
+        <p>
+          Enter the <strong><a href="/build">Mars Department of Public Works</a></strong>.
+          DPW is the crew that builds and runs every physical system at Mars: power,
+          water, shelter, gear. They arrive in November to bare desert and hand the
           village over to everybody else the first Monday of January. DPW members
           get housing for the season, meals, and the general Mars fee waived.
         </p>
@@ -241,112 +358,8 @@ const HARD_PHOTOS = [
     </div>
   </section>
 
-  <!-- ===================== AN UNCOLLEGE ===================== -->
-  <section class="u-section opencal">
-    <div class="u-shell">
-      <Eyebrow index="03" label="Life on Mars" />
-      <h2 class="opencal__lead u-display">An Uncollege</h2>
-      <p class="opencal__intro u-measure">
-        Mars runs on an open calendar. Everyone teaches and everyone learns. Past
-        terms have included creative AI, agentic coding, AI film, music theory, live
-        coding, ceramics and clay, breadmaking, fermentation, the writers'
-        workshop, screenwriting, yoga, Thai bodywork, acroyoga, contact improv,
-        geometry, philosophy, solar literacy, vanlife skills, 3D printing, digital
-        architecture, foraging, and desert ecology.
-      </p>
-
-      <ul class="opencal__grid">
-        {OPEN_CAL_PHOTOS.map((p, i) => (
-          <li>
-            <button
-              type="button"
-              class="opencal__cell u-plate lb"
-              data-lb-id={`oc-${i}`}
-              aria-label={`Open photo: ${p.alt}`}
-            >
-              <Image
-                src={p.img}
-                alt={p.alt}
-                widths={[400, 700, 1000]}
-                sizes="(max-width: 720px) 50vw, 22vw"
-                format="webp"
-                quality={62}
-                loading="lazy"
-              />
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ OUTSMART THE SUPERINTELLIGENCE (dark) ============ -->
-  <section class="u-section is-night ai">
-    <div class="u-shell">
-      <Eyebrow index="04" label="Off-Grid AI" />
-      <h2 class="ai__lead u-display">Outsmart the superintelligence.</h2>
-      <div class="ai__intro u-measure">
-        <p set:html={`
-          The year is 2033. <a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener">Recursively self-improving AGI</a> has taken hold of the economy.
-          <a href="https://www.entrepreneur.com/business-news/ai-could-lead-to-mass-joblessness-within-the-next-5-years/496742" target="_blank" rel="noopener">Unemployment is at 90%</a>.
-          <a href="https://www.inc.com/moses-jeanfrancois/san-francisco-rents-rose-by-22-percent-even-some-tech-workers-blaming-ai-boom/91351374" target="_blank" rel="noopener">Bay Area rent is $50,000 a month</a>. Sound crazy?
-          It's the future
-          <a href="https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/" target="_blank" rel="noopener">every frontier-AI CEO is openly predicting</a>, and the
-          future <a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">we've been preparing for</a> since we started Mars College.
-        `}></p>
-      </div>
-
-      <div class="ai__quotes">
-        <figure class="ai__quote">
-          <blockquote>"I think that AI will probably, most likely, sort of lead to the end of the world."</blockquote>
-          <figcaption>
-            — <a href="https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise" target="_blank" rel="noopener">Sam Altman</a>
-          </figcaption>
-        </figure>
-        <figure class="ai__quote">
-          <blockquote>"There's a 25% chance that things go really, really badly."</blockquote>
-          <figcaption>
-            — <a href="https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent" target="_blank" rel="noopener">Dario Amodei</a>
-          </figcaption>
-        </figure>
-      </div>
-
-      <figure class="ai__feature">
-        <video
-          class="ai__video"
-          src={AI_VIDEO_SRC}
-          poster={AI_VIDEO_POSTER}
-          controls
-          playsinline
-          preload="none"
-          aria-label="Mars 2025 trailer"
-        ></video>
-      </figure>
-
-      <h2 class="ai__lead ai__lead--b u-display">Learn Off-Grid AI engineering</h2>
-      <p class="ai__subhead u-measure">
-        Here are the things every Off-Grid AI engineer learns to do at the Mars
-        College AI program.
-      </p>
-      <ol class="ai__topics">
-        {TOPICS.map((t) => (
-          <li class="ai__topic">
-            <span class="ai__n u-index">{t.n}</span>
-            <div>
-              <h3 class="ai__title">{t.title}</h3>
-              <p class="ai__body">{t.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <a href="/learn" class="u-cta ai__enroll">
-        Enroll in the Mars College AI program <span aria-hidden="true">→</span>
-      </a>
-    </div>
-  </section>
-
   <!-- ===================== APPLY HERO ===================== -->
-  <section id="paths" class="u-section pillars">
+  <section id="paths" class="u-section is-night pillars">
     <div class="u-shell pillars__head">
       <Eyebrow index="05" label="Four ways into Mars College" />
       <h2 class="pillars__lead u-display">Apply to Mars College.</h2>
@@ -389,10 +402,9 @@ const HARD_PHOTOS = [
   </section>
 
   <!-- ===================== FAQ ===================== -->
-  <section class="u-section is-night faq">
+  <section class="u-section faq">
     <div class="u-shell">
       <Eyebrow index="06" label="Frequently asked questions" />
-      <h2 class="faq__lead u-display">The frank version.</h2>
       <ul class="faq__list">
         {HOME_FAQ.map((item, i) => (
           <li class="faq__item">
@@ -605,11 +617,11 @@ const HARD_PHOTOS = [
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1;
-      color: var(--color-ink);
+      color: var(--color-bone-on-night);
     }
     .pillar__blurb {
       margin-top: 0.85rem;
-      color: var(--color-ink-2);
+      color: #cabda6;
       font-size: var(--text-base);
       line-height: 1.5;
       max-width: 34ch;
@@ -679,15 +691,19 @@ const HARD_PHOTOS = [
     }
     .pillars__lead {
       font-size: var(--text-3xl);
-      color: var(--color-ink);
+      color: var(--color-bone-on-night);
       margin-top: 0.5rem;
       max-width: 18ch;
     }
     .pillars__intro {
       margin-top: 1rem;
-      color: var(--color-ink-2);
+      color: #cabda6;
       font-size: var(--text-lg);
       line-height: 1.55;
+    }
+    .pillar__media {
+      background: var(--color-night-2);
+      border: 1px solid var(--color-rule-night);
     }
     .pillars__inline {
       color: var(--color-clay);
@@ -709,12 +725,20 @@ const HARD_PHOTOS = [
     }
 
     /* ---- mars is hard ---- */
-    .marshard__lead { font-size: var(--text-3xl); color: var(--color-bone-on-night); }
-    .marshard__intro { margin-top: 1rem; color: #cabda6; font-size: var(--text-lg); line-height: 1.55; }
+    .marshard__lead { font-size: var(--text-3xl); color: var(--color-ink); }
+    .marshard__intro { margin-top: 1rem; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
     .marshard__intro p + p { margin-top: 1rem; }
-    .marshard__intro strong { color: var(--color-bone-on-night); font-weight: 700; }
+    .marshard__intro strong { color: var(--color-ink); font-weight: 700; }
+    .marshard__intro a {
+      color: var(--color-clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color var(--dur-fast) var(--ease-out);
+    }
+    .marshard__intro a:hover { color: var(--color-clay-deep); }
     .marshard__grid { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
-    .marshard__cell { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--color-night); border: 1px solid var(--color-rule-night); }
+    .marshard__cell { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--color-paper-2); border: 1px solid var(--color-rule); }
     .marshard__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
     .marshard__cell:hover :global(img) { transform: scale(1.04); }
     .marshard__cell .marshard__cap { position: absolute; left: 0; bottom: 0; z-index: 2; margin: 0; padding: 0.6rem 0.75rem; width: 100%; color: var(--color-bone-on-night); background: linear-gradient(to top, rgba(20, 17, 14, 0.8), rgba(20, 17, 14, 0) 100%); }
@@ -725,6 +749,7 @@ const HARD_PHOTOS = [
     /* ---- open calendar ---- */
     .opencal__lead { font-size: var(--text-3xl); max-width: 18ch; }
     .opencal__intro { margin-top: 1rem; color: var(--color-ink-2); margin-bottom: 2.5rem; font-size: var(--text-lg); line-height: 1.55; max-width: 72ch; }
+    .opencal__intro p + p { margin-top: 1rem; }
     .opencal__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
     .opencal__cell { position: relative; aspect-ratio: 4 / 3; cursor: zoom-in; border: 0; padding: 0; background: var(--color-paper-2); overflow: hidden; display: block; width: 100%; }
     .opencal__cell :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
@@ -768,20 +793,14 @@ const HARD_PHOTOS = [
     .ai__video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--color-night); border: 1px solid var(--color-rule-night); }
 
     /* ---- FAQ ---- */
-    .faq__lead {
-      font-size: var(--text-3xl);
-      color: var(--color-bone-on-night);
-      max-width: 18ch;
-      margin-bottom: 1.5rem;
-    }
     .faq__list {
       list-style: none;
-      margin: 1rem 0 0;
+      margin: 2.25rem 0 0;
       padding: 0;
-      border-top: 1px solid var(--color-rule-night);
+      border-top: 1px solid var(--color-rule);
     }
     .faq__item details {
-      border-bottom: 1px solid var(--color-rule-night);
+      border-bottom: 1px solid var(--color-rule);
     }
     .faq__item summary {
       display: grid;
@@ -791,7 +810,7 @@ const HARD_PHOTOS = [
       padding: 1.4rem 0;
       cursor: pointer;
       list-style: none;
-      color: var(--color-bone-on-night);
+      color: var(--color-ink);
     }
     .faq__item summary::-webkit-details-marker { display: none; }
     .faq__item summary .u-index { color: var(--color-clay); }
@@ -801,7 +820,7 @@ const HARD_PHOTOS = [
       font-size: clamp(1.2rem, 2.2vw, 1.6rem);
       letter-spacing: -0.015em;
       line-height: 1.25;
-      color: var(--color-bone-on-night);
+      color: var(--color-ink);
     }
     .faq__chevron {
       justify-self: end;
@@ -815,7 +834,7 @@ const HARD_PHOTOS = [
     }
     .faq__a {
       padding: 0 2rem 1.75rem 4rem;
-      color: #cabda6;
+      color: var(--color-ink-2);
       max-width: 66ch;
       line-height: 1.6;
       font-size: var(--text-base);
