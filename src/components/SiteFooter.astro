@@ -4,13 +4,15 @@ import { SOCIAL, EMAIL, NAV } from "../data/site";
 import footerBg from "../assets/photos/night-glow.jpg";
 
 interface Props {
-  /** Swap the photo backdrop for the playable desert volleyball panel.
-   *  Defaults to the home page only — it pulls in p5 and the game code, so
-   *  the rest of the site keeps the light photo footer. */
+  /** Swap the photo backdrop for the playable desert volleyball court.
+   *  Defaults to the pages in COURT_PAGES — it pulls in p5 and the game
+   *  code, so everywhere else keeps the light photo footer. */
   game?: boolean;
 }
-const isHome = Astro.url.pathname.replace(/\/$/, "") === "";
-const { game = isHome } = Astro.props;
+// Pages that get the volleyball court instead of the photo footer.
+const COURT_PAGES = ["", "/mit", "/build"];
+const path = Astro.url.pathname.replace(/\/$/, "");
+const { game = COURT_PAGES.includes(path) } = Astro.props;
 const year = new Date().getFullYear();
 
 // Boot script for the footer game. Kept as a string so it only ships on the
@@ -132,7 +134,7 @@ const VOLLEY_BOOT = `
 
   {
     game ? (
-      <div class="u-shell ftr__credit">
+      <div class="ftr__credit">
         <span aria-hidden="true">(o_ _)ﾉ彡☆</span>{" "}
         <a href="https://otoro.net/ml/slimevolley/index.html" target="_blank" rel="noopener">
           @hardmaru
@@ -278,6 +280,8 @@ const VOLLEY_BOOT = `
     margin-top: auto;
     padding-top: clamp(2rem, 5vw, 4rem);
     padding-bottom: 0.35rem;
+    /* hugs the viewport edge rather than the content shell */
+    padding-right: clamp(0.5rem, 1.2vw, 1rem);
     text-align: right;
     font-family: var(--font-mono);
     font-size: var(--text-meta);

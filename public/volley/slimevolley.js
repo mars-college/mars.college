@@ -42,6 +42,12 @@ var ref_h = ref_w;
 // so the riders aren't parked on the very bottom edge of the frame.
 var GROUND_PAD = 1.5;
 var groundPad = 0;
+// Purely cosmetic: lift the drawn horizon (and the cactus with it) a little
+// above the physics floor, so the sand laps over the bottom of the wheels
+// instead of the riders balancing on a hairline. About a fifth of a wheel
+// radius — the wheel measures ~1.9 units tall in the rider sprites.
+var WHEEL_R = 0.95;
+var HORIZON_RISE = 0.18 * WHEEL_R;
 var ref_u = 1.5; // ground height
 var ref_wallwidth = 1.0; // wall width
 var ref_wallheight = 3.5;
@@ -692,14 +698,16 @@ Wall.prototype.display = function() {
   "use strict";
   if (this.isCactus) {
     var ww = toP(this.h) * (cactus.width / cactus.height);
-    image(cactus, toX(this.x-this.w/2), toY(this.y+this.h/2), ww, toP(this.h+0.45));
+    image(cactus, toX(this.x-this.w/2), toY(this.y+this.h/2) - toP(HORIZON_RISE), ww, toP(this.h+0.45));
   } else {
     noStroke();
-    var gh = toP(this.h) + groundPad;
+    var rise = toP(HORIZON_RISE);
+    var gy = toY(this.y+this.h/2) - rise;
+    var gh = toP(this.h) + groundPad + rise;
     fill(255);
-    rect(toX(this.x-this.w/2), toY(this.y+this.h/2), toP(this.w), gh);
+    rect(toX(this.x-this.w/2), gy, toP(this.w), gh);
     fill(this.c);
-    rect(toX(this.x-this.w/2), toY(this.y+this.h/2), toP(this.w), gh);
+    rect(toX(this.x-this.w/2), gy, toP(this.w), gh);
   }
 };
 
