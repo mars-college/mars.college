@@ -225,9 +225,9 @@ const VOLLEY_BOOT = `
   .ftr--game {
     display: flex;
     flex-direction: column;
-    min-height: clamp(32rem, 78vh, 52rem);
+    min-height: clamp(37rem, 90vh, 60rem);
     padding-top: clamp(2.5rem, 5vw, 4rem);
-    padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
+    padding-bottom: 0.5rem;
     background: var(--color-night);
     background-image: none;
   }
@@ -255,12 +255,17 @@ const VOLLEY_BOOT = `
     --volley-ink-inv: rgba(20, 17, 14, 0.55);
   }
   .ftr--game .ftr__h,
-  .ftr--game .ftr__col a,
-  .ftr--game .ftr__credit,
-  .ftr--game .ftr__credit a {
+  .ftr--game .ftr__col a {
     color: var(--volley-ink);
     text-shadow: 0 0 10px var(--volley-ink-inv), 0 0 3px var(--volley-ink-inv);
     transition: none;
+  }
+  /* The credit rides down on the sand, which stays light through the night
+     cycle — so it stays black rather than following --volley-ink. */
+  .ftr--game .ftr__credit,
+  .ftr--game .ftr__credit a {
+    color: #14110e;
+    text-shadow: 0 0 8px rgba(240, 210, 130, 0.9);
   }
   .ftr--game .ftr__h {
     border-bottom-color: color-mix(in srgb, var(--volley-ink) 35%, transparent);
@@ -272,8 +277,7 @@ const VOLLEY_BOOT = `
   .ftr__credit {
     margin-top: auto;
     padding-top: clamp(2rem, 5vw, 4rem);
-    /* clear the sand band, which stays light through the night cycle */
-    padding-bottom: calc(var(--volley-ground, 4rem) + 0.6rem);
+    padding-bottom: 0.35rem;
     text-align: right;
     font-family: var(--font-mono);
     font-size: var(--text-meta);
@@ -281,7 +285,7 @@ const VOLLEY_BOOT = `
   }
   .ftr__credit a {
     text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--volley-ink) 45%, transparent);
+    border-bottom: 1px solid rgba(20, 17, 14, 0.45);
     padding-bottom: 1px;
   }
 
@@ -290,7 +294,7 @@ const VOLLEY_BOOT = `
       flex-direction: column;
     }
     .ftr--game {
-      min-height: clamp(26rem, 62vh, 34rem);
+      min-height: clamp(30rem, 71vh, 39rem);
     }
   }
 </style>
