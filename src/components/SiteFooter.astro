@@ -2,40 +2,140 @@
 import { Image } from "astro:assets";
 import { SOCIAL, EMAIL, NAV } from "../data/site";
 import footerBg from "../assets/photos/night-glow.jpg";
+
+interface Props {
+  /** Swap the photo backdrop for the playable desert volleyball panel.
+   *  Defaults to the home page only — it pulls in p5 and the game code, so
+   *  the rest of the site keeps the light photo footer. */
+  game?: boolean;
+}
+const isHome = Astro.url.pathname.replace(/\/$/, "") === "";
+const { game = isHome } = Astro.props;
 const year = new Date().getFullYear();
+
+// Boot script for the footer game. Kept as a string so it only ships on the
+// page that actually renders the court.
+const VOLLEY_BOOT = `
+// Neural slime volleyball — David Ha (otoro.net), by way of brahman.ai.
+// Everything is deferred until the footer is actually on screen, and
+// until window 'load' has fired: p5 0.4.4 self-starts on load if it can
+// see window.setup, so booting it by hand afterwards avoids a double
+// sketch.
+(() => {
+  const host = document.getElementById("p5Container");
+  if (!host || window.__volleyBooted) return;
+
+  const load = (src) =>
+    new Promise((resolve, reject) => {
+      const el = document.createElement("script");
+      el.src = src;
+      el.onload = resolve;
+      el.onerror = reject;
+      document.head.appendChild(el);
+    });
+
+  const pageLoaded = () =>
+    document.readyState === "complete"
+      ? Promise.resolve()
+      : new Promise((r) => window.addEventListener("load", r, { once: true }));
+
+  const boot = async () => {
+    if (window.__volleyBooted) return;
+    window.__volleyBooted = true;
+    try {
+      await pageLoaded();
+      for (const f of [
+        "/volley/convnet.js",
+        "/volley/ga.js",
+        "/volley/useful.js",
+        "/volley/p5.min.js",
+        "/volley/p5.dom.js",
+        "/volley/slimevolley.js",
+      ]) {
+        await load(f);
+      }
+      new window.p5();
+      // The sketch reads its size from the container, so keep it in step.
+      // Wait for setup() to have built the game — resizeCanvas forces a
+      // synchronous redraw, which would run draw() against half a world.
+      if (window.ResizeObserver) {
+        new ResizeObserver(() => {
+          if (window.game && window.game.agent1 && window.game.agent2) {
+            window.windowResized();
+          }
+        }).observe(host);
+      }
+    } catch (e) {
+      host.classList.add("is-failed");
+    }
+  };
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          boot();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    io.observe(host);
+  } else {
+    boot();
+  }
+})();
+`;
 ---
 
-<footer class="ftr is-night">
-  <div class="ftr__bg" aria-hidden="true">
-    <Image
-      src={footerBg}
-      alt=""
-      widths={[768, 1280, 1920]}
-      sizes="100vw"
-      format="webp"
-      quality={66}
-      loading="lazy"
-    />
-    <div class="ftr__scrim"></div>
-  </div>
+<footer class:list={["ftr", "is-night", game && "ftr--game"]}>
+  {
+    !game && (
+      <div class="ftr__bg" aria-hidden="true">
+        <Image
+          src={footerBg}
+          alt=""
+          widths={[768, 1280, 1920]}
+          sizes="100vw"
+          format="webp"
+          quality={66}
+          loading="lazy"
+        />
+        <div class="ftr__scrim" />
+      </div>
+    )
+  }
   <div class="u-shell ftr__inner">
-    <nav class="ftr__col" aria-label="Pages">
-      <p class="u-label ftr__h">Pages</p>
-      <ul>
-        {NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
-      </ul>
-    </nav>
+    <div class="ftr__navs">
+      <nav class="ftr__col" aria-label="Pages">
+        <p class="u-label ftr__h">Pages</p>
+        <ul>
+          {NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+        </ul>
+      </nav>
 
-    <nav class="ftr__col" aria-label="Elsewhere">
-      <p class="u-label ftr__h">Elsewhere</p>
-      <ul>
-        <li><a href={SOCIAL.substack}>Substack</a></li>
-        <li><a href={SOCIAL.instagram}>Instagram</a></li>
-        <li><a href={SOCIAL.x}>X</a></li>
-        <li><a href={SOCIAL.github}>GitHub</a></li>
-        <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-      </ul>
-    </nav>
+      <nav class="ftr__col" aria-label="Elsewhere">
+        <p class="u-label ftr__h">Elsewhere</p>
+        <ul>
+          <li><a href={SOCIAL.substack}>Substack</a></li>
+          <li><a href={SOCIAL.instagram}>Instagram</a></li>
+          <li><a href={SOCIAL.x}>X</a></li>
+          <li><a href={SOCIAL.github}>GitHub</a></li>
+          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    {
+      game && (
+        <div class="ftr__play">
+          <div id="p5Container" class="ftr__canvas" />
+          <p class="ftr__playnote u-label">
+            Desert volleyball · <span>W A D</span> and the arrow keys take over
+          </p>
+        </div>
+      )
+    }
   </div>
 
   <div class="u-shell ftr__base">
@@ -43,6 +143,8 @@ const year = new Date().getFullYear();
     <span class="u-label">© {year} Mars College</span>
   </div>
 </footer>
+
+{game && <script is:inline set:html={VOLLEY_BOOT} />}
 
 <style>
   .ftr {
@@ -78,20 +180,10 @@ const year = new Date().getFullYear();
     gap: clamp(2.5rem, 10vw, 7rem);
     align-items: start;
   }
-  .ftr__line {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1.02;
-    margin-top: 1.1rem;
-    color: var(--color-bone-on-night);
-  }
-  .ftr__cta {
-    margin-top: 1.75rem;
-  }
-  .ftr__formnote {
-    margin-top: 0.9rem;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    color: #9c8e76;
+  .ftr__navs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(2.5rem, 10vw, 7rem);
   }
   .ftr__h {
     margin-bottom: 1rem;
@@ -125,15 +217,69 @@ const year = new Date().getFullYear();
     padding-top: 1.5rem;
     border-top: 1px solid var(--color-rule-night);
   }
+
+  /* ─── game footer: links left, desert court right ─── */
+  .ftr--game .ftr__inner {
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+  .ftr--game .ftr__navs {
+    flex: 0 0 auto;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+  .ftr__play {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .ftr__canvas {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 10;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #2b2b62, #6a6ab0);
+    border: 1px solid var(--color-rule-night);
+  }
+  .ftr__canvas :global(canvas) {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .ftr__playnote {
+    color: #9c8e76;
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+  .ftr__playnote span {
+    font-family: var(--font-mono);
+    color: var(--color-bone-on-night);
+  }
+
+  @media (max-width: 900px) {
+    .ftr--game .ftr__inner {
+      flex-wrap: wrap;
+    }
+    .ftr__play {
+      flex: 1 1 100%;
+      order: -1;
+    }
+    .ftr__canvas {
+      aspect-ratio: 16 / 9;
+    }
+  }
   @media (max-width: 760px) {
-    .ftr__inner {
-      grid-template-columns: 1fr 1fr;
-    }
-    .ftr__lead {
-      grid-column: 1 / -1;
-    }
     .ftr__base {
       flex-direction: column;
+    }
+    .ftr__canvas {
+      aspect-ratio: 3 / 2;
+    }
+    /* no keyboard to take over with */
+    .ftr__playnote {
+      display: none;
     }
   }
 </style>
