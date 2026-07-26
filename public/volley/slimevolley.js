@@ -48,6 +48,10 @@ var groundPad = 0;
 // radius — the wheel measures ~1.9 units tall in the rider sprites.
 var WHEEL_R = 0.95;
 var HORIZON_RISE = 0.18 * WHEEL_R;
+// The cactus art is drawn from a taller box than the net it stands for, so its
+// base used to sink well under the riders' wheels. Lift it so the base lands
+// just a touch below the line the riders rest on.
+var CACTUS_SINK = 0.18;
 var ref_u = 1.5; // ground height
 var ref_wallwidth = 1.0; // wall width
 var ref_wallheight = 3.5;
@@ -698,7 +702,11 @@ Wall.prototype.display = function() {
   "use strict";
   if (this.isCactus) {
     var ww = toP(this.h) * (cactus.width / cactus.height);
-    image(cactus, toX(this.x-this.w/2), toY(this.y+this.h/2) - toP(HORIZON_RISE), ww, toP(this.h+0.45));
+    // world y the art's base would land on if drawn straight, and the lift
+    // needed to bring it up level with the riders (minus a hair)
+    var baseY = this.y + this.h/2 - (this.h + 0.45);
+    var lift = (ref_u - CACTUS_SINK) - baseY;
+    image(cactus, toX(this.x-this.w/2), toY(this.y+this.h/2) - toP(HORIZON_RISE + lift), ww, toP(this.h+0.45));
   } else {
     noStroke();
     var rise = toP(HORIZON_RISE);
