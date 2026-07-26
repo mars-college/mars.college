@@ -31,8 +31,17 @@ for the JavaScript code in this page.
 // game settings:
 var trainingVersion = false;
 var showArrowKeys = false;
-var ref_w = 24*2;
+// The court is REF_W_MAX units wide at comfortable sizes. Below MIN_DESIGN_W
+// pixels we stop scaling the world down and narrow it instead — the sides give
+// up horizontal court rather than the riders and ball shrinking to nothing.
+var REF_W_MAX = 24*2;
+var MIN_DESIGN_W = 720;
+var ref_w = REF_W_MAX;
 var ref_h = ref_w;
+// Extra sand drawn below the court line, as a multiple of the ground height,
+// so the riders aren't parked on the very bottom edge of the frame.
+var GROUND_PAD = 1.5;
+var groundPad = 0;
 var ref_u = 1.5; // ground height
 var ref_wallwidth = 1.0; // wall width
 var ref_wallheight = 3.5;
@@ -114,7 +123,16 @@ function toP(x) {
   return (x)*factor;
 }
 function toY(y) {
-  return height-y*factor;
+  return height-groundPad-y*factor;
+}
+
+// Recompute the world scale for a canvas of w pixels.
+function applyScale(w) {
+  factor = Math.max(w, MIN_DESIGN_W) / REF_W_MAX;
+  ref_w = w / factor;
+  ref_h = ref_w;
+  groundPad = ref_u * factor * (GROUND_PAD - 1);
+  if (game && game.ground) game.ground.w = ref_w;
 }
 
 var delayScreen = {
@@ -677,10 +695,11 @@ Wall.prototype.display = function() {
     image(cactus, toX(this.x-this.w/2), toY(this.y+this.h/2), ww, toP(this.h+0.45));
   } else {
     noStroke();
+    var gh = toP(this.h) + groundPad;
     fill(255);
-    rect(toX(this.x-this.w/2), toY(this.y+this.h/2), toP(this.w), toP(this.h));
+    rect(toX(this.x-this.w/2), toY(this.y+this.h/2), toP(this.w), gh);
     fill(this.c);
-    rect(toX(this.x-this.w/2), toY(this.y+this.h/2), toP(this.w), toP(this.h));
+    rect(toX(this.x-this.w/2), toY(this.y+this.h/2), toP(this.w), gh);
   }
 };
 
@@ -704,6 +723,7 @@ function initGame() {
 }
 
 let cactus, volleyball;
+var inkTarget;
 
 // The two players are drawn from the Mars College rider illustrations
 // (public/riders). Each rally picks a fresh pair — one from each list — so the
@@ -754,8 +774,7 @@ function setup() {
 
   var box = volleyBox();
   myCanvas = createCanvas(box.w, box.h);
-  factor = box.w / ref_w;
-  ref_h = ref_w;
+  applyScale(box.w);
   myCanvas.parent('p5Container');
   frameRate(theFrameRate);
 
@@ -1167,10 +1186,24 @@ function draw() {
     drawStars(maxalpha);
   }
 
-  // (the original sketch tinted the surrounding brahman.ai page text with the
-  // day/night cycle; here the sketch is boxed inside the footer, so it leaves
-  // the page chrome alone)
+  // Day/night ink, exactly as the original sketch tinted the brahman.ai page:
+  // black text over the day sky, white once the stars are out. Published as a
+  // CSS variable so the footer's links and credit ride the same cycle.
   textColor = lerp(textColor, sunHeight > 30 ? 255 : 0, 0.1);
+  if (inkTarget === undefined) {
+    inkTarget = document.querySelector('.ftr--game') || null;
+  }
+  if (inkTarget) {
+    var ink = Math.round(textColor);
+    inkTarget.style.setProperty('--volley-ink', 'rgb(' + ink + ',' + ink + ',' + ink + ')');
+    // The opposite ink, used as a soft halo so overlaid text survives a rider
+    // or the ball passing behind it.
+    var inv = 255 - ink;
+    inkTarget.style.setProperty('--volley-ink-inv', 'rgba(' + inv + ',' + inv + ',' + inv + ',0.55)');
+    // Publish the sand band's height too, so overlaid text can sit clear of it
+    // — the sand stays light all night, and white ink would vanish into it.
+    inkTarget.style.setProperty('--volley-ground', Math.round(ref_u * factor + groundPad) + 'px');
+  }
 
   // draw sun — sized and placed relative to the canvas, so it stays a sun
   // rather than a wall of orange when the sketch is boxed in the footer.
@@ -1243,7 +1276,7 @@ function windowResized() {
   var box = volleyBox();
   resizeCanvas(box.w, box.h);
   myCanvas.size(box.w, box.h);
-  factor = box.w / ref_w;
+  applyScale(box.w);
   calcStarPos(width, height);
 }
 

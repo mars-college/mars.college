@@ -105,6 +105,9 @@ const VOLLEY_BOOT = `
       </div>
     )
   }
+
+  {game && <div id="p5Container" class="ftr__court" aria-hidden="true" />}
+
   <div class="u-shell ftr__inner">
     <div class="ftr__navs">
       <nav class="ftr__col" aria-label="Pages">
@@ -125,23 +128,23 @@ const VOLLEY_BOOT = `
         </ul>
       </nav>
     </div>
-
-    {
-      game && (
-        <div class="ftr__play">
-          <div id="p5Container" class="ftr__canvas" />
-          <p class="ftr__playnote u-label">
-            Desert volleyball · <span>W A D</span> and the arrow keys take over
-          </p>
-        </div>
-      )
-    }
   </div>
 
-  <div class="u-shell ftr__base">
-    <span class="u-label">Near Salton Sea, California</span>
-    <span class="u-label">© {year} Mars College</span>
-  </div>
+  {
+    game ? (
+      <div class="u-shell ftr__credit">
+        <span aria-hidden="true">(o_ _)ﾉ彡☆</span>{" "}
+        <a href="https://otoro.net/ml/slimevolley/index.html" target="_blank" rel="noopener">
+          @hardmaru
+        </a>
+      </div>
+    ) : (
+      <div class="u-shell ftr__base">
+        <span class="u-label">Near Salton Sea, California</span>
+        <span class="u-label">© {year} Mars College</span>
+      </div>
+    )
+  }
 </footer>
 
 {game && <script is:inline set:html={VOLLEY_BOOT} />}
@@ -218,68 +221,76 @@ const VOLLEY_BOOT = `
     border-top: 1px solid var(--color-rule-night);
   }
 
-  /* ─── game footer: links left, desert court right ─── */
-  .ftr--game .ftr__inner {
-    flex-wrap: nowrap;
-    align-items: stretch;
-    gap: clamp(2rem, 5vw, 4rem);
-  }
-  .ftr--game .ftr__navs {
-    flex: 0 0 auto;
-    gap: clamp(2rem, 5vw, 4rem);
-  }
-  .ftr__play {
-    flex: 1 1 auto;
-    min-width: 0;
+  /* ─── game footer: the desert court IS the section ─── */
+  .ftr--game {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    min-height: clamp(32rem, 78vh, 52rem);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
+    background: var(--color-night);
+    background-image: none;
   }
-  .ftr__canvas {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 21 / 10;
-    overflow: hidden;
+  /* full-bleed sketch behind everything in the section */
+  .ftr__court {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     background: linear-gradient(to bottom, #2b2b62, #6a6ab0);
-    border: 1px solid var(--color-rule-night);
   }
-  .ftr__canvas :global(canvas) {
+  .ftr__court :global(canvas) {
     display: block;
     width: 100% !important;
     height: 100% !important;
   }
-  .ftr__playnote {
-    color: #9c8e76;
-    text-transform: none;
+  .ftr--game .ftr__inner,
+  .ftr--game .ftr__credit {
+    position: relative;
+    z-index: 1;
+  }
+  /* --volley-ink is driven by the sketch's day/night cycle: black over the
+     day sky, white once the stars come out. */
+  .ftr--game {
+    --volley-ink: #ece2d0;
+    --volley-ink-inv: rgba(20, 17, 14, 0.55);
+  }
+  .ftr--game .ftr__h,
+  .ftr--game .ftr__col a,
+  .ftr--game .ftr__credit,
+  .ftr--game .ftr__credit a {
+    color: var(--volley-ink);
+    text-shadow: 0 0 10px var(--volley-ink-inv), 0 0 3px var(--volley-ink-inv);
+    transition: none;
+  }
+  .ftr--game .ftr__h {
+    border-bottom-color: color-mix(in srgb, var(--volley-ink) 35%, transparent);
+  }
+  .ftr--game .ftr__col a:hover,
+  .ftr--game .ftr__credit a:hover {
+    color: var(--color-clay);
+  }
+  .ftr__credit {
+    margin-top: auto;
+    padding-top: clamp(2rem, 5vw, 4rem);
+    /* clear the sand band, which stays light through the night cycle */
+    padding-bottom: calc(var(--volley-ground, 4rem) + 0.6rem);
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
     letter-spacing: 0.02em;
   }
-  .ftr__playnote span {
-    font-family: var(--font-mono);
-    color: var(--color-bone-on-night);
+  .ftr__credit a {
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--volley-ink) 45%, transparent);
+    padding-bottom: 1px;
   }
 
-  @media (max-width: 900px) {
-    .ftr--game .ftr__inner {
-      flex-wrap: wrap;
-    }
-    .ftr__play {
-      flex: 1 1 100%;
-      order: -1;
-    }
-    .ftr__canvas {
-      aspect-ratio: 16 / 9;
-    }
-  }
   @media (max-width: 760px) {
     .ftr__base {
       flex-direction: column;
     }
-    .ftr__canvas {
-      aspect-ratio: 3 / 2;
-    }
-    /* no keyboard to take over with */
-    .ftr__playnote {
-      display: none;
+    .ftr--game {
+      min-height: clamp(26rem, 62vh, 34rem);
     }
   }
 </style>
