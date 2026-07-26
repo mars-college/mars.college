@@ -259,5 +259,5 @@ export const AGENTLAB_LINKS = {
   osGuide: "#",
   makeYourOwnAgent: "#",
   // Mars College winter semester.
-  winter: "/learn",
+  winter: "/mit",
 } as const;

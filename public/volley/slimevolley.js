@@ -49,9 +49,10 @@ var groundPad = 0;
 var WHEEL_R = 0.95;
 var HORIZON_RISE = 0.18 * WHEEL_R;
 // The cactus art is drawn from a taller box than the net it stands for, so its
-// base used to sink well under the riders' wheels. Lift it so the base lands
-// just a touch below the line the riders rest on.
-var CACTUS_SINK = 0.18;
+// base used to sink well under the riders' wheels. Lift it so the base lands a
+// little below the line the riders rest on — 0.35 units puts the lift at 18px
+// at desktop scale.
+var CACTUS_SINK = 0.35;
 var ref_u = 1.5; // ground height
 var ref_wallwidth = 1.0; // wall width
 var ref_wallheight = 3.5;

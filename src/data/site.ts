@@ -25,7 +25,7 @@ export const SOCIAL = {
 
 export const NAV = [
   { label: "Build", href: "/build" },
-  { label: "Learn", href: "/learn" },
+  { label: "MIT", href: "/mit" },
   { label: "Apply", href: "/#paths" },
 ];
 
@@ -58,7 +58,7 @@ export const PILLARS = [
   {
     index: "03",
     title: "Study AI",
-    href: "/learn",
+    href: "/mit",
     cta: "Apply to study AI at Mars",
     blurb:
       "Take classes, make art, and learn off-grid AI: how to engage the digital world while sustaining an off-grid life.",
