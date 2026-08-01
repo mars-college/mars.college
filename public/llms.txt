@@ -1,0 +1,35 @@
+# Mars College
+
+> Mars College is an annual pop-up, off-grid college town in the California desert. Every winter since 2020, its community builds a temporary solar-powered campus from pallet racks and plywood on a dry lake bed near Bombay Beach, on the Salton Sea. For three months (January–March) it runs like a full college town — classes, art, a gallery, an AI film festival — then it is torn down and the desert is returned to bare ground. There is no tuition; a season costs about $1,500 total. The 2027 season (Season 8) is now accepting rolling applications at https://mars.college.
+
+Key facts: founded 2020 by Gene Kogan and Freeman; AI-native since the founding season; self-governed as a do-ocracy with camps, circles, an elected council, and a transparent treasury; its AI school is the Mars Institute of Technology (MIT); its build organization is the Department of Public Works (DPW). Contact: info@mars.college.
+
+## Overview
+
+- [About Mars College](https://mars.college/about.md): what Mars College is, quick facts, and what makes it distinctive
+- [FAQ](https://mars.college/faq.md): cost, dates, location, joining, remote work, housing, weather
+- [How Mars works](https://mars.college/how-mars-works.md): camps, DPW, the Treasury, governance, costs, norms
+- [History 2019–2026](https://mars.college/history.md): the seven seasons from the Brahman founding to the Guardian feature
+- [Traditions & vocabulary](https://mars.college/traditions.md): Thunder Talks, Ideas Week, Mars Electronica, Chiba, and the rest of the Mars lexicon
+
+## The 2027 season
+
+- [Mars 2027 — Season 8](https://mars.college/mars-2027.md): full timeline, the four camps, costs, grants, and who should apply
+- [AI at Mars / Mars Institute of Technology](https://mars.college/ai.md): eight years of AI studies, the Off-Grid AI Engineering curriculum, the online cohort, Eden, and the AI Film Festival
+
+## Site pages (HTML)
+
+- [Home](https://mars.college/): overview and application entry point
+- [Mars Institute of Technology](https://mars.college/mit): the AI school
+- [AI Film Festival](https://mars.college/mff): all four festival editions, 2023–2026
+- [Tool Camp](https://mars.college/toolcamp): the makerspace residency
+- [Co Lab](https://mars.college/colab): the community-practice camp
+- [DPW](https://dpw.mars.college): the build organization — materials, crew, concessions
+
+## Links & press
+
+- [Official links, socials, projects, and press](https://mars.college/links.md): Substack, Instagram, X, GitHub, YouTube, Eden, press coverage
+
+## Optional
+
+- [Full content in one file](https://mars.college/llms-full.txt)

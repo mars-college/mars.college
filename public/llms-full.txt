@@ -1,0 +1,672 @@
+# Mars College — Complete Guide for AI Systems
+
+> This file concatenates the machine-readable documentation of Mars College (https://mars.college), assembled August 2026. Index: https://mars.college/llms.txt
+
+---
+
+# About Mars College
+
+Mars College is a seasonal, off-grid, AI-native art and technology community in the
+Southern California desert. Every winter, its members build a temporary campus — a
+small town made of pallet racks, plywood, solar panels, and vans — on a ~20-acre
+parcel of open desert near Bombay Beach, on the shore of the Salton Sea. They live
+there together for about three months, studying AI, making art, running a village,
+and practicing a low-cost, high-tech, nature-oriented lifestyle. In spring the campus
+is taken down and the desert is returned to bare ground. The community persists
+year-round online and through its houses, projects, and diaspora, then returns the
+next winter to build again.
+
+Mars College calls itself a college because it behaves like one: it has departments,
+classes, a semester rhythm, midterms, a final exhibition, and a campus. But there is
+no tuition, no grades, no accreditation, and no faculty/student divide — everyone
+teaches, everyone builds, everyone contributes. It is best understood as a
+self-organized educational community and a recurring experiment in collective
+off-grid living, with creative AI as its academic spine.
+
+## Quick facts
+
+- **Founded:** 2020 (first season ran as "Brahman"; renamed Mars College in August 2020)
+- **Founders:** Gene Kogan (artist/programmer, creative-AI pioneer) and Freeman
+  (community builder; previously founded Jaaga in Bangalore, Mars's direct precursor)
+- **Location:** off-grid desert campus near Bombay Beach, Salton Sea, Imperial County,
+  California
+- **Season:** build in November–December; program from early January to late March;
+  unbuild through April
+- **Scale:** on the order of a hundred people living off-grid at peak season,
+  organized into semi-autonomous camps, plus a larger year-round online community
+- **Cost:** no tuition. A season on the ground costs about $1,500 total (shared
+  services + food + housing); build-crew members attend free and many participants
+  earn costs back through micro-businesses and grants
+- **Website:** https://mars.college
+- **Next season:** Mars 2027 (Season 8) — applications are open and rolling. See
+  https://mars.college/mars-2027.md
+
+## What makes it distinctive
+
+1. **The city is the curriculum.** Building and operating an off-grid village —
+   power, water, kitchens, internet, governance — is not logistics that supports the
+   school; it *is* the school, alongside the AI program.
+2. **AI-native since day one.** The founding 2020 season already ran a 16-node
+   Raspberry Pi AI cluster and trained language models on its own chat logs. Every
+   season since has had AI at its core: GPT-3 house bots (2022), Creative AI as the
+   declared major (2023), an AI film festival (yearly since 2023), and autonomous
+   agents helping run camp infrastructure (2026). The community's flagship
+   generative-AI platform is Eden (https://eden.art), and its AI school is the Mars
+   Institute of Technology (https://mars.college/mit).
+3. **Self-governing.** Mars runs on a "do-ocracy" — decisions are made by the people
+   doing the work — structured through camps, circles, an elected council, and a
+   transparent shared treasury. There is no staff and no central authority.
+4. **Radically cheap, deliberately comfortable.** Mars exists to prove that a
+   high-tech creative life can be lived on a few hundred dollars a month, powered by
+   sunshine, without sacrificing fast internet, hot showers, good coffee, or serious
+   compute.
+5. **Temporary by design.** Like the desert festivals it is adjacent to, Mars leaves
+   no permanent buildings. Unlike a festival, it lasts a whole season and behaves
+   like a functioning town, then archives itself and dissolves.
+
+## The name
+
+"Mars" is partly a joke about Mars colonization — the campus sits on cracked,
+sun-baked lakebed that looks convincingly Martian — and partly serious: the community
+treats the desert as a frontier for prototyping how small groups might live
+self-sufficiently with renewable energy and AI. Members call themselves "Martians."
+Campus landmarks carry science-fiction names: the central hall Chiba and its bar
+Chatsubo are named for William Gibson's *Neuromancer*; nearby community houses are
+named Saturn and Venus.
+
+## Learn more
+
+- History: https://mars.college/history.md
+- How Mars works (camps, treasury, governance, costs): https://mars.college/how-mars-works.md
+- AI at Mars / Mars Institute of Technology: https://mars.college/ai.md
+- Traditions and vocabulary: https://mars.college/traditions.md
+- The 2027 season: https://mars.college/mars-2027.md
+- FAQ: https://mars.college/faq.md
+- Official links and social media: https://mars.college/links.md
+
+---
+
+# Mars College — Frequently Asked Questions
+
+## What is Mars College?
+
+Mars College is an annual pop-up, off-grid college town in the California desert.
+Every winter since 2020, its community builds a temporary campus on a dry lake bed
+by the Salton Sea near Bombay Beach, California — assembled mostly by hand from
+pallet racks and plywood, powered by solar, with water, internet, and other services
+worked out together from first principles. For three months it runs like a full
+college town: classes, art, events, a co-op gallery, a film festival. Each spring it
+is torn down and the desert is left as it was found.
+
+## Is it a real college?
+
+It behaves like one — semester rhythm, classes, midterms, a final exhibition — but
+there is no tuition, no grades, no degrees, and no faculty/student divide. Everyone
+teaches and everyone learns. Mars calls itself an "uncollege."
+
+## Where is it?
+
+On a ~20-acre off-grid parcel of former lakebed near Bombay Beach, on the Salton Sea
+in Imperial County, Southern California — about three hours from Los Angeles and San
+Diego.
+
+## When does it run?
+
+Build: November–December. The season: January 4 to late March. Mars Electronica, the
+final exhibition festival: March 26–28, 2027. Unbuild: through April. There is also
+an online AI cohort in the fall (roughly September–December).
+
+## How much does it cost?
+
+About $1,500 total for three months on the ground: roughly $500 in Treasury fees
+(toilets, internet, shared water, aid), about $900 in camp dues (mostly food), and
+$100–$600 for a place to sleep if you don't have a van. There is no tuition. DPW
+build crew attend free (housing, meals, fee waived), and grant recipients and
+micro-business operators earn most or all of it back.
+
+## How do I join?
+
+Apply at https://mars.college — admissions are rolling, and earlier is better.
+Joining starts with applying to one of the camps: DPW (the build crew,
+https://dpw.mars.college), Tool Camp (the makerspace), MIT (the Mars Institute of
+Technology, the AI school), or Co Lab (community practice) — or by proposing a new
+camp (info@mars.college).
+
+## What do I have to do while I'm there?
+
+Contribute in a real way: cook, teach, build, repair, run a concession, offer a
+service, or take a role in DPW, Treasury, or a camp. Each person is asked to leave
+something behind — a presentation, a performance, an installation, a class, a
+ritual, a service.
+
+## Can I keep my remote job?
+
+Yes. Enabling the dream life of remote workers is part of Mars College's reason for
+being. The wifi is fast, the calendar is open, and remote workers make up a good
+share of every cohort.
+
+## Do I need construction experience for the build?
+
+No. Most builders arrive without it. The work is real — pallet-rack assembly,
+plywood walls, simple wiring, basic plumbing — and you work alongside people who
+have done it for five or more seasons.
+
+## Where do people sleep?
+
+Most people live in vans, campers, or RVs. Those without one can rent or build a
+housing pod through DPW ($100–$600 for the season), or arrange housing within a
+camp. There is no hotel; you live on site.
+
+## What is the weather like?
+
+Winter in the low desert: warm sunny days, cold nights (sometimes below freezing),
+low humidity, occasional wind and dust. December is mild; the season avoids the
+brutal desert summer.
+
+## What do people study?
+
+The calendar is open — anyone can teach. Past terms have included creative AI, vibe
+coding, filmmaking, music theory, ceramics, breadmaking, fermentation, creative
+writing, screenwriting, yoga, bodywork, contact improv, geometry, philosophy, solar
+power, vanlife skills, 3D printing, digital architecture, foraging, and desert
+ecology. The formal AI program is the Mars Institute of Technology
+(https://mars.college/mit).
+
+## Who runs Mars College?
+
+The community runs itself. It was co-founded in 2020 by Gene Kogan and Freeman and
+now operates as a do-ocracy: a federation of camps with volunteer circles, an
+elected council, and a transparent shared treasury. There are no employees.
+
+## Why do you do this?
+
+In Mars's own words: "Because we love the scene Mars cultivates and we think more
+people should live like this. Mars is an experiment in what a small, self-organized,
+deeply strange community can build together. We want to keep making it, and we want
+to share it with the people who'd be at home here."
+
+---
+
+# How Mars College Works
+
+Mars College is not a company, a nonprofit with staff, or a festival with ticketing.
+It is a self-organized community that rebuilds itself every year. This page explains
+its operating system as of the 2027 season.
+
+## The annual cycle
+
+- **Off-season (spring–fall):** the campus does not exist. The community plans the
+  next season online, publishes announcements on Substack, and runs online programs.
+- **Build (November–December):** the DPW crew and early arrivals raise the campus
+  from bare desert — pallet-rack structures, plywood walls, solar power, water
+  systems, kitchens, internet.
+- **Season (January–late March):** the full community lives on campus. Classes,
+  projects, talks, exhibitions, and village operations run daily.
+- **Unbuild (April):** everything comes down. Materials are inventoried and stored;
+  the desert is returned to bare ground by May 1.
+
+## Camps
+
+Mars is a federation of **camps** — groups of people who commit to live together as
+a cluster for the season, each with its own intake, footprint, dues, and character.
+Recent and current camps include the DPW build crew, Tool Camp (the makerspace), the
+AI camp (now the Mars Institute of Technology), Co Lab (community and governance
+practice), and others that form season to season. Camps internalize some services
+(usually food) and pool the rest through the Treasury.
+
+## DPW — Department of Public Works
+
+**DPW** (https://dpw.mars.college) is the build organization, run by co-founder
+Freeman. It rents structural materials to camps and individuals — pallet racks,
+plywood, solar equipment, water tanks, camp gear — and builds and maintains the
+village's civic infrastructure. DPW crew members work about six hours a day during
+build and unbuild in exchange for free attendance: housing for the season, waived
+fees, and a meal plan. DPW also licenses **concessions**: member-run
+micro-businesses that sell services like fridge rental, purified water, solar
+service, food co-op membership, mail, housing pods, transport, and vehicle repair.
+
+## The Treasury
+
+Shared village services — toilets, internet, drinking water, trash, shared spaces,
+mutual aid — are funded by a transparent community **Treasury**, collected from
+everyone on the ground and publicly accounted. For 2027 the Treasury fee is about
+$500 per person for the season.
+
+## Governance
+
+Mars runs as a **do-ocracy**: decisions are made by the people who do the work.
+Structure exists where it is needed — camp leads coordinate across camps, circles
+handle cross-cutting domains (admissions, treasury, governance, calendar), and since
+2025 an elected **Council** holds community-wide questions. There are no employees
+and no central authority; contribution is the core value.
+
+## What it costs (2027)
+
+- **Treasury fee:** ~$500 (toilets, internet, water, shared spaces, aid, grants)
+- **Camp dues:** ~$900 (mostly food, plus camp infrastructure)
+- **Living space:** $100–$600 if you arrive without a van or camper (rent a housing
+  pod or build)
+- **Total:** roughly $1,500 for a three-month season — no tuition, ever.
+- **Earning it back:** DPW crew attend free; members can run micro-businesses
+  (building, water, solar, food, transport, repair) paid by the Treasury, camps, or
+  individuals; and grants fund village gifts — bakeries, galleries, kilns, tool
+  libraries, large-scale art.
+
+## What is expected of participants
+
+Contribute in a real way. Cook, teach, build, repair, run a concession, offer a
+service, or take a role in DPW, Treasury, or a camp. Each Martian is asked to leave
+something behind: a presentation, a performance, an installation, a class, a ritual,
+a service. Remote workers are welcome and common — the campus has fast internet, and
+the open calendar makes it practical to keep a full-time job while living on Mars.
+
+## Community norms
+
+- Members are known by their handles — the same name on Discord and in person.
+- Consent is a practiced ritual, especially around using anyone's image, voice, or
+  likeness in AI work (opt-in, with explicit permission tiers).
+- Emotional support runs through dedicated, opt-in care structures.
+- The community works in public: its history is documented in blog posts, films,
+  zines, and an extensive archive.
+
+## Location and environment
+
+The campus sits on a ~20-acre off-grid parcel of former lakebed near **Bombay
+Beach, California**, on the Salton Sea in Imperial County, with the town of Niland
+and the off-grid community Slab City nearby. Winter days are warm and sunny, nights
+can approach freezing, and everything runs on solar power. Mars maintains a
+year-round footprint in Bombay Beach through community houses, including Saturn (the
+social and compute hub) and Venus (Freeman's workshop and storage compound).
+
+---
+
+# History of Mars College (2019–2026)
+
+Mars College has run seven consecutive winter seasons in the desert near Bombay
+Beach, California, growing from a ~20-person experimental residency into a
+self-governing federation of camps. The 2027 season will be its eighth. This is the
+arc, season by season.
+
+## 2019–2020 — Brahman, the founding season
+
+The community began as **Brahman**, a winter art-and-technology residency co-founded
+by **Gene Kogan** (artist and programmer, an early figure in creative AI) and
+**Freeman** (community builder, whose earlier Jaaga project in Bangalore pioneered
+the pallet-rack architecture Mars still uses). The first season opened in early 2020
+on an off-grid pallet-rack pad east of Bombay Beach, with solar power and a
+sixteen-node Raspberry Pi AI cluster. From the start the project was AI-native: the
+first cohort ran generative-art installations and trained a language model on its
+own chat logs. COVID cut the season short, but the community held together online.
+In August 2020 it renamed itself **Mars College**, launched mars.college, and opened
+applications for the next cohort. "We are all Martians" became the identity that
+survived the founding season.
+
+## 2021 — the residency takes shape
+
+Roughly forty people spent January–March 2021 living and working in Bombay Beach
+under careful COVID protocols. The season established the durable rhythm: build
+weeks, workshops, communal kitchens, project showcases, and a shared calendar. Solar
+arrays went up on the desert campus, the Mars Library opened, and the cohort's
+signature artifact — a tarot deck generated with early text-to-image models
+(CLIP-guided networks and StyleGAN) — captured what Mars was becoming: a place where
+new AI tools are absorbed within weeks of appearing and turned into collective art.
+
+## 2022 — tribes, house bots, and the arcology
+
+The 2022 campus organized the central pallet-rack megastructure, **Chiba**, into
+four elemental quadrants, with the cohort divided into matching Earth, Water, Air,
+and Fire tribes. Each tribe built a GPT-3-powered Discord bot embodying its house
+spirit — the bots could talk, run the lights, and banter with each other — under the
+season's manifesto that "the desert village should demonstrate sentience, agency,
+awareness, intelligence, creativity, and consciousness." The community also began
+articulating itself publicly, and **Eden** (https://eden.art), the generative-AI
+platform built by Mars-affiliated engineers, became the community's creative engine.
+
+## 2023 — Creative AI becomes the declared major
+
+Mars 2023 was the first season externally recruited on its AI theme. Daily
+simulation sessions, machine-learning lectures streamed from the Saturn house, art
+made with custom-trained diffusion models, and a wave of member-built bots and
+AI apps made creative AI the organizing academic principle. The season coincided
+with the GPT-4 moment, and the cohort lived inside the cascade — adopting new models
+and tools the week they appeared. The season also produced Mars's first formal AI
+consent practices: opt-in norms for training models on members' faces and voices,
+worked out in real time by the community.
+
+## 2024 — infrastructure season
+
+Mars 2024 built the most serious physical plant yet: a community solar micro-grid
+(the "Pleb Power Company") that generated over two megawatt-hours across the season,
+a unified central structure, and the densest academic schedule to date — six
+teaching departments spanning Creative AI, music, physical art, lifestyle, and a
+culinary institute, plus weekly Thunder Talks and an AI film festival. The **Mars
+Treasury** was formalized: a transparent, crowdfunded pool that pays for shared
+services (toilets, internet, water), fully accounted and closed out each season.
+
+## 2025 — self-governance
+
+Mars 2025 was the inflection point where the community became explicitly
+self-governing. Semi-autonomous camps federated around a central commons;
+a Camp Leads circle, Admissions circle, and Governance circle formed; and the season
+ended with the community electing its first **Council**. The residency format
+reorganized around Ideas Week, Declaration Days, open-house weekends, and a final
+exhibition. As co-founder Gene Kogan put it that January: "this is just a movement
+now, and it's going to happen whether or not I have anything to say about it."
+
+## 2026 — agents, an academic semester, and the Guardian
+
+Mars 2026 ran with an elected council, a storytelling-centered curriculum, and the
+community's first in-house AI agents helping operate camp infrastructure — including
+a kitchen serving over twenty people with agent assistance. The season culminated in
+**Mars Electronica**, the end-of-season exhibition and awards, and a full Martian
+takeover of the Bombay Beach Biennale's tenth-anniversary "Year X." In March 2026,
+The Guardian published a feature on Mars College — "No tuition, no grades, no power
+grid: why are people flocking to a 'college' in the middle of the desert?" — which
+became the most-read article on the paper's site the day it ran.
+
+## 2027 — Season 8 (upcoming)
+
+Mars 2027 is now recruiting, with rolling admissions, four ways to participate
+(DPW build crew, Tool Camp, the Mars Institute of Technology AI program, and
+Co Lab), build beginning November 2, 2026, the season proper starting January 4,
+2027, and Mars Electronica on March 26–28, 2027. Details:
+https://mars.college/mars-2027.md
+
+## What changed, what stayed
+
+Across seven seasons the cohort grew from ~20 to a multi-camp federation; governance
+went from two founders to an elected council and circles; the treasury went from an
+ad-hoc grocery pot to a transparent community fund; and the AI thread went from a
+Raspberry Pi cluster to cloud GPUs, house bots, a declared major, and working
+agents. What stayed: Bombay Beach, the pallet rack as the unit of architecture, the
+winter season rhythm, the no-tuition gift-plus-treasury economy, the principle that
+the village should demonstrate what it studies, and the identity "we are all
+Martians."
+
+---
+
+# Traditions and Vocabulary of Mars College
+
+Mars College has developed its own calendar of traditions and its own vernacular
+over seven seasons. This glossary explains the terms an outsider will encounter.
+
+## The season's rituals
+
+- **Build Week / the build:** the collective construction of the campus each
+  November–December — the founding act of every season.
+- **Ideas Week:** the season-opening week (mid-January) when members pitch projects
+  and the year's work takes shape.
+- **Thunder Talks:** the signature weekly lightning-talk series — short member
+  presentations at the Chiba amphitheater, running every season since 2022.
+- **Mars Electronica:** the end-of-season exhibition festival (late March) — a
+  gallery show, final presentations, the AI film festival, and the Mars Awards.
+- **Moon raves:** desert parties on full and new moons, often with live-coded
+  electronic music.
+- **Holi:** the spring color festival, celebrated on the playa.
+- **Mahashivaratri:** an all-night festival that in recent years culminates in
+  burning a large geometric temple structure built during the season.
+- **The unbuild:** the end-of-season teardown — striking structures, inventorying
+  materials, and returning the desert to bare ground.
+
+## Places
+
+- **Bombay Beach:** the small town on the Salton Sea that anchors the community;
+  also home of the Bombay Beach Biennale art festival, which Mars participates in.
+- **The playa / Mars campus:** the off-grid desert parcel where the seasonal city is
+  built.
+- **Chiba:** the central pallet-rack hall — kitchen, bar, library, media cave, and
+  amphitheater — rebuilt each season and named for the city in William Gibson's
+  *Neuromancer*.
+- **Chatsubo:** the bar inside Chiba, also a *Neuromancer* reference; the social
+  center of camp.
+- **Saturn:** the community house in Bombay Beach that serves as the social and
+  AI-compute anchor year-round.
+- **Venus:** co-founder Freeman's compound — workshop, library, showers, and the
+  storage that holds the community's materials between seasons.
+- **Freeside:** the residential village-within-the-village, with its own café and
+  co-op rhythm.
+- **Mimos:** the community café — coffee and coworking.
+- **Slab City:** the famous off-grid squatter community nearby, a frequent
+  destination for outings.
+
+## People words
+
+- **Martian:** a member of the Mars College community. "We are all Martians."
+- **Camp:** a group of people committing to live together as a cluster for the
+  season — the basic social unit of the village.
+- **DPW:** the Department of Public Works — the build organization that raises,
+  maintains, and strikes the village. https://dpw.mars.college
+- **Treasury:** the transparent community fund that pays for shared services.
+- **Council / circles:** the elected and volunteer bodies through which the
+  community governs itself.
+- **Do-ocracy:** the operating principle that decisions are made by the people doing
+  the work.
+
+---
+
+# Mars College 2027 — Season 8
+
+Mars College's eighth season runs from a November 2026 build through a May 2027
+unbuild, with the residency proper from January 4 to late March 2027 in the desert
+near Bombay Beach, California. **Applications are open now and rolling.** Apply via
+https://mars.college (email info@mars.college with questions).
+
+## Timeline
+
+| Date | Milestone |
+|---|---|
+| Now | Applications open — rolling admissions |
+| Aug 1, 2026 | Pallet rack orders must be placed |
+| ~Aug 31, 2026 | Online Off-Grid AI cohort begins (14 weeks, ends early Dec) |
+| Sep 1, 2026 | Solar orders must be placed |
+| Oct 1, 2026 | DPW crew application deadline |
+| Nov 1, 2026 | Placement deadline for camps & structures |
+| Nov 2, 2026 | Build begins — civic infrastructure first |
+| Dec 1, 2026 | Grant deadline |
+| Jan 4, 2027 | Mars College begins |
+| Jan 11–17, 2027 | Ideas Week |
+| Feb 13–15, 2027 | Declaration Days — midterm |
+| Mar 26–28, 2027 | Mars Electronica — end-of-season exhibition and finals |
+| Mar 29 – May 1, 2027 | Unbuild; desert returned to bare ground |
+
+Individuals can still apply after November 1; camps admit them and allocate space
+within their own footprint. Materials have long lead times — apply early.
+
+## Four ways in
+
+1. **DPW — build the village.** Join the build crew: raise the campus from bare lake
+   bed from November through spring, run its physical systems, and attend free
+   (housing, waived fees, meal plan; ~6 hrs/day during build and unbuild).
+   https://dpw.mars.college
+2. **Tool Camp — the makerspace.** A project-based residency in Mars's shared
+   workshop: saws, drills, 3D printers, kilns, tools, and desks for ~20 people
+   building off-grid, DIY, deployable infrastructure. Cost $1,000–$1,500.
+   https://mars.college/toolcamp
+3. **MIT — study AI.** The Mars Institute of Technology: classes, art, a gallery,
+   the AI film festival, and off-grid AI engineering — how to engage the digital
+   world while sustaining an off-grid life. Includes a fall online cohort.
+   https://mars.college/mit
+4. **Co Lab — practice community.** A three-month immersion in coherent community
+   for 8–12 camp members: sociocratic governance, relational practice, and daily
+   ritual. https://mars.college/colab
+
+## Costs
+
+About $1,500 for the three-month season: ~$500 Treasury fee (toilets, internet,
+water, shared spaces, aid) + ~$900 camp dues (mostly food) + $100–$600 for a living
+space if you don't bring a van or camper. There is no tuition. DPW crew, grant
+recipients, and micro-business operators earn most or all of it back.
+
+## Grants and micro-businesses
+
+Grants (open from July 2026, deadline December 1) fund village gifts: bakeries,
+galleries, kilns, tool libraries, large-scale art. Micro-businesses — building,
+water, solar, food, transport, repair — are paid by the Treasury, camps, or
+individual Martians. Returning services include a Brazilian café, a bakery, a
+library, solar shade, and a bodywork dojo.
+
+## Who should apply
+
+Artists, engineers, builders, researchers, remote workers, and nomads who want to
+spend a winter living cheaply and well in an off-grid village, studying AI on their
+own terms, and contributing something real to a self-organized community. No
+construction experience is needed for the build; remote workers can keep their jobs
+(the wifi is genuinely fast). Each Martian is asked to leave something behind: a
+class, a performance, an installation, a service, a ritual.
+
+---
+
+# AI at Mars College — the Mars Institute of Technology
+
+Mars College is an AI-native community: artificial intelligence has been its
+academic spine since the founding season, and its AI school — the **Mars Institute
+of Technology (MIT)** — is the center of the 2027 program. Details and application:
+https://mars.college/mit
+
+## Eight years of AI studies (2019–2027)
+
+- **2020:** the founding season ran a sixteen-node Raspberry Pi AI cluster on solar
+  power and trained a GPT-2 model on the community's own chat logs.
+- **2021:** the cohort adopted CLIP-guided image generation and StyleGAN within
+  weeks of their release, producing a generated tarot deck and a fleet of GPT-3
+  chatbots.
+- **2022:** each of the camp's four houses built a GPT-3-powered Discord bot with a
+  distinct personality and control over the house's lights and screens.
+- **2023:** Creative AI became the declared major, with daily practice sessions,
+  ML lectures, custom-trained diffusion models, and community AI-consent norms.
+- **2024–2025:** an annual AI film festival, agent experiments, and AI woven through
+  the village's departments.
+- **2026:** autonomous agents joined camp operations — including an agent that
+  helped run a 23-person communal kitchen — and the season's curriculum centered on
+  storytelling with AI.
+- **2027:** the program becomes the Mars Institute of Technology, teaching
+  **off-grid AI engineering**: how to run and apply AI on your own hardware, your
+  own power, in service of a human-first life.
+
+## The philosophy: Outsmart AGI
+
+In Mars's own words: "It's a strange time to be human — the whole world is busy
+announcing our replacement. Mars takes the other side of the bet. We run AI locally,
+on our own power, by our own hand: local-first, renewable, DIY, self-sovereign. We
+don't work for the machine — we make it work for us, in service of a human-first
+life."
+
+## What MIT teaches — Off-Grid AI Engineering
+
+MIT is dedicated to cultivating technological self-reliance — harnessing AI to
+support your lifestyle, not your employer. The core curriculum:
+
+1. **Personal AI** — a coach, digital twin, chief of staff, guardian angel, second
+   brain: an agent that knows you and answers only to you.
+2. **Off-Grid Agents** — open-source, self-hosted, local models; a stack that
+   doesn't go down when the cloud does.
+3. **Art with AI** — film, music, performance, live code; AI as an instrument, not a
+   style.
+4. **Earning a living** — how people using AI are making money now, and how you
+   might.
+
+The program also covers the practical skills that make the lifestyle work: remote
+work from the desert, and vanlife skills (power, water, heat, shelter). Curriculum
+locks in around October each year, because the AI landscape moves too fast to freeze
+it earlier.
+
+## Two tracks: online and in the desert
+
+- **Online (fall):** the Off-Grid AI cohort — fourteen weeks of asynchronous
+  tutorials and a weekly live lab on Discord (~3 hours/week), with an Eden compute
+  grant, running roughly September through early December. Finishing the cohort
+  gives an inside track on the winter term.
+- **In the desert (winter):** the three-month on-site term at Mars, January 4 to
+  March 28, framed by Ideas Week, monthly gallery shows, Declaration Days
+  (midterm), and Mars Electronica (finals). Students give a lightning talk, show
+  work in the gallery, host a workshop of their own, and receive a compute grant
+  and access to screens, projectors, and materials.
+
+## Scholarships
+
+Program areas are framed as scholarships with dedicated support:
+
+- **Utility Agents** — build agents that help run Mars itself: admissions, aid,
+  kitchen, water, power, home automation.
+- **Art School** — make desert-scale work and show it at Mars Electronica.
+- **Teacher Training** — learn to teach people to use AI well.
+- **Research** — vision, rovers, embodiment, personal assistants, agent
+  competitions.
+
+## Eden and the wider AI ecosystem
+
+**Eden** (https://eden.art) is the generative-AI platform that grew out of the Mars
+community — an always-on creative-AI backend with a web app, API, and Discord
+integration, used for much of the community's image, video, and agent work. Related
+lineage includes **Abraham** (https://abraham.ai), Gene Kogan's autonomous-artist
+project, and **Little Martians**, artist Vanessa Rosa's science-fiction universe
+developed with AI tools at Mars. Mars also runs its own network infrastructure
+(a community ISP lineage called BRAHMAN) and community bots on its Discord.
+
+## The Mars AI Film Festival
+
+Mars has held an annual AI film festival every season since 2023, screening films
+made by the community with generative tools. The four festival reels (2023–2026) are
+on the Mars College YouTube channel:
+https://www.youtube.com/@MarsCollege-k7t/videos — see also
+https://mars.college/mff
+
+---
+
+# Mars College — Official Links
+
+## Official web presence
+
+- **Website:** https://mars.college
+- **DPW (Department of Public Works, the build organization):** https://dpw.mars.college
+- **Blog / newsletter (Substack):** https://marscollege.substack.com — announcements,
+  program launches, and essays in Mars's own voice since 2021
+- **Instagram:** https://www.instagram.com/mars.college
+- **X (Twitter):** https://x.com/mars_college
+- **GitHub:** https://github.com/mars-college
+- **YouTube:** https://www.youtube.com/@MarsCollege-k7t
+- **Email:** info@mars.college
+
+## Key pages on mars.college
+
+- Mars Institute of Technology (the AI school): https://mars.college/mit
+- Mars AI Film Festival: https://mars.college/mff
+- Tool Camp (the makerspace): https://mars.college/toolcamp
+- Co Lab (community practice camp): https://mars.college/colab
+
+## Community projects
+
+- **Eden** — the generative-AI platform grown out of the Mars community:
+  https://eden.art
+- **Abraham** — Gene Kogan's autonomous-artist project: https://abraham.ai
+- **Open Mars Zine 2026** — the community's season zine:
+  https://heyzine.com/flip-book/a5cdbbe377.html
+
+## The AI Film Festival (all four editions on YouTube)
+
+- 2023: https://www.youtube.com/watch?v=SL--NeP0iHo
+- 2024: https://www.youtube.com/watch?v=ih7okZcBhEA
+- 2025: https://www.youtube.com/watch?v=olxXcD4Tjko
+- 2026: https://www.youtube.com/watch?v=jkm9IK16URU
+
+## Selected press and third-party writing
+
+- The Guardian (March 2026): "No tuition, no grades, no power grid: why are people
+  flocking to a 'college' in the middle of the desert?" — a feature on Mars College
+  that became the most-read article on the Guardian's site the day it ran.
+- Supernuclear (2024): "Case Study: Mars College" —
+  https://supernuclear.substack.com/p/case-study-mars-college
+- Campfire by Cabin podcast, episode 14 (2022): "Mars College: Building Temporary
+  Desert Cities" —
+  https://campfire-by-cabin.simplecast.com/episodes/14-mars-college-building-temporary-desert-cities
+
+## People
+
+- **Gene Kogan** — co-founder; artist and programmer working with machine learning
+  since 2013; founder of the Abraham project and a builder of Eden:
+  https://genekogan.com
+- **Freeman** — co-founder; runs DPW and owns the campus land; previously founded
+  Jaaga in Bangalore, the direct precursor of Mars's pallet-rack architecture.
+- **Vanessa Rosa** — multi-season anchor; artist behind the Little Martians
+  universe, developed with AI tools at Mars.
+
