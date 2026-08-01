@@ -1,5 +1,5 @@
 ---
-import { APPLY_URL, TIMELINE_MINI } from "../data/site";
+import { APPLY_URL, ZINE_URL, TIMELINE_MINI } from "../data/site";
 // Current live-site hero video mirrored locally while newer drone candidates
 // are reviewed. Muted autoplay loop with poster for instant LCP; reduced-motion
 // shows the poster only.
@@ -34,11 +34,14 @@ import { APPLY_URL, TIMELINE_MINI } from "../data/site";
     </p>
 
     <div class="hero__actions u-rise" style="animation-delay:240ms">
-      <a href="#paths" class="u-cta hero__cta">
+      <a href="#apply" class="u-cta hero__cta">
         Apply for 2027 <span aria-hidden="true">→</span>
       </a>
       <a href={APPLY_URL} class="u-link hero__what">
-        Read the blog <span class="u-arrow" aria-hidden="true">→</span>
+        Read blog <span class="u-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href={ZINE_URL} class="u-link hero__what" target="_blank" rel="noopener">
+        See 2026 zine <span class="u-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -133,6 +136,12 @@ import { APPLY_URL, TIMELINE_MINI } from "../data/site";
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
+  }
+  @media (max-width: 640px) {
+    /* three actions stack on narrow screens — keep the column compact */
+    .hero__actions {
+      row-gap: 1.25rem;
+    }
   }
   .hero__what {
     color: var(--color-bone-on-night);

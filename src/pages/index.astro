@@ -30,19 +30,19 @@ import hardHeavy from "../assets/photos/marshard/heavy-forklift.jpg";
 
 // Open calendar (moved from /learn): classes anyone can teach.
 import pMusicTheory from "../assets/photos/learn/020_2026_dscf0028_1bd1c.jpg";
-import pColorClass from "../assets/photos/learn/045_2024_2026_p1036172_1.JPG";
+import pPortal2020 from "../assets/photos/learn/mc_crt-installation.jpg";
 import pMcResearchLearn from "../assets/photos/learn/supp_marscollege_research-and-learn.jpg";
 import pThunderProjection from "../assets/photos/learn/002_2026_dscf1586_ece64.jpg";
 import pClaySubstack from "../assets/photos/learn/supp_substack_clay.jpeg";
 import pClaySubstack2 from "../assets/photos/learn/supp_substack_clay2.jpeg";
 import pClay2026Wheel from "../assets/photos/learn/supp_2026_clay_kickwheel.jpg";
 import pClay2026Shelf from "../assets/photos/learn/supp_2026_clay_shelf.jpg";
-import pWorkshopPano from "../assets/photos/learn/supp_2021_workshop_panoramic.jpg";
+import pWedding2022 from "../assets/photos/learn/mc_community-gathering.jpg";
 import pMcLivecoding from "../assets/photos/learn/supp_marscollege_live-coding.jpg";
 import pLivecodeIntro from "../assets/photos/learn/supp_2023_livecoding_intro.jpg";
-import pOutdoorTalk from "../assets/photos/learn/013_2022_pxl_20220116_020317372_night_dd72d.jpg";
+import pForest2020 from "../assets/photos/learn/mc_geodesic-dome.jpg";
 import pYogaDesert from "../assets/photos/learn/supp_2023_acroyoga_desert.jpg";
-import pYogaSunset from "../assets/photos/learn/supp_2023_acroyoga_sunset.jpg";
+import pYogaClass2020 from "../assets/photos/learn/mc_yoga-class.jpg";
 import pGym from "../assets/photos/learn/supp_2022_outdoor_gym.jpg";
 import pHangarTalk from "../assets/photos/learn/049_2022_pxl_20220116_025716120_night_55447.jpg";
 import pLaptopClass from "../assets/photos/learn/001_2022_img_0517_a1dd1.jpg";
@@ -53,7 +53,7 @@ import pMcChibaGallery from "../assets/photos/learn/supp_marscollege_chiba-galle
 const pillarImg: Record<string, any> = {
   DPW: buildImg,
   "Tool Camp": toolcampImg,
-  "Study AI": learnImg,
+  MIT: learnImg,
   "Co Lab": colabImg,
 };
 
@@ -68,22 +68,23 @@ const CHIBA_YEARS = [
   { year: "2026", img: chiba2026, cap: "The muraled Chiba hall and the village ring" },
 ];
 
-// Open-calendar gallery — classes (indoor and outdoor), not parties.
+// Open-calendar gallery — mostly classes (indoor and outdoor), plus a few
+// community moments (the 2022 wedding, the 2020 Portal and forest builds).
 const OPEN_CAL_PHOTOS = [
   { img: pMusicTheory, alt: "Music theory class · 2026" },
-  { img: pColorClass, alt: "Evening lecture · 2024" },
+  { img: pPortal2020, alt: "The Portal · 2020" },
   { img: pMcResearchLearn, alt: "Thunder talks are a weekly tradition that brings the whole community together." },
   { img: pThunderProjection, alt: "Watching thunder talks · 2026" },
   { img: pClaySubstack, alt: "Ceramics workshop at Tool Camp · 2026" },
   { img: pClaySubstack2, alt: "Ceramics circle on the desert lakebed" },
   { img: pClay2026Wheel, alt: "Throwing on the kick wheel at Tool Camp · 2026" },
   { img: pClay2026Shelf, alt: "Workshop shelf of unfired clay · 2026" },
-  { img: pWorkshopPano, alt: "Workshop in the main hall · 2021" },
+  { img: pWedding2022, alt: "A wedding on Mars · 2022" },
   { img: pMcLivecoding, alt: "Live coders algo raving in 2024" },
   { img: pLivecodeIntro, alt: "Live Coding Club intro session · 2023" },
-  { img: pOutdoorTalk, alt: "Ideas week · 2022" },
+  { img: pForest2020, alt: "The forest · 2020" },
   { img: pYogaDesert, alt: "Acroyoga on the lake bed · 2023" },
-  { img: pYogaSunset, alt: "Sunset acroyoga on the roof of Chiba · 2023" },
+  { img: pYogaClass2020, alt: "Yoga class · 2020" },
   { img: pGym, alt: "Outdoor gym on the playa · 2022" },
   { img: pHangarTalk, alt: "Outdoor evening seminar · 2022" },
   { img: pLaptopClass, alt: "Digital architecture class in the library · 2022" },
@@ -129,12 +130,12 @@ const TOPICS = [
 
 // "Mars is hard" — a representative spread of off-grid life.
 const HARD_PHOTOS = [
-  { img: hardDust, cap: "The elements", alt: "Two Martians out in a desert dust storm" },
-  { img: hardBuild, cap: "Raising the racks", alt: "The crew assembling a pallet-rack structure at golden hour" },
-  { img: hardKitchen, cap: "The kitchen", alt: "The 2026 camp kitchen at night, cooking and serving under string lights" },
-  { img: hardPower, cap: "Power", alt: "The camp battery bank and inverter" },
-  { img: hardWater, cap: "Water", alt: "An IBC water tank hauled on a trailer" },
-  { img: hardHeavy, cap: "Department of Public Works", alt: "A forklift parked by a half-built pallet-rack structure on the desert lake bed during the build" },
+  { img: hardDust, cap: "Beat the elements", alt: "Two Martians out in a desert dust storm" },
+  { img: hardBuild, cap: "Raise the racks", alt: "The crew assembling a pallet-rack structure at golden hour" },
+  { img: hardKitchen, cap: "Feed the Martians", alt: "The 2026 camp kitchen at night, cooking and serving under string lights" },
+  { img: hardPower, cap: "Electrify the village", alt: "The camp battery bank and inverter" },
+  { img: hardWater, cap: "Water the desert", alt: "An IBC water tank hauled on a trailer" },
+  { img: hardHeavy, cap: "Sculpt the Earth", alt: "A forklift parked by a half-built pallet-rack structure on the desert lake bed during the build" },
 ];
 ---
 
@@ -319,7 +320,7 @@ const HARD_PHOTOS = [
           every year.
         </p>
         <p>
-          Enter the <strong><a href="/build">Mars Department of Public Works</a></strong>.
+          Enter the <strong><a href="https://dpw.mars.college">Mars Department of Public Works</a></strong>.
           DPW is the crew that builds and runs every physical system at Mars: power,
           water, shelter, gear. They arrive in November to bare desert and hand the
           village over to everybody else the first Monday of January. DPW members
@@ -350,7 +351,7 @@ const HARD_PHOTOS = [
       </ul>
 
       <div class="marshard__cta">
-        <a href="/build" class="u-cta">
+        <a href="https://dpw.mars.college" class="u-cta">
           Apply to the Mars Department of Public Works
           <span aria-hidden="true">→</span>
         </a>
@@ -359,7 +360,7 @@ const HARD_PHOTOS = [
   </section>
 
   <!-- ===================== APPLY HERO ===================== -->
-  <section id="paths" class="u-section is-night pillars">
+  <section id="apply" class="u-section is-night pillars">
     <div class="u-shell pillars__head">
       <Eyebrow index="05" label="Four ways into Mars College" />
       <h2 class="pillars__lead u-display">Apply to Mars College.</h2>

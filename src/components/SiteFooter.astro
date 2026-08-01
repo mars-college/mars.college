@@ -4,9 +4,10 @@ import { SOCIAL, EMAIL, NAV } from "../data/site";
 import footerBg from "../assets/photos/night-glow.jpg";
 
 interface Props {
-  /** Swap the photo backdrop for the playable desert volleyball court.
-   *  Defaults to the pages in COURT_PAGES — it pulls in p5 and the game
-   *  code, so everywhere else keeps the light photo footer. */
+  /** Swap the photo backdrop for the desert volleyball court (two neural
+   *  nets rallying — scenery, not playable). Defaults to the pages in
+   *  COURT_PAGES — it pulls in p5 and the game code, so everywhere else
+   *  keeps the light photo footer. */
   game?: boolean;
 }
 // Pages that get the volleyball court instead of the photo footer.
@@ -19,18 +20,29 @@ const year = new Date().getFullYear();
 // page that actually renders the court.
 const VOLLEY_BOOT = `
 // Neural slime volleyball — David Ha (otoro.net), by way of brahman.ai.
-// Everything is deferred until the footer is actually on screen, and
-// until window 'load' has fired: p5 0.4.4 self-starts on load if it can
-// see window.setup, so booting it by hand afterwards avoids a double
-// sketch.
+// volley.min.js is generated from slimevolley.js (see its header) and folds
+// in the neural-net shim + helpers, so there are only two script loads.
+//
+// Boot is deferred until the footer first approaches the viewport AND window
+// 'load' has fired. Order matters for p5 0.4.4: it self-starts a sketch at
+// eval time if it can already see window.setup, so p5.min.js must evaluate
+// before the sketch script defines setup — then new p5() is the only sketch.
+//
+// After boot, the draw loop runs ONLY while the footer is actually on
+// screen and the tab is visible. Pause state is derived from
+// (intersecting, document.hidden) on every signal — never toggled from
+// event edges — and a slow reconciler re-checks real geometry so a missed
+// IntersectionObserver event during a violent scroll can't strand it in
+// the wrong state.
 (() => {
   const host = document.getElementById("p5Container");
-  if (!host || window.__volleyBooted) return;
+  if (!host || host.dataset.volleyBooted) return;
 
   const load = (src) =>
     new Promise((resolve, reject) => {
       const el = document.createElement("script");
       el.src = src;
+      el.async = false; // parallel download, in-order execution
       el.onload = resolve;
       el.onerror = reject;
       document.head.appendChild(el);
@@ -41,30 +53,68 @@ const VOLLEY_BOOT = `
       ? Promise.resolve()
       : new Promise((r) => window.addEventListener("load", r, { once: true }));
 
+  let sketch = null;
+  let running = false;
+  let visible = false;
+  let resumeTimer = 0;
+  const MARGIN = 160; // px beyond the viewport that still counts as "on screen"
+
+  const applyRunState = () => {
+    const want = visible && !document.hidden && !!sketch;
+    if (want === running && !(!want && resumeTimer)) return;
+    if (!want) {
+      clearTimeout(resumeTimer);
+      resumeTimer = 0;
+      if (running) {
+        sketch.noLoop();
+        running = false;
+      }
+    } else if (!resumeTimer) {
+      // p5 0.4.4's loop() draws synchronously and noLoop() can leave one
+      // frame callback in flight for ~2 frames; resuming after a beat
+      // guarantees a single draw chain no matter how fast the user flings
+      // the page up and down.
+      resumeTimer = setTimeout(() => {
+        resumeTimer = 0;
+        if (visible && !document.hidden && sketch && !running) {
+          sketch.loop();
+          running = true;
+        }
+      }, 60);
+    }
+  };
+
   const boot = async () => {
-    if (window.__volleyBooted) return;
-    window.__volleyBooted = true;
+    if (host.dataset.volleyBooted) return;
+    host.dataset.volleyBooted = "1";
     try {
       await pageLoaded();
-      for (const f of [
-        "/volley/convnet.js",
-        "/volley/ga.js",
-        "/volley/useful.js",
-        "/volley/p5.min.js",
-        "/volley/p5.dom.js",
-        "/volley/slimevolley.js",
-      ]) {
-        await load(f);
-      }
-      new window.p5();
-      // The sketch reads its size from the container, so keep it in step.
-      // Wait for setup() to have built the game — resizeCanvas forces a
-      // synchronous redraw, which would run draw() against half a world.
+      await Promise.all(["/volley/p5.min.js", "/volley/volley.min.js"].map(load));
+      sketch = new window.p5();
+      running = true;
+      // The court is pure scenery — it takes no input. p5 0.4.4 still hangs
+      // ~16 listeners on window (including non-passive touchmove and
+      // devicemotion, which tax scrolling and battery on phones); strip
+      // them all. Guarded: if a future p5 changes shape, worst case the
+      // listeners stay.
+      try {
+        for (const name in sketch._events) {
+          const h = sketch._events[name];
+          if (h) window.removeEventListener(name, h);
+        }
+      } catch (e) {}
+      applyRunState(); // pause immediately if the user already scrolled away
+      // Container resize → canvas resize. Debounced to one per frame;
+      // volleyResized() itself bails when the size didn't really change
+      // (mobile URL-bar show/hide spams this while scrolling).
       if (window.ResizeObserver) {
+        let raf = 0;
         new ResizeObserver(() => {
-          if (window.game && window.game.agent1 && window.game.agent2) {
-            window.windowResized();
-          }
+          if (raf) return;
+          raf = requestAnimationFrame(() => {
+            raf = 0;
+            if (window.__volleyReady) window.volleyResized();
+          });
         }).observe(host);
       }
     } catch (e) {
@@ -75,17 +125,28 @@ const VOLLEY_BOOT = `
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          io.disconnect();
-          boot();
-        }
+        visible = entries[entries.length - 1].isIntersecting;
+        if (visible) boot();
+        applyRunState();
       },
-      { rootMargin: "300px" }
+      { rootMargin: MARGIN + "px" }
     );
     io.observe(host);
   } else {
+    visible = true;
     boot();
   }
+
+  document.addEventListener("visibilitychange", applyRunState);
+
+  // Belt and braces: reconcile from real geometry every few seconds, so the
+  // sketch can never stay paused while on screen (or keep burning while off).
+  setInterval(() => {
+    if (document.hidden || !sketch) return;
+    const r = host.getBoundingClientRect();
+    visible = r.bottom > -MARGIN && r.top < window.innerHeight + MARGIN;
+    applyRunState();
+  }, 3000);
 })();
 `;
 ---

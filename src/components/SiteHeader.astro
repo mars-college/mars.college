@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import { NAV } from "../data/site";
+import { NAV, SOCIAL } from "../data/site";
 import marsLogo from "../assets/brand/mars-logo.png";
 const path = Astro.url.pathname;
 
 // Pages that carry their own application form: the Apply button scrolls to it
-// instead of bouncing back to the home page's paths section.
+// instead of bouncing back to the home page's apply section.
 const LOCAL_APPLY: Record<string, string> = {
   "/mit": "#apply",
 };
@@ -20,6 +20,32 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
     </a>
 
     <nav class="hdr__nav" aria-label="Primary">
+      <span class="hdr__social">
+        <a
+          href={SOCIAL.instagram}
+          class="hdr__icon"
+          target="_blank"
+          rel="noopener"
+          aria-label="Mars College on Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4.1" />
+            <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+        <a
+          href={SOCIAL.x}
+          class="hdr__icon"
+          target="_blank"
+          rel="noopener"
+          aria-label="Mars College on X"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+      </span>
       {
         NAV.map((item) => {
           const isApply = item.label === "Apply";
@@ -81,6 +107,24 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
     display: flex;
     align-items: center;
     gap: clamp(1rem, 2.5vw, 2rem);
+  }
+  .hdr__social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .hdr__icon {
+    display: inline-flex;
+    color: var(--color-ink-2);
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .hdr__icon:hover {
+    color: var(--color-clay);
+  }
+  .hdr__icon svg {
+    display: block;
+    width: 1.15rem;
+    height: 1.15rem;
   }
   .hdr__link {
     font-family: var(--font-body);

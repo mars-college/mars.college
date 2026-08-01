@@ -4,6 +4,9 @@
 export const APPLY_URL = "https://marscollege.substack.com/";
 export const EMAIL = "info@mars.college";
 
+// Open Mars Zine, Issue 2026 — Heyzine flipbook.
+export const ZINE_URL = "https://heyzine.com/flip-book/a5cdbbe377.html";
+
 // Tally form ids — embed via https://tally.so/embed/<id>?…
 // Leave any blank until the form is published; pages fall back to a "coming soon" panel.
 export const TALLY_APPLY_FORM_ID = "ZjWDVv"; // matches mars.college/apply
@@ -24,14 +27,15 @@ export const SOCIAL = {
 };
 
 export const NAV = [
-  { label: "Build", href: "/build" },
+  // DPW is getting its own site (page TBD); the old /build page stays around
+  // for reference but nothing links to it.
+  { label: "Build", href: "https://dpw.mars.college" },
   { label: "MIT", href: "/mit" },
-  { label: "Apply", href: "/#paths" },
+  { label: "Apply", href: "/#apply" },
 ];
 
 // The minified public timeline shown on the home page.
 export const TIMELINE_MINI = [
-  { date: "Sep 15", label: "AI cohort begins" },
   { date: "Nov – Dec", label: "Build Mars" },
   { date: "Jan 4", label: "Mars College begins" },
   { date: "Mar 26 – 28", label: "Mars Electronica" },
@@ -42,7 +46,7 @@ export const PILLARS = [
   {
     index: "01",
     title: "DPW",
-    href: "/build",
+    href: "https://dpw.mars.college",
     cta: "Apply to Build Mars",
     blurb:
       "Build the village. Run its physical systems. Raise the campus from bare lake bed with the DPW crew from November through spring.",
@@ -57,11 +61,11 @@ export const PILLARS = [
   },
   {
     index: "03",
-    title: "Study AI",
+    title: "MIT",
     href: "/mit",
     cta: "Apply to study AI at Mars",
     blurb:
-      "Take classes, make art, and learn off-grid AI: how to engage the digital world while sustaining an off-grid life.",
+      "Study at the Mars Institute of Technology. Take classes, make art, and learn off-grid AI: how to engage the digital world while sustaining an off-grid life.",
   },
   {
     index: "04",
