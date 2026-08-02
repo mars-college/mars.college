@@ -1,0 +1,125 @@
+---
+// Site analytics. Two cookieless beacons, so no consent banner is required:
+//
+//   1. Vercel Web Analytics — visitors, uniques, top pages, referrers,
+//      countries, devices. Needs the "Web Analytics" toggle enabled in the
+//      Vercel project dashboard (Analytics tab) or it silently collects
+//      nothing.
+//   2. GoatCounter — same baseline, plus the custom click/scroll/form events
+//      instrumented below. Set PUBLIC_GOATCOUNTER_CODE (the subdomain of the
+//      GoatCounter site, e.g. "marscollege" for marscollege.goatcounter.com)
+//      as an environment variable in the Vercel project. Kept out of the repo
+//      because this repo is public; it still appears in the served HTML, as
+//      any client-side analytics must.
+//
+// Both are production-only, so local dev traffic never counts.
+//
+// Event naming convention, so the GoatCounter Events list stays readable:
+//   click-*     in-site actions (apply buttons, nav)
+//   camp-*      the four camp cards in the Apply section
+//   outbound-*  links that leave mars.college
+//   form-*      Tally application funnel steps
+//   scroll-*    homepage scroll depth
+import Analytics from "@vercel/analytics/astro";
+
+const GC = import.meta.env.PUBLIC_GOATCOUNTER_CODE;
+const prod = import.meta.env.PROD;
+const isHome = Astro.url.pathname === "/";
+---
+
+{prod && <Analytics />}
+
+{
+  prod && GC && (
+    <script
+      data-goatcounter={`https://${GC}.goatcounter.com/count`}
+      async
+      src="https://gc.zgo.at/count.js"
+    />
+  )
+}
+
+{
+  prod && GC && (
+    <script is:inline define:vars={{ isHome }}>
+      (() => {
+        // count.js loads async, so events fired before it lands are queued
+        // and flushed once it's ready.
+        const pending = [];
+        let timer = 0;
+
+        const flush = () => {
+          if (!(window.goatcounter && window.goatcounter.count)) return false;
+          while (pending.length) window.goatcounter.count(pending.shift());
+          if (timer) { clearInterval(timer); timer = 0; }
+          return true;
+        };
+
+        const track = (path, title) => {
+          pending.push({ path, title: title || path, event: true });
+          if (!flush() && !timer) timer = setInterval(flush, 300);
+        };
+
+        window.marsTrack = track;
+
+        // ---- Tally application funnel -------------------------------------
+        // The form is a cross-origin iframe, so nothing on this page can see
+        // inside it. Tally posts its lifecycle events to the parent, which is
+        // the only way form-view and form-submit can become funnel steps.
+        // Parsed defensively: Tally has shipped both string and object
+        // payloads, and we only care about the event name.
+        window.addEventListener("message", (e) => {
+          // Origin can be the literal string "null" (sandboxed frames) or
+          // otherwise unparseable, and other scripts/extensions post here
+          // too — everything below has to survive junk without throwing.
+          let host = "";
+          try { host = new URL(e.origin).hostname; } catch { return; }
+          if (!/(^|\.)tally\.so$/.test(host)) return;
+          let name = "";
+          try {
+            const d = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+            name = (d && (d.event || d.type)) || "";
+          } catch { return; }
+          if (typeof name !== "string" || !name.startsWith("Tally.")) return;
+          const short = name.slice(6);
+          if (short === "FormLoaded" || short === "FormPageView") {
+            track("form-view", "Application form seen");
+          } else if (short === "FormSubmitted") {
+            track("form-submit", "Application submitted");
+          }
+        });
+
+        // ---- Homepage scroll depth ----------------------------------------
+        // The home page is ~9,900px tall and the Apply section sits near
+        // 7,600px — this is how we learn whether anyone gets there.
+        if (isHome) {
+          const marks = [25, 50, 75, 100];
+          const hit = new Set();
+          let queued = false;
+          const check = () => {
+            queued = false;
+            const doc = document.documentElement;
+            const max = doc.scrollHeight - window.innerHeight;
+            if (max <= 0) return;
+            const pct = ((window.scrollY / max) * 100);
+            for (const m of marks) {
+              if (pct >= m && !hit.has(m)) {
+                hit.add(m);
+                track("scroll-" + m, "Homepage scrolled " + m + "%");
+              }
+            }
+            if (hit.size === marks.length) {
+              window.removeEventListener("scroll", onScroll);
+            }
+          };
+          const onScroll = () => {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(check);
+          };
+          window.addEventListener("scroll", onScroll, { passive: true });
+        }
+      })();
+    </script>
+  )
+}

@@ -1,0 +1,187 @@
+---
+// /mit-court — experimental standalone page served at mit.mars.college via a
+// host-scoped rewrite in vercel.json. Nothing but the neural slime-volleyball
+// court, full-viewport with no scrolling, titled "Mars Institute of
+// Technology", with a link back to mars.college. Not linked from anywhere on
+// the main site and noindex while experimental.
+//
+// The game is the same David Ha (otoro.net) sketch the footer uses
+// (public/volley/*), but booted immediately — the court is always in view
+// here, so there is no IntersectionObserver gating; only tab-visibility
+// pause and container-resize handling are kept from SiteFooter.astro.
+import "../styles/global.css";
+
+const BOOT = `
+(() => {
+  const host = document.getElementById("p5Container");
+  if (!host || host.dataset.volleyBooted) return;
+  host.dataset.volleyBooted = "1";
+
+  const load = (src) =>
+    new Promise((resolve, reject) => {
+      const el = document.createElement("script");
+      el.src = src;
+      el.async = false;
+      el.onload = resolve;
+      el.onerror = reject;
+      document.head.appendChild(el);
+    });
+
+  const pageLoaded = () =>
+    document.readyState === "complete"
+      ? Promise.resolve()
+      : new Promise((r) => window.addEventListener("load", r, { once: true }));
+
+  let sketch = null;
+  let running = false;
+
+  const applyRunState = () => {
+    const want = !document.hidden && !!sketch;
+    if (want === running) return;
+    if (want) { sketch.loop(); running = true; }
+    else { sketch.noLoop(); running = false; }
+  };
+
+  (async () => {
+    try {
+      await pageLoaded();
+      await Promise.all(["/volley/p5.min.js", "/volley/volley.min.js"].map(load));
+      sketch = new window.p5();
+      running = true;
+      // Scenery only — strip p5 0.4.4's window listeners (incl. non-passive
+      // touchmove) exactly as the footer build does.
+      try {
+        for (const name in sketch._events) {
+          const h = sketch._events[name];
+          if (h) window.removeEventListener(name, h);
+        }
+      } catch (e) {}
+      if (window.ResizeObserver) {
+        let raf = 0;
+        new ResizeObserver(() => {
+          if (raf) return;
+          raf = requestAnimationFrame(() => {
+            raf = 0;
+            if (window.__volleyReady) window.volleyResized();
+          });
+        }).observe(host);
+      }
+      document.addEventListener("visibilitychange", applyRunState);
+    } catch (e) {
+      host.classList.add("is-failed");
+    }
+  })();
+})();
+`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Mars Institute of Technology</title>
+    <meta
+      name="description"
+      content="Mars Institute of Technology — the AI school of Mars College."
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#2b2b62" />
+  </head>
+  <body>
+    <main class="court-page">
+      <div id="p5Container" class="court" aria-hidden="true"></div>
+
+      <header class="overlay">
+        <h1 class="title u-display">Mars Institute of Technology</h1>
+        <a class="back u-link" href="https://mars.college">mars.college</a>
+      </header>
+
+      <div class="credit">
+        <span aria-hidden="true">(o_ _)ﾉ彡☆</span>
+        <a href="https://otoro.net/ml/slimevolley/index.html" target="_blank" rel="noopener">@hardmaru</a>
+      </div>
+    </main>
+
+    <script is:inline set:html={BOOT} />
+
+    <style is:global>
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+        overscroll-behavior: none;
+      }
+    </style>
+
+    <style>
+      .court-page {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--color-night, #14110e);
+      }
+      .court {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(to bottom, #2b2b62, #6a6ab0);
+      }
+      .court :global(canvas) {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .overlay {
+        position: relative;
+        z-index: 1;
+        padding: clamp(1.5rem, 4vw, 3.5rem);
+        pointer-events: none;
+      }
+      .title {
+        color: #ece2d0;
+        font-size: clamp(1.6rem, 4.5vw, 3.75rem);
+        text-shadow:
+          0 0 12px rgba(20, 17, 14, 0.55),
+          0 0 3px rgba(20, 17, 14, 0.55);
+        margin: 0 0 1rem;
+        max-width: 16ch;
+      }
+      .back {
+        pointer-events: auto;
+        color: #ece2d0;
+        border-color: color-mix(in srgb, #ece2d0 55%, transparent);
+        text-shadow: 0 0 10px rgba(20, 17, 14, 0.55);
+      }
+      .back:hover {
+        color: var(--color-clay);
+      }
+      /* The credit rides on the sand, which stays light through the sketch's
+         night cycle — keep it dark, matching the footer treatment. */
+      .credit {
+        position: relative;
+        z-index: 1;
+        margin-top: auto;
+        text-align: right;
+        padding: 0 clamp(0.5rem, 1.2vw, 1rem) 0.4rem;
+        font-family: var(--font-mono);
+        font-size: var(--text-meta, 0.75rem);
+        letter-spacing: 0.02em;
+        color: #14110e;
+        text-shadow: 0 0 8px rgba(240, 210, 130, 0.9);
+      }
+      .credit a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(20, 17, 14, 0.45);
+        padding-bottom: 1px;
+      }
+      .credit a:hover {
+        color: var(--color-clay);
+      }
+    </style>
+  </body>
+</html>

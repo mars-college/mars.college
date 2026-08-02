@@ -14,7 +14,7 @@ export default defineConfig({
       // - plain /build and /learn are outdated and slated for deletion
       // - /apply is noindex (hidden Tally-form page)
       filter: (page) =>
-        !/\/(build\d?|learn\d?|agentlab\d?|thrive|apply)\/?$/.test(page),
+        !/\/(build\d?|learn\d?|agentlab\d?|thrive|apply|mit-court)\/?$/.test(page),
     }),
     mdx(),
   ],

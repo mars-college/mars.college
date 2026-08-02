@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import Analytics from "../components/Analytics.astro";
 import { SOCIAL } from "../data/site";
 
 interface Props {
@@ -17,8 +18,8 @@ const {
   title,
   description,
   noindex = false,
-  image = "/og-image.jpg",
-  imageAlt = "Aerial view of the Mars College off-grid campus at golden hour — giant MARS letters, solar panels, and vans on the desert lake bed near Bombay Beach, California",
+  image = "/og-image.jpg?v=3", // ?v busts scraper caches (Discord etc.) when the image changes
+  imageAlt = "Giant white MARS letters at the Mars College desert camp at golden hour — trailers and a mural around the letters, a unicycle rider in front, mountains and open sky behind",
   preloadImage,
   jsonLd,
 } = Astro.props;
@@ -93,6 +94,7 @@ const orgLd = {
       <slot />
     </main>
     <SiteFooter />
+    <Analytics />
     <style>
       .skip-link {
         position: absolute;

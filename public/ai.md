@@ -59,7 +59,7 @@ it earlier.
   tutorials and a weekly live lab on Discord (~3 hours/week), with an Eden compute
   grant, running roughly September through early December. Finishing the cohort
   gives an inside track on the winter term.
-- **In the desert (winter):** the three-month on-site term at Mars, January 4 to
+- **In the desert (winter):** the three-month on-site term at Mars, January 11 to
   March 28, framed by Ideas Week, monthly gallery shows, Declaration Days
   (midterm), and Mars Electronica (finals). Students give a lightning talk, show
   work in the gallery, host a workshop of their own, and receive a compute grant

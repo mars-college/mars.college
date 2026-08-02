@@ -27,6 +27,8 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
           target="_blank"
           rel="noopener"
           aria-label="Mars College on Substack"
+          data-goatcounter-click="outbound-substack-header"
+          data-goatcounter-title="Substack (header)"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
             <path d="M22.54 8.24H1.46V5.4h21.08v2.84zM1.46 10.81V24L12 18.11 22.54 24V10.81H1.46zM22.54 0H1.46v2.84h21.08V0z" />
@@ -38,6 +40,8 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
           target="_blank"
           rel="noopener"
           aria-label="Mars College on Instagram"
+          data-goatcounter-click="outbound-instagram-header"
+          data-goatcounter-title="Instagram (header)"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7">
             <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -51,13 +55,20 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
           target="_blank"
           rel="noopener"
           aria-label="Mars College on X"
+          data-goatcounter-click="outbound-x-header"
+          data-goatcounter-title="X (header)"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
         </a>
       </span>
-      <a href={localApply ?? "/#apply"} class="hdr__apply">Apply</a>
+      <a
+        href={localApply ?? "/#apply"}
+        class="hdr__apply"
+        data-goatcounter-click="click-apply-header"
+        data-goatcounter-title="Apply button (header)"
+      >Apply</a>
     </nav>
   </div>
 </header>

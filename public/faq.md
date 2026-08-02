@@ -24,7 +24,7 @@ Diego.
 
 ## When does it run?
 
-Build: November–December. The season: January 4 to late March. Mars Electronica, the
+Build: November–December. The season: January 11 to late March. Mars Electronica, the
 final exhibition festival: March 26–28, 2027. Unbuild: through April. There is also
 an online AI cohort in the fall (roughly September–December).
 

@@ -333,7 +333,7 @@ const HARD_PHOTOS = [
           every year.
         </p>
         <p>
-          Enter the <strong><a href="https://dpw.mars.college">Mars Department of Public Works</a></strong>.
+          Enter the <strong><a href="https://dpw.mars.college" data-goatcounter-click="outbound-dpw-intro" data-goatcounter-title="DPW (Help build Mars intro)">Mars Department of Public Works</a></strong>.
           DPW is the crew that builds and runs every physical system at Mars: power,
           water, shelter, gear. They arrive in November to bare desert and hand the
           village over to everybody else the first Monday of January. DPW members
@@ -364,7 +364,12 @@ const HARD_PHOTOS = [
       </ul>
 
       <div class="marshard__cta">
-        <a href="https://dpw.mars.college" class="u-cta">
+        <a
+          href="https://dpw.mars.college"
+          class="u-cta"
+          data-goatcounter-click="outbound-dpw-cta"
+          data-goatcounter-title="Apply to DPW (Help build Mars)"
+        >
           Apply to the Mars Department of Public Works
           <span aria-hidden="true">→</span>
         </a>
@@ -387,7 +392,12 @@ const HARD_PHOTOS = [
         {
           PILLARS.map((p) => (
             <li class="pillar">
-              <a href={p.href} class="pillar__link">
+              <a
+                href={p.href}
+                class="pillar__link"
+                data-goatcounter-click={p.ev}
+                data-goatcounter-title={`${p.title} card`}
+              >
                 <div class="pillar__media u-plate">
                   <Image
                     src={pillarImg[p.title]}

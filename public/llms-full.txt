@@ -112,7 +112,7 @@ Diego.
 
 ## When does it run?
 
-Build: November–December. The season: January 4 to late March. Mars Electronica, the
+Build: November–December. The season: January 11 to late March. Mars Electronica, the
 final exhibition festival: March 26–28, 2027. Unbuild: through April. There is also
 an online AI cohort in the fall (roughly September–December).
 
@@ -368,7 +368,7 @@ became the most-read article on the paper's site the day it ran.
 
 Mars 2027 is now recruiting, with rolling admissions, four ways to participate
 (DPW build crew, the Department of Emergent Civilization, the Mars Institute of Technology AI program, and
-Co Lab), build beginning November 2, 2026, the season proper starting January 4,
+Co Lab), build beginning November 2, 2026, the season proper starting January 11,
 2027, and Mars Electronica on March 26–28, 2027. Details:
 https://mars.college/mars-2027.md
 
@@ -447,7 +447,7 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 # Mars College 2027 — Season 8
 
 Mars College's eighth season runs from a November 2026 build through a May 2027
-unbuild, with the residency proper from January 4 to late March 2027 in the desert
+unbuild, with the residency proper from January 11 to late March 2027 in the desert
 near Bombay Beach, California. **Applications are open now and rolling.** Apply via
 https://mars.college (email info@mars.college with questions).
 
@@ -463,7 +463,7 @@ https://mars.college (email info@mars.college with questions).
 | Nov 1, 2026 | Placement deadline for camps & structures |
 | Nov 2, 2026 | Build begins — civic infrastructure first |
 | Dec 1, 2026 | Grant deadline |
-| Jan 4, 2027 | Mars College begins |
+| Jan 11, 2027 | Mars College begins |
 | Jan 11–17, 2027 | Ideas Week |
 | Feb 13–15, 2027 | Declaration Days — midterm |
 | Mar 26–28, 2027 | Mars Electronica — end-of-season exhibition and finals |
@@ -577,7 +577,7 @@ it earlier.
   tutorials and a weekly live lab on Discord (~3 hours/week), with an Eden compute
   grant, running roughly September through early December. Finishing the cohort
   gives an inside track on the winter term.
-- **In the desert (winter):** the three-month on-site term at Mars, January 4 to
+- **In the desert (winter):** the three-month on-site term at Mars, January 11 to
   March 28, framed by Ideas Week, monthly gallery shows, Declaration Days
   (midterm), and Mars Electronica (finals). Students give a lightning talk, show
   work in the gallery, host a workshop of their own, and receive a compute grant

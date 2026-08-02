@@ -38,7 +38,7 @@ export const NAV = [
 // The minified public timeline shown on the home page.
 export const TIMELINE_MINI = [
   { date: "Nov – Dec", label: "Build Mars" },
-  { date: "Jan 4", label: "Mars College begins" },
+  { date: "Jan 11", label: "Mars College begins" },
   { date: "Mar 26 – 28", label: "Mars Electronica" },
 ];
 
@@ -48,6 +48,7 @@ export const TIMELINE_MINI = [
 export const PILLARS = [
   {
     title: "DPW",
+    ev: "camp-dpw",
     sub: "Department of Public Works",
     blurb:
       "Build the village. Run its physical systems. Raise the campus from bare lake bed with the DPW crew from November through spring.",
@@ -56,6 +57,7 @@ export const PILLARS = [
   },
   {
     title: "MIT",
+    ev: "camp-mit",
     sub: "Mars Institute of Technology",
     blurb:
       "Take classes, make art, and learn off-grid AI: how to engage the digital world while sustaining an off-grid life.",
@@ -64,6 +66,7 @@ export const PILLARS = [
   },
   {
     title: "DEC",
+    ev: "camp-dec",
     sub: "Department of Emergent Civilization",
     blurb:
       "Mars's makerspace and shared workshop: saws, drills, 3D printers, kilns, tools, and desks for people building things with their hands.",
@@ -72,6 +75,7 @@ export const PILLARS = [
   },
   {
     title: "Co Lab",
+    ev: "camp-colab",
     sub: "The coherent community camp",
     blurb:
       "A three-month immersion in coherent community: sociocratic governance, relational practice, and daily ritual.",
