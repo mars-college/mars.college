@@ -10,6 +10,8 @@ export const ZINE_URL = "https://heyzine.com/flip-book/a5cdbbe377.html";
 // Tally form ids — embed via https://tally.so/embed/<id>?…
 // Leave any blank until the form is published; pages fall back to a "coming soon" panel.
 export const TALLY_APPLY_FORM_ID = "ZjWDVv"; // matches mars.college/apply
+// MIT has its own application (https://tally.so/r/EkeWKr) — /mit uses this one.
+export const TALLY_MIT_FORM_ID = "EkeWKr";
 // Build/DPW inquiry form at https://tally.so/forms/xXgvOk/edit
 export const TALLY_BUILD_FORM_ID = "xXgvOk";
 // Off-Grid AI online cohort signup. Currently pointed at the Mars College 2027

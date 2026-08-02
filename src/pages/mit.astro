@@ -6,7 +6,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Eyebrow from "../components/Eyebrow.astro";
-import { EMAIL, TALLY_APPLY_FORM_ID } from "../data/site";
+import { EMAIL, TALLY_MIT_FORM_ID } from "../data/site";
 
 // Hero — DSCF1587, Thunder Talks 2026: chess engines and charts projected in
 // the Chiba hangar. Full-res original also at
@@ -559,9 +559,9 @@ const courseLd = {
       <div class="cohort__form">
         <p class="u-label u-label--clay cohort__form-eyebrow">The application</p>
         {
-          TALLY_APPLY_FORM_ID ? (
+          TALLY_MIT_FORM_ID ? (
             <iframe
-              data-tally-src={`https://tally.so/embed/${TALLY_APPLY_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+              data-tally-src={`https://tally.so/embed/${TALLY_MIT_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
               loading="lazy"
               width="100%"
               height="640"
