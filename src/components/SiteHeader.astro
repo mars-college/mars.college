@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { NAV, SOCIAL } from "../data/site";
+import { SOCIAL } from "../data/site";
 import marsLogo from "../assets/brand/mars-logo.png";
 const path = Astro.url.pathname;
 
@@ -21,6 +21,17 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
 
     <nav class="hdr__nav" aria-label="Primary">
       <span class="hdr__social">
+        <a
+          href={SOCIAL.substack}
+          class="hdr__icon"
+          target="_blank"
+          rel="noopener"
+          aria-label="Mars College on Substack"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M22.54 8.24H1.46V5.4h21.08v2.84zM1.46 10.81V24L12 18.11 22.54 24V10.81H1.46zM22.54 0H1.46v2.84h21.08V0z" />
+          </svg>
+        </a>
         <a
           href={SOCIAL.instagram}
           class="hdr__icon"
@@ -46,23 +57,7 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
           </svg>
         </a>
       </span>
-      {
-        NAV.map((item) => {
-          const isApply = item.label === "Apply";
-          const href = isApply && localApply ? localApply : item.href;
-          return (
-            <a
-              href={href}
-              class={isApply ? "hdr__apply" : "hdr__link"}
-              aria-current={
-                !isApply && path.startsWith(item.href) ? "page" : undefined
-              }
-            >
-              {item.label}
-            </a>
-          );
-        })
-      }
+      <a href={localApply ?? "/#apply"} class="hdr__apply">Apply</a>
     </nav>
   </div>
 </header>
@@ -126,27 +121,6 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
     width: 1.15rem;
     height: 1.15rem;
   }
-  .hdr__link {
-    font-family: var(--font-body);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--color-ink-2);
-    padding-block: 0.25rem;
-    border-bottom: 2px solid transparent;
-    transition: color var(--dur-fast) var(--ease-out),
-      border-color var(--dur-fast) var(--ease-out);
-  }
-  .hdr__link:hover {
-    color: var(--color-ink);
-    border-color: var(--color-ink);
-  }
-  .hdr__link[aria-current="page"] {
-    color: var(--color-clay);
-    border-color: var(--color-clay);
-  }
   .hdr__apply {
     font-family: var(--font-body);
     font-size: 0.9375rem;
@@ -173,11 +147,6 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
     }
     .hdr__logo {
       height: 1.75rem;
-    }
-  }
-  @media (max-width: 430px) {
-    .hdr__link {
-      display: none;
     }
   }
 </style>

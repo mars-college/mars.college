@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page not found — Mars College"
+  description="This page doesn't exist. The desert is empty here — head back to Mars College."
+  noindex={true}
+>
+  <section class="u-section">
+    <div class="u-shell nf">
+      <p class="nf__code u-label">404</p>
+      <h1 class="nf__title u-display">Nothing but open desert here.</h1>
+      <p class="nf__body">
+        This page doesn't exist — or it was torn down in the unbuild. Everything
+        at Mars comes back eventually, but for now, head to the homepage or
+        apply for the next season.
+      </p>
+      <div class="nf__actions">
+        <a class="u-link" href="/">Back to Mars College</a>
+        <a class="u-link" href="/#apply">Apply for 2027</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .nf__code {
+    color: var(--color-clay);
+    margin-bottom: 1.25rem;
+  }
+  .nf__title {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    margin-bottom: 1.5rem;
+  }
+  .nf__body {
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    max-width: 38rem;
+    margin-bottom: 2.5rem;
+  }
+  .nf__actions {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+</style>

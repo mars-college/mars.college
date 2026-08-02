@@ -50,8 +50,25 @@ cd public && {
 } > llms-full.txt
 ```
 
-## Remaining wiring (needs BaseLayout / deploy access — not done to avoid
-## conflicting with the active site agent)
+## SEO wiring completed Aug 1, 2026
+
+- **JSON-LD**: site-wide `EducationalOrganization` in BaseLayout enriched with
+  foundingDate, founders, email, address, logo (`/mars-logo.png`, 600px), and
+  full `sameAs` (Substack/IG/X/GitHub/YouTube). `FAQPage` schema on the
+  homepage (mirrors HOME_FAQ). `Course` schema already on /mit.
+- **Embed cards**: new default OG image (golden-hour aerial with MARS letters,
+  1200×630, cropped from the hero-video poster; old build-shot backed up in
+  session scratchpad). Per-page cards: `/og-mit.jpg` (seal on paper),
+  `/og-mff.jpg` (night screening). `og:image:alt`/`twitter:image:alt` added.
+- **Homepage `<title>`** now leads with "Mars College".
+- **Sitemap** filter tightened: only the 5 public pages (/, /mit, /mff,
+  /toolcamp, /colab); /apply (noindex), /build, /learn (slated for deletion)
+  and all drafts excluded.
+- **404 page** added (`src/pages/404.astro`, on-brand, noindex).
+- Facts corrected on /mit: fifth annual film festival in 2027; first festival
+  2023.
+
+## Remaining / external
 
 1. **Verify nothing blocks AI crawlers on deploy (highest priority).**
    - Vercel: confirm the "AI Bot managed ruleset" is OFF and no
@@ -61,40 +78,15 @@ cd public && {
      our robots.txt. (Cloudflare blocks AI crawlers by default since July 2025.)
    - Datapoint: theguardian.com blocks Anthropic's crawler and is invisible to
      Claude's web tools — that's what being blocked looks like.
-2. **JSON-LD in `BaseLayout.astro`** (site-wide) — ready to paste:
-   ```html
-   <script type="application/ld+json">
-   {
-     "@context": "https://schema.org",
-     "@type": "EducationalOrganization",
-     "name": "Mars College",
-     "url": "https://mars.college",
-     "email": "info@mars.college",
-     "foundingDate": "2020",
-     "founder": [{"@type": "Person", "name": "Gene Kogan"},
-                  {"@type": "Person", "name": "Freeman"}],
-     "description": "An annual pop-up, off-grid college town built every winter in the California desert near Bombay Beach on the Salton Sea. No tuition. Classes, art, and off-grid AI engineering, January through March.",
-     "location": {"@type": "Place", "name": "Bombay Beach, California",
-       "address": {"@type": "PostalAddress", "addressLocality": "Bombay Beach",
-         "addressRegion": "CA", "addressCountry": "US"}},
-     "sameAs": ["https://marscollege.substack.com",
-       "https://www.instagram.com/mars.college",
-       "https://x.com/mars_college",
-       "https://github.com/mars-college",
-       "https://www.youtube.com/@MarsCollege-k7t"]
-   }
-   </script>
-   ```
-   Plus `FAQPage` schema on the homepage FAQ section, and an `Event` for
-   Mars Electronica (Mar 26–28, 2027) on /mit or the homepage. (/mit and
-   /learn already carry Course JSON-LD — dedupe: /learn's competes with /mit's.)
-3. **`<link rel="alternate" type="text/markdown" href="/<page>.md">`** in
-   BaseLayout for pages that have .md twins (optional, cheap).
-4. **Search Console + Bing Webmaster Tools** — register the domain in both once
-   the Astro site deploys (ChatGPT search is substantially Bing-backed).
-   Optional: wire an IndexNow ping into the Vercel deploy hook.
-5. **Sitemap** — already via @astrojs/sitemap; consider adding lastmod.
-6. **Off-site (the biggest lever, not a website task):** consistent one-line
+2. **Domain cutover (DNS to Vercel):** add both `mars.college` and
+   `www.mars.college` in Vercel Domains with www → apex redirect. All
+   canonicals/OG URLs already point at https://mars.college.
+3. **Search Console + Bing Webmaster Tools** — register the domain in both once
+   the site is live on mars.college (ChatGPT search is substantially
+   Bing-backed). Optional: wire an IndexNow ping into the Vercel deploy hook.
+4. **`<link rel="alternate" type="text/markdown" href="/<page>.md">`** in
+   BaseLayout for pages with .md twins (optional, cheap).
+5. **Off-site (the biggest lever, not a website task):** consistent one-line
    description everywhere (Substack about, IG bio, X bio, GitHub org);
    a Wikipedia article if notability supports it (the Guardian feature +
    Supernuclear case study + Campfire podcast are citable sources); keep press

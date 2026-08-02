@@ -128,7 +128,7 @@ micro-business operators earn most or all of it back.
 
 Apply at https://mars.college — admissions are rolling, and earlier is better.
 Joining starts with applying to one of the camps: DPW (the build crew,
-https://dpw.mars.college), Tool Camp (the makerspace), MIT (the Mars Institute of
+https://dpw.mars.college), the Department of Emergent Civilization (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
 Technology, the AI school), or Co Lab (community practice) — or by proposing a new
 camp (info@mars.college).
 
@@ -209,7 +209,7 @@ its operating system as of the 2027 season.
 
 Mars is a federation of **camps** — groups of people who commit to live together as
 a cluster for the season, each with its own intake, footprint, dues, and character.
-Recent and current camps include the DPW build crew, Tool Camp (the makerspace), the
+Recent and current camps include the DPW build crew, the Department of Emergent Civilization (the makerspace), the
 AI camp (now the Mars Institute of Technology), Co Lab (community and governance
 practice), and others that form season to season. Camps internalize some services
 (usually food) and pool the rest through the Treasury.
@@ -266,7 +266,7 @@ the open calendar makes it practical to keep a full-time job while living on Mar
 - Consent is a practiced ritual, especially around using anyone's image, voice, or
   likeness in AI work (opt-in, with explicit permission tiers).
 - Emotional support runs through dedicated, opt-in care structures.
-- The community works in public: its history is documented in blog posts, films,
+- The community works in public: its history is documented in newsletter posts, films,
   zines, and an extensive archive.
 
 ## Location and environment
@@ -367,7 +367,7 @@ became the most-read article on the paper's site the day it ran.
 ## 2027 — Season 8 (upcoming)
 
 Mars 2027 is now recruiting, with rolling admissions, four ways to participate
-(DPW build crew, Tool Camp, the Mars Institute of Technology AI program, and
+(DPW build crew, the Department of Emergent Civilization, the Mars Institute of Technology AI program, and
 Co Lab), build beginning November 2, 2026, the season proper starting January 4,
 2027, and Mars Electronica on March 26–28, 2027. Details:
 https://mars.college/mars-2027.md
@@ -478,17 +478,17 @@ within their own footprint. Materials have long lead times — apply early.
    bed from November through spring, run its physical systems, and attend free
    (housing, waived fees, meal plan; ~6 hrs/day during build and unbuild).
    https://dpw.mars.college
-2. **Tool Camp — the makerspace.** A project-based residency in Mars's shared
+2. **Department of Emergent Civilization (DEC, formerly known as Tool Camp) — the makerspace.** A project-based residency in Mars's shared
    workshop: saws, drills, 3D printers, kilns, tools, and desks for ~20 people
    building off-grid, DIY, deployable infrastructure. Cost $1,000–$1,500.
-   https://mars.college/toolcamp
+   https://dec.mars.college
 3. **MIT — study AI.** The Mars Institute of Technology: classes, art, a gallery,
    the AI film festival, and off-grid AI engineering — how to engage the digital
    world while sustaining an off-grid life. Includes a fall online cohort.
    https://mars.college/mit
 4. **Co Lab — practice community.** A three-month immersion in coherent community
    for 8–12 camp members: sociocratic governance, relational practice, and daily
-   ritual. https://mars.college/colab
+   ritual. https://colab.mars.college
 
 ## Costs
 
@@ -533,9 +533,10 @@ https://mars.college/mit
 - **2022:** each of the camp's four houses built a GPT-3-powered Discord bot with a
   distinct personality and control over the house's lights and screens.
 - **2023:** Creative AI became the declared major, with daily practice sessions,
-  ML lectures, custom-trained diffusion models, and community AI-consent norms.
-- **2024–2025:** an annual AI film festival, agent experiments, and AI woven through
-  the village's departments.
+  ML lectures, custom-trained diffusion models, and community AI-consent norms —
+  and the first annual Mars AI Film Festival was held.
+- **2024–2025:** the film festival became a yearly tradition, personal AI agents
+  were built for every Martian, and AI wove through the village's departments.
 - **2026:** autonomous agents joined camp operations — including an agent that
   helped run a 23-person communal kitchen — and the season's curriculum centered on
   storytelling with AI.
@@ -582,16 +583,13 @@ it earlier.
   work in the gallery, host a workshop of their own, and receive a compute grant
   and access to screens, projectors, and materials.
 
-## Scholarships
+## What students give and get
 
-Program areas are framed as scholarships with dedicated support:
-
-- **Utility Agents** — build agents that help run Mars itself: admissions, aid,
-  kitchen, water, power, home automation.
-- **Art School** — make desert-scale work and show it at Mars Electronica.
-- **Teacher Training** — learn to teach people to use AI well.
-- **Research** — vision, rovers, embodiment, personal assistants, agent
-  competitions.
+Students give: a lightning talk during Ideas Week; contributions to the galleries
+and Mars Electronica; a workshop, screening, or study group of their own; and basic
+chores in shared spaces. Students get: a compute grant for AI projects; space to
+create with screens, projectors, and materials; and access to housing inside the
+MIT buildings.
 
 ## Eden and the wider AI ecosystem
 
@@ -606,8 +604,9 @@ developed with AI tools at Mars. Mars also runs its own network infrastructure
 ## The Mars AI Film Festival
 
 Mars has held an annual AI film festival every season since 2023, screening films
-made by the community with generative tools. The four festival reels (2023–2026) are
-on the Mars College YouTube channel:
+made by the community with generative tools — four editions so far, with the fifth
+to be screened at Mars Electronica in March 2027. The four festival reels
+(2023–2026) are on the Mars College YouTube channel:
 https://www.youtube.com/@MarsCollege-k7t/videos — see also
 https://mars.college/mff
 
@@ -619,7 +618,7 @@ https://mars.college/mff
 
 - **Website:** https://mars.college
 - **DPW (Department of Public Works, the build organization):** https://dpw.mars.college
-- **Blog / newsletter (Substack):** https://marscollege.substack.com — announcements,
+- **Newsletter (Substack):** https://marscollege.substack.com — announcements,
   program launches, and essays in Mars's own voice since 2021
 - **Instagram:** https://www.instagram.com/mars.college
 - **X (Twitter):** https://x.com/mars_college
@@ -631,8 +630,8 @@ https://mars.college/mff
 
 - Mars Institute of Technology (the AI school): https://mars.college/mit
 - Mars AI Film Festival: https://mars.college/mff
-- Tool Camp (the makerspace): https://mars.college/toolcamp
-- Co Lab (community practice camp): https://mars.college/colab
+- Department of Emergent Civilization (DEC, the makerspace; formerly known as Tool Camp): https://dec.mars.college
+- Co Lab (community practice camp): https://colab.mars.college
 
 ## Community projects
 

@@ -9,6 +9,7 @@ interface Props {
   description: string;
   noindex?: boolean;
   image?: string; // og/twitter image path (in /public)
+  imageAlt?: string; // og/twitter image alt text
   preloadImage?: string; // LCP image to preload on this page
   jsonLd?: object; // extra page-specific structured data (e.g. Course)
 }
@@ -17,6 +18,7 @@ const {
   description,
   noindex = false,
   image = "/og-image.jpg",
+  imageAlt = "Aerial view of the Mars College off-grid campus at golden hour — giant MARS letters, solar panels, and vans on the desert lake bed near Bombay Beach, California",
   preloadImage,
   jsonLd,
 } = Astro.props;
@@ -30,11 +32,23 @@ const orgLd = {
   name: "Mars College",
   alternateName: "Mars College AI School",
   url: Astro.site?.href,
-  logo: new URL("/og-image.jpg", Astro.site).href,
+  logo: new URL("/mars-logo.png", Astro.site).href,
   image: ogImage,
   description:
     "Mars College is an annual off-grid AI school and pop-up college in the California desert. Learn sovereign, off-grid AI engineering: personal AI agents, art with AI, and earning a living with AI.",
-  sameAs: [SOCIAL.substack, SOCIAL.instagram, SOCIAL.x, SOCIAL.github],
+  email: "info@mars.college",
+  foundingDate: "2020",
+  founder: [
+    { "@type": "Person", name: "Gene Kogan", url: "https://genekogan.com" },
+    { "@type": "Person", name: "Freeman" },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bombay Beach",
+    addressRegion: "CA",
+    addressCountry: "US",
+  },
+  sameAs: [SOCIAL.substack, SOCIAL.instagram, SOCIAL.x, SOCIAL.github, SOCIAL.youtube],
 };
 ---
 
@@ -43,7 +57,8 @@ const orgLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -59,11 +74,13 @@ const orgLd = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
 
     <meta name="theme-color" content="#f3ede1" />
     <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />

@@ -48,6 +48,11 @@ Mars College footer edition. Slimmed for battery + bandwidth:
 - The loader in SiteFooter.astro owns pause/resume (scroll + tab
   visibility); resizes go through volleyResized() with a real
   changed-size check.
+- Physics runs on a fixed 45Hz wall-clock accumulator (same 1/30
+  world-second integrator as always) and rendering interpolates between
+  the last two physics states — this removes the frame-pacing judder
+  p5 0.4.4's setTimeout->rAF loop caused, and makes game speed identical
+  on every machine instead of tracking achieved fps.
 */
 
 // ---------------------------------------------------------------------------
@@ -163,7 +168,21 @@ var playerSpeedY = 10 * 1.35;
 var maxBallSpeed = 15 * 1.5;
 var gravity;
 var timeStep = 1 / 30;
-var theFrameRate = 60;
+// p5 0.4.4 paces its loop as setTimeout(1000/target) -> rAF, so a 60
+// target yields an irregular 35–50fps (the timer eats a whole vsync and
+// frames land 2 or 3 vsyncs apart — that was the visible stutter). 70 keeps
+// the timer safely inside one 60Hz vsync, so rAF paces a locked ~60fps on
+// both 60 and 120Hz displays. Physics no longer steps per frame — see
+// STEP_MS below.
+var theFrameRate = 70;
+// Fixed physics cadence, wall-clock driven. The original stepped once per
+// rendered frame, which at its real ~40–50fps put game speed at the mercy
+// of the machine. 45Hz matches that historical average, and the integrator
+// still advances the same fixed 1/30 world-seconds per step — same math,
+// same trajectories, just stepped on a metronome. Rendering interpolates
+// between the last two physics states, so motion is smooth at any display
+// rate.
+var STEP_MS = 1000 / 45;
 var nudge = 0.1;
 var friction = 1.0; // 1 means no friction, less means friction
 var initDelayFrames = 30 * 2;
@@ -223,9 +242,21 @@ function toY(y) {
   return height - groundPad - y * factor;
 }
 
-// Recompute the world scale for a canvas of w pixels.
-function applyScale(w) {
-  factor = Math.max(w, MIN_DESIGN_W) / REF_W_MAX;
+// Recompute the world scale for a canvas of w x h pixels.
+//
+// The court's world width is a free parameter, not something the neural
+// nets depend on — they read absolute positions, and the side walls just
+// move in — so on tall/portrait canvases we trade court width for sprite
+// size: scale up to ASPECT_BOOST_MAX as height/width grows, capped so the
+// court never narrows below half of REF_W_MAX. Wide desktop canvases hit
+// the boost's lower bound (1.0) and render exactly as before.
+var ASPECT_BOOST_MAX = 2;
+function applyScale(w, h) {
+  var base = Math.max(w, MIN_DESIGN_W) / REF_W_MAX;
+  // 0 at a wide 16:9-ish footer, 1 at portrait-phone proportions
+  var t = Math.min(Math.max((h / w - 0.55) / 0.85, 0), 1);
+  var boost = 1 + (ASPECT_BOOST_MAX - 1) * t;
+  factor = Math.min(base * boost, w / (REF_W_MAX / 2));
   ref_w = w / factor;
   ref_h = ref_w;
   groundPad = ref_u * factor * (GROUND_PAD - 1);
@@ -346,15 +377,16 @@ Particle.prototype.limitSpeed = function (minSpeed, maxSpeed) {
   }
 };
 
-Particle.prototype.display = function () {
+// Draws at the given world coordinates (interpolated by draw()); spin now
+// advances in the physics step, not here.
+Particle.prototype.display = function (wx, wy, ang) {
   "use strict";
   stroke(0, 50);
   fill(this.c);
-  ellipse(toX(this.loc.x), toY(this.loc.y) - toP(4.8), toP(this.r * 2) * 2, toP(this.r * 2) * 2);
+  ellipse(toX(wx), toY(wy) - toP(4.8), toP(this.r * 2) * 2, toP(this.r * 2) * 2);
   push();
-  translate(toX(this.loc.x), toY(this.loc.y) - toP(4.8));
-  rotate(this.ang);
-  this.ang += this.angAcc;
+  translate(toX(wx), toY(wy) - toP(4.8));
+  rotate(ang);
   // 220/255 alpha, straight through the compositor. p5 0.4.4's tint() did
   // this in software via getImageData + a fresh <canvas> per frame.
   drawingContext.globalAlpha = 220 / 255;
@@ -537,10 +569,9 @@ Agent.prototype.update = function () {
     this.loc.x = this.dir * (ref_w / 2 - this.r);
   }
 };
-Agent.prototype.display = function () {
+// Draws at the given world coordinates (interpolated by draw()).
+Agent.prototype.display = function (x, y) {
   "use strict";
-  var x = this.loc.x;
-  var y = this.loc.y;
 
   // Rider sprites are tightly cropped and each has its own width, so draw
   // at the sprite's natural aspect ratio with the wheel resting exactly on
@@ -746,7 +777,7 @@ function setup() {
   // Decorative background — cap the backing store at 1.5x. Full 3x retina
   // costs 4x the fill of 1.5x and is invisible at these shapes and speeds.
   devicePixelScaling(Math.min(window.devicePixelRatio || 1, 1.5));
-  applyScale(box.w);
+  applyScale(box.w, box.h);
   myCanvas.parent('p5Container');
   frameRate(theFrameRate);
 
@@ -829,9 +860,44 @@ function update(nStep) {
   return result; // 0 means tie, -1 means landed on left side, 1 means landed on right side.
 }
 
+// Wall-clock physics accumulator + render interpolation state.
+var lastDrawT;
+var stepAcc = 0;
+var prevS = { bx: 0, by: 0, bang: 0, a1x: 0, a1y: 0, a2x: 0, a2y: 0 };
+var havePrev = false;
+
+function captureState(o) {
+  o.bx = game.ball.loc.x;
+  o.by = game.ball.loc.y;
+  o.bang = game.ball.ang;
+  o.a1x = game.agent1.loc.x;
+  o.a1y = game.agent1.loc.y;
+  o.a2x = game.agent2.loc.x;
+  o.a2y = game.agent2.loc.y;
+}
+
 function draw() {
   "use strict";
-  frame += 1;
+  // Step physics by elapsed wall time, in fixed STEP_MS quanta. The clamp
+  // bounds catch-up after a pause/tab-switch to a couple of steps.
+  var now = performance.now();
+  if (lastDrawT === undefined) lastDrawT = now - STEP_MS;
+  stepAcc += Math.min(now - lastDrawT, 100);
+  lastDrawT = now;
+
+  while (stepAcc >= STEP_MS) {
+    captureState(prevS);
+    havePrev = true;
+    frame += 1;
+    var res = update(1);
+    game.ball.ang += game.ball.angAcc;
+    if (res !== 0) captureState(prevS); // rally reset — don't lerp the teleport
+    stepAcc -= STEP_MS;
+  }
+  if (!havePrev) { captureState(prevS); havePrev = true; }
+  // 0..1 progress toward the next physics step: each rendered frame shows
+  // the position for its own timestamp, which is what kills the judder.
+  var ia = stepAcc / STEP_MS;
 
   var sunHeight = map(cos(sunspeed * frame), -1, 1, 40, 5);
   var dayLerp = pow(constrain(map(sunHeight, 5, 33, 0, 1), 0, 1), 3);
@@ -841,8 +907,6 @@ function draw() {
   updateSkyGradient(dayLerp);
   ctx.fillStyle = skyGrad;
   ctx.fillRect(0, 0, width, height);
-
-  update(1);
 
   // draw stars
   var maxalpha = constrain(map(sunHeight, 30, 40, 0, 255), 0, 255);
@@ -876,11 +940,13 @@ function draw() {
     drawSun(sunX, sunY, sunR);
   }
 
-  // draw game
+  // draw game, everything at positions interpolated between the last two
+  // physics states
   game.ground.display();
   game.fence.display();
-  game.agent1.display();
-  game.agent2.display();
+  var b = game.ball, a1 = game.agent1, a2 = game.agent2;
+  a1.display(prevS.a1x + (a1.loc.x - prevS.a1x) * ia, prevS.a1y + (a1.loc.y - prevS.a1y) * ia);
+  a2.display(prevS.a2x + (a2.loc.x - prevS.a2x) * ia, prevS.a2y + (a2.loc.y - prevS.a2y) * ia);
 
   // ball fades in over the serve delay; rebuild its color only when the
   // fade actually moves (it's constant after the first two seconds of a rally)
@@ -889,8 +955,12 @@ function draw() {
     lastBallAlpha = ballAlpha;
     ballColor = color(70, 110, 200, ballAlpha);
   }
-  game.ball.c = ballColor;
-  game.ball.display();
+  b.c = ballColor;
+  b.display(
+    prevS.bx + (b.loc.x - prevS.bx) * ia,
+    prevS.by + (b.loc.y - prevS.by) * ia,
+    prevS.bang + (b.ang - prevS.bang) * ia
+  );
 }
 
 // The sketch fills its container (the footer's right-hand panel), not the
@@ -910,7 +980,7 @@ function volleyResized() {
   var box = volleyBox();
   if (box.w === width && box.h === height) return;
   resizeCanvas(box.w, box.h, true); // true: don't force a synchronous redraw
-  applyScale(box.w);
+  applyScale(box.w, box.h);
   updateStarBox(); // stars are normalized — they stretch, not re-roll
   lastSkyKey = -1; // gradient spans the new height
 }

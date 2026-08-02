@@ -15,9 +15,10 @@ https://mars.college/mit
 - **2022:** each of the camp's four houses built a GPT-3-powered Discord bot with a
   distinct personality and control over the house's lights and screens.
 - **2023:** Creative AI became the declared major, with daily practice sessions,
-  ML lectures, custom-trained diffusion models, and community AI-consent norms.
-- **2024–2025:** an annual AI film festival, agent experiments, and AI woven through
-  the village's departments.
+  ML lectures, custom-trained diffusion models, and community AI-consent norms —
+  and the first annual Mars AI Film Festival was held.
+- **2024–2025:** the film festival became a yearly tradition, personal AI agents
+  were built for every Martian, and AI wove through the village's departments.
 - **2026:** autonomous agents joined camp operations — including an agent that
   helped run a 23-person communal kitchen — and the season's curriculum centered on
   storytelling with AI.
@@ -64,16 +65,13 @@ it earlier.
   work in the gallery, host a workshop of their own, and receive a compute grant
   and access to screens, projectors, and materials.
 
-## Scholarships
+## What students give and get
 
-Program areas are framed as scholarships with dedicated support:
-
-- **Utility Agents** — build agents that help run Mars itself: admissions, aid,
-  kitchen, water, power, home automation.
-- **Art School** — make desert-scale work and show it at Mars Electronica.
-- **Teacher Training** — learn to teach people to use AI well.
-- **Research** — vision, rovers, embodiment, personal assistants, agent
-  competitions.
+Students give: a lightning talk during Ideas Week; contributions to the galleries
+and Mars Electronica; a workshop, screening, or study group of their own; and basic
+chores in shared spaces. Students get: a compute grant for AI projects; space to
+create with screens, projectors, and materials; and access to housing inside the
+MIT buildings.
 
 ## Eden and the wider AI ecosystem
 
@@ -88,7 +86,8 @@ developed with AI tools at Mars. Mars also runs its own network infrastructure
 ## The Mars AI Film Festival
 
 Mars has held an annual AI film festival every season since 2023, screening films
-made by the community with generative tools. The four festival reels (2023–2026) are
-on the Mars College YouTube channel:
+made by the community with generative tools — four editions so far, with the fifth
+to be screened at Mars Electronica in March 2027. The four festival reels
+(2023–2026) are on the Mars College YouTube channel:
 https://www.youtube.com/@MarsCollege-k7t/videos — see also
 https://mars.college/mff

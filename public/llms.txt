@@ -22,8 +22,8 @@ Key facts: founded 2020 by Gene Kogan and Freeman; AI-native since the founding 
 - [Home](https://mars.college/): overview and application entry point
 - [Mars Institute of Technology](https://mars.college/mit): the AI school
 - [AI Film Festival](https://mars.college/mff): all four festival editions, 2023–2026
-- [Tool Camp](https://mars.college/toolcamp): the makerspace residency
-- [Co Lab](https://mars.college/colab): the community-practice camp
+- [Department of Emergent Civilization](https://dec.mars.college): the makerspace residency (DEC, formerly known as Tool Camp)
+- [Co Lab](https://colab.mars.college): the community-practice camp
 - [DPW](https://dpw.mars.college): the build organization — materials, crew, concessions
 
 ## Links & press

@@ -127,13 +127,13 @@ const AI_HISTORY = [
     year: "2023",
     img: aiHist2023,
     alt: "Three shrouded desert nomads on glowing electric unicycles in a red rock canyon — AI artwork from the Mars bots channel, 2023",
-    captionHtml: `<a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">Creative AI major</a> launched.`,
+    captionHtml: `<a href="https://marscollege.substack.com/p/study-creative-ai-at-mars-college" target="_blank" rel="noopener">Creative AI major</a> launched. First <a href="/mff">AI Film Festival</a>.`,
   },
   {
     year: "2024",
     img: aiHist2024,
-    alt: "Outdoor projection of the first AI Film Festival at Bombay Beach",
-    captionHtml: `First <a href="https://marscollege.substack.com/p/creative-ai-at-mars-college-2026" target="_blank" rel="noopener">AI Film Festival</a>.`,
+    alt: "Outdoor projection of the AI Film Festival at Bombay Beach, 2024",
+    captionHtml: `The <a href="https://marscollege.substack.com/p/creative-ai-at-mars-college-2026" target="_blank" rel="noopener">AI Film Festival</a> goes outdoors at Bombay Beach.`,
   },
   {
     year: "2025",
@@ -234,6 +234,8 @@ const courseLd = {
 <BaseLayout
   title="Mars Institute of Technology (MIT) — Mars College"
   description="The Mars Institute of Technology (MIT) is the AI school of Mars College. Study Off-Grid AI Engineering: build sovereign personal AI agents, make art with AI, and earn a living with AI. An online cohort and a winter term in the California desert."
+  image="/og-mit.jpg"
+  imageAlt="Seal of the Mars Institute of Technology — two engraved figures flanking a pedestal reading Vanlife and Superintelligence over the year 2020, above the motto Mens et Terra"
   jsonLd={courseLd}
 >
   <!-- ============ HEADER: hero image + emblem, combined ============ -->
@@ -476,7 +478,7 @@ const courseLd = {
       <h2 class="mff__lead u-display">The Film Festival.</h2>
       <div class="mff__bottom">
         <p class="mff__sub">
-          The fourth annual AI Film Festival will be screened during Mars
+          The fifth annual AI Film Festival will be screened during Mars
           Electronica, our year end celebration.
         </p>
         <a href="/mff" class="u-cta">
@@ -553,21 +555,7 @@ const courseLd = {
 
   <!-- ===================== APPLY ===================== -->
   <section id="apply" class="u-section is-night cohort">
-    <div class="u-shell cohort__grid">
-      <div class="cohort__text">
-        <Eyebrow index="07" label="Apply · rolling admissions" />
-        <h2 class="cohort__lead u-display">Apply to MIT.</h2>
-        <p class="cohort__intro u-measure">
-          One application for the Mars Institute of Technology. Tell us who you
-          are and what you'd build in the desert. We read them as they come in.
-        </p>
-        <ul class="cohort__list">
-          <li>Rolling admissions · the earlier the better</li>
-          <li>The term runs Jan 4 – Mar 28 at Mars</li>
-          <li>Questions? <a href={`mailto:${EMAIL}?subject=MIT%20application`} class="cohort__form-link">{EMAIL}</a></li>
-        </ul>
-      </div>
-
+    <div class="u-shell">
       <div class="cohort__form">
         <p class="u-label u-label--clay cohort__form-eyebrow">The application</p>
         {
@@ -890,13 +878,7 @@ const courseLd = {
       .mff__img { object-position: 88% top; }
     }
 
-    /* ─── cohort ─── */
-    .cohort__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
-    .cohort__lead { font-size: clamp(1.9rem, 4vw, 3rem); color: var(--color-bone-on-night); max-width: 20ch; }
-    .cohort__intro { color: #cabda6; margin-top: 1rem; font-size: var(--text-lg); max-width: 60ch; }
-    .cohort__list { list-style: none; margin: 2rem 0 0; padding: 0; border-top: 1px solid var(--color-rule-night); }
-    .cohort__list li { padding: 0.9rem 0 0.9rem 1.4rem; border-bottom: 1px solid var(--color-rule-night); color: var(--color-bone-on-night); position: relative; font-size: 1.0625rem; line-height: 1.45; }
-    .cohort__list li::before { content: "→"; position: absolute; left: 0; color: var(--color-clay); font-weight: 700; }
+    /* ─── cohort — the Tally form IS the section ─── */
     .cohort__form { background: var(--color-bone-on-night); color: var(--color-ink); padding: clamp(1.25rem, 2.5vw, 2rem); }
     .cohort__form-eyebrow { margin-bottom: 1rem; }
     .cohort__form iframe { background: transparent; display: block; }
@@ -905,7 +887,6 @@ const courseLd = {
     .cohort__form-placeholder p:not(.cohort__form-headline) { color: var(--color-ink-2); line-height: 1.55; }
     .cohort__form-link { color: var(--color-clay); text-decoration: underline; text-underline-offset: 3px; }
     .cohort__form-link:hover { color: var(--color-clay-deep); }
-    @media (max-width: 820px) { .cohort__grid { grid-template-columns: 1fr; } }
 
     /* ─── pillars ─── */
     .pillars__list { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.25rem, 2.5vw, 2.25rem); }

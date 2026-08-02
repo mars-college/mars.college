@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.mars.college" }],
+      "destination": "https://mars.college/$1",
+      "permanent": true
+    },
+    {
+      "source": "/toolcamp",
+      "destination": "https://dec.mars.college",
+      "permanent": true
+    }
+  ]
+}

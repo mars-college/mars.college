@@ -24,6 +24,7 @@ export const SOCIAL = {
   instagram: "https://www.instagram.com/mars.college",
   x: "https://x.com/mars_college",
   github: "https://github.com/mars-college",
+  youtube: "https://www.youtube.com/@MarsCollege-k7t",
 };
 
 export const NAV = [
@@ -42,38 +43,40 @@ export const TIMELINE_MINI = [
 ];
 
 // Four ways into Mars College — each camp has its own application.
+// Cards: big acronym, expansion as intermediary subtext, description below,
+// standardized "Apply to <acronym>" CTA.
 export const PILLARS = [
   {
-    index: "01",
     title: "DPW",
-    href: "https://dpw.mars.college",
-    cta: "Apply to Build Mars",
+    sub: "Department of Public Works",
     blurb:
       "Build the village. Run its physical systems. Raise the campus from bare lake bed with the DPW crew from November through spring.",
+    href: "https://dpw.mars.college",
+    cta: "Apply to DPW",
   },
   {
-    index: "02",
-    title: "Tool Camp",
-    href: "/toolcamp",
-    cta: "Apply to Tool Camp",
+    title: "MIT",
+    sub: "Mars Institute of Technology",
+    blurb:
+      "Take classes, make art, and learn off-grid AI: how to engage the digital world while sustaining an off-grid life.",
+    href: "/mit",
+    cta: "Apply to MIT",
+  },
+  {
+    title: "DEC",
+    sub: "Department of Emergent Civilization",
     blurb:
       "Mars's makerspace and shared workshop: saws, drills, 3D printers, kilns, tools, and desks for people building things with their hands.",
+    href: "https://dec.mars.college",
+    cta: "Apply to DEC",
   },
   {
-    index: "03",
-    title: "MIT",
-    href: "/mit",
-    cta: "Apply to study AI at Mars",
-    blurb:
-      "Study at the Mars Institute of Technology. Take classes, make art, and learn off-grid AI: how to engage the digital world while sustaining an off-grid life.",
-  },
-  {
-    index: "04",
     title: "Co Lab",
-    href: "/colab",
-    cta: "Apply to Co Lab",
+    sub: "The coherent community camp",
     blurb:
       "A three-month immersion in coherent community: sociocratic governance, relational practice, and daily ritual.",
+    href: "https://colab.mars.college",
+    cta: "Apply to Co Lab",
   },
 ];
 

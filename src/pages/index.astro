@@ -5,9 +5,21 @@ import Hero from "../components/Hero.astro";
 import Eyebrow from "../components/Eyebrow.astro";
 import { PILLARS, HOME_FAQ } from "../data/site";
 
+// FAQPage structured data — mirrors the on-page FAQ so answer engines can
+// extract it directly.
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: HOME_FAQ.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 // Pillar plates — the four ways into Mars
 import buildImg from "../assets/photos/build-curated/041_2026_20260130_170446_06ab8.jpg";
-import toolcampImg from "../assets/photos/learn/supp_2026_clay_kickwheel.jpg";
+import decCardImg from "../assets/photos/dec-card.png"; // 3D-printer tinkering in the workshop
 import learnImg from "../assets/photos/learn-workshop.jpg";
 import colabImg from "../assets/photos/community-group.jpg";
 
@@ -52,7 +64,7 @@ import pMcChibaGallery from "../assets/photos/learn/supp_marscollege_chiba-galle
 
 const pillarImg: Record<string, any> = {
   DPW: buildImg,
-  "Tool Camp": toolcampImg,
+  DEC: decCardImg,
   MIT: learnImg,
   "Co Lab": colabImg,
 };
@@ -75,9 +87,9 @@ const OPEN_CAL_PHOTOS = [
   { img: pPortal2020, alt: "The Portal · 2020" },
   { img: pMcResearchLearn, alt: "Thunder talks are a weekly tradition that brings the whole community together." },
   { img: pThunderProjection, alt: "Watching thunder talks · 2026" },
-  { img: pClaySubstack, alt: "Ceramics workshop at Tool Camp · 2026" },
+  { img: pClaySubstack, alt: "Ceramics workshop at the Department of Emergent Civilization · 2026" },
   { img: pClaySubstack2, alt: "Ceramics circle on the desert lakebed" },
-  { img: pClay2026Wheel, alt: "Throwing on the kick wheel at Tool Camp · 2026" },
+  { img: pClay2026Wheel, alt: "Throwing on the kick wheel at the Department of Emergent Civilization · 2026" },
   { img: pClay2026Shelf, alt: "Workshop shelf of unfired clay · 2026" },
   { img: pWedding2022, alt: "A wedding on Mars · 2022" },
   { img: pMcLivecoding, alt: "Live coders algo raving in 2024" },
@@ -140,9 +152,10 @@ const HARD_PHOTOS = [
 ---
 
 <BaseLayout
-  title="Off-grid college in the California desert"
+  title="Mars College — Off-grid college in the California desert"
   description="An annual pop-up off-grid college town cultivating the low-cost, high-tech lifestyle. Join us in 2027!"
   preloadImage="/video/mars-current-hero-poster.webp"
+  jsonLd={faqLd}
 >
   <Hero />
 
@@ -387,8 +400,8 @@ const HARD_PHOTOS = [
                   />
                 </div>
                 <div class="pillar__text">
-                  <p class="pillar__index u-index">{p.index} / {String(PILLARS.length).padStart(2, "0")}</p>
                   <h3 class="pillar__title">{p.title}</h3>
+                  <p class="pillar__sub">{p.sub}</p>
                   <p class="pillar__blurb">{p.blurb}</p>
                   <span class="pillar__cta">
                     {p.cta} <span class="u-arrow" aria-hidden="true">→</span>
@@ -608,16 +621,21 @@ const HARD_PHOTOS = [
     .pillar__link:hover .pillar__media img {
       transform: scale(1.03);
     }
-    .pillar__index {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
     .pillar__title {
       font-family: var(--font-display);
       font-size: clamp(2rem, 3.4vw, 2.75rem);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1;
+      color: var(--color-bone-on-night);
+    }
+    /* the acronym's expansion — sized between the acronym and the blurb */
+    .pillar__sub {
+      margin-top: 0.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      font-weight: 600;
+      line-height: 1.25;
       color: var(--color-bone-on-night);
     }
     .pillar__blurb {

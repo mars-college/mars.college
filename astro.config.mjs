@@ -9,9 +9,12 @@ export default defineConfig({
   site: "https://mars.college",
   integrations: [
     sitemap({
-      // keep draft / archival pages out of the sitemap (they're also noindex)
+      // keep draft / archival / noindex pages out of the sitemap:
+      // - build*/learn* variants and agentlab/thrive are drafts (also noindex)
+      // - plain /build and /learn are outdated and slated for deletion
+      // - /apply is noindex (hidden Tally-form page)
       filter: (page) =>
-        !/\/(build[0-5]|learn[0-4]|agentlab\d?|thrive)\/?$/.test(page),
+        !/\/(build\d?|learn\d?|agentlab\d?|thrive|apply)\/?$/.test(page),
     }),
     mdx(),
   ],

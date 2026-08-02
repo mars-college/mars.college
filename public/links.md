@@ -4,7 +4,7 @@
 
 - **Website:** https://mars.college
 - **DPW (Department of Public Works, the build organization):** https://dpw.mars.college
-- **Blog / newsletter (Substack):** https://marscollege.substack.com — announcements,
+- **Newsletter (Substack):** https://marscollege.substack.com — announcements,
   program launches, and essays in Mars's own voice since 2021
 - **Instagram:** https://www.instagram.com/mars.college
 - **X (Twitter):** https://x.com/mars_college
@@ -16,8 +16,8 @@
 
 - Mars Institute of Technology (the AI school): https://mars.college/mit
 - Mars AI Film Festival: https://mars.college/mff
-- Tool Camp (the makerspace): https://mars.college/toolcamp
-- Co Lab (community practice camp): https://mars.college/colab
+- Department of Emergent Civilization (DEC, the makerspace; formerly known as Tool Camp): https://dec.mars.college
+- Co Lab (community practice camp): https://colab.mars.college
 
 ## Community projects
 

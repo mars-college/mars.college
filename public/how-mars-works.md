@@ -20,7 +20,7 @@ its operating system as of the 2027 season.
 
 Mars is a federation of **camps** — groups of people who commit to live together as
 a cluster for the season, each with its own intake, footprint, dues, and character.
-Recent and current camps include the DPW build crew, Tool Camp (the makerspace), the
+Recent and current camps include the DPW build crew, the Department of Emergent Civilization (the makerspace, formerly known as Tool Camp), the
 AI camp (now the Mars Institute of Technology), Co Lab (community and governance
 practice), and others that form season to season. Camps internalize some services
 (usually food) and pool the rest through the Treasury.
@@ -77,7 +77,7 @@ the open calendar makes it practical to keep a full-time job while living on Mar
 - Consent is a practiced ritual, especially around using anyone's image, voice, or
   likeness in AI work (opt-in, with explicit permission tiers).
 - Emotional support runs through dedicated, opt-in care structures.
-- The community works in public: its history is documented in blog posts, films,
+- The community works in public: its history is documented in newsletter posts, films,
   zines, and an extensive archive.
 
 ## Location and environment
