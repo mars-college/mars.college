@@ -4,10 +4,12 @@ import { SOCIAL } from "../data/site";
 import marsLogo from "../assets/brand/mars-logo.png";
 const path = Astro.url.pathname;
 
-// Pages that carry their own application form: the Apply button scrolls to it
-// instead of bouncing back to the home page's apply section.
+// Pages that carry their own application form: the Apply button scrolls to
+// that camp's form and stays on the page, instead of bouncing back to the
+// home page's apply section. Values are the anchor each page actually uses.
 const LOCAL_APPLY: Record<string, string> = {
   "/mit": "#apply",
+  "/build": "#inquire",
 };
 const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
 ---
