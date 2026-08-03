@@ -1,15 +1,12 @@
-# Mars College website (v2) — Handoff
+# mars.college — project guide
 
-You are taking over the **new Mars College website**, a from-scratch rebuild. Read `/Users/gene/Mars/AGENTS.md` first (repo rules: don't crawl `media/`/`discord/`, keep edits scoped). Then read this whole doc before touching anything.
+The live Mars College website: Astro + Tailwind v4, static, near-zero JS, recruiting the **2027 cohort (Season 8)**. Also read `/Users/gene/Mars/AGENTS.md` for archive-wide rules (don't crawl `media/`/`discord/`, keep edits scoped).
 
-## What this is
-
-A performance-first rebuild of mars.college recruiting the **2027 cohort (Season 8)**. Built fresh in **Astro + Tailwind v4** (static, near-zero JS) — deliberately NOT the old Next.js app.
-
-- **The live site (your project):** `/Users/gene/Mars/web/mars-v2`  ← work here. **This is what mars.college serves.** It went live on the domain Aug 1, 2026 (Vercel project `mars-v2`, domains `mars.college` + `www.mars.college`, www→apex 301 in `vercel.json`). Deploy with `vercel deploy --prod` from this directory.
-- **Old Next.js site (archival, no longer serving):** `/Users/gene/Mars/web/mars.college`. It kept the domain until the Aug 1 cutover; the Vercel project `v0-mars-college-homepage` still exists but has no domains attached.
-- **This IS a git repo** (branch `v2`, remote `github.com/genekogan/mars.college`) and it is public. Commit as you go; check diffs for secrets first. Note that the enclosing `/Users/gene/Mars` archive is *not* a repo — only this subtree is, so it's the one place a bad commit becomes publicly visible.
-- **Camp subdomains** (`dpw.` / `dec.` / `colab.` / `mit.mars.college`) are served by four one-file proxy projects in `web/*-proxy`, outside this repo. See `AI-LEGIBILITY.md` § Subdomains before touching DNS or those hosts.
+- **This directory is what mars.college serves.** Live on the domain since Aug 1, 2026 — Vercel project `mars-v2`, domains `mars.college` + `www.mars.college` (www→apex 301 in `vercel.json`). Deploy with `vercel deploy --prod` from here.
+- **This is a git repo** (branch `v2`, remote `github.com/genekogan/mars.college`) **and it is public** — the only versioned subtree in the Mars archive, so it's the one place a bad commit becomes publicly visible. Check diffs for secrets before committing.
+- **Camp subdomains** (`dpw.` / `dec.` / `colab.` / `mit.mars.college`) are served by four one-file proxy projects in `web/*-proxy`, outside this repo. Read `AI-LEGIBILITY.md` § Subdomains before touching DNS or those hosts.
+- **AI-facing corpus** (`public/*.md`, `llms.txt`) has its own doc: `AI-LEGIBILITY.md`. `llms-full.txt` is generated at build — never hand-edit it.
+- **Archival, no longer serving:** `../mars.college` (the old Next.js app, which held the domain until the cutover), `../mars.college_old_jekyll`.
 
 ## Run it locally
 
@@ -22,24 +19,15 @@ pnpm preview            # serve ./dist locally
 ```
 Node 22, pnpm 10. Default dev port is 4321.
 
-## Restore the Cloudflare preview
+## Sharing work in progress
 
-Quick tunnels are **ephemeral** — every run prints a NEW random `*.trycloudflare.com` URL. There is no persistent named tunnel.
+Review normally happens on **https://mars.college** or a Vercel preview deploy. For something not worth deploying, a Cloudflare quick tunnel exposes the local dev server:
 
 ```sh
-# 1) make sure the dev server is running (see above), then:
-cloudflared tunnel --url http://localhost:4321
-# 2) copy the printed https://<random>.trycloudflare.com URL and send it to Gene
-# 3) verify: curl -sI https://<random>.trycloudflare.com | head -1   # expect 200
+cloudflared tunnel --url http://localhost:4321   # dev server must be running
 ```
 
-IMPORTANT: Astro/Vite blocks unknown hosts (returns 403 over a tunnel). This is already handled — `astro.config.mjs` sets `vite.server.allowedHosts: true`. If you change the config, keep that or the tunnel will 403.
-
-The tunnel only works while BOTH the dev server and `cloudflared` stay running on Gene's laptop, and every run prints a fresh URL — never reuse one from an old handoff. (NOTE: don't `pkill -f cloudflared` to clean up — it kills whatever tunnel is live; target the specific PID instead.)
-
-Since the cutover, most review happens against **https://mars.college** itself or a Vercel preview deploy; the tunnel is only for showing work that isn't deployed yet.
-
-Optional, if Gene wants a stable URL: set up a *named* Cloudflare tunnel (`cloudflared tunnel create` + DNS route) — not done here.
+Each run prints a fresh random `*.trycloudflare.com` URL — there's no persistent tunnel, so never reuse an old one. It stays up only while both the dev server and `cloudflared` run. Don't `pkill -f cloudflared` to clean up (it kills any other live tunnel); target the PID. Astro/Vite would 403 an unknown host, which `vite.server.allowedHosts: true` in `astro.config.mjs` already handles — keep that if you touch the config.
 
 ## Content source (single source of truth for copy)
 
