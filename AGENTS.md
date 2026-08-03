@@ -174,3 +174,18 @@ The **2027 application form** is a [Tally.so](https://tally.so) form embedded on
 ## How to work with Gene
 
 He reviews on the live site (often on his phone) and iterates fast with short, specific feedback. When you finish a pass: **screenshot every page** (`playwright screenshot --full-page --viewport-size=1440,900 <url> <out.png>` is installed globally), verify no broken images, then deploy and tell him what changed. For work that isn't deployable yet, use a fresh Cloudflare tunnel (above). He communicates over Discord. Don't leave orphan dev servers/tunnels around — stop ones you start.
+
+## Legacy URL redirects
+
+`vercel.json` maps URLs from the two earlier versions of mars.college (the
+Jekyll site and the first Astro rebuild) onto their successors. They are not
+dead weight: 39 distinct legacy paths are still linked from public Substack
+posts — `/join` alone appears 28 times, `/academics` and `/study` 3 each, plus
+~20 dated `/2021/…` and `/2022/…` blog posts.
+
+Rules of thumb if you add more:
+- Every source uses `(/)?` so both `/join` and `/join/` match — Vercel does
+  **not** normalize trailing slashes here, and the Substack links use both.
+- Old blog posts go to the Substack archive; the blog moved there.
+- Before deleting any page, grep the Substack archive for inbound links:
+  `grep -rhoE "mars\.college/[A-Za-z0-9._/-]+" ~/Mars/docs/substack/posts/ | sort | uniq -c | sort -rn`

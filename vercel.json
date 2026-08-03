@@ -2,13 +2,123 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.mars.college" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.mars.college"
+        }
+      ],
       "destination": "https://mars.college/$1",
       "permanent": true
     },
     {
-      "source": "/toolcamp",
+      "source": "/toolcamp(/)?",
       "destination": "https://dec.mars.college",
+      "permanent": true
+    },
+    {
+      "source": "/join(/)?",
+      "destination": "/#apply",
+      "permanent": true
+    },
+    {
+      "source": "/study(/)?",
+      "destination": "/mit",
+      "permanent": true
+    },
+    {
+      "source": "/academics(/)?",
+      "destination": "/mit",
+      "permanent": true
+    },
+    {
+      "source": "/learn(/)?",
+      "destination": "/mit",
+      "permanent": true
+    },
+    {
+      "source": "/learn:n(\\d+)",
+      "destination": "/mit",
+      "permanent": true
+    },
+    {
+      "source": "/marsresearch(/)?",
+      "destination": "/mit",
+      "permanent": true
+    },
+    {
+      "source": "/tool-camp(/)?",
+      "destination": "https://dec.mars.college",
+      "permanent": true
+    },
+    {
+      "source": "/thrive(/)?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/freeside(/)?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/natural-intelligence(/)?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/work(/)?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/live(/)?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/euc(/)?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/teaser(/)?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gallery(/)?",
+      "destination": "/#village",
+      "permanent": true
+    },
+    {
+      "source": "/gallery/:path*",
+      "destination": "/#village",
+      "permanent": true
+    },
+    {
+      "source": "/blog(/)?",
+      "destination": "https://marscollege.substack.com",
+      "permanent": true
+    },
+    {
+      "source": "/feed.xml(/)?",
+      "destination": "https://marscollege.substack.com/feed",
+      "permanent": true
+    },
+    {
+      "source": "/2021/:path*",
+      "destination": "https://marscollege.substack.com/archive",
+      "permanent": true
+    },
+    {
+      "source": "/2022/:path*",
+      "destination": "https://marscollege.substack.com/archive",
+      "permanent": true
+    },
+    {
+      "source": "/2023/:path*",
+      "destination": "https://marscollege.substack.com/archive",
       "permanent": true
     }
   ]
