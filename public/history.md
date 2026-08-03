@@ -68,8 +68,8 @@ self-governing. Semi-autonomous camps federated around a central commons;
 a Camp Leads circle, Admissions circle, and Governance circle formed; and the season
 ended with the community electing its first **Council**. The residency format
 reorganized around Ideas Week, Declaration Days, open-house weekends, and a final
-exhibition. As co-founder Gene Kogan put it that January: "this is just a movement
-now, and it's going to happen whether or not I have anything to say about it."
+exhibition. It was the season the founders described Mars as having become a
+movement that would carry on without them.
 
 ## 2026 — agents, an academic semester, and the Guardian
 
@@ -80,7 +80,7 @@ a kitchen serving over twenty people with agent assistance. The season culminate
 takeover of the Bombay Beach Biennale's tenth-anniversary "Year X." In March 2026,
 The Guardian published a feature on Mars College — "No tuition, no grades, no power
 grid: why are people flocking to a 'college' in the middle of the desert?" — which
-became the most-read article on the paper's site the day it ran.
+was among the paper's most-read stories that weekend.
 
 ## 2027 — Season 8 (upcoming)
 

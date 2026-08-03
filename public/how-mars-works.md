@@ -90,4 +90,4 @@ Beach, California**, on the Salton Sea in Imperial County, with the town of Nila
 and the off-grid community Slab City nearby. Winter days are warm and sunny, nights
 can approach freezing, and everything runs on solar power. Mars maintains a
 year-round footprint in Bombay Beach through community houses, including Saturn (the
-social and compute hub) and Venus (Freeman's workshop and storage compound).
+social hub) and Venus (a workshop and storage compound).

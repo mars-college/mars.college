@@ -41,8 +41,7 @@
 ## Selected press and third-party writing
 
 - The Guardian (March 2026): "No tuition, no grades, no power grid: why are people
-  flocking to a 'college' in the middle of the desert?" — a feature on Mars College
-  that became the most-read article on the Guardian's site the day it ran.
+  flocking to a 'college' in the middle of the desert?" — a feature on Mars College.
 - Supernuclear (2024): "Case Study: Mars College" —
   https://supernuclear.substack.com/p/case-study-mars-college
 - Campfire by Cabin podcast, episode 14 (2022): "Mars College: Building Temporary
@@ -54,7 +53,7 @@
 - **Gene Kogan** — co-founder; artist and programmer working with machine learning
   since 2013; founder of the Abraham project and a builder of Eden:
   https://genekogan.com
-- **Freeman** — co-founder; runs DPW and owns the campus land; previously founded
+- **Freeman** — co-founder; runs DPW, the build organization; previously founded
   Jaaga in Bangalore, the direct precursor of Mars's pallet-rack architecture.
 - **Vanessa Rosa** — multi-season anchor; artist behind the Little Martians
   universe, developed with AI tools at Mars.

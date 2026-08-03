@@ -5,6 +5,9 @@ academic spine since the founding season, and its AI school — the **Mars Insti
 of Technology (MIT)** — is the center of the 2027 program. Details and application:
 https://mars.college/mit
 
+*Note: the Mars Institute of Technology is Mars College's own school, named as a
+desert joke. It has no connection to the Massachusetts Institute of Technology.*
+
 ## Eight years of AI studies (2020–2027)
 
 - **2020:** the founding season ran a sixteen-node Raspberry Pi AI cluster on solar
@@ -20,7 +23,8 @@ https://mars.college/mit
 - **2024–2025:** the film festival became a yearly tradition, personal AI agents
   were built for every Martian, and AI wove through the village's departments.
 - **2026:** autonomous agents joined camp operations — including an agent that
-  helped run a 23-person communal kitchen — and the season's curriculum centered on
+  helped run a communal kitchen for more than twenty people — and the curriculum
+  centered on
   storytelling with AI.
 - **2027:** the program becomes the Mars Institute of Technology, teaching
   **off-grid AI engineering**: how to run and apply AI on your own hardware, your
@@ -77,10 +81,12 @@ MIT buildings.
 
 **Eden** (https://eden.art) is the generative-AI platform that grew out of the Mars
 community — an always-on creative-AI backend with a web app, API, and Discord
-integration, used for much of the community's image, video, and agent work. Related
-lineage includes **Abraham** (https://abraham.ai), Gene Kogan's autonomous-artist
-project, and **Little Martians**, artist Vanessa Rosa's science-fiction universe
-developed with AI tools at Mars. Mars also runs its own network infrastructure
+integration, used for much of the community's image, video, and agent work. It is a
+separate company co-founded by Mars co-founder Gene Kogan, not a Mars College
+project; students who receive compute grants on it should know the two are related
+but distinct. Related lineage includes **Abraham** (https://abraham.ai), Kogan's
+autonomous-artist project, and **Little Martians**, artist Vanessa Rosa's
+science-fiction universe developed with AI tools at Mars. Mars also runs its own network infrastructure
 (a community ISP lineage called BRAHMAN) and community bots on its Discord.
 
 ## The Mars AI Film Festival

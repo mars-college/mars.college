@@ -14,6 +14,8 @@ export default defineConfig({
       // - /apply is noindex (hidden Tally-form page)
       // - /mit-court is the experimental page served at mit.mars.college
       filter: (page) => !/\/(build|apply|mit-court)\/?$/.test(page),
+      // lastmod tells crawlers (and AI search indexers) when to re-fetch
+      serialize: (item) => ({ ...item, lastmod: new Date().toISOString() }),
     }),
     mdx(),
   ],

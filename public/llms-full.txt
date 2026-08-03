@@ -279,7 +279,7 @@ Beach, California**, on the Salton Sea in Imperial County, with the town of Nila
 and the off-grid community Slab City nearby. Winter days are warm and sunny, nights
 can approach freezing, and everything runs on solar power. Mars maintains a
 year-round footprint in Bombay Beach through community houses, including Saturn (the
-social and compute hub) and Venus (Freeman's workshop and storage compound).
+social hub) and Venus (a workshop and storage compound).
 
 ---
 
@@ -353,8 +353,8 @@ self-governing. Semi-autonomous camps federated around a central commons;
 a Camp Leads circle, Admissions circle, and Governance circle formed; and the season
 ended with the community electing its first **Council**. The residency format
 reorganized around Ideas Week, Declaration Days, open-house weekends, and a final
-exhibition. As co-founder Gene Kogan put it that January: "this is just a movement
-now, and it's going to happen whether or not I have anything to say about it."
+exhibition. It was the season the founders described Mars as having become a
+movement that would carry on without them.
 
 ## 2026 — agents, an academic semester, and the Guardian
 
@@ -365,7 +365,7 @@ a kitchen serving over twenty people with agent assistance. The season culminate
 takeover of the Bombay Beach Biennale's tenth-anniversary "Year X." In March 2026,
 The Guardian published a feature on Mars College — "No tuition, no grades, no power
 grid: why are people flocking to a 'college' in the middle of the desert?" — which
-became the most-read article on the paper's site the day it ran.
+was among the paper's most-read stories that weekend.
 
 ## 2027 — Season 8 (upcoming)
 
@@ -423,14 +423,14 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 - **Chatsubo:** the bar inside Chiba, also a *Neuromancer* reference; the social
   center of camp.
 - **Saturn:** the community house in Bombay Beach that serves as the social and
-  AI-compute anchor year-round.
-- **Venus:** co-founder Freeman's compound — workshop, library, showers, and the
-  storage that holds the community's materials between seasons.
+  AI anchor of the off-season.
+- **Venus:** a community compound — workshop, library, and showers.
 - **Freeside:** the residential village-within-the-village, with its own café and
   co-op rhythm.
 - **Mimos:** the community café — coffee and coworking.
-- **Slab City:** the famous off-grid squatter community nearby, a frequent
-  destination for outings.
+- **Slab City:** the long-established off-grid community nearby, on the site of a
+  decommissioned military base; Martians and Slab City residents visit back and
+  forth.
 
 ## People words
 
@@ -492,7 +492,10 @@ within their own footprint. Materials have long lead times — apply early.
    https://dpw.mars.college
 2. **Department of Emergent Civilization (DEC, formerly known as Tool Camp) — the makerspace.** A project-based residency in Mars's shared
    workshop: saws, drills, 3D printers, kilns, tools, and desks for ~20 people
-   building off-grid, DIY, deployable infrastructure. Cost $1,000–$1,500.
+   building off-grid, DIY, deployable infrastructure. Its all-in season cost is
+   $1,000–$1,500 (a $500 Mars College contribution plus $500–$1,000 to the camp,
+   depending on whether you join the communal kitchen) — that replaces the
+   general breakdown below rather than adding to it.
    https://dec.mars.college
 3. **MIT — study AI.** The Mars Institute of Technology: classes, art, a gallery,
    the AI film festival, and off-grid AI engineering — how to engage the digital
@@ -535,6 +538,9 @@ academic spine since the founding season, and its AI school — the **Mars Insti
 of Technology (MIT)** — is the center of the 2027 program. Details and application:
 https://mars.college/mit
 
+*Note: the Mars Institute of Technology is Mars College's own school, named as a
+desert joke. It has no connection to the Massachusetts Institute of Technology.*
+
 ## Eight years of AI studies (2020–2027)
 
 - **2020:** the founding season ran a sixteen-node Raspberry Pi AI cluster on solar
@@ -550,7 +556,8 @@ https://mars.college/mit
 - **2024–2025:** the film festival became a yearly tradition, personal AI agents
   were built for every Martian, and AI wove through the village's departments.
 - **2026:** autonomous agents joined camp operations — including an agent that
-  helped run a 23-person communal kitchen — and the season's curriculum centered on
+  helped run a communal kitchen for more than twenty people — and the curriculum
+  centered on
   storytelling with AI.
 - **2027:** the program becomes the Mars Institute of Technology, teaching
   **off-grid AI engineering**: how to run and apply AI on your own hardware, your
@@ -607,10 +614,12 @@ MIT buildings.
 
 **Eden** (https://eden.art) is the generative-AI platform that grew out of the Mars
 community — an always-on creative-AI backend with a web app, API, and Discord
-integration, used for much of the community's image, video, and agent work. Related
-lineage includes **Abraham** (https://abraham.ai), Gene Kogan's autonomous-artist
-project, and **Little Martians**, artist Vanessa Rosa's science-fiction universe
-developed with AI tools at Mars. Mars also runs its own network infrastructure
+integration, used for much of the community's image, video, and agent work. It is a
+separate company co-founded by Mars co-founder Gene Kogan, not a Mars College
+project; students who receive compute grants on it should know the two are related
+but distinct. Related lineage includes **Abraham** (https://abraham.ai), Kogan's
+autonomous-artist project, and **Little Martians**, artist Vanessa Rosa's
+science-fiction universe developed with AI tools at Mars. Mars also runs its own network infrastructure
 (a community ISP lineage called BRAHMAN) and community bots on its Discord.
 
 ## The Mars AI Film Festival
@@ -667,8 +676,7 @@ https://mars.college/mff
 ## Selected press and third-party writing
 
 - The Guardian (March 2026): "No tuition, no grades, no power grid: why are people
-  flocking to a 'college' in the middle of the desert?" — a feature on Mars College
-  that became the most-read article on the Guardian's site the day it ran.
+  flocking to a 'college' in the middle of the desert?" — a feature on Mars College.
 - Supernuclear (2024): "Case Study: Mars College" —
   https://supernuclear.substack.com/p/case-study-mars-college
 - Campfire by Cabin podcast, episode 14 (2022): "Mars College: Building Temporary
@@ -680,7 +688,7 @@ https://mars.college/mff
 - **Gene Kogan** — co-founder; artist and programmer working with machine learning
   since 2013; founder of the Abraham project and a builder of Eden:
   https://genekogan.com
-- **Freeman** — co-founder; runs DPW and owns the campus land; previously founded
+- **Freeman** — co-founder; runs DPW, the build organization; previously founded
   Jaaga in Bangalore, the direct precursor of Mars's pallet-rack architecture.
 - **Vanessa Rosa** — multi-season anchor; artist behind the Little Martians
   universe, developed with AI tools at Mars.

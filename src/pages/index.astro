@@ -7,14 +7,40 @@ import { PILLARS, HOME_FAQ } from "../data/site";
 
 // FAQPage structured data — mirrors the on-page FAQ so answer engines can
 // extract it directly.
+// A @graph so one script carries both the FAQ and the season's public event.
 const faqLd = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: HOME_FAQ.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      mainEntity: HOME_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+    {
+      "@type": "Event",
+      name: "Mars Electronica 2027",
+      description:
+        "Mars College's end-of-season exhibition: gallery openings, performances, final presentations, and the Mars AI Film Festival.",
+      startDate: "2027-03-26",
+      endDate: "2027-03-28",
+      eventStatus: "https://schema.org/EventScheduled",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      location: {
+        "@type": "Place",
+        name: "Mars College",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Bombay Beach",
+          addressRegion: "CA",
+          addressCountry: "US",
+        },
+      },
+      organizer: { "@type": "Organization", name: "Mars College", url: "https://mars.college" },
+    },
+  ],
 };
 
 // Pillar plates — the four ways into Mars

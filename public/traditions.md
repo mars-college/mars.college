@@ -33,14 +33,14 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 - **Chatsubo:** the bar inside Chiba, also a *Neuromancer* reference; the social
   center of camp.
 - **Saturn:** the community house in Bombay Beach that serves as the social and
-  AI-compute anchor year-round.
-- **Venus:** co-founder Freeman's compound — workshop, library, showers, and the
-  storage that holds the community's materials between seasons.
+  AI anchor of the off-season.
+- **Venus:** a community compound — workshop, library, and showers.
 - **Freeside:** the residential village-within-the-village, with its own café and
   co-op rhythm.
 - **Mimos:** the community café — coffee and coworking.
-- **Slab City:** the famous off-grid squatter community nearby, a frequent
-  destination for outings.
+- **Slab City:** the long-established off-grid community nearby, on the site of a
+  decommissioned military base; Martians and Slab City residents visit back and
+  forth.
 
 ## People words
 
