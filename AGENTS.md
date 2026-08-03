@@ -6,7 +6,7 @@ The live Mars College website: Astro + Tailwind v4, static, near-zero JS, recrui
 - **This is a git repo** (branch `v2`, remote `github.com/genekogan/mars.college`) **and it is public** — the only versioned subtree in the Mars archive, so it's the one place a bad commit becomes publicly visible. Check diffs for secrets before committing.
 - **Camp subdomains** (`dpw.` / `dec.` / `colab.` / `mit.mars.college`) are served by four one-file proxy projects in `web/*-proxy`, outside this repo. Read `AI-LEGIBILITY.md` § Subdomains before touching DNS or those hosts.
 - **AI-facing corpus** (`public/*.md`, `llms.txt`) has its own doc: `AI-LEGIBILITY.md`. `llms-full.txt` is generated at build — never hand-edit it.
-- **Archival, no longer serving:** `../mars.college` (the old Next.js app, which held the domain until the cutover), `../mars.college_old_jekyll`.
+- **Archival, no longer serving:** `../mars.college` (the first Astro rebuild — despite older notes calling it "the Next.js app" — which held the domain until the Aug 1 cutover; its routes were `/`, `/apply`, `/build`, `/learn*`, `/thrive`) and `../mars.college_old_jekyll` (the original Jekyll site: `/join`, `/study`, `/gallery`, `/work`, and dated blog posts). Both sets of URLs are redirected — see "Legacy URL redirects".
 
 ## Run it locally
 
