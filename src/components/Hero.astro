@@ -193,6 +193,11 @@ import { APPLY_URL, ZINE_URL, TIMELINE_MINI } from "../data/site";
     font-weight: 500;
     color: var(--color-clay);
     letter-spacing: 0.01em;
+    /* The mono face has a shorter cap height than the body font at the same
+       size (12px vs 13px at 16px), so on a shared baseline the dates read as
+       sitting low. Nudge them up by the difference. */
+    position: relative;
+    top: -1px;
   }
   .hero__tl-label {
     font-family: var(--font-body);
@@ -203,6 +208,11 @@ import { APPLY_URL, ZINE_URL, TIMELINE_MINI } from "../data/site";
   .hero__tl-sep {
     color: #6f6453;
     margin-left: 0.6rem;
+    /* Was inheriting 20px, which made the arrow bigger than the text beside
+       it and gave it the tallest line box in the row — so the separator was
+       setting the strip's height. Match the row instead. */
+    font-size: var(--text-sm);
+    line-height: 1;
   }
   @media (max-width: 720px) {
     .hero__tl-sep {
