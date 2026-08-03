@@ -266,7 +266,7 @@ export const CONCESSIONS = [
   "Golf cart rentals",
 ];
 
-// ---- /thrive ----
+// Season cost breakdown — used on /dec (and previously /thrive).
 export const COSTS = [
   {
     amount: "~$500",
@@ -283,32 +283,4 @@ export const COSTS = [
     title: "Living space",
     body: "If you arrive without a van or camper. Build it or rent through DPW.",
   },
-];
-
-export const EARN_BACK = [
-  {
-    title: "Micro-businesses",
-    body: "Run building, water, solar, food, transport, repair. Get paid by Treasury, camps, or people.",
-    action: "Apply to sell",
-  },
-  {
-    title: "Grants",
-    body: "For village gifts: bakeries, galleries, kilns, tool libraries, large-scale art.",
-    action: "Apply for grant",
-  },
-];
-
-export const SHARED_AMENITIES = [
-  "Toilets",
-  "Internet",
-  "Trash & dump runs",
-  "Purified water service",
-];
-
-export const RETURNING_SERVICES = [
-  "Mimo's Brazilian Café",
-  "Lota's Bakery",
-  "Pseudo's Library",
-  "Sam's Solar Shade",
-  "Bodywork Dojo",
 ];

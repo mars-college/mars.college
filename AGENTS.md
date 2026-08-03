@@ -41,10 +41,11 @@ Key facts already on the site: timeline (online AI cohort **~Aug 31** · Build *
 
 ```
 src/
-  pages/        index.astro, build.astro, learn.astro, thrive.astro,
-                mit.astro (Mars Institute of Technology), mff.astro (AI Film Festival),
+  pages/        index.astro, mit.astro (Mars Institute of Technology),
+                mff.astro (AI Film Festival), dec.astro, colab.astro,
                 apply.astro (hidden — Tally form embed; noindex),
-                build1.astro–build4.astro (variant scratch)
+                mit-court.astro (standalone; served at mit.mars.college),
+                404.astro, build.astro (kept for reference, unlinked)
   components/    Hero.astro, SiteHeader.astro, SiteFooter.astro, PageHeader.astro,
                  Eyebrow.astro, BuildInquiryForm.astro, RiderField.astro (retired, unused)
   layouts/       BaseLayout.astro  (system fonts — no external font requests)
@@ -99,7 +100,7 @@ In `src/assets/photos/**` (and `brand/**`), copied from the old repo's curated s
 - **/** home: aerial hero + timeline strip → "What is Mars College" intro → the **four camp cards** (DPW · MIT · DEC · Co Lab, each linking to that camp's own site/page) → **Outsmart the superintelligence** → Activities mosaic → FAQ → Mars 2027 apply.
 - **/dec** — **Department of Emergent Civilization**, the makerspace (renamed from Tool Camp for 2027). ⚠️ Currently unlinked: the nav card and the `/toolcamp` redirect both point at the camp's own site, `dec.mars.college`. Decide which is canonical — see `AI-LEGIBILITY.md` § Remaining, item 0.
 - **/colab** — **Co Lab** / Community Lab. Same caveat as /dec: `colab.mars.college` is what the nav points at.
-- **/build**, **/thrive**, **/build0**, **/agentlab\***: retired or scratch. Still build, `noindex`, out of the sitemap, nothing links to them. `/learn*` and `/build1–5` were deleted outright.
+- **/build**: superseded by `dpw.mars.college` but kept for reference. `noindex`, out of the sitemap, unlinked. (`/learn*`, `/build0–5`, `/thrive` and `/agentlab*` were deleted.)
 - **/mit** — **Mars Institute of Technology (MIT)**, the AI school, rebranded from the "AI camp". Emblem-led header (seal at `src/assets/brand/mit-emblem.png`); sections: What MIT is (pillars) → **Eight years of AI studies** (2019–2027 full-bleed justified-masonry gallery, each image opens a lightbox) → Upcoming programs (give/get + "The semester") → **Off-Grid AI Engineering** course (topics, doom quotes, "year is 2033", Takeoff video) → **The gallery** (carousel) → **The Film Festival** (full-bleed banner → /mff) → off-season cohort. The homepage AI section + CTA now point here (was /learn). Derived from /learn but diverged; edit independently.
 - **/mff** — **Mars AI Film Festival**. Embeds all four annual festival reels (2023–2026) from the [Mars College YouTube channel](https://www.youtube.com/@MarsCollege-k7t/videos) via `youtube-nocookie`, plus a gallery of past screenings (assets in `src/assets/photos/mff/`). Linked from the Film Festival banner on /mit.
 - **/apply** (hidden): Tally application form embed. `noindex,nofollow`; not in the nav. Reached by direct URL only. See "Tally forms" below.

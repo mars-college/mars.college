@@ -58,8 +58,7 @@ file(s) and `src/data/site.ts` together, then build.
   `/og-mff.jpg` (night screening). `og:image:alt`/`twitter:image:alt` added.
 - **Homepage `<title>`** now leads with "Mars College".
 - **Sitemap** filter: the public pages only — currently /, /mit, /mff, /dec,
-  /colab. Excluded: /apply (noindex), /build + /build0, /agentlab*, /thrive,
-  and /mit-court.
+  /colab. Excluded: /apply (noindex), /build, and /mit-court.
 - **404 page** added (`src/pages/404.astro`, on-brand, noindex).
 - Facts corrected on /mit: fifth annual film festival in 2027; first festival
   2023.

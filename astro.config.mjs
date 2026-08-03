@@ -9,12 +9,11 @@ export default defineConfig({
   site: "https://mars.college",
   integrations: [
     sitemap({
-      // keep draft / archival / noindex pages out of the sitemap:
-      // - /build + /build0 and agentlab/thrive are drafts or orphaned (also noindex)
+      // keep orphaned / noindex pages out of the sitemap:
+      // - /build is superseded by dpw.mars.college but kept for reference
       // - /apply is noindex (hidden Tally-form page)
       // - /mit-court is the experimental page served at mit.mars.college
-      filter: (page) =>
-        !/\/(build\d?|agentlab\d?|thrive|apply|mit-court)\/?$/.test(page),
+      filter: (page) => !/\/(build|apply|mit-court)\/?$/.test(page),
     }),
     mdx(),
   ],
