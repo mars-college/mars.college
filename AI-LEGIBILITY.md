@@ -36,19 +36,15 @@ associated).
 
 ## Maintenance
 
-The .md corpus is hand-written, not generated. When program facts change
-(dates, costs, camps), update the affected .md file(s), then regenerate the
-concatenation:
+The eight .md files are hand-written; **`llms-full.txt` is generated** by
+`scripts/gen-llms-full.mjs`, which runs as the first step of `pnpm build`. So:
+edit the .md files, never `llms-full.txt` — the build regenerates it and any
+manual edit is overwritten. (It silently drifted once before the generator
+existed, which is why this is now wired into the build rather than documented
+as a command to remember.)
 
-```sh
-cd public && {
-  echo "# Mars College — Complete Guide for AI Systems"; echo
-  echo "> This file concatenates the machine-readable documentation of Mars College (https://mars.college), assembled August 2026. Index: https://mars.college/llms.txt"; echo
-  for f in about.md faq.md how-mars-works.md history.md traditions.md mars-2027.md ai.md links.md; do
-    echo "---"; echo; cat "$f"; echo
-  done
-} > llms-full.txt
-```
+Facts live in `planning/2027/`; when they change there, update the affected .md
+file(s) and `src/data/site.ts` together, then build.
 
 ## SEO wiring completed Aug 1, 2026
 
@@ -61,32 +57,62 @@ cd public && {
   session scratchpad). Per-page cards: `/og-mit.jpg` (seal on paper),
   `/og-mff.jpg` (night screening). `og:image:alt`/`twitter:image:alt` added.
 - **Homepage `<title>`** now leads with "Mars College".
-- **Sitemap** filter tightened: only the 5 public pages (/, /mit, /mff,
-  /toolcamp, /colab); /apply (noindex), /build, /learn (slated for deletion)
-  and all drafts excluded.
+- **Sitemap** filter: the public pages only — currently /, /mit, /mff, /dec,
+  /colab. Excluded: /apply (noindex), /build + /build0, /agentlab*, /thrive,
+  and /mit-court.
 - **404 page** added (`src/pages/404.astro`, on-brand, noindex).
 - Facts corrected on /mit: fifth annual film festival in 2027; first festival
   2023.
 
+**Verified on the live site:** Vercel Firewall shows Bot Protection **off** and
+AI Bots **Allow**, with no custom rules — checked Aug 1, 2026. Keep it that way.
+
+## Subdomains (added Aug 1–2, 2026)
+
+Each camp runs its own site; DNS for all of them is A → `76.76.21.21` (Vercel)
+in DigitalOcean, with a one-file Vercel proxy project per host in `web/`:
+
+| Host | Proxy project | Serves |
+|---|---|---|
+| `dpw.mars.college` | `web/dpw-proxy` | Freeman's site at `server.slablife.org/dpw.mars.college/` |
+| `dec.mars.college` | `web/dec-proxy` | `thedec.lovable.app` |
+| `colab.mars.college` | `web/colab-proxy` | `marscommunitylab.lovable.app` |
+| `mit.mars.college` | `web/mit-proxy` | this build's `/mit-court` (experimental, noindex) |
+
+The proxies exist because those origins can't serve TLS for a mars.college
+hostname. They are **not in version control** (only `mars-v2` is a git repo) —
+each is two files deployed with `vercel deploy --prod`.
+
+Two AI-legibility caveats worth knowing:
+
+- `mit.mars.college` serves the volleyball easter egg, **not** the MIT school
+  page (that's `mars.college/mit`). It's `noindex`, so search engines won't
+  confuse them, but an agent guessing the subdomain from the camp pattern will
+  land on the wrong page.
+- `mars.college/dec` and `mars.college/colab` still exist as indexable pages
+  duplicating the camps' own subdomain sites, and are in the sitemap. The AI
+  corpus points at the subdomains. See "Remaining" below.
+
 ## Remaining / external
 
-1. **Verify nothing blocks AI crawlers on deploy (highest priority).**
-   - Vercel: confirm the "AI Bot managed ruleset" is OFF and no
-     Firewall/Bot-Protection challenge rules hit verified AI bots.
-   - If Cloudflare DNS ever fronts the domain (orange cloud): disable "Block AI
-     bots" / managed robots.txt in AI Crawl Control, or it silently overrides
-     our robots.txt. (Cloudflare blocks AI crawlers by default since July 2025.)
-   - Datapoint: theguardian.com blocks Anthropic's crawler and is invisible to
-     Claude's web tools — that's what being blocked looks like.
-2. **Domain cutover (DNS to Vercel):** add both `mars.college` and
-   `www.mars.college` in Vercel Domains with www → apex redirect. All
-   canonicals/OG URLs already point at https://mars.college.
-3. **Search Console + Bing Webmaster Tools** — register the domain in both once
-   the site is live on mars.college (ChatGPT search is substantially
-   Bing-backed). Optional: wire an IndexNow ping into the Vercel deploy hook.
-4. **`<link rel="alternate" type="text/markdown" href="/<page>.md">`** in
+0. **Decide the canonical home for DEC and Co Lab.** Right now each camp has two
+   live pages: the in-repo `mars.college/dec` + `/colab` (in the sitemap, not
+   linked from anywhere) and the camp's own subdomain (what the nav cards and
+   the AI corpus point at). Pick one per camp, then either 301 the loser like
+   `/toolcamp` already does, or drop it from the sitemap. Until then both
+   compete for the same search/answer-engine result.
+1. **Search Console + Bing Webmaster Tools** — register mars.college in both and
+   submit the sitemap (ChatGPT search is substantially Bing-backed). Optional:
+   wire an IndexNow ping into the Vercel deploy hook.
+2. **`<link rel="alternate" type="text/markdown" href="/<page>.md">`** in
    BaseLayout for pages with .md twins (optional, cheap).
-5. **Off-site (the biggest lever, not a website task):** consistent one-line
+3. **If Cloudflare DNS is ever put in front of the domain** (it isn't today —
+   DigitalOcean holds the zone, Vercel serves): disable "Block AI bots" /
+   managed robots.txt in AI Crawl Control, or it silently overrides our
+   robots.txt. Cloudflare has blocked AI crawlers by default since July 2025.
+   Datapoint: theguardian.com blocks Anthropic's crawler and is invisible to
+   Claude's web tools — that's what being blocked looks like.
+4. **Off-site (the biggest lever, not a website task):** consistent one-line
    description everywhere (Substack about, IG bio, X bio, GitHub org);
    a Wikipedia article if notability supports it (the Guardian feature +
    Supernuclear case study + Campfire podcast are citable sources); keep press

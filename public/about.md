@@ -24,8 +24,8 @@ off-grid living, with creative AI as its academic spine.
   (community builder; previously founded Jaaga in Bangalore, Mars's direct precursor)
 - **Location:** off-grid desert campus near Bombay Beach, Salton Sea, Imperial County,
   California
-- **Season:** build in November–December; program from early January to late March;
-  unbuild through April
+- **Season:** build in November–December; program from mid-January (Jan 11, 2027) to
+  late March; unbuild through April
 - **Scale:** on the order of a hundred people living off-grid at peak season,
   organized into semi-autonomous camps, plus a larger year-round online community
 - **Cost:** no tuition. A season on the ground costs about $1,500 total (shared

@@ -34,12 +34,31 @@ const BOOT = `
 
   let sketch = null;
   let running = false;
+  let resumeTimer = 0;
 
+  // Mirrors SiteFooter.astro: p5 0.4.4's loop() draws synchronously and
+  // noLoop() can leave one frame callback in flight for ~2 frames, so
+  // resuming after a beat guarantees a single draw chain even when
+  // visibilitychange fires in bursts (fast cmd-tab).
   const applyRunState = () => {
     const want = !document.hidden && !!sketch;
-    if (want === running) return;
-    if (want) { sketch.loop(); running = true; }
-    else { sketch.noLoop(); running = false; }
+    if (want === running && !(!want && resumeTimer)) return;
+    if (!want) {
+      clearTimeout(resumeTimer);
+      resumeTimer = 0;
+      if (running) {
+        sketch.noLoop();
+        running = false;
+      }
+    } else if (!resumeTimer) {
+      resumeTimer = setTimeout(() => {
+        resumeTimer = 0;
+        if (!document.hidden && sketch && !running) {
+          sketch.loop();
+          running = true;
+        }
+      }, 60);
+    }
   };
 
   (async () => {
@@ -56,6 +75,11 @@ const BOOT = `
           if (h) window.removeEventListener(name, h);
         }
       } catch (e) {}
+      // NB: deliberately no applyRunState() here (unlike SiteFooter, which
+      // boots lazily on scroll). The court is the whole page, so it must paint
+      // a first frame even when the tab loads in the background; pausing here
+      // leaves the bare gradient until the tab is focused. visibilitychange
+      // takes over from the first switch onward.
       if (window.ResizeObserver) {
         let raf = 0;
         new ResizeObserver(() => {

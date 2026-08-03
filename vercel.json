@@ -11,12 +11,5 @@
       "destination": "https://dec.mars.college",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "mit.mars.college" }],
-      "destination": "/mit-court"
-    }
   ]
 }

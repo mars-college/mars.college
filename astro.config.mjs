@@ -10,11 +10,11 @@ export default defineConfig({
   integrations: [
     sitemap({
       // keep draft / archival / noindex pages out of the sitemap:
-      // - build*/learn* variants and agentlab/thrive are drafts (also noindex)
-      // - plain /build and /learn are outdated and slated for deletion
+      // - /build + /build0 and agentlab/thrive are drafts or orphaned (also noindex)
       // - /apply is noindex (hidden Tally-form page)
+      // - /mit-court is the experimental page served at mit.mars.college
       filter: (page) =>
-        !/\/(build\d?|learn\d?|agentlab\d?|thrive|apply|mit-court)\/?$/.test(page),
+        !/\/(build\d?|agentlab\d?|thrive|apply|mit-court)\/?$/.test(page),
     }),
     mdx(),
   ],

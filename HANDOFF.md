@@ -6,9 +6,10 @@ You are taking over the **new Mars College website**, a from-scratch rebuild. Re
 
 A performance-first rebuild of mars.college recruiting the **2027 cohort (Season 8)**. Built fresh in **Astro + Tailwind v4** (static, near-zero JS) — deliberately NOT the old Next.js app.
 
-- **New site (your project):** `/Users/gene/Mars/web/mars-v2`  ← work here
-- **Old Next.js site (reference only, do not break):** `/Users/gene/Mars/web/mars.college` — this is the currently-deployed repo (`github.com/genekogan/mars.college`). The new Astro site is not yet wired to deployment.
-- **Nothing is committed.** All of mars-v2 is uncommitted working state. Don't commit/push without Gene's go-ahead, and check diffs for secrets first.
+- **The live site (your project):** `/Users/gene/Mars/web/mars-v2`  ← work here. **This is what mars.college serves.** It went live on the domain Aug 1, 2026 (Vercel project `mars-v2`, domains `mars.college` + `www.mars.college`, www→apex 301 in `vercel.json`). Deploy with `vercel deploy --prod` from this directory.
+- **Old Next.js site (archival, no longer serving):** `/Users/gene/Mars/web/mars.college`. It kept the domain until the Aug 1 cutover; the Vercel project `v0-mars-college-homepage` still exists but has no domains attached.
+- **This IS a git repo** (branch `v2`, remote `github.com/genekogan/mars.college`) and it is public. Commit as you go; check diffs for secrets first. Note that the enclosing `/Users/gene/Mars` archive is *not* a repo — only this subtree is, so it's the one place a bad commit becomes publicly visible.
+- **Camp subdomains** (`dpw.` / `dec.` / `colab.` / `mit.mars.college`) are served by four one-file proxy projects in `web/*-proxy`, outside this repo. See `AI-LEGIBILITY.md` § Subdomains before touching DNS or those hosts.
 
 ## Run it locally
 
@@ -34,7 +35,9 @@ cloudflared tunnel --url http://localhost:4321
 
 IMPORTANT: Astro/Vite blocks unknown hosts (returns 403 over a tunnel). This is already handled — `astro.config.mjs` sets `vite.server.allowedHosts: true`. If you change the config, keep that or the tunnel will 403.
 
-The tunnel only works while BOTH the dev server and `cloudflared` stay running on Gene's laptop. (Current live URL at handoff: `https://minister-settings-applies-chart.trycloudflare.com` — but assume it may be dead and make a fresh one. NOTE: don't `pkill -f cloudflared` to clean up — it kills the live tunnel; target the specific PID instead.)
+The tunnel only works while BOTH the dev server and `cloudflared` stay running on Gene's laptop, and every run prints a fresh URL — never reuse one from an old handoff. (NOTE: don't `pkill -f cloudflared` to clean up — it kills whatever tunnel is live; target the specific PID instead.)
+
+Since the cutover, most review happens against **https://mars.college** itself or a Vercel preview deploy; the tunnel is only for showing work that isn't deployed yet.
 
 Optional, if Gene wants a stable URL: set up a *named* Cloudflare tunnel (`cloudflared tunnel create` + DNS route) — not done here.
 
@@ -42,7 +45,9 @@ Optional, if Gene wants a stable URL: set up a *named* Cloudflare tunnel (`cloud
 
 All site copy comes from the planning space: **`/Users/gene/Mars/planning/2027/`** — `README.md` (index), `timeline.md`, `ai-program.md`, `dpw.md`, `economics.md`, `services.md`, `admissions.md`, `architecture.md`, `website-content.md`, `organization.md`, `agent-olympics.md`, `medical.md`, `open-items.md`. Don't invent program facts; pull from there.
 
-Key facts already on the site: timeline (AI cohort **Aug 24** · Build **Nov–Dec** · Mars begins **Jan 4** · Mars Electronica **Mar 26–28**); applications are **rolling**; **the real application form is live** as an embedded Tally form on the hidden `/apply` page — see the "Tally forms" section below. Site-header/footer Apply CTAs currently still point to `APPLY_URL` (the Substack placeholder) in `src/data/site.ts`; flip them to `/apply` when ready.
+Key facts already on the site: timeline (online AI cohort **~Aug 31** · Build **Nov–Dec** · Mars begins **Jan 11** · Mars Electronica **Mar 26–28**); applications are **rolling**; the real application forms are live as embedded Tally forms — see the "Tally forms" section below. The nav Apply CTA points at `/#apply` on the home page (each camp card then links to that camp's own application).
+
+**When a date or program fact changes, it lives in three places that must move together:** `src/data/site.ts`, the AI-facing corpus in `public/*.md` (see `AI-LEGIBILITY.md`), and `planning/2027/`.
 
 ## Project structure
 
@@ -59,7 +64,14 @@ src/
   styles/        global.css  (the token system — single source of truth)
   assets/        photos/** and brand/**  (imported, optimized via astro:assets)
 public/
-  video/         mars-aerial.mp4 (1080p), mars-aerial-720.mp4 (mobile), mars-aerial-poster.jpg
+  video/         hero clips + posters
+  volley/        p5 + the neural slime-volleyball sketch (footer and /mit-court)
+  *.md, llms.txt, llms-full.txt   AI-facing corpus — see AI-LEGIBILITY.md
+                 (llms-full.txt is GENERATED by scripts/gen-llms-full.mjs at build)
+  robots.txt     permissive, with Content-Signal opt-in for AI training
+  og-image.jpg, og-mit.jpg, og-mff.jpg, favicon.png, apple-touch-icon.png
+scripts/
+  gen-llms-full.mjs   runs first in `pnpm build`
 ```
 
 ## Design system (keep the bar — Gene reviewed and approved this direction)
@@ -96,15 +108,17 @@ In `src/assets/photos/**` (and `brand/**`), copied from the old repo's curated s
 
 ## Pages
 
-- **/** home: aerial hero + timeline strip → "What is Mars College" intro → Build/Learn/Thrive pillars → **Outsmart AGI** (Sovereign AI) → Activities mosaic → Mars 2027 apply.
-- **/build**: DPW (rents all materials: Structure/Power/Water/Camp gear), concessions, build schedule, crew perks, build photos, **inquiry form** (`BuildInquiryForm.astro` — client-side, opens prefilled `mailto:info@mars.college`; no backend).
-- **/learn**: headed by **"Outsmart AGI"**, the 5 core AI topics, remote-work/vanlife, AI Department.
+- **/** home: aerial hero + timeline strip → "What is Mars College" intro → the **four camp cards** (DPW · MIT · DEC · Co Lab, each linking to that camp's own site/page) → **Outsmart the superintelligence** → Activities mosaic → FAQ → Mars 2027 apply.
+- **/dec** — **Department of Emergent Civilization**, the makerspace (renamed from Tool Camp for 2027). ⚠️ Currently unlinked: the nav card and the `/toolcamp` redirect both point at the camp's own site, `dec.mars.college`. Decide which is canonical — see `AI-LEGIBILITY.md` § Remaining, item 0.
+- **/colab** — **Co Lab** / Community Lab. Same caveat as /dec: `colab.mars.college` is what the nav points at.
+- **/build**, **/thrive**, **/build0**, **/agentlab\***: retired or scratch. Still build, `noindex`, out of the sitemap, nothing links to them. `/learn*` and `/build1–5` were deleted outright.
 - **/mit** — **Mars Institute of Technology (MIT)**, the AI school, rebranded from the "AI camp". Emblem-led header (seal at `src/assets/brand/mit-emblem.png`); sections: What MIT is (pillars) → **Eight years of AI studies** (2019–2027 full-bleed justified-masonry gallery, each image opens a lightbox) → Upcoming programs (give/get + "The semester") → **Off-Grid AI Engineering** course (topics, doom quotes, "year is 2033", Takeoff video) → **The gallery** (carousel) → **The Film Festival** (full-bleed banner → /mff) → off-season cohort. The homepage AI section + CTA now point here (was /learn). Derived from /learn but diverged; edit independently.
 - **/mff** — **Mars AI Film Festival**. Embeds all four annual festival reels (2023–2026) from the [Mars College YouTube channel](https://www.youtube.com/@MarsCollege-k7t/videos) via `youtube-nocookie`, plus a gallery of past screenings (assets in `src/assets/photos/mff/`). Linked from the Film Festival banner on /mit.
-- **/thrive**: desert nomad economics (cost breakdown), micro-businesses/grants, shared amenities.
-- **/apply** (hidden): Tally application form embed. `noindex,nofollow`; not in the nav. Reached by direct URL only until Gene decides to promote it. See "Tally forms" below.
+- **/apply** (hidden): Tally application form embed. `noindex,nofollow`; not in the nav. Reached by direct URL only. See "Tally forms" below.
+- **/mit-court** — the experimental full-screen volleyball page served at **mit.mars.college** (via `web/mit-proxy`). Standalone: it does **not** use `BaseLayout`, so it has no header/footer, no analytics, and its own copy of the volley boot script. `noindex`, out of the sitemap, unlinked.
+- **/404** — on-brand not-found page.
 
-> **Nav caveat:** the site header/footer still link **"Learn" → /learn**, not /mit. /mit and /mff are reachable by direct URL and the on-page CTAs only. Wire them into the nav when Gene decides /mit supersedes /learn.
+> **Nav:** `NAV` in `src/data/site.ts` is Build → `dpw.mars.college`, MIT → `/mit`, Apply → `/#apply`.
 
 The **"Outsmart AGI"** copy (founder-approved) lives on the home Sovereign-AI section and atop /learn:
 > It's a strange time to be human — the whole world is busy announcing our replacement. Mars takes the other side of the bet. We run AI locally, on our own power, by our own hand: local-first, renewable, DIY, self-sovereign. We don't work for the machine — we make it work for us, in service of a human-first life.
@@ -162,12 +176,12 @@ The **2027 application form** is a [Tally.so](https://tally.so) form embedded on
 
 ## Open / next steps
 
-- Decide **deployment**: this Astro build isn't wired to anything yet; the live domain still serves the old Next repo. Cutover plan is: copy `mars-v2/` contents into `github.com/genekogan/mars.college` repo, commit on a branch, push, redeploy.
-- Publish the **Build inquiry form** (Tally slug `xXgvOk`) and populate `TALLY_BUILD_FORM_ID`.
-- Flip site-header/footer Apply CTAs from `APPLY_URL` (Substack) → `/apply` when the form is ready to be public.
+- **Pick a canonical home for DEC and Co Lab** — the in-repo `/dec` + `/colab` pages currently compete with the camps' own subdomains. Details in `AI-LEGIBILITY.md` § Remaining, item 0.
+- **Register mars.college in Google Search Console and Bing Webmaster Tools** and submit the sitemap — not done yet, and it's the main thing gating search/AI-answer indexing of the new site.
+- **Volley duplication**: `src/pages/mit-court.astro` carries its own copy of the boot script and court CSS from `SiteFooter.astro`. They already drifted once. Worth extracting a `VolleyCourt.astro` with a `gated`/`alwaysOn` prop next time either is touched.
 - **Unicyclists**: retired from the hero (RiderField.astro kept on disk, unused). Gene may want them represented in Activities.
 - Old Next site also has additive scratch sections (`components/mars-2027.tsx`, `components/m27/`, `app/2027/`) from earlier iterations — ignore unless asked; this Astro build supersedes them.
 
 ## How to work with Gene
 
-He reviews via the live tunnel URL (often on his phone) and iterates fast with short, specific feedback. When you finish a pass: run the dev server, **screenshot every page** (`playwright screenshot --full-page --viewport-size=1440,900 <url> <out.png>` is installed globally), verify no broken images, then send him the (fresh) tunnel URL. He communicates over Discord. Don't leave orphan dev servers/tunnels around — stop ones you start.
+He reviews on the live site (often on his phone) and iterates fast with short, specific feedback. When you finish a pass: **screenshot every page** (`playwright screenshot --full-page --viewport-size=1440,900 <url> <out.png>` is installed globally), verify no broken images, then deploy and tell him what changed. For work that isn't deployable yet, use a fresh Cloudflare tunnel (above). He communicates over Discord. Don't leave orphan dev servers/tunnels around — stop ones you start.

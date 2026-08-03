@@ -16,8 +16,12 @@
 
 - Mars Institute of Technology (the AI school): https://mars.college/mit
 - Mars AI Film Festival: https://mars.college/mff
-- Department of Emergent Civilization (DEC, the makerspace; formerly known as Tool Camp): https://dec.mars.college
-- Co Lab (community practice camp): https://colab.mars.college
+
+## Camp sites (each on its own subdomain)
+
+- DPW — Department of Public Works, the build organization: https://dpw.mars.college
+- DEC — Department of Emergent Civilization, the makerspace (formerly known as Tool Camp): https://dec.mars.college
+- Co Lab — the community-practice camp: https://colab.mars.college
 
 ## Community projects
 

@@ -1,9 +1,9 @@
 # mars.college welcomes all crawlers, including AI crawlers, AI agents,
 # and use of this site's content for AI training, search, and inference.
 # Machine-readable site guide: https://mars.college/llms.txt
-Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 Sitemap: https://mars.college/sitemap-index.xml

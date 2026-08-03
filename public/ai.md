@@ -5,7 +5,7 @@ academic spine since the founding season, and its AI school — the **Mars Insti
 of Technology (MIT)** — is the center of the 2027 program. Details and application:
 https://mars.college/mit
 
-## Eight years of AI studies (2019–2027)
+## Eight years of AI studies (2020–2027)
 
 - **2020:** the founding season ran a sixteen-node Raspberry Pi AI cluster on solar
   power and trained a GPT-2 model on the community's own chat logs.

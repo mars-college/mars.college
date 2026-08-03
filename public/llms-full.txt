@@ -30,8 +30,8 @@ off-grid living, with creative AI as its academic spine.
   (community builder; previously founded Jaaga in Bangalore, Mars's direct precursor)
 - **Location:** off-grid desert campus near Bombay Beach, Salton Sea, Imperial County,
   California
-- **Season:** build in November–December; program from early January to late March;
-  unbuild through April
+- **Season:** build in November–December; program from mid-January (Jan 11, 2027) to
+  late March; unbuild through April
 - **Scale:** on the order of a hundred people living off-grid at peak season,
   organized into semi-autonomous camps, plus a larger year-round online community
 - **Cost:** no tuition. A season on the ground costs about $1,500 total (shared
@@ -209,10 +209,13 @@ its operating system as of the 2027 season.
 
 Mars is a federation of **camps** — groups of people who commit to live together as
 a cluster for the season, each with its own intake, footprint, dues, and character.
-Recent and current camps include the DPW build crew, the Department of Emergent Civilization (the makerspace), the
-AI camp (now the Mars Institute of Technology), Co Lab (community and governance
-practice), and others that form season to season. Camps internalize some services
-(usually food) and pool the rest through the Treasury.
+Recent and current camps include the DPW build crew (https://dpw.mars.college),
+the Department of Emergent Civilization (the makerspace, formerly known as Tool
+Camp — https://dec.mars.college), the Mars Institute of Technology (the AI
+school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
+governance practice — https://colab.mars.college), and others that form season
+to season. Camps internalize some services (usually food) and pool the rest
+through the Treasury.
 
 ## DPW — Department of Public Works
 
@@ -367,7 +370,7 @@ became the most-read article on the paper's site the day it ran.
 ## 2027 — Season 8 (upcoming)
 
 Mars 2027 is now recruiting, with rolling admissions, four ways to participate
-(DPW build crew, the Department of Emergent Civilization, the Mars Institute of Technology AI program, and
+(DPW build crew, the Department of Emergent Civilization (formerly Tool Camp), the Mars Institute of Technology AI program, and
 Co Lab), build beginning November 2, 2026, the season proper starting January 11,
 2027, and Mars Electronica on March 26–28, 2027. Details:
 https://mars.college/mars-2027.md
@@ -436,6 +439,15 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
   season — the basic social unit of the village.
 - **DPW:** the Department of Public Works — the build organization that raises,
   maintains, and strikes the village. https://dpw.mars.college
+- **DEC:** the Department of Emergent Civilization — Mars's makerspace and
+  workshop camp, known as **Tool Camp** through the 2026 season and renamed for
+  2027. https://dec.mars.college
+- **MIT:** the Mars Institute of Technology — the AI school, grown out of what
+  earlier seasons called AI Camp or the Creative AI major.
+  https://mars.college/mit
+- **Co Lab:** the Community Lab camp — a three-month practice in coherent
+  community, sociocratic governance, and daily ritual.
+  https://colab.mars.college
 - **Treasury:** the transparent community fund that pays for shared services.
 - **Council / circles:** the elected and volunteer bodies through which the
   community governs itself.
@@ -446,7 +458,7 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 
 # Mars College 2027 — Season 8
 
-Mars College's eighth season runs from a November 2026 build through a May 2027
+Mars College's eighth season runs from a November 2026 build through an April 2027
 unbuild, with the residency proper from January 11 to late March 2027 in the desert
 near Bombay Beach, California. **Applications are open now and rolling.** Apply via
 https://mars.college (email info@mars.college with questions).
@@ -523,7 +535,7 @@ academic spine since the founding season, and its AI school — the **Mars Insti
 of Technology (MIT)** — is the center of the 2027 program. Details and application:
 https://mars.college/mit
 
-## Eight years of AI studies (2019–2027)
+## Eight years of AI studies (2020–2027)
 
 - **2020:** the founding season ran a sixteen-node Raspberry Pi AI cluster on solar
   power and trained a GPT-2 model on the community's own chat logs.
@@ -630,8 +642,12 @@ https://mars.college/mff
 
 - Mars Institute of Technology (the AI school): https://mars.college/mit
 - Mars AI Film Festival: https://mars.college/mff
-- Department of Emergent Civilization (DEC, the makerspace; formerly known as Tool Camp): https://dec.mars.college
-- Co Lab (community practice camp): https://colab.mars.college
+
+## Camp sites (each on its own subdomain)
+
+- DPW — Department of Public Works, the build organization: https://dpw.mars.college
+- DEC — Department of Emergent Civilization, the makerspace (formerly known as Tool Camp): https://dec.mars.college
+- Co Lab — the community-practice camp: https://colab.mars.college
 
 ## Community projects
 
