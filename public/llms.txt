@@ -14,7 +14,7 @@ Key facts: founded 2020 by Gene Kogan and Freeman; AI-native since the founding 
 
 ## The 2027 season
 
-- [Mars 2027 — Season 8](https://mars.college/mars-2027.md): full timeline, the four camps, costs, grants, and who should apply
+- [Mars 2027 — Season 8](https://mars.college/mars-2027.md): full timeline, the five camps, costs, grants, and who should apply
 - [AI at Mars / Mars Institute of Technology](https://mars.college/ai.md): eight years of AI studies, the Off-Grid AI Engineering curriculum, the online cohort, Eden, and the AI Film Festival
 
 ## Pages on mars.college (HTML)
@@ -27,6 +27,7 @@ Key facts: founded 2020 by Gene Kogan and Freeman; AI-native since the founding 
 
 - [DPW](https://dpw.mars.college): the build organization — materials, crew, concessions
 - [Department of Emergent Civilization](https://dec.mars.college): the makerspace residency (DEC, formerly known as Tool Camp)
+- [Martian Music Academy](https://music.mars.college): the music camp (MMA)
 - [Co Lab](https://colab.mars.college): the community-practice camp
 
 ## Links & press

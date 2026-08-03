@@ -43,11 +43,12 @@ const faqLd = {
   ],
 };
 
-// Pillar plates — the four ways into Mars
+// Pillar plates — the five ways into Mars
 import buildImg from "../assets/photos/build-curated/041_2026_20260130_170446_06ab8.jpg";
 import decCardImg from "../assets/photos/dec-card.png"; // 3D-printer tinkering in the workshop
 import learnImg from "../assets/photos/learn-workshop.jpg";
 import colabImg from "../assets/photos/community-group.jpg";
+import mmaImg from "../assets/photos/mma-card.jpg"; // band on the pallet-rack stage in Chiba
 
 // Year-by-year aerials of the Mars campus / Chiba, 2020–2026.
 import chiba2020 from "../assets/photos/chiba-years/chiba-2020.jpg";
@@ -93,6 +94,7 @@ const pillarImg: Record<string, any> = {
   DEC: decCardImg,
   MIT: learnImg,
   "Co Lab": colabImg,
+  MMA: mmaImg,
 };
 
 // One image per winter — the campus (and Chiba) rebuilt new each year.
@@ -406,7 +408,7 @@ const HARD_PHOTOS = [
   <!-- ===================== APPLY HERO ===================== -->
   <section id="apply" class="u-section is-night pillars">
     <div class="u-shell pillars__head">
-      <Eyebrow index="05" label="Four ways into Mars College" />
+      <Eyebrow index="05" label="Five ways into Mars College" />
       <h2 class="pillars__lead u-display">Apply to Mars College.</h2>
       <p class="pillars__intro u-measure">
         Joining Mars starts with applying to one of the camps or
@@ -446,6 +448,40 @@ const HARD_PHOTOS = [
               </a>
             </li>
           ))
+        }
+        {/* Sixth card — the open call. Deliberately not a photo: a dashed
+            plate and a tent mark it as an empty slot rather than a camp that
+            already exists. */}
+        {
+          (
+            <li class="pillar pillar--open">
+              <a
+                href="mailto:info@mars.college?subject=Camp%20proposal%20for%202027"
+                class="pillar__link"
+                data-goatcounter-click="camp-propose"
+                data-goatcounter-title="Propose a camp"
+              >
+                <div class="pillar__media pillar__open-plate">
+                  <svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor"
+                       stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M24 9 L43 39 H5 Z" />
+                    <path d="M24 22 L33 39 H15 Z" />
+                    <path d="M3 39 H45" />
+                  </svg>
+                </div>
+                <div class="pillar__text">
+                  <h3 class="pillar__title">Propose a camp</h3>
+                  <p class="pillar__blurb">
+                    Exceptional builders and organizers are invited to propose a
+                    new camp for 2027. E-mail us at info@mars.college
+                  </p>
+                  <span class="pillar__cta">
+                    Email us <span class="u-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+            </li>
+          )
         }
       </ol>
     </div>
@@ -631,12 +667,14 @@ const HARD_PHOTOS = [
     }
 
     /* ---- pillars ---- */
+    /* Five camps plus the open call = six cards, which fills 3 + 3 exactly
+       (and 2 + 2 + 2 at the next breakpoint down). */
     .pillars__list {
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: clamp(1.25rem, 2.5vw, 2rem);
     }
     .pillar { display: flex; }
@@ -650,6 +688,30 @@ const HARD_PHOTOS = [
     .pillar__media {
       aspect-ratio: 4 / 5;
       margin-bottom: 1.25rem;
+    }
+    /* the open-call card: a dashed empty plate instead of a photograph */
+    .pillar__open-plate {
+      display: grid;
+      place-items: center;
+      border: 1px dashed color-mix(in srgb, var(--color-bone-on-night) 32%, transparent);
+      background: color-mix(in srgb, var(--color-bone-on-night) 4%, transparent);
+      color: color-mix(in srgb, var(--color-bone-on-night) 55%, transparent);
+      transition: color var(--dur-fast) var(--ease-out),
+        border-color var(--dur-fast) var(--ease-out);
+    }
+    .pillar__open-plate svg {
+      width: 38%;
+      max-width: 7.5rem;
+      height: auto;
+      display: block;
+    }
+    .pillar--open .pillar__link:hover .pillar__open-plate {
+      color: var(--color-clay);
+      border-color: var(--color-clay);
+    }
+    /* no acronym expansion on this one, so the title carries the top on its own */
+    .pillar--open .pillar__blurb {
+      margin-top: 0.75rem;
     }
     .pillar__media img {
       transition: transform 600ms var(--ease-out);

@@ -84,9 +84,9 @@ was among the paper's most-read stories that weekend.
 
 ## 2027 — Season 8 (upcoming)
 
-Mars 2027 is now recruiting, with rolling admissions, four ways to participate
-(DPW build crew, the Department of Emergent Civilization (formerly Tool Camp), the Mars Institute of Technology AI program, and
-Co Lab), build beginning November 2, 2026, the season proper starting January 11,
+Mars 2027 is now recruiting, with rolling admissions, five ways to participate
+(DPW build crew, the Department of Emergent Civilization (formerly Tool Camp), the Mars Institute of Technology AI program,
+Co Lab, and the Martian Music Academy), build beginning November 2, 2026, the season proper starting January 11,
 2027, and Mars Electronica on March 26–28, 2027. Details:
 https://mars.college/mars-2027.md
 

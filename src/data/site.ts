@@ -44,7 +44,7 @@ export const TIMELINE_MINI = [
   { date: "Mar 26 – 28", label: "Mars Electronica" },
 ];
 
-// Four ways into Mars College — each camp has its own application.
+// Five ways into Mars College — each camp has its own application.
 // Cards: big acronym, expansion as intermediary subtext, description below,
 // standardized "Apply to <acronym>" CTA.
 export const PILLARS = [
@@ -83,6 +83,15 @@ export const PILLARS = [
       "A three-month immersion in coherent community: sociocratic governance, relational practice, and daily ritual.",
     href: "https://colab.mars.college",
     cta: "Apply to Co Lab",
+  },
+  {
+    title: "MMA",
+    ev: "camp-mma",
+    sub: "Martian Music Academy",
+    blurb:
+      "Twelve weeks of making songs and building a scene, performing on a stepped pyramid of pallet racks raised for the season.",
+    href: "https://music.mars.college",
+    cta: "Apply to MMA",
   },
 ];
 

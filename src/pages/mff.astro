@@ -14,11 +14,7 @@ import heroImg from "../assets/photos/mff/screening-2026-wide.jpg";
 
 // Photos of past festivals.
 import pFish from "../assets/photos/learn/electronica/bbac-screening-2026.jpg";
-import pCrowd from "../assets/photos/learn/electronica/crowd.jpg";
-import pAbstract from "../assets/photos/learn/electronica/abstract.jpg";
 import pAnimated from "../assets/photos/learn/electronica/animated.jpg";
-// Long filed as "2024-film-festival" but the photo is actually from 2026.
-import pBBAC26 from "../assets/photos/learn/ai-history/2024-film-festival.jpg";
 // Earlier editions, at the Bombay Beach Drive-In.
 import p2023Screening from "../assets/photos/mff/mff-2023-screening.webp";
 import p2023Marquee from "../assets/photos/mff/mff-2023-bombay.webp";
@@ -26,9 +22,7 @@ import p2024Setup from "../assets/photos/mff/mff-2024-gandala.webp";
 import p2023Audience from "../assets/photos/mff/mff-2023-audience.jpg";
 import p2025Screening from "../assets/photos/mff/mff-2025-screening.jpg";
 import p2026Projection from "../assets/photos/mff/mff-2026-projection.jpg";
-import pAnimation26 from "../assets/photos/mff/screening-2026-animation.jpg";
 import pFractal26 from "../assets/photos/mff/screening-2026-fractal.jpg";
-import pArt26 from "../assets/photos/mff/screening-2026-art.jpg";
 
 // The four festivals on the Mars College YouTube channel:
 // https://www.youtube.com/@MarsCollege-k7t/videos
@@ -41,29 +35,21 @@ const FESTIVALS = [
 
 // An editorial mosaic rather than a uniform grid. Three scales only — full
 // width, half, third — and photos are only ever paired with others of the
-// same scale, so every row is height-matched and no caption floats beside a
-// gap. Chronological, with the 2026 projection as the full-width turn.
+// same scale, so every row is height-matched. Chronological, with the 2026
+// projection as the full-width turn. Rows: 2 halves / 3 thirds / lead / 3 thirds.
 const PHOTOS = [
-  { img: p2023Screening,  size: "half",  cap: "Bombay Beach Drive-In · 2023",     alt: "Night screening at the Bombay Beach Drive-In, a lit cart and campfire beside the audience · 2023" },
-  { img: p2023Audience,   size: "half",  cap: "Watching from the gravel · 2023",  alt: "Audience silhouetted against the drive-in screen, a projector running from a fairy-lit golf cart · 2023" },
+  { img: p2023Screening,  size: "half",  alt: "Night screening at the Bombay Beach Drive-In, a lit cart and campfire beside the audience · 2023" },
+  { img: p2023Audience,   size: "half",  alt: "Audience silhouetted against the drive-in screen, a projector running from a fairy-lit golf cart · 2023" },
 
-  { img: p2023Marquee,    size: "minor", cap: "The Drive-In marquee · 2023",      alt: "The illuminated Bombay Beach Drive-In marquee on festival night · 2023" },
-  { img: p2024Setup,      size: "minor", cap: "Projector and sound check · 2024", alt: "Projector and sound desk set up in front of the drive-in screen at dusk · 2024" },
-  { img: p2025Screening,  size: "minor", cap: "Drive-in screening · 2025",        alt: "A standing crowd watching a generative AI film at the drive-in, radio tower blinking behind · 2025" },
+  { img: p2023Marquee,    size: "minor", alt: "The illuminated Bombay Beach Drive-In marquee on festival night · 2023" },
+  { img: p2024Setup,      size: "minor", alt: "Projector and sound desk set up in front of the drive-in screen at dusk · 2024" },
+  { img: p2025Screening,  size: "minor", alt: "A standing crowd watching a generative AI film at the drive-in, radio tower blinking behind · 2025" },
 
-  { img: p2026Projection, size: "lead",  cap: "Outdoor projections at Mars · 2026", alt: "A glowing guitar-shaped spaceship projected across a pyramid wall at Mars, the audience watching from camp chairs · 2026" },
+  { img: p2026Projection, size: "lead",  alt: "A glowing guitar-shaped spaceship projected across a pyramid wall at Mars, the audience watching from camp chairs · 2026" },
 
-  { img: pFish,           size: "half",  cap: "Under the fish sculpture · 2026",  alt: "The 2026 festival under the recycled-metal fish sculpture at the Bombay Beach Arts Center" },
-  { img: pFractal26,      size: "half",  cap: "Generative fractals · 2026",       alt: "A generative fractal film glowing over silhouetted viewers · 2026" },
-
-  { img: pAnimation26,    size: "minor", cap: "Animation night · 2026",           alt: "The audience watching an animated AI film · 2026" },
-  { img: pCrowd,          size: "minor", cap: "Full house at BBAC · 2026",        alt: "Night screening at the Bombay Beach Arts Center · 2026" },
-  { img: pAbstract,       size: "minor", cap: "Abstract film under the sky · 2026", alt: "Abstract generative film projected under the desert sky · 2026" },
-
-  { img: pArt26,          size: "minor", cap: "AI art films outdoors · 2026",     alt: "An AI art film screening outdoors at night · 2026" },
-  { img: pAnimated,       size: "minor", cap: "Animation at BBAC · 2026",         alt: "The audience watching an animated AI film at BBAC · 2026" },
-  // Near-duplicate of pFish (same BBAC scene) — kept far from it in the flow.
-  { img: pBBAC26,         size: "minor", cap: "Bombay Beach Arts Center · 2026",  alt: "Outdoor screening at the Bombay Beach Arts Center · 2026" },
+  { img: pFish,           size: "minor", alt: "The 2026 festival under the recycled-metal fish sculpture at the Bombay Beach Arts Center" },
+  { img: pFractal26,      size: "minor", alt: "A generative fractal film glowing over silhouetted viewers · 2026" },
+  { img: pAnimated,       size: "minor", alt: "The audience watching an animated AI film at BBAC · 2026" },
 ];
 ---
 
@@ -126,26 +112,23 @@ const PHOTOS = [
       <ul class="scenes__grid">
         {PHOTOS.map((p, i) => (
           <li class={`scenes__item is-${p.size}`}>
-            <figure class="scenes__fig">
-              <div class="scenes__cell u-plate">
-                <Image
-                  src={p.img}
-                  alt={p.alt}
-                  widths={[500, 900, 1400, 1900]}
-                  sizes={
-                    p.size === "lead"
-                      ? "(max-width: 640px) 92vw, 78vw"
-                      : p.size === "minor"
-                        ? "(max-width: 640px) 92vw, 26vw"
-                        : "(max-width: 640px) 92vw, 40vw"
-                  }
-                  format="webp"
-                  quality={64}
-                  loading={i < 2 ? "eager" : "lazy"}
-                />
-              </div>
-              <figcaption class="scenes__cap u-label">{p.cap}</figcaption>
-            </figure>
+            <div class="scenes__cell u-plate">
+              <Image
+                src={p.img}
+                alt={p.alt}
+                widths={[500, 900, 1400, 1900]}
+                sizes={
+                  p.size === "lead"
+                    ? "(max-width: 640px) 92vw, 78vw"
+                    : p.size === "minor"
+                      ? "(max-width: 640px) 92vw, 26vw"
+                      : "(max-width: 640px) 92vw, 40vw"
+                }
+                format="webp"
+                quality={64}
+                loading={i < 2 ? "eager" : "lazy"}
+              />
+            </div>
           </li>
         ))}
       </ul>
@@ -194,8 +177,6 @@ const PHOTOS = [
     .scenes__item.is-lead  { grid-column: span 6; }
     .scenes__item.is-half  { grid-column: span 3; }
     .scenes__item.is-minor { grid-column: span 2; }
-
-    .scenes__fig { margin: 0; }
     .scenes__cell {
       position: relative;
       background: var(--color-night);
@@ -212,7 +193,6 @@ const PHOTOS = [
       transition: transform 700ms var(--ease-out);
     }
     .scenes__item:hover .scenes__cell :global(img) { transform: scale(1.02); }
-    .scenes__cap { display: block; margin-top: 0.7rem; color: #cabda6; }
 
     /* 4-column field: the two widest roles go full width, the rest halve. */
     @media (max-width: 1000px) {

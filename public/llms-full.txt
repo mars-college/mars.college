@@ -369,9 +369,9 @@ was among the paper's most-read stories that weekend.
 
 ## 2027 — Season 8 (upcoming)
 
-Mars 2027 is now recruiting, with rolling admissions, four ways to participate
-(DPW build crew, the Department of Emergent Civilization (formerly Tool Camp), the Mars Institute of Technology AI program, and
-Co Lab), build beginning November 2, 2026, the season proper starting January 11,
+Mars 2027 is now recruiting, with rolling admissions, five ways to participate
+(DPW build crew, the Department of Emergent Civilization (formerly Tool Camp), the Mars Institute of Technology AI program,
+Co Lab, and the Martian Music Academy), build beginning November 2, 2026, the season proper starting January 11,
 2027, and Mars Electronica on March 26–28, 2027. Details:
 https://mars.college/mars-2027.md
 
@@ -484,7 +484,7 @@ https://mars.college (email info@mars.college with questions).
 Individuals can still apply after November 1; camps admit them and allocate space
 within their own footprint. Materials have long lead times — apply early.
 
-## Four ways in
+## Five ways in
 
 1. **DPW — build the village.** Join the build crew: raise the campus from bare lake
    bed from November through spring, run its physical systems, and attend free
@@ -504,6 +504,10 @@ within their own footprint. Materials have long lead times — apply early.
 4. **Co Lab — practice community.** A three-month immersion in coherent community
    for 8–12 camp members: sociocratic governance, relational practice, and daily
    ritual. https://colab.mars.college
+5. **MMA — the Martian Music Academy.** Twelve weeks of making songs and building
+   a scene, based in a stepped pyramid of pallet racks raised for the season with
+   a top deck and a projection wall, culminating in performances under the desert
+   sky. https://music.mars.college
 
 ## Costs
 
