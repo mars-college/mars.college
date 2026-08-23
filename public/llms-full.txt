@@ -113,8 +113,7 @@ Diego.
 ## When does it run?
 
 Build: November–December. The season: January 11 to late March. Mars Electronica, the
-final exhibition festival: March 26–28, 2027. Unbuild: through April. There is also
-an online AI cohort in the fall (roughly September–December).
+final exhibition festival: March 26–28, 2027. Unbuild: March 29 through May 1.
 
 ## How much does it cost?
 
@@ -129,8 +128,13 @@ micro-business operators earn most or all of it back.
 Apply at https://mars.college — admissions are rolling, and earlier is better.
 Joining starts with applying to one of the camps: DPW (the build crew,
 https://dpw.mars.college), the Department of Emergent Civilization (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
-Technology, the AI school), or Co Lab (community practice) — or by proposing a new
-camp (info@mars.college).
+Technology, the AI school), Co Lab (community practice), or MMA (the Martian Music
+Academy, https://music.mars.college) — or by proposing a new camp
+(info@mars.college).
+
+Each camp runs its own application, so start from the camp page you want. MIT's
+form is on https://mars.college/mit; Co Lab applies by email to
+hello@communitylab.camp.
 
 ## What do I have to do while I'm there?
 
@@ -196,14 +200,14 @@ its operating system as of the 2027 season.
 ## The annual cycle
 
 - **Off-season (spring–fall):** the campus does not exist. The community plans the
-  next season online, publishes announcements on Substack, and runs online programs.
+  next season online and publishes announcements on Substack.
 - **Build (November–December):** the DPW crew and early arrivals raise the campus
   from bare desert — pallet-rack structures, plywood walls, solar power, water
   systems, kitchens, internet.
 - **Season (January–late March):** the full community lives on campus. Classes,
   projects, talks, exhibitions, and village operations run daily.
-- **Unbuild (April):** everything comes down. Materials are inventoried and stored;
-  the desert is returned to bare ground by May 1.
+- **Unbuild (March 29 – May 1):** everything comes down. Materials are inventoried
+  and stored; the desert is returned to bare ground.
 
 ## Camps
 
@@ -213,9 +217,11 @@ Recent and current camps include the DPW build crew (https://dpw.mars.college),
 the Department of Emergent Civilization (the makerspace, formerly known as Tool
 Camp — https://dec.mars.college), the Mars Institute of Technology (the AI
 school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
-governance practice — https://colab.mars.college), and others that form season
-to season. Camps internalize some services (usually food) and pool the rest
-through the Treasury.
+governance practice — https://colab.mars.college), and MMA, the Martian Music
+Academy (twelve weeks of making songs and building a scene —
+https://music.mars.college). Camps form and retire season to season; each
+internalizes some services (usually food) and pools the rest through the
+Treasury.
 
 ## DPW — Department of Public Works
 
@@ -448,6 +454,9 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 - **Co Lab:** the Community Lab camp — a three-month practice in coherent
   community, sociocratic governance, and daily ritual.
   https://colab.mars.college
+- **MMA:** the Martian Music Academy — twelve weeks of making songs and building
+  a scene, performing on a stepped pyramid of pallet racks raised for the season.
+  https://music.mars.college
 - **Treasury:** the transparent community fund that pays for shared services.
 - **Council / circles:** the elected and volunteer bodies through which the
   community governs itself.
@@ -469,7 +478,6 @@ https://mars.college (email info@mars.college with questions).
 |---|---|
 | Now | Applications open — rolling admissions |
 | Aug 1, 2026 | Pallet rack orders must be placed |
-| ~Aug 31, 2026 | Online Off-Grid AI cohort begins (14 weeks, ends early Dec) |
 | Sep 1, 2026 | Solar orders must be placed |
 | Oct 1, 2026 | DPW crew application deadline |
 | Nov 1, 2026 | Placement deadline for camps & structures |
@@ -499,11 +507,14 @@ within their own footprint. Materials have long lead times — apply early.
    https://dec.mars.college
 3. **MIT — study AI.** The Mars Institute of Technology: classes, art, a gallery,
    the AI film festival, and off-grid AI engineering — how to engage the digital
-   world while sustaining an off-grid life. Includes a fall online cohort.
+   world while sustaining an off-grid life.
    https://mars.college/mit
 4. **Co Lab — practice community.** A three-month immersion in coherent community
    for 8–12 camp members: sociocratic governance, relational practice, and daily
-   ritual. https://colab.mars.college
+   ritual. Its all-in cost is about $1,500 per person covering food, materials and
+   daily living (budget ~$200 more for personal extras) — again replacing the
+   general breakdown rather than adding to it. Co Lab applies by email to
+   hello@communitylab.camp. https://colab.mars.college
 5. **MMA — the Martian Music Academy.** Twelve weeks of making songs and building
    a scene, based in a stepped pyramid of pallet racks raised for the season with
    a top deck and a projection wall, culminating in performances under the desert
@@ -545,8 +556,11 @@ https://mars.college/mit
 *Note: the Mars Institute of Technology is Mars College's own school, named as a
 desert joke. It has no connection to the Massachusetts Institute of Technology.*
 
-## Eight years of AI studies (2020–2027)
+## Eight years of AI studies (2019–2027)
 
+- **2019:** BBGAN, an early generative-video model trained on Bombay Beach and the
+  surrounding desert, shown at the Bombay Beach Biennale — before Mars College had
+  its name.
 - **2020:** the founding season ran a sixteen-node Raspberry Pi AI cluster on solar
   power and trained a GPT-2 model on the community's own chat logs.
 - **2021:** the cohort adopted CLIP-guided image generation and StyleGAN within
@@ -561,19 +575,24 @@ desert joke. It has no connection to the Massachusetts Institute of Technology.*
   were built for every Martian, and AI wove through the village's departments.
 - **2026:** autonomous agents joined camp operations — including an agent that
   helped run a communal kitchen for more than twenty people — and the curriculum
-  centered on
-  storytelling with AI.
+  centered on storytelling with AI.
 - **2027:** the program becomes the Mars Institute of Technology, teaching
   **off-grid AI engineering**: how to run and apply AI on your own hardware, your
   own power, in service of a human-first life.
 
-## The philosophy: Outsmart AGI
+## The argument: outsmart the superintelligence
 
-In Mars's own words: "It's a strange time to be human — the whole world is busy
-announcing our replacement. Mars takes the other side of the bet. We run AI locally,
-on our own power, by our own hand: local-first, renewable, DIY, self-sovereign. We
-don't work for the machine — we make it work for us, in service of a human-first
-life."
+Mars frames the AI program against a scenario it takes seriously: that recursively
+self-improving AI reshapes the economy within a decade — the future frontier-AI
+executives themselves describe, with Sam Altman saying AI "will probably, most
+likely, sort of lead to the end of the world" and Dario Amodei putting the odds
+things "go really, really badly" at 25%.
+
+Mars takes the other side of that bet. Rather than competing with the machine or
+waiting on it, the school teaches **technological self-reliance**: running AI
+locally on your own hardware and your own power, so the tools serve your life
+instead of your employer. Mars calls this off-grid AI engineering, and calls the
+posture "outsmart the superintelligence."
 
 ## What MIT teaches — Off-Grid AI Engineering
 
@@ -594,17 +613,18 @@ work from the desert, and vanlife skills (power, water, heat, shelter). Curricul
 locks in around October each year, because the AI landscape moves too fast to freeze
 it earlier.
 
-## Two tracks: online and in the desert
+## The term
 
-- **Online (fall):** the Off-Grid AI cohort — fourteen weeks of asynchronous
-  tutorials and a weekly live lab on Discord (~3 hours/week), with an Eden compute
-  grant, running roughly September through early December. Finishing the cohort
-  gives an inside track on the winter term.
-- **In the desert (winter):** the three-month on-site term at Mars, January 11 to
-  March 28, framed by Ideas Week, monthly gallery shows, Declaration Days
-  (midterm), and Mars Electronica (finals). Students give a lightning talk, show
-  work in the gallery, host a workshop of their own, and receive a compute grant
-  and access to screens, projectors, and materials.
+The MIT term runs on the ground at Mars, January 11 to March 28, 2027: Ideas Week
+(Jan 11–17), the three monthly **Moons of Mars** gallery shows, Declaration Days
+as the midterm (Feb 13–15), and Mars Electronica as finals (Mar 26–28). Students
+give a lightning talk during Ideas Week, show work in at least one gallery, host a
+workshop or screening of their own, and receive a compute grant plus access to
+screens, projectors, and materials.
+
+MIT describes itself as three things at once: an off-grid applied research lab, a
+school for outsmarting the superintelligence, and a place for learning by making —
+part camp, part academy, with an art gallery and a film academy attached.
 
 ## What students give and get
 
@@ -623,8 +643,9 @@ separate company co-founded by Mars co-founder Gene Kogan, not a Mars College
 project; students who receive compute grants on it should know the two are related
 but distinct. Related lineage includes **Abraham** (https://abraham.ai), Kogan's
 autonomous-artist project, and **Little Martians**, artist Vanessa Rosa's
-science-fiction universe developed with AI tools at Mars. Mars also runs its own network infrastructure
-(a community ISP lineage called BRAHMAN) and community bots on its Discord.
+science-fiction universe developed with AI tools at Mars. Mars also runs its own
+network infrastructure (a community ISP lineage called BRAHMAN) and community bots
+on its Discord.
 
 ## The Mars AI Film Festival
 
@@ -661,6 +682,10 @@ https://mars.college/mff
 - DPW — Department of Public Works, the build organization: https://dpw.mars.college
 - DEC — Department of Emergent Civilization, the makerspace (formerly known as Tool Camp): https://dec.mars.college
 - Co Lab — the community-practice camp: https://colab.mars.college
+- MMA — the Martian Music Academy: https://music.mars.college
+
+Note: MIT lives at https://mars.college/mit, not on a subdomain.
+(https://mit.mars.college is an unrelated easter egg.)
 
 ## Community projects
 

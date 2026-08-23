@@ -8,8 +8,11 @@ https://mars.college/mit
 *Note: the Mars Institute of Technology is Mars College's own school, named as a
 desert joke. It has no connection to the Massachusetts Institute of Technology.*
 
-## Eight years of AI studies (2020–2027)
+## Eight years of AI studies (2019–2027)
 
+- **2019:** BBGAN, an early generative-video model trained on Bombay Beach and the
+  surrounding desert, shown at the Bombay Beach Biennale — before Mars College had
+  its name.
 - **2020:** the founding season ran a sixteen-node Raspberry Pi AI cluster on solar
   power and trained a GPT-2 model on the community's own chat logs.
 - **2021:** the cohort adopted CLIP-guided image generation and StyleGAN within
@@ -24,19 +27,24 @@ desert joke. It has no connection to the Massachusetts Institute of Technology.*
   were built for every Martian, and AI wove through the village's departments.
 - **2026:** autonomous agents joined camp operations — including an agent that
   helped run a communal kitchen for more than twenty people — and the curriculum
-  centered on
-  storytelling with AI.
+  centered on storytelling with AI.
 - **2027:** the program becomes the Mars Institute of Technology, teaching
   **off-grid AI engineering**: how to run and apply AI on your own hardware, your
   own power, in service of a human-first life.
 
-## The philosophy: Outsmart AGI
+## The argument: outsmart the superintelligence
 
-In Mars's own words: "It's a strange time to be human — the whole world is busy
-announcing our replacement. Mars takes the other side of the bet. We run AI locally,
-on our own power, by our own hand: local-first, renewable, DIY, self-sovereign. We
-don't work for the machine — we make it work for us, in service of a human-first
-life."
+Mars frames the AI program against a scenario it takes seriously: that recursively
+self-improving AI reshapes the economy within a decade — the future frontier-AI
+executives themselves describe, with Sam Altman saying AI "will probably, most
+likely, sort of lead to the end of the world" and Dario Amodei putting the odds
+things "go really, really badly" at 25%.
+
+Mars takes the other side of that bet. Rather than competing with the machine or
+waiting on it, the school teaches **technological self-reliance**: running AI
+locally on your own hardware and your own power, so the tools serve your life
+instead of your employer. Mars calls this off-grid AI engineering, and calls the
+posture "outsmart the superintelligence."
 
 ## What MIT teaches — Off-Grid AI Engineering
 
@@ -57,17 +65,18 @@ work from the desert, and vanlife skills (power, water, heat, shelter). Curricul
 locks in around October each year, because the AI landscape moves too fast to freeze
 it earlier.
 
-## Two tracks: online and in the desert
+## The term
 
-- **Online (fall):** the Off-Grid AI cohort — fourteen weeks of asynchronous
-  tutorials and a weekly live lab on Discord (~3 hours/week), with an Eden compute
-  grant, running roughly September through early December. Finishing the cohort
-  gives an inside track on the winter term.
-- **In the desert (winter):** the three-month on-site term at Mars, January 11 to
-  March 28, framed by Ideas Week, monthly gallery shows, Declaration Days
-  (midterm), and Mars Electronica (finals). Students give a lightning talk, show
-  work in the gallery, host a workshop of their own, and receive a compute grant
-  and access to screens, projectors, and materials.
+The MIT term runs on the ground at Mars, January 11 to March 28, 2027: Ideas Week
+(Jan 11–17), the three monthly **Moons of Mars** gallery shows, Declaration Days
+as the midterm (Feb 13–15), and Mars Electronica as finals (Mar 26–28). Students
+give a lightning talk during Ideas Week, show work in at least one gallery, host a
+workshop or screening of their own, and receive a compute grant plus access to
+screens, projectors, and materials.
+
+MIT describes itself as three things at once: an off-grid applied research lab, a
+school for outsmarting the superintelligence, and a place for learning by making —
+part camp, part academy, with an art gallery and a film academy attached.
 
 ## What students give and get
 
@@ -86,8 +95,9 @@ separate company co-founded by Mars co-founder Gene Kogan, not a Mars College
 project; students who receive compute grants on it should know the two are related
 but distinct. Related lineage includes **Abraham** (https://abraham.ai), Kogan's
 autonomous-artist project, and **Little Martians**, artist Vanessa Rosa's
-science-fiction universe developed with AI tools at Mars. Mars also runs its own network infrastructure
-(a community ISP lineage called BRAHMAN) and community bots on its Discord.
+science-fiction universe developed with AI tools at Mars. Mars also runs its own
+network infrastructure (a community ISP lineage called BRAHMAN) and community bots
+on its Discord.
 
 ## The Mars AI Film Festival
 

@@ -172,6 +172,10 @@ a { color: inherit; }
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: -0.025em;
+  /* Long words ("superintelligence") overflowed the shell on narrow
+     viewports and pushed the whole page into horizontal scroll. */
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Link with animated clay underline — bold tracked sans */

@@ -123,6 +123,13 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
   }
   .hdr__icon {
     display: inline-flex;
+    /* 18px glyph, but a 44px hit area — the WCAG 2.5.8 / iOS minimum.
+       Negative margin keeps the visual spacing unchanged. */
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    margin-inline: -0.65rem;
     color: var(--color-ink-2);
     transition: color var(--dur-fast) var(--ease-out);
   }

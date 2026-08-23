@@ -58,6 +58,9 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 - **Co Lab:** the Community Lab camp — a three-month practice in coherent
   community, sociocratic governance, and daily ritual.
   https://colab.mars.college
+- **MMA:** the Martian Music Academy — twelve weeks of making songs and building
+  a scene, performing on a stepped pyramid of pallet racks raised for the season.
+  https://music.mars.college
 - **Treasury:** the transparent community fund that pays for shared services.
 - **Council / circles:** the elected and volunteer bodies through which the
   community governs itself.

@@ -22,6 +22,10 @@
 - DPW — Department of Public Works, the build organization: https://dpw.mars.college
 - DEC — Department of Emergent Civilization, the makerspace (formerly known as Tool Camp): https://dec.mars.college
 - Co Lab — the community-practice camp: https://colab.mars.college
+- MMA — the Martian Music Academy: https://music.mars.college
+
+Note: MIT lives at https://mars.college/mit, not on a subdomain.
+(https://mit.mars.college is an unrelated easter egg.)
 
 ## Community projects
 

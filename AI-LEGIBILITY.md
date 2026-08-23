@@ -22,7 +22,7 @@ fetch .md and send `Accept: text/markdown`, and the cost here is near zero.
   - `how-mars-works.md` — camps, DPW, Treasury, governance, costs, norms
   - `history.md` — 2019–2026 season-by-season arc (public-safe)
   - `traditions.md` — glossary: Thunder Talks, Chiba, Mars Electronica…
-  - `mars-2027.md` — Season 8 timeline, four camps, costs, grants
+  - `mars-2027.md` — Season 8 timeline, five camps, costs, grants
   - `ai.md` — MIT, Off-Grid AI Engineering, online cohort, Eden, film festival
   - `links.md` — socials, projects, press
 - `public/robots.txt` — explicit AI welcome + Cloudflare Content Signals opt-in

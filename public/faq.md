@@ -25,8 +25,7 @@ Diego.
 ## When does it run?
 
 Build: November–December. The season: January 11 to late March. Mars Electronica, the
-final exhibition festival: March 26–28, 2027. Unbuild: through April. There is also
-an online AI cohort in the fall (roughly September–December).
+final exhibition festival: March 26–28, 2027. Unbuild: March 29 through May 1.
 
 ## How much does it cost?
 
@@ -41,8 +40,13 @@ micro-business operators earn most or all of it back.
 Apply at https://mars.college — admissions are rolling, and earlier is better.
 Joining starts with applying to one of the camps: DPW (the build crew,
 https://dpw.mars.college), the Department of Emergent Civilization (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
-Technology, the AI school), or Co Lab (community practice) — or by proposing a new
-camp (info@mars.college).
+Technology, the AI school), Co Lab (community practice), or MMA (the Martian Music
+Academy, https://music.mars.college) — or by proposing a new camp
+(info@mars.college).
+
+Each camp runs its own application, so start from the camp page you want. MIT's
+form is on https://mars.college/mit; Co Lab applies by email to
+hello@communitylab.camp.
 
 ## What do I have to do while I'm there?
 

@@ -7,14 +7,14 @@ its operating system as of the 2027 season.
 ## The annual cycle
 
 - **Off-season (spring–fall):** the campus does not exist. The community plans the
-  next season online, publishes announcements on Substack, and runs online programs.
+  next season online and publishes announcements on Substack.
 - **Build (November–December):** the DPW crew and early arrivals raise the campus
   from bare desert — pallet-rack structures, plywood walls, solar power, water
   systems, kitchens, internet.
 - **Season (January–late March):** the full community lives on campus. Classes,
   projects, talks, exhibitions, and village operations run daily.
-- **Unbuild (April):** everything comes down. Materials are inventoried and stored;
-  the desert is returned to bare ground by May 1.
+- **Unbuild (March 29 – May 1):** everything comes down. Materials are inventoried
+  and stored; the desert is returned to bare ground.
 
 ## Camps
 
@@ -24,9 +24,11 @@ Recent and current camps include the DPW build crew (https://dpw.mars.college),
 the Department of Emergent Civilization (the makerspace, formerly known as Tool
 Camp — https://dec.mars.college), the Mars Institute of Technology (the AI
 school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
-governance practice — https://colab.mars.college), and others that form season
-to season. Camps internalize some services (usually food) and pool the rest
-through the Treasury.
+governance practice — https://colab.mars.college), and MMA, the Martian Music
+Academy (twelve weeks of making songs and building a scene —
+https://music.mars.college). Camps form and retire season to season; each
+internalizes some services (usually food) and pools the rest through the
+Treasury.
 
 ## DPW — Department of Public Works
 

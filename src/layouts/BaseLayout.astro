@@ -98,9 +98,16 @@ const orgLd = {
     <Analytics />
     <style>
       .skip-link {
+        /* clip-based hiding: left:-999px created a phantom 7px horizontal
+           scroll on narrow viewports */
         position: absolute;
-        left: -999px;
+        left: 0;
         top: 0;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
         background: var(--color-ink);
         color: var(--color-paper);
         padding: 0.75rem 1rem;
@@ -110,7 +117,10 @@ const orgLd = {
         z-index: 100;
       }
       .skip-link:focus {
-        left: 0;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip-path: none;
       }
     </style>
   </body>
