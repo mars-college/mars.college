@@ -102,18 +102,15 @@ Two AI-legibility caveats worth knowing:
    the AI corpus point at). Pick one per camp, then either 301 the loser like
    `/toolcamp` already does, or drop it from the sitemap. Until then both
    compete for the same search/answer-engine result.
-1. **Search Console + Bing Webmaster Tools** — register mars.college in both and
-   submit the sitemap (ChatGPT search is substantially Bing-backed). Optional:
-   wire an IndexNow ping into the Vercel deploy hook.
-2. **`<link rel="alternate" type="text/markdown" href="/<page>.md">`** in
+1. **`<link rel="alternate" type="text/markdown" href="/<page>.md">`** in
    BaseLayout for pages with .md twins (optional, cheap).
-3. **If Cloudflare DNS is ever put in front of the domain** (it isn't today —
+2. **If Cloudflare DNS is ever put in front of the domain** (it isn't today —
    DigitalOcean holds the zone, Vercel serves): disable "Block AI bots" /
    managed robots.txt in AI Crawl Control, or it silently overrides our
    robots.txt. Cloudflare has blocked AI crawlers by default since July 2025.
    Datapoint: theguardian.com blocks Anthropic's crawler and is invisible to
    Claude's web tools — that's what being blocked looks like.
-4. **Off-site (the biggest lever, not a website task):** consistent one-line
+3. **Off-site (the biggest lever, not a website task):** consistent one-line
    description everywhere (Substack about, IG bio, X bio, GitHub org);
    a Wikipedia article if notability supports it (the Guardian feature +
    Supernuclear case study + Campfire podcast are citable sources); keep press
