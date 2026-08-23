@@ -7,9 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/gen-llms-full.mjs && astro build",
+    "build": "node scripts/gen-llms-full.mjs && astro build && node scripts/indexnow.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.3",

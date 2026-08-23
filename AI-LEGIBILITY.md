@@ -118,3 +118,21 @@ Two AI-legibility caveats worth knowing:
    a Wikipedia article if notability supports it (the Guardian feature +
    Supernuclear case study + Campfire podcast are citable sources); keep press
    links alive on links.md.
+
+## Search engine registration (Aug 23, 2026)
+
+- **Google Search Console** — URL-prefix property `https://mars.college/`,
+  verified by HTML file (`public/googlea207241a01a7318c.html` — do not delete,
+  removing it un-verifies). Sitemap `sitemap-index.xml` submitted.
+- **Bing Webmaster Tools** — property imported from GSC (which also imports
+  sitemaps). Bing is worth the trouble because ChatGPT search is substantially
+  Bing-backed.
+- **IndexNow** — `scripts/indexnow.mjs` runs as the last step of `pnpm build`
+  and POSTs every sitemap URL to `api.indexnow.org`, which fans out to Bing,
+  Yandex, Seznam and Naver. Needs no account from any of them: ownership is
+  proved by the `<key>.txt` file at the site root. A 202 response is success
+  ("accepted, key validation pending"), not an error.
+  Re-run standalone with `pnpm indexnow` after a content change.
+  **If the key file is ever renamed or deleted, generate a new one**
+  (`openssl rand -hex 16`) and write it into `public/<key>.txt` — the script
+  finds it by pattern, so nothing else needs editing.
