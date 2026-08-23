@@ -208,7 +208,7 @@ const courseLd = {
   "@type": "Course",
   name: "Off-Grid AI Engineering",
   description:
-    "The flagship course of the Mars Institute of Technology (MIT): build sovereign, off-grid AI — personal AI agents, art with AI, and earning a living with AI. An online cohort plus a winter term at Mars College in the California desert.",
+    "The flagship course of the Mars Institute of Technology (MIT): build sovereign, off-grid AI — personal AI agents, art with AI, and earning a living with AI. A winter term at Mars College in the California desert.",
   provider: {
     "@type": "EducationalOrganization",
     name: "Mars Institute of Technology",
@@ -220,11 +220,12 @@ const courseLd = {
   },
   url: "https://mars.college/mit",
   hasCourseInstance: [
-    { "@type": "CourseInstance", courseMode: "Online", name: "Off-Grid AI online cohort" },
     {
       "@type": "CourseInstance",
       courseMode: "Onsite",
       name: "Mars College winter term",
+      startDate: "2027-01-11",
+      endDate: "2027-03-28",
       location: { "@type": "Place", name: "Bombay Beach, California" },
     },
   ],

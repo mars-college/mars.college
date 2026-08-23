@@ -26,7 +26,7 @@ Key facts: founded 2020 by Gene Kogan and Freeman; AI-native since the founding 
 ## Camp sites (each camp runs its own site on a subdomain)
 
 - [DPW](https://dpw.mars.college): the build organization — materials, crew, concessions
-- [Department of Emergent Civilization](https://dec.mars.college): the makerspace residency (DEC, formerly known as Tool Camp)
+- [Department of Makers](https://dom.mars.college): the makerspace residency (DOM, formerly known as Tool Camp)
 - [Martian Music Academy](https://music.mars.college): the music camp (MMA)
 - [Co Lab](https://colab.mars.college): the community-practice camp
 

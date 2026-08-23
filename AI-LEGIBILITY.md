@@ -23,7 +23,7 @@ fetch .md and send `Accept: text/markdown`, and the cost here is near zero.
   - `history.md` — 2019–2026 season-by-season arc (public-safe)
   - `traditions.md` — glossary: Thunder Talks, Chiba, Mars Electronica…
   - `mars-2027.md` — Season 8 timeline, five camps, costs, grants
-  - `ai.md` — MIT, Off-Grid AI Engineering, online cohort, Eden, film festival
+  - `ai.md` — MIT, Off-Grid AI Engineering, the term, Eden, film festival
   - `links.md` — socials, projects, press
 - `public/robots.txt` — explicit AI welcome + Cloudflare Content Signals opt-in
   (`Content-Signal: search=yes, ai-input=yes, ai-train=yes`).
@@ -57,7 +57,7 @@ file(s) and `src/data/site.ts` together, then build.
   session scratchpad). Per-page cards: `/og-mit.jpg` (seal on paper),
   `/og-mff.jpg` (night screening). `og:image:alt`/`twitter:image:alt` added.
 - **Homepage `<title>`** now leads with "Mars College".
-- **Sitemap** filter: the public pages only — currently /, /mit, /mff, /dec,
+- **Sitemap** filter: the public pages only — currently /, /mit, /mff, /dom,
   /colab. Excluded: /apply (noindex), /build, and /mit-court.
 - **404 page** added (`src/pages/404.astro`, on-brand, noindex).
 - Facts corrected on /mit: fifth annual film festival in 2027; first festival
@@ -74,7 +74,9 @@ in DigitalOcean, with a one-file Vercel proxy project per host in `web/`:
 | Host | Proxy project | Serves |
 |---|---|---|
 | `dpw.mars.college` | `web/dpw-proxy` | Freeman's site at `server.slablife.org/dpw.mars.college/` |
-| `dec.mars.college` | `web/dec-proxy` | `thedec.lovable.app` |
+| `dom.mars.college` | `web/dom-proxy` | `thedec.lovable.app` (the camp's Lovable app, still named `thedec`) |
+| `dec.mars.college` | `web/dec-proxy` | 308 → `dom.mars.college` (legacy) |
+| `music.mars.college` | `web/music-proxy` | the MMA camp site |
 | `colab.mars.college` | `web/colab-proxy` | `marscommunitylab.lovable.app` |
 | `mit.mars.college` | `web/mit-proxy` | this build's `/mit-court` (experimental, noindex) |
 
@@ -88,14 +90,14 @@ Two AI-legibility caveats worth knowing:
   page (that's `mars.college/mit`). It's `noindex`, so search engines won't
   confuse them, but an agent guessing the subdomain from the camp pattern will
   land on the wrong page.
-- `mars.college/dec` and `mars.college/colab` still exist as indexable pages
+- `mars.college/dom` and `mars.college/colab` still exist as indexable pages
   duplicating the camps' own subdomain sites, and are in the sitemap. The AI
   corpus points at the subdomains. See "Remaining" below.
 
 ## Remaining / external
 
-0. **Decide the canonical home for DEC and Co Lab.** Right now each camp has two
-   live pages: the in-repo `mars.college/dec` + `/colab` (in the sitemap, not
+0. **Decide the canonical home for DOM and Co Lab.** Right now each camp has two
+   live pages: the in-repo `mars.college/dom` + `/colab` (in the sitemap, not
    linked from anywhere) and the camp's own subdomain (what the nav cards and
    the AI corpus point at). Pick one per camp, then either 301 the loser like
    `/toolcamp` already does, or drop it from the sitemap. Until then both

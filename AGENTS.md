@@ -4,7 +4,7 @@ The live Mars College website: Astro + Tailwind v4, static, near-zero JS, recrui
 
 - **This directory is what mars.college serves.** Live on the domain since Aug 1, 2026 — Vercel project `mars-v2`, domains `mars.college` + `www.mars.college` (www→apex 301 in `vercel.json`). Deploy with `vercel deploy --prod` from here.
 - **This is a git repo** (branch `v2`, remote `github.com/genekogan/mars.college`) **and it is public** — the only versioned subtree in the Mars archive, so it's the one place a bad commit becomes publicly visible. Check diffs for secrets before committing.
-- **Camp subdomains** (`dpw.` / `dec.` / `colab.` / `mit.mars.college`) are served by four one-file proxy projects in `web/*-proxy`, outside this repo. Read `AI-LEGIBILITY.md` § Subdomains before touching DNS or those hosts.
+- **Camp subdomains** (`dpw.` / `dom.` / `colab.` / `music.` / `mit.mars.college`) are served by one-file proxy projects in `web/*-proxy`, outside this repo. Read `AI-LEGIBILITY.md` § Subdomains before touching DNS or those hosts.
 - **AI-facing corpus** (`public/*.md`, `llms.txt`) has its own doc: `AI-LEGIBILITY.md`. `llms-full.txt` is generated at build — never hand-edit it.
 - **Archival, no longer serving:** `../mars.college` (the first Astro rebuild — despite older notes calling it "the Next.js app" — which held the domain until the Aug 1 cutover; its routes were `/`, `/apply`, `/build`, `/learn*`, `/thrive`) and `../mars.college_old_jekyll` (the original Jekyll site: `/join`, `/study`, `/gallery`, `/work`, and dated blog posts). Both sets of URLs are redirected — see "Legacy URL redirects".
 
@@ -33,7 +33,7 @@ Each run prints a fresh random `*.trycloudflare.com` URL — there's no persiste
 
 All site copy comes from the planning space: **`/Users/gene/Mars/planning/2027/`** — `README.md` (index), `timeline.md`, `ai-program.md`, `dpw.md`, `economics.md`, `services.md`, `admissions.md`, `architecture.md`, `website-content.md`, `organization.md`, `agent-olympics.md`, `medical.md`, `open-items.md`. Don't invent program facts; pull from there.
 
-Key facts already on the site: timeline (online AI cohort **~Aug 31** · Build **Nov–Dec** · Mars begins **Jan 11** · Mars Electronica **Mar 26–28**); applications are **rolling**; the real application forms are live as embedded Tally forms — see the "Tally forms" section below. The nav Apply CTA points at `/#apply` on the home page (each camp card then links to that camp's own application).
+Key facts already on the site: timeline (Build **Nov–Dec** · Mars begins **Jan 11** · Mars Electronica **Mar 26–28**); applications are **rolling**; the real application forms are live as embedded Tally forms — see the "Tally forms" section below. The nav Apply CTA points at `/#apply` on the home page (each camp card then links to that camp's own application).
 
 **When a date or program fact changes, it lives in three places that must move together:** `src/data/site.ts`, the AI-facing corpus in `public/*.md` (see `AI-LEGIBILITY.md`), and `planning/2027/`.
 
@@ -42,7 +42,7 @@ Key facts already on the site: timeline (online AI cohort **~Aug 31** · Build *
 ```
 src/
   pages/        index.astro, mit.astro (Mars Institute of Technology),
-                mff.astro (AI Film Festival), dec.astro, colab.astro,
+                mff.astro (AI Film Festival), dom.astro, colab.astro,
                 apply.astro (hidden — Tally form embed; noindex),
                 mit-court.astro (standalone; served at mit.mars.college),
                 404.astro, build.astro (kept for reference, unlinked)
@@ -97,9 +97,9 @@ In `src/assets/photos/**` (and `brand/**`), copied from the old repo's curated s
 
 ## Pages
 
-- **/** home: aerial hero + timeline strip → "What is Mars College" intro → the **four camp cards** (DPW · MIT · DEC · Co Lab, each linking to that camp's own site/page) → **Outsmart the superintelligence** → Activities mosaic → FAQ → Mars 2027 apply.
-- **/dec** — **Department of Emergent Civilization**, the makerspace (renamed from Tool Camp for 2027). ⚠️ Currently unlinked: the nav card and the `/toolcamp` redirect both point at the camp's own site, `dec.mars.college`. Decide which is canonical — see `AI-LEGIBILITY.md` § Remaining, item 0.
-- **/colab** — **Co Lab** / Community Lab. Same caveat as /dec: `colab.mars.college` is what the nav points at.
+- **/** home: aerial hero + timeline strip → "What is Mars College" intro → the **four camp cards** (DPW · MIT · DOM · Co Lab, each linking to that camp's own site/page) → **Outsmart the superintelligence** → Activities mosaic → FAQ → Mars 2027 apply.
+- **/dom** — **Department of Makers**, the makerspace (renamed from Tool Camp for 2027). ⚠️ Currently unlinked: the nav card and the `/toolcamp` redirect both point at the camp's own site, `dom.mars.college`. Decide which is canonical — see `AI-LEGIBILITY.md` § Remaining, item 0.
+- **/colab** — **Co Lab** / Community Lab. Same caveat as /dom: `colab.mars.college` is what the nav points at.
 - **/build**: superseded by `dpw.mars.college` but kept for reference. `noindex`, out of the sitemap, unlinked. (`/learn*`, `/build0–5`, `/thrive` and `/agentlab*` were deleted.)
 - **/mit** — **Mars Institute of Technology (MIT)**, the AI school, rebranded from the "AI camp". Emblem-led header (seal at `src/assets/brand/mit-emblem.png`); sections: What MIT is (pillars) → **Eight years of AI studies** (2019–2027 full-bleed justified-masonry gallery, each image opens a lightbox) → Upcoming programs (give/get + "The semester") → **Off-Grid AI Engineering** course (topics, doom quotes, "year is 2033", Takeoff video) → **The gallery** (carousel) → **The Film Festival** (full-bleed banner → /mff) → off-season cohort. The homepage AI section + CTA now point here (was /learn). Derived from /learn but diverged; edit independently.
 - **/mff** — **Mars AI Film Festival**. Embeds all four annual festival reels (2023–2026) from the [Mars College YouTube channel](https://www.youtube.com/@MarsCollege-k7t/videos) via `youtube-nocookie`, plus a gallery of past screenings (assets in `src/assets/photos/mff/`). Linked from the Film Festival banner on /mit.
@@ -141,7 +141,7 @@ The **2027 application form** is a [Tally.so](https://tally.so) form embedded on
 - **Page 4** What you're bringing: open text + areas-of-practice multi-select + optional class offering.
 - **Page 5** Cinema: favorite movie + willingness to host a screening (see `planning/2027/admissions.md` for the rationale).
 - **Page 6** Participation: academic-intent linear scale 1–5 + volunteer preferences multi-select.
-- **Page 7** AI program interest: which of the 5 core topics + interest in the online Sep–Dec cohort.
+- **Page 7** AI program interest: which of the 5 core topics.
 - **Page 8** Anything else → thank-you screen with "Back to mars.college" button.
 - Conditional logic: 4 rules (returning=No → how-you-heard, returning=Yes → seasons+camp, returning=No → arrival track, vehicle=Yes → what kind).
 - **Theme:** Inter, Light background, accent `#b6442a` (matches `--color-clay`).
@@ -165,7 +165,7 @@ The **2027 application form** is a [Tally.so](https://tally.so) form embedded on
 
 ## Open / next steps
 
-- **Pick a canonical home for DEC and Co Lab** — the in-repo `/dec` + `/colab` pages currently compete with the camps' own subdomains. Details in `AI-LEGIBILITY.md` § Remaining, item 0.
+- **Pick a canonical home for DOM and Co Lab** — the in-repo `/dom` + `/colab` pages currently compete with the camps' own subdomains. Details in `AI-LEGIBILITY.md` § Remaining, item 0.
 - **Register mars.college in Google Search Console and Bing Webmaster Tools** and submit the sitemap — not done yet, and it's the main thing gating search/AI-answer indexing of the new site.
 - **Volley duplication**: `src/pages/mit-court.astro` carries its own copy of the boot script and court CSS from `SiteFooter.astro`. They already drifted once. Worth extracting a `VolleyCourt.astro` with a `gated`/`alwaysOn` prop next time either is touched.
 - **Unicyclists**: retired from the hero (RiderField.astro kept on disk, unused). Gene may want them represented in Activities.

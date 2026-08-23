@@ -12,8 +12,13 @@
       "permanent": true
     },
     {
+      "source": "/dec(/)?",
+      "destination": "/dom",
+      "permanent": true
+    },
+    {
       "source": "/toolcamp(/)?",
-      "destination": "https://dec.mars.college",
+      "destination": "https://dom.mars.college",
       "permanent": true
     },
     {
@@ -48,7 +53,7 @@
     },
     {
       "source": "/tool-camp(/)?",
-      "destination": "https://dec.mars.college",
+      "destination": "https://dom.mars.college",
       "permanent": true
     },
     {

@@ -20,7 +20,7 @@
 ## Camp sites (each on its own subdomain)
 
 - DPW — Department of Public Works, the build organization: https://dpw.mars.college
-- DEC — Department of Emergent Civilization, the makerspace (formerly known as Tool Camp): https://dec.mars.college
+- DOM — Department of Makers, the makerspace (formerly known as Tool Camp): https://dom.mars.college
 - Co Lab — the community-practice camp: https://colab.mars.college
 - MMA — the Martian Music Academy: https://music.mars.college
 

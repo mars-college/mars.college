@@ -67,13 +67,13 @@ export const PILLARS = [
     cta: "Apply to MIT",
   },
   {
-    title: "DEC",
-    ev: "camp-dec",
-    sub: "Department of Emergent Civilization",
+    title: "DOM",
+    ev: "camp-dom",
+    sub: "Department of Makers",
     blurb:
       "Mars's makerspace and shared workshop: saws, drills, 3D printers, kilns, tools, and desks for people building things with their hands.",
-    href: "https://dec.mars.college",
-    cta: "Apply to DEC",
+    href: "https://dom.mars.college",
+    cta: "Apply to DOM",
   },
   {
     title: "Co Lab",
@@ -275,7 +275,7 @@ export const CONCESSIONS = [
   "Golf cart rentals",
 ];
 
-// Season cost breakdown — used on /dec (and previously /thrive).
+// Season cost breakdown — used on /dom (and previously /thrive).
 export const COSTS = [
   {
     amount: "~$500",

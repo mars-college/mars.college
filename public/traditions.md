@@ -49,9 +49,9 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
   season — the basic social unit of the village.
 - **DPW:** the Department of Public Works — the build organization that raises,
   maintains, and strikes the village. https://dpw.mars.college
-- **DEC:** the Department of Emergent Civilization — Mars's makerspace and
+- **DOM:** the Department of Makers — Mars's makerspace and
   workshop camp, known as **Tool Camp** through the 2026 season and renamed for
-  2027. https://dec.mars.college
+  2027. https://dom.mars.college
 - **MIT:** the Mars Institute of Technology — the AI school, grown out of what
   earlier seasons called AI Camp or the Creative AI major.
   https://mars.college/mit

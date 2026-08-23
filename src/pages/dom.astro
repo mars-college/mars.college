@@ -1,7 +1,7 @@
 ---
-// /dec — the Department of Emergent Civilization (DEC, formerly Tool Camp),
+// /dom — the Department of Makers (DOM, formerly Tool Camp),
 // Mars College's makerspace. NOTE: /toolcamp 308-redirects to the camp's own
-// site at dec.mars.college (vercel.json), NOT to this page; the nav card also
+// site at dom.mars.college (vercel.json), NOT to this page; the nav card also
 // points there. This page is currently unlinked — see AI-LEGIBILITY.md.
 // Sections below the header copy the camp lead's mockup at
 // https://toolcamp.lovable.app/ : DM Serif Display headings + Space Grotesk
@@ -58,7 +58,7 @@ const SNAP_ALTS = {
 const SNAPS = Object.entries(snapModules)
   .map(([path, img]) => {
     const n = snapNum(path);
-    return { n, img, alt: SNAP_ALTS[n] ?? "Department of Emergent Civilization, past seasons" };
+    return { n, img, alt: SNAP_ALTS[n] ?? "Department of Makers, past seasons" };
   })
   .sort((a, b) => a.n - b.n);
 
@@ -114,13 +114,13 @@ const COSTS = [
   },
   {
     amount: "$500 – 1000",
-    title: "DEC contribution",
+    title: "DOM contribution",
     body: "Depending on whether you opt into the communal grocery fund and kitchen.",
   },
   {
     amount: "Self-funded",
     title: "Personal projects",
-    body: "Limited micro-grants may be available for projects that align with the DEC's mission or contribute to shared infrastructure.",
+    body: "Limited micro-grants may be available for projects that align with the DOM's mission or contribute to shared infrastructure.",
   },
 ];
 
@@ -129,7 +129,7 @@ const SEASON = [
   { date: "Jan 11", title: "The rest of camp arrives", body: "For those who couldn't come early." },
   { date: "Jan 5", title: "Build week", body: "We finish the common space, kitchen, and workshop." },
   { date: "Jan 10", title: "Ideas week", body: "Settle in and start thinking about your project. Nightly lectures where Martians share who they are and what they'll work on." },
-  { date: "Jan 18", title: "The semester begins", body: "From here to midterms: work on your project and join the general collaboration of the DEC." },
+  { date: "Jan 18", title: "The semester begins", body: "From here to midterms: work on your project and join the general collaboration of the DOM." },
   { date: "Feb 12", title: "Midterms weekend", body: "The Mars campus pauses and comes together to present where each of us is at." },
   { date: "Mar 8", title: "Final projects begin", body: "A two-week push to finish projects and compile documentation." },
   { date: "Mar 26 – 28", title: "Mars Electronica", body: "A weekend where Martians present their final projects." },
@@ -139,7 +139,7 @@ const SEASON = [
 ---
 
 <BaseLayout
-  title="Department of Emergent Civilization — Mars College 2027"
+  title="Department of Makers — Mars College 2027"
   description="A three-month desert residency inside Mars College for building, stress-testing, and open-sourcing off-grid, DIY, deployable infrastructure."
 >
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -152,7 +152,7 @@ const SEASON = [
   <PageHeader
     index=""
     label="Mars College · Jan – Apr 2027"
-    title="The Department of Emergent Civilization is Mars College's Makerspace"
+    title="The Department of Makers is Mars College's Makerspace"
     lede="A three-month desert residency inside Mars College for building, stress-testing, and open-sourcing off-grid, DIY, deployable infrastructure."
     image={heroImg}
     imageAlt="Two people silhouetted on a pallet-rack structure against a vivid desert sunset"
@@ -176,14 +176,14 @@ const SEASON = [
       <div class="tc2-wrap">
         <div class="tc2-num"><span class="tc2-num__no">01</span><span class="tc2-num__lbl">The Overview</span></div>
         <div class="tc2-grid">
-          <h2 class="tc2-h">The Department of Emergent Civilization (DEC) is a field laboratory for life after certainty.</h2>
+          <h2 class="tc2-h">The Department of Makers (DOM) is a field laboratory for life after certainty.</h2>
           <div class="tc2-prose">
-            <p>The Salton Sea region is a difficult place to live. With no direct hookup to water, power, or waste-disposal services, the Mars College campus is an experiment in off-grid living. As the workshop and R&D arm of Mars, the DEC treats this environment as a unique opportunity and design challenge: to see how affordably we can meet as many of our living needs as possible, reduce our waste streams, and have fun doing it.</p>
+            <p>The Salton Sea region is a difficult place to live. With no direct hookup to water, power, or waste-disposal services, the Mars College campus is an experiment in off-grid living. As the workshop and R&D arm of Mars, the DOM treats this environment as a unique opportunity and design challenge: to see how affordably we can meet as many of our living needs as possible, reduce our waste streams, and have fun doing it.</p>
             <p>The stakes on Mars are ultimately low, but we think the importance of developing these systems is high. Whether for environmental or human-made disasters, occupy movements, or just reducing our collective costs and material dependencies, there's something to be learned by figuring out how to live where there are no systems to support us.</p>
           </div>
         </div>
         <figure class="tc2-feature">
-          <Image src={printerImg} alt="The camp gathered around a 3D-printer demo inside the DEC workshop" widths={[700, 1100, 1400]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={74} loading="lazy" />
+          <Image src={printerImg} alt="The camp gathered around a 3D-printer demo inside the DOM workshop" widths={[700, 1100, 1400]} sizes="(max-width: 1400px) 100vw, 1400px" format="webp" quality={74} loading="lazy" />
         </figure>
       </div>
     </section>
@@ -196,7 +196,7 @@ const SEASON = [
           <h2 class="tc2-h">A collaborative research and fabrication residency.</h2>
           <div class="tc2-prose">
             <p>Every resident arrives with an ambitious project of their own — a machine to prototype, a material to investigate, a sculpture to fabricate, a system to test, or an idea to bring into the physical world. Most days are spent immersed in that work, supported by a workshop full of tools and a community of people eager to help solve difficult problems.</p>
-            <p class="tc2-lead">But the DEC has a second project: the DEC itself.</p>
+            <p class="tc2-lead">But the DOM has a second project: the DOM itself.</p>
             <p>The workshop, the kitchen, the shared spaces, and the camp's infrastructure are all collectively built, maintained, and improved by the people who use them. Residents help set up the spaces we inhabit, keep the shop running safely, share responsibility for communal systems, and leave the camp better than we found it.</p>
           </div>
         </div>
@@ -213,9 +213,9 @@ const SEASON = [
         <div class="tc2-grid">
           <h2 class="tc2-h">Come with a project. Come prepared.</h2>
           <div class="tc2-prose">
-            <p>The DEC is a project-based residency. Every participant is selected on a proposed project or area of investigation they intend to pursue during the program. We welcome projects at many stages — from well-defined prototypes to focused research questions — but the strongest applications arrive with a clear plan and realistic goals. The more groundwork done before arriving, the more time you'll have to build, test, iterate, and collaborate once you're here.</p>
+            <p>The DOM is a project-based residency. Every participant is selected on a proposed project or area of investigation they intend to pursue during the program. We welcome projects at many stages — from well-defined prototypes to focused research questions — but the strongest applications arrive with a clear plan and realistic goals. The more groundwork done before arriving, the more time you'll have to build, test, iterate, and collaborate once you're here.</p>
             <p>Mars is an excellent place to stress-test ideas under real-world conditions. It's less well suited to discovering halfway through a build that you're missing a specialized fitting from the hardware store. Projects that are thoughtfully prepared, largely self-contained, or designed to work within the constraints of a remote environment are far more likely to succeed.</p>
-            <p>Finally, the DEC follows a Leave No Trace philosophy. The camp is temporary, and we strive to leave the landscape exactly as we found it. Permanent construction, lasting alterations to the site, or work that can't be cleanly removed at the end of the residency will generally not be accepted.</p>
+            <p>Finally, the DOM follows a Leave No Trace philosophy. The camp is temporary, and we strive to leave the landscape exactly as we found it. Permanent construction, lasting alterations to the site, or work that can't be cleanly removed at the end of the residency will generally not be accepted.</p>
           </div>
         </div>
         <figure class="tc2-frame tc2-frame--16x9 tc2-below">
@@ -251,9 +251,9 @@ const SEASON = [
         <div class="tc2-grid">
           <h2 class="tc2-h">The Workshop.</h2>
           <div class="tc2-prose">
-            <p>The DEC is centered on a shared fabrication workshop equipped with power, tools, and common work areas for a wide range of projects. Every resident gets a dedicated personal workspace plus full access to the shared shop and its equipment.</p>
+            <p>The DOM is centered on a shared fabrication workshop equipped with power, tools, and common work areas for a wide range of projects. Every resident gets a dedicated personal workspace plus full access to the shared shop and its equipment.</p>
             <p>The workshop itself is an evolving prototype. Each year we refine, expand, and improve the infrastructure. Last season we built a dedicated solar-powered tool trailer and significantly expanded our mobile workshop; this year's residents inherit that work — and help shape what comes next. Our structures are modular, portable, and designed to be assembled, disassembled, and transported each season.</p>
-            <p>The DEC is not a pristine laboratory; it's a field workshop. Expect dust, wind, sun, rain, and the occasional improvisation. Working within those constraints is part of the experience — and part of the design challenge.</p>
+            <p>The DOM is not a pristine laboratory; it's a field workshop. Expect dust, wind, sun, rain, and the occasional improvisation. Working within those constraints is part of the experience — and part of the design challenge.</p>
           </div>
         </div>
         <div class="tc2-duo">
@@ -274,7 +274,7 @@ const SEASON = [
         <div class="tc2-grid">
           <h2 class="tc2-h">Life on Mars.</h2>
           <div>
-            <p class="tc2-prose">The DEC supports a range of living styles. Some residents arrive in fully equipped vans or campers and want to cook independently; others opt into a communal meal plan. Rather than expecting everyone to participate the same way, we offer flexible options and let residents decide what works best.</p>
+            <p class="tc2-prose">The DOM supports a range of living styles. Some residents arrive in fully equipped vans or campers and want to cook independently; others opt into a communal meal plan. Rather than expecting everyone to participate the same way, we offer flexible options and let residents decide what works best.</p>
             <dl class="tc2-sub">
               {LIVING.map((l) => (
                 <div class="tc2-sub__row">
@@ -375,7 +375,7 @@ const SEASON = [
             <a href={APPLY_URL} class="tc2-btn">Apply to the camp <span aria-hidden="true">→</span></a>
             <a href={`mailto:${EMAIL}?subject=Tool%20Camp%20—%20question`} class="tc2-apply__email">{EMAIL}</a>
           </div>
-          <p class="tc2-apply__foot">Department of Emergent Civilization · A program of Mars College</p>
+          <p class="tc2-apply__foot">Department of Makers · A program of Mars College</p>
         </div>
       </div>
     </section>
@@ -383,7 +383,7 @@ const SEASON = [
 
   <style>
     /* ============================================================
-       DEC (formerly Tool Camp) — mockup design language (DM Serif Display + Space
+       DOM (formerly Tool Camp) — mockup design language (DM Serif Display + Space
        Grotesk, bone / dust / ink, 12-col grids, a photo below each
        section). Scoped under .tc2 so the rest of the site is untouched.
        ============================================================ */

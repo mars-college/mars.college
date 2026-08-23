@@ -39,7 +39,7 @@ micro-business operators earn most or all of it back.
 
 Apply at https://mars.college — admissions are rolling, and earlier is better.
 Joining starts with applying to one of the camps: DPW (the build crew,
-https://dpw.mars.college), the Department of Emergent Civilization (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
+https://dpw.mars.college), the Department of Makers (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
 Technology, the AI school), Co Lab (community practice), or MMA (the Martian Music
 Academy, https://music.mars.college) — or by proposing a new camp
 (info@mars.college).

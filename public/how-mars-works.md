@@ -21,8 +21,8 @@ its operating system as of the 2027 season.
 Mars is a federation of **camps** — groups of people who commit to live together as
 a cluster for the season, each with its own intake, footprint, dues, and character.
 Recent and current camps include the DPW build crew (https://dpw.mars.college),
-the Department of Emergent Civilization (the makerspace, formerly known as Tool
-Camp — https://dec.mars.college), the Mars Institute of Technology (the AI
+the Department of Makers (the makerspace, formerly known as Tool
+Camp — https://dom.mars.college), the Mars Institute of Technology (the AI
 school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
 governance practice — https://colab.mars.college), and MMA, the Martian Music
 Academy (twelve weeks of making songs and building a scene —
