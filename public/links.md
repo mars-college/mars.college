@@ -17,14 +17,16 @@
 - Mars Institute of Technology (the AI school): https://mars.college/mit
 - Mars AI Film Festival: https://mars.college/mff
 
-## Camp sites (each on its own subdomain)
+## Camp sites (each camp runs its own site)
 
 - DPW — Department of Public Works, the build organization: https://dpw.mars.college
 - DOM — Department of Makers, the makerspace (formerly known as Tool Camp): https://dom.mars.college
 - Co Lab — the community-practice camp: https://colab.mars.college
 - MMA — the Martian Music Academy: https://music.mars.college
+- Freeside — the culture camp, communal living on campus: https://freeside2027.vercel.app/
 
-Note: MIT lives at https://mars.college/mit, not on a subdomain.
+Note: MIT lives at https://mars.college/mit, not on a subdomain; Freeside is
+hosted off-domain at https://freeside2027.vercel.app/.
 (https://mit.mars.college is an unrelated easter egg.)
 
 ## Community projects

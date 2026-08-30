@@ -128,8 +128,9 @@ micro-business operators earn most or all of it back.
 Apply at https://mars.college — admissions are rolling, and earlier is better.
 Joining starts with applying to one of the camps: DPW (the build crew,
 https://dpw.mars.college), the Department of Makers (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
-Technology, the AI school), Co Lab (community practice), or MMA (the Martian Music
-Academy, https://music.mars.college) — or by proposing a new camp
+Technology, the AI school), Co Lab (community practice), MMA (the Martian Music
+Academy, https://music.mars.college), or Freeside (the culture camp,
+https://freeside2027.vercel.app/) — or by proposing a new camp
 (info@mars.college).
 
 Each camp runs its own application, so start from the camp page you want. MIT's
@@ -217,9 +218,10 @@ Recent and current camps include the DPW build crew (https://dpw.mars.college),
 the Department of Makers (the makerspace, formerly known as Tool
 Camp — https://dom.mars.college), the Mars Institute of Technology (the AI
 school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
-governance practice — https://colab.mars.college), and MMA, the Martian Music
+governance practice — https://colab.mars.college), MMA, the Martian Music
 Academy (twelve weeks of making songs and building a scene —
-https://music.mars.college). Camps form and retire season to season; each
+https://music.mars.college), and Freeside, the culture camp and Mars's original
+on-campus living camp (https://freeside2027.vercel.app/). Camps form and retire season to season; each
 internalizes some services (usually food) and pools the rest through the
 Treasury.
 
@@ -375,9 +377,9 @@ was among the paper's most-read stories that weekend.
 
 ## 2027 — Season 8 (upcoming)
 
-Mars 2027 is now recruiting, with rolling admissions, five ways to participate
+Mars 2027 is now recruiting, with rolling admissions, six ways to participate
 (DPW build crew, the Department of Makers (formerly Tool Camp), the Mars Institute of Technology AI program,
-Co Lab, and the Martian Music Academy), build beginning November 2, 2026, the season proper starting January 11,
+Co Lab, the Martian Music Academy, and Freeside), build beginning November 2, 2026, the season proper starting January 11,
 2027, and Mars Electronica on March 26–28, 2027. Details:
 https://mars.college/mars-2027.md
 
@@ -432,7 +434,7 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
   AI anchor of the off-season.
 - **Venus:** a community compound — workshop, library, and showers.
 - **Freeside:** the residential village-within-the-village, with its own café and
-  co-op rhythm.
+  co-op rhythm — the ground the Freeside camp (below) is built on.
 - **Mimos:** the community café — coffee and coworking.
 - **Slab City:** the long-established off-grid community nearby, on the site of a
   decommissioned military base; Martians and Slab City residents visit back and
@@ -457,6 +459,9 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 - **MMA:** the Martian Music Academy — twelve weeks of making songs and building
   a scene, performing on a stepped pyramid of pallet racks raised for the season.
   https://music.mars.college
+- **Freeside:** the culture camp, and Mars's original on-campus living camp — a
+  cooperative of eight to twelve Martians sharing a kitchen, a meal plan, chores,
+  and a lounge, tied to no single discipline. https://freeside2027.vercel.app/
 - **Treasury:** the transparent community fund that pays for shared services.
 - **Council / circles:** the elected and volunteer bodies through which the
   community governs itself.
@@ -492,7 +497,7 @@ https://mars.college (email info@mars.college with questions).
 Individuals can still apply after November 1; camps admit them and allocate space
 within their own footprint. Materials have long lead times — apply early.
 
-## Five ways in
+## Six ways in
 
 1. **DPW — build the village.** Join the build crew: raise the campus from bare lake
    bed from November through spring, run its physical systems, and attend free
@@ -519,6 +524,12 @@ within their own footprint. Materials have long lead times — apply early.
    a scene, based in a stepped pyramid of pallet racks raised for the season with
    a top deck and a projection wall, culminating in performances under the desert
    sky. https://music.mars.college
+6. **Freeside — the culture camp.** Mars's original on-campus living camp: a
+   cooperative of eight to twelve Martians tied to no single discipline, sharing
+   a kitchen, the Mars Meal Plan it invented (roughly $40–$50 a week in food),
+   a weekly camp meeting, and about 8 hrs/week of camp chores. Housing is a mix
+   of vans, RVs, and self-built plywood pods; camp build runs through December.
+   https://freeside2027.vercel.app/
 
 ## Costs
 
@@ -677,14 +688,16 @@ https://mars.college/mff
 - Mars Institute of Technology (the AI school): https://mars.college/mit
 - Mars AI Film Festival: https://mars.college/mff
 
-## Camp sites (each on its own subdomain)
+## Camp sites (each camp runs its own site)
 
 - DPW — Department of Public Works, the build organization: https://dpw.mars.college
 - DOM — Department of Makers, the makerspace (formerly known as Tool Camp): https://dom.mars.college
 - Co Lab — the community-practice camp: https://colab.mars.college
 - MMA — the Martian Music Academy: https://music.mars.college
+- Freeside — the culture camp, communal living on campus: https://freeside2027.vercel.app/
 
-Note: MIT lives at https://mars.college/mit, not on a subdomain.
+Note: MIT lives at https://mars.college/mit, not on a subdomain; Freeside is
+hosted off-domain at https://freeside2027.vercel.app/.
 (https://mit.mars.college is an unrelated easter egg.)
 
 ## Community projects

@@ -36,7 +36,7 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
   AI anchor of the off-season.
 - **Venus:** a community compound — workshop, library, and showers.
 - **Freeside:** the residential village-within-the-village, with its own café and
-  co-op rhythm.
+  co-op rhythm — the ground the Freeside camp (below) is built on.
 - **Mimos:** the community café — coffee and coworking.
 - **Slab City:** the long-established off-grid community nearby, on the site of a
   decommissioned military base; Martians and Slab City residents visit back and
@@ -61,6 +61,9 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
 - **MMA:** the Martian Music Academy — twelve weeks of making songs and building
   a scene, performing on a stepped pyramid of pallet racks raised for the season.
   https://music.mars.college
+- **Freeside:** the culture camp, and Mars's original on-campus living camp — a
+  cooperative of eight to twelve Martians sharing a kitchen, a meal plan, chores,
+  and a lounge, tied to no single discipline. https://freeside2027.vercel.app/
 - **Treasury:** the transparent community fund that pays for shared services.
 - **Council / circles:** the elected and volunteer bodies through which the
   community governs itself.

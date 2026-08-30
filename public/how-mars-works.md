@@ -24,9 +24,10 @@ Recent and current camps include the DPW build crew (https://dpw.mars.college),
 the Department of Makers (the makerspace, formerly known as Tool
 Camp — https://dom.mars.college), the Mars Institute of Technology (the AI
 school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
-governance practice — https://colab.mars.college), and MMA, the Martian Music
+governance practice — https://colab.mars.college), MMA, the Martian Music
 Academy (twelve weeks of making songs and building a scene —
-https://music.mars.college). Camps form and retire season to season; each
+https://music.mars.college), and Freeside, the culture camp and Mars's original
+on-campus living camp (https://freeside2027.vercel.app/). Camps form and retire season to season; each
 internalizes some services (usually food) and pools the rest through the
 Treasury.
 
