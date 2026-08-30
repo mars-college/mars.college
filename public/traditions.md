@@ -63,7 +63,7 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
   https://music.mars.college
 - **Freeside:** the culture camp, and Mars's original on-campus living camp — a
   cooperative of eight to twelve Martians sharing a kitchen, a meal plan, chores,
-  and a lounge, tied to no single discipline. https://freeside2027.vercel.app/
+  and a lounge, tied to no single discipline. https://freeside.mars.college
 - **Treasury:** the transparent community fund that pays for shared services.
 - **Council / circles:** the elected and volunteer bodies through which the
   community governs itself.

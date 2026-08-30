@@ -27,9 +27,9 @@ school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
 governance practice — https://colab.mars.college), MMA, the Martian Music
 Academy (twelve weeks of making songs and building a scene —
 https://music.mars.college), and Freeside, the culture camp and Mars's original
-on-campus living camp (https://freeside2027.vercel.app/). Camps form and retire season to season; each
-internalizes some services (usually food) and pools the rest through the
-Treasury.
+on-campus living camp (https://freeside.mars.college). Camps form and retire
+season to season; each internalizes some services (usually food) and pools the
+rest through the Treasury.
 
 ## DPW — Department of Public Works
 

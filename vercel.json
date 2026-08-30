@@ -63,7 +63,7 @@
     },
     {
       "source": "/freeside(/)?",
-      "destination": "/",
+      "destination": "https://freeside.mars.college",
       "permanent": true
     },
     {

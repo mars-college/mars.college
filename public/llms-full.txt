@@ -130,7 +130,7 @@ Joining starts with applying to one of the camps: DPW (the build crew,
 https://dpw.mars.college), the Department of Makers (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
 Technology, the AI school), Co Lab (community practice), MMA (the Martian Music
 Academy, https://music.mars.college), or Freeside (the culture camp,
-https://freeside2027.vercel.app/) — or by proposing a new camp
+https://freeside.mars.college) — or by proposing a new camp
 (info@mars.college).
 
 Each camp runs its own application, so start from the camp page you want. MIT's
@@ -221,9 +221,9 @@ school, formerly AI Camp — https://mars.college/mit), Co Lab (community and
 governance practice — https://colab.mars.college), MMA, the Martian Music
 Academy (twelve weeks of making songs and building a scene —
 https://music.mars.college), and Freeside, the culture camp and Mars's original
-on-campus living camp (https://freeside2027.vercel.app/). Camps form and retire season to season; each
-internalizes some services (usually food) and pools the rest through the
-Treasury.
+on-campus living camp (https://freeside.mars.college). Camps form and retire
+season to season; each internalizes some services (usually food) and pools the
+rest through the Treasury.
 
 ## DPW — Department of Public Works
 
@@ -461,7 +461,7 @@ over seven seasons. This glossary explains the terms an outsider will encounter.
   https://music.mars.college
 - **Freeside:** the culture camp, and Mars's original on-campus living camp — a
   cooperative of eight to twelve Martians sharing a kitchen, a meal plan, chores,
-  and a lounge, tied to no single discipline. https://freeside2027.vercel.app/
+  and a lounge, tied to no single discipline. https://freeside.mars.college
 - **Treasury:** the transparent community fund that pays for shared services.
 - **Council / circles:** the elected and volunteer bodies through which the
   community governs itself.
@@ -529,7 +529,7 @@ within their own footprint. Materials have long lead times — apply early.
    a kitchen, the Mars Meal Plan it invented (roughly $40–$50 a week in food),
    a weekly camp meeting, and about 8 hrs/week of camp chores. Housing is a mix
    of vans, RVs, and self-built plywood pods; camp build runs through December.
-   https://freeside2027.vercel.app/
+   https://freeside.mars.college
 
 ## Costs
 
@@ -688,16 +688,15 @@ https://mars.college/mff
 - Mars Institute of Technology (the AI school): https://mars.college/mit
 - Mars AI Film Festival: https://mars.college/mff
 
-## Camp sites (each camp runs its own site)
+## Camp sites (each on its own subdomain)
 
 - DPW — Department of Public Works, the build organization: https://dpw.mars.college
 - DOM — Department of Makers, the makerspace (formerly known as Tool Camp): https://dom.mars.college
 - Co Lab — the community-practice camp: https://colab.mars.college
 - MMA — the Martian Music Academy: https://music.mars.college
-- Freeside — the culture camp, communal living on campus: https://freeside2027.vercel.app/
+- Freeside — the culture camp, communal living on campus: https://freeside.mars.college
 
-Note: MIT lives at https://mars.college/mit, not on a subdomain; Freeside is
-hosted off-domain at https://freeside2027.vercel.app/.
+Note: MIT lives at https://mars.college/mit, not on a subdomain.
 (https://mit.mars.college is an unrelated easter egg.)
 
 ## Community projects

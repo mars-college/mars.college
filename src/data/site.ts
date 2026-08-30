@@ -99,7 +99,7 @@ export const PILLARS = [
     sub: "The Mars culture camp",
     blurb:
       "A living cooperative of eight to twelve Martians: communal meals, shared chores, open mics and bonfires, and the craft of co-living well.",
-    href: "https://freeside2027.vercel.app/",
+    href: "https://freeside.mars.college",
     cta: "Apply to Freeside",
   },
 ];

@@ -69,7 +69,9 @@ AI Bots **Allow**, with no custom rules — checked Aug 1, 2026. Keep it that wa
 ## Subdomains (added Aug 1–2, 2026)
 
 Each camp runs its own site; DNS for all of them is A → `76.76.21.21` (Vercel)
-in DigitalOcean, with a one-file Vercel proxy project per host in `web/`:
+in DigitalOcean, with a one-file Vercel proxy project per host in `web/` —
+except Freeside, whose site is already on Vercel and so serves the hostname
+directly from the camp's own project:
 
 | Host | Proxy project | Serves |
 |---|---|---|
@@ -78,6 +80,7 @@ in DigitalOcean, with a one-file Vercel proxy project per host in `web/`:
 | `dec.mars.college` | `web/dec-proxy` | 308 → `dom.mars.college` (legacy) |
 | `music.mars.college` | `web/music-proxy` | the MMA camp site |
 | `colab.mars.college` | `web/colab-proxy` | `marscommunitylab.lovable.app` |
+| `freeside.mars.college` | — (domain on the camp's own Vercel project) | the Freeside camp site, `freeside2027.vercel.app` |
 | `mit.mars.college` | `web/mit-proxy` | this build's `/mit-court` (experimental, noindex) |
 
 The proxies exist because those origins can't serve TLS for a mars.college

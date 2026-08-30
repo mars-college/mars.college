@@ -42,7 +42,7 @@ Joining starts with applying to one of the camps: DPW (the build crew,
 https://dpw.mars.college), the Department of Makers (the makerspace, formerly known as Tool Camp), MIT (the Mars Institute of
 Technology, the AI school), Co Lab (community practice), MMA (the Martian Music
 Academy, https://music.mars.college), or Freeside (the culture camp,
-https://freeside2027.vercel.app/) — or by proposing a new camp
+https://freeside.mars.college) — or by proposing a new camp
 (info@mars.college).
 
 Each camp runs its own application, so start from the camp page you want. MIT's
