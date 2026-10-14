@@ -44,7 +44,7 @@ export const TIMELINE_MINI = [
   { date: "Mar 26 – 28", label: "Mars Electronica" },
 ];
 
-// Six ways into Mars College — each camp has its own application.
+// Seven ways into Mars College — each camp has its own application.
 // Cards: big acronym, expansion as intermediary subtext, description below,
 // standardized "Apply to <acronym>" CTA.
 export const PILLARS = [
@@ -101,6 +101,15 @@ export const PILLARS = [
       "A living cooperative of eight to twelve Martians: communal meals, shared chores, open mics and bonfires, and the craft of co-living well.",
     href: "https://freeside.mars.college",
     cta: "Apply to Freeside",
+  },
+  {
+    title: "Incubator Camp",
+    ev: "camp-incubator",
+    sub: "The program-building camp",
+    blurb:
+      "For practitioners building programs in inner work: three months living together on Mars, teaching and testing them in community.",
+    href: "https://incubator.mars.college",
+    cta: "Apply to Incubator Camp",
   },
 ];
 

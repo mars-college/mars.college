@@ -43,13 +43,14 @@ const faqLd = {
   ],
 };
 
-// Pillar plates — the six ways into Mars
+// Pillar plates — the seven ways into Mars
 import buildImg from "../assets/photos/build-curated/041_2026_20260130_170446_06ab8.jpg";
 import decCardImg from "../assets/photos/dom-card.png"; // 3D-printer tinkering in the workshop
 import learnImg from "../assets/photos/learn-workshop.jpg";
 import colabImg from "../assets/photos/colab-card.jpg"; // from Co Lab's own gallery
 import mmaImg from "../assets/photos/mma-card.jpg"; // band on the pallet-rack stage in Chiba
 import freesideImg from "../assets/photos/freeside-card.jpg"; // Freeside's communal lounge at dusk
+import incubatorImg from "../assets/photos/incubator-card.jpg"; // ceremonial walk across campus, from Incubator Camp's gallery
 
 // Year-by-year aerials of the Mars campus / Chiba, 2020–2026.
 import chiba2020 from "../assets/photos/chiba-years/chiba-2020.jpg";
@@ -97,6 +98,7 @@ const pillarImg: Record<string, any> = {
   "Co Lab": colabImg,
   MMA: mmaImg,
   Freeside: freesideImg,
+  "Incubator Camp": incubatorImg,
 };
 
 // One image per winter — the campus (and Chiba) rebuilt new each year.
@@ -410,7 +412,7 @@ const HARD_PHOTOS = [
   <!-- ===================== APPLY HERO ===================== -->
   <section id="apply" class="u-section is-night pillars">
     <div class="u-shell pillars__head">
-      <Eyebrow index="05" label="Six ways into Mars College" />
+      <Eyebrow index="05" label="Seven ways into Mars College" />
       <h2 class="pillars__lead u-display">Apply to Mars College.</h2>
       <p class="pillars__intro u-measure">
         Joining Mars starts with applying to one of the camps or
@@ -635,8 +637,8 @@ const HARD_PHOTOS = [
     }
 
     /* ---- pillars ---- */
-    /* Six camps, which fills 3 + 3 exactly (and 2 + 2 + 2 at the next
-       breakpoint down). */
+    /* Seven camps: 3 + 3 + 1 (and 2 + 2 + 2 + 1 at the next breakpoint
+       down). */
     .pillars__list {
       list-style: none;
       margin: 0;
