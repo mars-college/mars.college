@@ -34,7 +34,7 @@ export const VISIT_EVENTS = [
     id: "midterms",
     n: "01",
     name: "Midterms",
-    dates: "Feb 12 – 14, 2027",
+    dates: "February 12 – 14, 2027",
     start: "2027-02-12",
     end: "2027-02-14",
     kicker: "Mid-season",
@@ -45,7 +45,7 @@ export const VISIT_EVENTS = [
     id: "electronica",
     n: "02",
     name: "Mars Electronica",
-    dates: "Mar 26 – 28, 2027",
+    dates: "March 26 – 28, 2027",
     start: "2027-03-26",
     end: "2027-03-28",
     kicker: "End of season",
@@ -84,7 +84,8 @@ export const NAV = [
 export const TIMELINE_MINI = [
   { date: "Nov – Dec", label: "Build Mars" },
   { date: "Jan 11", label: "Mars College begins" },
-  { date: "Mar 26 – 28", label: "Mars Electronica" },
+  { date: "February 12 – 14", label: "Midterms" },
+  { date: "March 26 – 28", label: "Mars Electronica" },
 ];
 
 // Seven ways into Mars College — each camp has its own application.
@@ -277,14 +278,14 @@ export const BUILD_PHASES = [
   {
     n: "02",
     title: "Maintain",
-    when: "Jan – Mar, 2027",
+    when: "Jan – March, 2027",
     hours: "Lighter, role-dependent",
     body: "Water deliveries, repairs, dump runs, power troubleshooting, general upkeep. Keep the village running while everybody else makes work.",
   },
   {
     n: "03",
     title: "Strike",
-    when: "Mar 29 – May 1, 2027",
+    when: "March 29 – May 1, 2027",
     hours: "6 hrs/day",
     body: "Take it apart. Inventory, store, pack. Leave the land as we found it. Center camp wifi comes down Apr 10. DPW breakdown finishes May 1.",
   },

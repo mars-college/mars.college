@@ -113,8 +113,8 @@ const jsonLd = { "@context": "https://schema.org", "@graph": eventLd };
 ---
 
 <BaseLayout
-  title="Visit Mars College — Midterms Feb 12–14 & Mars Electronica Mar 26–28, 2027"
-  description="Visit Mars College: two public showcase weekends in Bombay Beach, California. Midterms, Feb 12–14, and Mars Electronica, Mar 26–28, 2027. Photos from past years and how to plan your visit."
+  title="Visit Mars College — Midterms February 12–14 & Mars Electronica March 26–28, 2027"
+  description="Visit Mars College: two public showcase weekends in Bombay Beach, California. Midterms, February 12–14, and Mars Electronica, March 26–28, 2027. Photos from past years and how to plan your visit."
   image="/og-visit.jpg"
   imageAlt="An outdoor night screening at Mars Electronica: an audience in folding chairs facing a lit screen beside a palm tree"
   jsonLd={jsonLd}
@@ -146,7 +146,7 @@ const jsonLd = { "@context": "https://schema.org", "@graph": eventLd };
               <p class="wk__n u-index">{e.n}</p>
               <div class="wk__date">
                 <p class="u-label u-label--clay">{e.kicker}</p>
-                <p class="wk__dates u-display">{e.dates.replace(", 2027", "")}</p>
+                <p class="wk__dates u-display">{e.dates.replace(", 2027", "").split(" ")[0]} <span class="wk__days">{e.dates.replace(", 2027", "").split(" ").slice(1).join(" ")}</span></p>
                 <p class="wk__year u-label">2027</p>
               </div>
               <div class="wk__body">
@@ -358,6 +358,7 @@ const jsonLd = { "@context": "https://schema.org", "@graph": eventLd };
     .wk { list-style: none; margin: clamp(2rem, 5vw, 3.5rem) 0 0; padding: 0; border-top: var(--rule-strong); }
     .wk__item { display: grid; grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(1rem, 3vw, 3rem); padding-block: clamp(1.75rem, 4vw, 3rem); border-bottom: var(--rule); align-items: start; }
     .wk__dates { font-size: var(--text-3xl); line-height: 0.95; margin-top: 0.5rem; }
+    .wk__days { white-space: nowrap; }
     .wk__year { margin-top: 0.6rem; }
     .wk__name { font-size: var(--text-xl); }
     .wk__blurb { margin: 0.75rem 0 1.5rem; font-size: var(--text-base); color: var(--color-ink-2); max-width: 46ch; }

@@ -69,7 +69,7 @@ it earlier.
 
 The MIT term runs on the ground at Mars, January 11 to March 28, 2027: Ideas Week
 (Jan 11–17), the three monthly **Moons of Mars** gallery shows, Declaration Days
-as the midterm (Feb 12–14), and Mars Electronica as finals (Mar 26–28). Students
+as the midterm (February 12–14), and Mars Electronica as finals (March 26–28). Students
 give a lightning talk during Ideas Week, show work in at least one gallery, host a
 workshop or screening of their own, and receive a compute grant plus access to
 screens, projectors, and materials.

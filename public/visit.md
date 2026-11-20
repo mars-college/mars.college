@@ -1,6 +1,6 @@
 # Visit Mars College
 
-> When to visit Mars College: two public showcase weekends in 2027, Midterms (Feb 12–14) and Mars Electronica (Mar 26–28), held at the camp near Bombay Beach, California. Page for humans: https://mars.college/visit
+> When to visit Mars College: two public showcase weekends in 2027, Midterms (February 12–14) and Mars Electronica (March 26–28), held at the camp near Bombay Beach, California. Page for humans: https://mars.college/visit
 
 ## Where and when
 
@@ -10,8 +10,8 @@ Mars College is an annual pop-up, off-grid college town on a dry lake bed near B
 
 | Dates (2027) | Weekend | What happens |
 | --- | --- | --- |
-| Feb 12–14 | Midterms | Mid-season. The campus pauses and everyone presents where they are in their Mars journey. |
-| Mar 26–28 | Mars Electronica | End-of-season exhibition and finals: an art exhibition, final presentations, and the Mars AI Film Festival screened outdoors. Open to locals and Martians alike. |
+| February 12–14 | Midterms | Mid-season. The campus pauses and everyone presents where they are in their Mars journey. |
+| March 26–28 | Mars Electronica | End-of-season exhibition and finals: an art exhibition, final presentations, and the Mars AI Film Festival screened outdoors. Open to locals and Martians alike. |
 
 Watch past AI Film Festivals: 2023 https://www.youtube.com/watch?v=SL--NeP0iHo · 2024 https://www.youtube.com/watch?v=ih7okZcBhEA · 2025 https://www.youtube.com/watch?v=olxXcD4Tjko · 2026 https://www.youtube.com/watch?v=jkm9IK16URU (all at https://mars.college/mff).
 
