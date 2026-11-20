@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { SOCIAL, EMAIL, NAV } from "../data/site";
+import { SOCIAL, EMAIL, PILLARS } from "../data/site";
 import footerBg from "../assets/photos/night-glow.jpg";
 
 interface Props {
@@ -15,6 +15,20 @@ const COURT_PAGES = ["", "/mit", "/build"];
 const path = Astro.url.pathname.replace(/\/$/, "");
 const { game = COURT_PAGES.includes(path) } = Astro.props;
 const year = new Date().getFullYear();
+
+const PAGES = [
+  { label: "Visit", href: "/visit" },
+  { label: "AI Film Festival", href: "/mff" },
+  { label: "Apply", href: "/#apply" },
+];
+const ELSEWHERE = [
+  { label: "Substack", href: SOCIAL.substack },
+  { label: "Instagram", href: SOCIAL.instagram },
+  { label: "X", href: SOCIAL.x },
+  { label: "YouTube", href: SOCIAL.youtube },
+  { label: "GitHub", href: SOCIAL.github },
+  { label: EMAIL, href: `mailto:${EMAIL}` },
+];
 
 // Boot script for the footer game. Kept as a string so it only ships on the
 // page that actually renders the court.
@@ -152,62 +166,65 @@ const VOLLEY_BOOT = `
 ---
 
 <footer class:list={["ftr", "is-night", game && "ftr--game"]}>
-  {
-    !game && (
-      <div class="ftr__bg" aria-hidden="true">
-        <Image
-          src={footerBg}
-          alt=""
-          widths={[768, 1280, 1920]}
-          sizes="100vw"
-          format="webp"
-          quality={66}
-          loading="lazy"
-        />
-        <div class="ftr__scrim" />
-      </div>
-    )
-  }
+  <div class="ftr__stage">
+    {
+      !game && (
+        <div class="ftr__bg" aria-hidden="true">
+          <Image
+            src={footerBg}
+            alt=""
+            widths={[768, 1280, 1920]}
+            sizes="100vw"
+            format="webp"
+            quality={66}
+            loading="lazy"
+          />
+          <div class="ftr__scrim" />
+        </div>
+      )
+    }
 
-  {game && <div id="p5Container" class="ftr__court" aria-hidden="true" />}
+    {game && <div id="p5Container" class="ftr__court" aria-hidden="true" />}
 
-  <div class="u-shell ftr__inner">
-    <div class="ftr__navs">
-      <nav class="ftr__col" aria-label="Pages">
-        <p class="u-label ftr__h">Pages</p>
-        <ul>
-          {NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+    <div class="u-shell ftr__inner">
+      <nav class="ftr__col ftr__col--camps" aria-label="Camps">
+        <p class="u-label ftr__h">Camps</p>
+        <ul style="--rows: 4">
+          {PILLARS.map((c) => <li><a href={c.href}>{c.title}</a></li>)}
         </ul>
       </nav>
 
-      <nav class="ftr__col" aria-label="Elsewhere">
+      <nav class="ftr__col ftr__col--site" aria-label="Mars College">
+        <p class="u-label ftr__h">Mars College</p>
+        <ul style="--rows: 3">
+          {PAGES.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="ftr__col ftr__col--else" aria-label="Elsewhere">
         <p class="u-label ftr__h">Elsewhere</p>
-        <ul>
-          <li><a href={SOCIAL.substack}>Substack</a></li>
-          <li><a href={SOCIAL.instagram}>Instagram</a></li>
-          <li><a href={SOCIAL.x}>X</a></li>
-          <li><a href={SOCIAL.github}>GitHub</a></li>
-          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+        <ul style="--rows: 3">
+          {ELSEWHERE.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
         </ul>
       </nav>
     </div>
   </div>
 
-  {
-    game ? (
-      <div class="ftr__credit">
-        <span aria-hidden="true">(o_ _)ﾉ彡☆</span>{" "}
-        <a href="https://otoro.net/ml/slimevolley/index.html" target="_blank" rel="noopener">
-          @hardmaru
-        </a>
-      </div>
-    ) : (
-      <div class="u-shell ftr__base">
-        <span class="u-label">Near Salton Sea, California</span>
-        <span class="u-label">© {year} Mars College</span>
-      </div>
-    )
-  }
+  <div class="ftr__base">
+    <div class="u-shell ftr__base-row">
+      <span class="u-label">© {year} Mars College · Near Salton Sea, California</span>
+      {
+        game && (
+          <span class="u-label">
+            <span aria-hidden="true">(o_ _)ﾉ彡☆</span>{" "}
+            <a href="https://otoro.net/ml/slimevolley/index.html" target="_blank" rel="noopener">
+              @hardmaru
+            </a>
+          </span>
+        )
+      }
+    </div>
+  </div>
 </footer>
 
 {game && <script is:inline set:html={VOLLEY_BOOT} />}
@@ -215,10 +232,15 @@ const VOLLEY_BOOT = `
 <style>
   .ftr {
     position: relative;
-    isolation: isolate;
     overflow: hidden;
-    padding-top: clamp(4rem, 9vw, 7rem);
-    padding-bottom: 2rem;
+    background: var(--color-night);
+  }
+  /* Stage = the backdrop (photo or court) plus the link block. Same padding
+     and link grid in both variants; only the backdrop differs. */
+  .ftr__stage {
+    position: relative;
+    isolation: isolate;
+    padding-block: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
   }
   .ftr__bg {
     position: absolute;
@@ -241,60 +263,76 @@ const VOLLEY_BOOT = `
     );
   }
   .ftr__inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(2.5rem, 10vw, 7rem);
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    column-gap: clamp(2rem, 6vw, 5rem);
+    row-gap: 1.5rem;
     align-items: start;
   }
-  .ftr__navs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(2.5rem, 10vw, 7rem);
-  }
   .ftr__h {
-    margin-bottom: 1rem;
-    padding-bottom: 0.6rem;
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--color-rule-night);
   }
   .ftr__col ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(var(--rows), auto);
+    grid-auto-columns: minmax(0, 1fr);
+    column-gap: 1.5rem;
   }
   .ftr__col a {
+    display: inline-block;
+    padding-block: 0.2rem;
     font-family: var(--font-body);
     font-size: var(--text-sm);
     font-weight: 500;
+    line-height: 1.5;
     color: var(--color-bone-on-night);
     text-decoration: none;
+    overflow-wrap: anywhere;
     transition: color var(--dur-fast) var(--ease-out);
   }
   .ftr__col a:hover {
     color: var(--color-clay);
   }
+  .ftr a:focus-visible {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 2px;
+  }
+  /* Bottom bar: identical in both variants, on solid night so it is AA over
+     either backdrop. */
   .ftr__base {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: clamp(3rem, 6vw, 5rem);
-    padding-top: 1.5rem;
+    background: var(--color-night);
     border-top: 1px solid var(--color-rule-night);
   }
-
-  /* ─── game footer: the desert court IS the section ─── */
-  .ftr--game {
+  .ftr__base-row {
     display: flex;
-    flex-direction: column;
-    min-height: clamp(37rem, 90vh, 60rem);
-    padding-top: clamp(2.5rem, 5vw, 4rem);
-    padding-bottom: 0.5rem;
-    background: var(--color-night);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding-block: 0.75rem;
+  }
+  .ftr__base a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-rule-night);
+  }
+  .ftr__base a:hover {
+    color: var(--color-clay);
+  }
+
+  /* ─── game variant: the desert court is the stage backdrop ─── */
+  .ftr--game .ftr__stage {
+    min-height: clamp(20rem, 34vh, 26rem);
     background-image: none;
   }
-  /* full-bleed sketch behind everything in the section */
+  /* full-bleed sketch behind the links */
   .ftr__court {
     position: absolute;
     inset: 0;
@@ -305,11 +343,6 @@ const VOLLEY_BOOT = `
     display: block;
     width: 100% !important;
     height: 100% !important;
-  }
-  .ftr--game .ftr__inner,
-  .ftr--game .ftr__credit {
-    position: relative;
-    z-index: 1;
   }
   /* --volley-ink is driven by the sketch's day/night cycle: black over the
      day sky, white once the stars come out. */
@@ -323,43 +356,42 @@ const VOLLEY_BOOT = `
     text-shadow: 0 0 10px var(--volley-ink-inv), 0 0 3px var(--volley-ink-inv);
     transition: none;
   }
-  /* The credit rides down on the sand, which stays light through the night
-     cycle — so it stays black rather than following --volley-ink. */
-  .ftr--game .ftr__credit,
-  .ftr--game .ftr__credit a {
-    color: #14110e;
-    text-shadow: 0 0 8px rgba(240, 210, 130, 0.9);
-  }
   .ftr--game .ftr__h {
     border-bottom-color: color-mix(in srgb, var(--volley-ink) 35%, transparent);
   }
-  .ftr--game .ftr__col a:hover,
-  .ftr--game .ftr__credit a:hover {
+  .ftr--game .ftr__col a:hover {
     color: var(--color-clay);
-  }
-  .ftr__credit {
-    margin-top: auto;
-    padding-top: clamp(2rem, 5vw, 4rem);
-    padding-bottom: 0.35rem;
-    /* hugs the viewport edge rather than the content shell */
-    padding-right: clamp(0.5rem, 1.2vw, 1rem);
-    text-align: right;
-    font-family: var(--font-mono);
-    font-size: var(--text-meta);
-    letter-spacing: 0.02em;
-  }
-  .ftr__credit a {
-    text-decoration: none;
-    border-bottom: 1px solid rgba(20, 17, 14, 0.45);
-    padding-bottom: 1px;
   }
 
   @media (max-width: 760px) {
-    .ftr__base {
-      flex-direction: column;
+    .ftr__inner {
+      grid-template-columns: 1fr 1fr;
     }
-    .ftr--game {
-      min-height: clamp(30rem, 71vh, 39rem);
+    .ftr__col--camps {
+      grid-column: 1 / -1;
+    }
+    .ftr__col--else ul {
+      --rows: 6 !important;
+    }
+    .ftr__inner {
+      row-gap: 1rem;
+      column-gap: 1.5rem;
+    }
+    .ftr__col a {
+      font-size: var(--text-meta);
+      line-height: 1.4;
+      padding-block: 0.2rem;
+    }
+    .ftr__base-row .u-label {
+      letter-spacing: 0.06em;
+    }
+    .ftr--game .ftr__stage {
+      min-height: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ftr__col a {
+      transition: none;
     }
   }
 </style>
