@@ -490,7 +490,7 @@ https://mars.college (email info@mars.college with questions).
 | Dec 1, 2026 | Grant deadline |
 | Jan 11, 2027 | Mars College begins |
 | Jan 11–17, 2027 | Ideas Week |
-| Feb 13–15, 2027 | Declaration Days — midterm |
+| Feb 12–14, 2027 | Declaration Days — midterm |
 | Mar 26–28, 2027 | Mars Electronica — end-of-season exhibition and finals |
 | Mar 29 – May 1, 2027 | Unbuild; desert returned to bare ground |
 
@@ -571,8 +571,6 @@ Mars College is an annual pop-up, off-grid college town on a dry lake bed near B
 | --- | --- | --- |
 | Feb 12–14 | Midterms | Mid-season. The campus pauses and everyone presents where they are in their Mars journey. |
 | Mar 26–28 | Mars Electronica | End-of-season exhibition and finals: an art exhibition, final presentations, and the Mars AI Film Festival screened outdoors. Open to locals and Martians alike. |
-
-Note: other pages (the 2027 timeline, the MIT page) call the midterm "Declaration Days" and give Feb 13–15. The Feb 12–14 dates above are the ones for the public visit page; confirm exact dates and times with the team before travelling.
 
 Watch past AI Film Festivals: 2023 https://www.youtube.com/watch?v=SL--NeP0iHo · 2024 https://www.youtube.com/watch?v=ih7okZcBhEA · 2025 https://www.youtube.com/watch?v=olxXcD4Tjko · 2026 https://www.youtube.com/watch?v=jkm9IK16URU (all at https://mars.college/mff).
 
@@ -659,7 +657,7 @@ it earlier.
 
 The MIT term runs on the ground at Mars, January 11 to March 28, 2027: Ideas Week
 (Jan 11–17), the three monthly **Moons of Mars** gallery shows, Declaration Days
-as the midterm (Feb 13–15), and Mars Electronica as finals (Mar 26–28). Students
+as the midterm (Feb 12–14), and Mars Electronica as finals (Mar 26–28). Students
 give a lightning talk during Ideas Week, show work in at least one gallery, host a
 workshop or screening of their own, and receive a compute grant plus access to
 screens, projectors, and materials.

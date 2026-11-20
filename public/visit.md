@@ -13,8 +13,6 @@ Mars College is an annual pop-up, off-grid college town on a dry lake bed near B
 | Feb 12–14 | Midterms | Mid-season. The campus pauses and everyone presents where they are in their Mars journey. |
 | Mar 26–28 | Mars Electronica | End-of-season exhibition and finals: an art exhibition, final presentations, and the Mars AI Film Festival screened outdoors. Open to locals and Martians alike. |
 
-Note: other pages (the 2027 timeline, the MIT page) call the midterm "Declaration Days" and give Feb 13–15. The Feb 12–14 dates above are the ones for the public visit page; confirm exact dates and times with the team before travelling.
-
 Watch past AI Film Festivals: 2023 https://www.youtube.com/watch?v=SL--NeP0iHo · 2024 https://www.youtube.com/watch?v=ih7okZcBhEA · 2025 https://www.youtube.com/watch?v=olxXcD4Tjko · 2026 https://www.youtube.com/watch?v=jkm9IK16URU (all at https://mars.college/mff).
 
 ## Past years

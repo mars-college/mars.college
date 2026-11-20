@@ -33,7 +33,7 @@ Each run prints a fresh random `*.trycloudflare.com` URL — there's no persiste
 
 All site copy comes from the planning space: **`/Users/gene/Mars/planning/2027/`** — `README.md` (index), `timeline.md`, `ai-program.md`, `dpw.md`, `economics.md`, `services.md`, `admissions.md`, `architecture.md`, `website-content.md`, `organization.md`, `agent-olympics.md`, `medical.md`, `open-items.md`. Don't invent program facts; pull from there.
 
-Key facts already on the site: timeline (Build **Nov–Dec** · Mars begins **Jan 11** · Mars Electronica **Mar 26–28**); applications are **rolling**; the real application forms are live as embedded Tally forms — see the "Tally forms" section below. The nav Apply CTA points at `/#apply` on the home page (each camp card then links to that camp's own application).
+Key facts already on the site: timeline (Build **Nov–Dec** · Mars begins **Jan 11** · Midterms **Feb 12–14** · Mars Electronica **Mar 26–28**); applications are **rolling**; the real application forms are live as embedded Tally forms — see the "Tally forms" section below. The nav Apply CTA points at `/#apply` on the home page (each camp card then links to that camp's own application).
 
 **When a date or program fact changes, it lives in three places that must move together:** `src/data/site.ts`, the AI-facing corpus in `public/*.md` (see `AI-LEGIBILITY.md`), and `planning/2027/`.
 
