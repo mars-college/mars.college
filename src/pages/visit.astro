@@ -1,0 +1,433 @@
+---
+// /visit — a shareable page for partners and guests: when to visit Mars
+// College (the two public showcase weekends), what happens at each, photos from
+// past seasons, and a contact form that emails info@mars.college.
+// Dates live in VISIT_EVENTS (site.ts); public/visit.md mirrors them.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import VisitForm from "../components/VisitForm.astro";
+import { EMAIL, FESTIVALS, VISIT_EVENTS } from "../data/site";
+
+import heroImg from "../assets/photos/learn/electronica/bbac-screening-2026.jpg";
+
+import eCrowd from "../assets/photos/learn/electronica/crowd.jpg";
+import eAbstract from "../assets/photos/learn/electronica/abstract.jpg";
+import eGalleryOpening from "../assets/photos/learn/gallery-2026-opening.jpg";
+import eViewing from "../assets/photos/learn/gallery/converse.jpg";
+import eFinals from "../assets/photos/learn/ai-history/2026-finals-presentation.jpg";
+import eFractal from "../assets/photos/mff/screening-2026-fractal.jpg";
+
+import f2023 from "../assets/photos/mff/mff-2023-audience.jpg";
+import f2024 from "../assets/photos/mff/mff-2024-gandala.webp";
+import f2025 from "../assets/photos/mff/mff-2025-screening.jpg";
+import f2026 from "../assets/photos/mff/mff-2026-projection.jpg";
+
+import cGroup from "../assets/photos/activities/group.jpg";
+import cChiba2021 from "../assets/photos/chiba-years/chiba-2021.jpg";
+import cChiba2023 from "../assets/photos/chiba-years/chiba-2023.jpg";
+import cChiba2026 from "../assets/photos/chiba-years/chiba-2026.jpg";
+import cDinner from "../assets/photos/activities/dinner.jpg";
+import cFire from "../assets/photos/activities/fire-dome.jpg";
+
+type Shot = { img: ImageMetadata; alt: string; year?: string };
+
+const GROUPS: { id: string; label: string; title: string; blurb: string; shots: Shot[] }[] = [
+  {
+    id: "electronica",
+    label: "Mars Electronica",
+    title: "The end-of-season weekend, 2026.",
+    blurb: "Outdoor screenings, the working gallery, and final presentations.",
+    shots: [
+      { img: eCrowd, year: "2026", alt: "An outdoor screening crowd in folding chairs, facing a lit screen beside a palm tree" },
+      { img: eGalleryOpening, year: "2026", alt: "Visitors at the opening of the Chiba gallery, with screens mounted on plywood walls" },
+      { img: eFinals, year: "2026", alt: "A final presentation inside the pallet-rack hangar, an audience seated before a projected screen" },
+      { img: eAbstract, year: "2026", alt: "A swirl of generative colour on the big screen above an evening audience" },
+      { img: eViewing, year: "2026", alt: "Two visitors talking in front of screens in the gallery hangar" },
+      { img: eFractal, year: "2026", alt: "A glowing fractal projected on a large outdoor screen at night" },
+    ],
+  },
+  {
+    id: "festival",
+    label: "AI Film Festival",
+    title: "Four years of screenings under the stars.",
+    blurb: "The festival is screened outdoors in Bombay Beach during Mars Electronica.",
+    shots: [
+      { img: f2023, year: "2023", alt: "Audience and a golf cart in front of the first outdoor festival screen" },
+      { img: f2024, year: "2024", alt: "A projector on a tripod throwing a bright film onto a big screen" },
+      { img: f2025, year: "2025", alt: "People gathered before a night screening of the 2025 festival" },
+      { img: f2026, year: "2026", alt: "A colourful film projected onto a screen beside the Arts Center" },
+    ],
+  },
+  {
+    id: "campus",
+    label: "The campus",
+    title: "A town on a dry lake bed.",
+    blurb: "Built each winter from pallet racks and plywood, then taken back down.",
+    shots: [
+      { img: cChiba2021, year: "2021", alt: "Aerial view of the early camp: trailers and vans scattered across the lake bed" },
+      { img: cChiba2023, year: "2023", alt: "A plywood structure with solar panels on the roof, standing alone on the desert floor" },
+      { img: cChiba2026, year: "2026", alt: "Aerial view of the 2026 campus: the Chiba hangar surrounded by rows of trailers" },
+      { img: cGroup, alt: "The whole community gathered on a tiered pallet-rack stage" },
+      { img: cDinner, alt: "A long communal dinner table at sunset in a hangar open to the desert" },
+      { img: cFire, alt: "People gathered around a glowing geodesic dome at night" },
+    ],
+  },
+];
+
+let n = 0;
+const GROUPS_N = GROUPS.map((g) => ({
+  ...g,
+  shots: g.shots.map((s) => ({
+    ...s,
+    id: `v${n++}`,
+    ar: Number((s.img.width / s.img.height).toFixed(4)),
+    caption: s.year ? `${g.label} · ${s.year}` : g.label,
+  })),
+}));
+const ALL = GROUPS_N.flatMap((g) => g.shots);
+
+const FACTS = [
+  { k: "Where", v: "Bombay Beach, on the Salton Sea, in the California desert." },
+  { k: "The season", v: "Mars College runs Jan 11 to late March: three months as a self-built, off-grid college town." },
+  { k: "How it works", v: "The village is raised each winter from pallet racks and plywood, and taken down again in spring." },
+];
+
+const eventLd = VISIT_EVENTS.map((e) => ({
+  "@type": "Event",
+  name: `Mars College ${e.name} 2027`,
+  startDate: e.start,
+  endDate: e.end,
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  description: e.blurb,
+  location: {
+    "@type": "Place",
+    name: "Mars College",
+    address: { "@type": "PostalAddress", addressLocality: "Bombay Beach", addressRegion: "CA", addressCountry: "US" },
+  },
+  organizer: { "@type": "EducationalOrganization", name: "Mars College", url: "https://mars.college" },
+}));
+const jsonLd = { "@context": "https://schema.org", "@graph": eventLd };
+---
+
+<BaseLayout
+  title="Visit Mars College — Midterms Feb 12–14 & Mars Electronica Mar 26–28, 2027"
+  description="Visit Mars College: two public showcase weekends in Bombay Beach, California. Midterms, Feb 12–14, and Mars Electronica, Mar 26–28, 2027. Photos from past years and how to plan your visit."
+  image="/og-visit.jpg"
+  imageAlt="An outdoor night screening at Mars Electronica: an audience in folding chairs facing a lit screen beside a palm tree"
+  jsonLd={jsonLd}
+>
+  <PageHeader
+    index="Visit"
+    label="Public weekends 2027"
+    title="Come see Mars."
+    lede="Mars College is a three-month off-grid college town in the California desert. Twice a season it opens its doors to show what the community has made. Here is when to come, what to expect, and how to plan a visit with us."
+    image={heroImg}
+    imageAlt="An outdoor night screening at the Bombay Beach Arts Center: an audience in folding chairs, a palm tree beside the glowing screen, a recycled-metal fish sculpture overhead"
+  />
+
+  <!-- ===================== 01 THE WEEKENDS ===================== -->
+  <section class="u-section" id="weekends">
+    <div class="u-shell">
+      <Eyebrow index="01" label="When to visit" />
+      <h2 class="u-display vis__h">Two weekends. Pick one.</h2>
+      <p class="vis__lede u-measure">
+        Mars runs from January 11 to late March. The two public showcase weekends are
+        the best times to see the whole campus at work, meet the community, and see
+        what it has made.
+      </p>
+
+      <ol class="wk">
+        {
+          VISIT_EVENTS.map((e) => (
+            <li class="wk__item">
+              <p class="wk__n u-index">{e.n}</p>
+              <div class="wk__date">
+                <p class="u-label u-label--clay">{e.kicker}</p>
+                <p class="wk__dates u-display">{e.dates.replace(", 2027", "")}</p>
+                <p class="wk__year u-label">2027</p>
+              </div>
+              <div class="wk__body">
+                <h3 class="wk__name u-display">{e.name}</h3>
+                <p class="wk__blurb">{e.blurb}</p>
+                {e.id === "electronica" && (
+                  <div class="wk__watch">
+                    <p class="u-label">Watch past festivals</p>
+                    <ul class="wk__years">
+                      {FESTIVALS.map((f) => (
+                        <li>
+                          <a href={`https://www.youtube.com/watch?v=${f.id}`} target="_blank" rel="noopener" aria-label={`Watch the ${f.year} AI Film Festival on YouTube`}>{f.year}</a>
+                        </li>
+                      ))}
+                      <li class="wk__all"><a class="u-link" href="/mff">AI Film Festival <span class="u-arrow" aria-hidden="true">→</span></a></li>
+                    </ul>
+                  </div>
+                )}
+                <a class="u-link" href="#get-in-touch">
+                  Plan a visit <span class="u-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 02 THE PLACE ===================== -->
+  <section class="u-section u-section--tight vis__panel">
+    <div class="u-shell">
+      <Eyebrow index="02" label="The place" />
+      <dl class="facts">
+        {
+          FACTS.map((f) => (
+            <div class="facts__item">
+              <dt class="u-label">{f.k}</dt>
+              <dd>{f.v}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="vis__lede u-measure facts__help">
+        Travel, lodging, what to bring, how to get around: <a class="u-linktext" href="#get-in-touch">get in touch</a> and we'll help you plan.
+        Want to come at another time, or bring a group? Tell us and we'll see what's possible.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== 03 PICTURES ===================== -->
+  <section class="is-night u-section gal" id="pictures">
+    <div class="u-shell">
+      <Eyebrow index="03" label="From past years" />
+      <h2 class="u-display vis__h gal__h">What it looks like.</h2>
+      <p class="vis__lede gal__lede">Photos from recent seasons. Tap any picture to enlarge.</p>
+
+      {
+        GROUPS_N.map((g) => (
+          <div class="gal__group">
+            <div class="gal__head">
+              <p class="u-label u-label--clay">{g.label}</p>
+              <h3 class="gal__title u-display">{g.title}</h3>
+              <p class="gal__blurb">{g.blurb}</p>
+            </div>
+            <ul class="gal__grid" data-n={g.shots.length}>
+              {g.shots.map((s) => (
+                <li class="gal__cell">
+                  <button
+                    type="button"
+                    class="gal__plate u-plate lb"
+                    data-lb-id={s.id}
+                    data-lb-cap={s.alt}
+                    data-lb-meta={s.caption}
+                    aria-label={`Open photo: ${s.alt}`}
+                  >
+                    <Image
+                      src={s.img}
+                      alt={s.alt}
+                      widths={[480, 800, 1200]}
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                      format="webp"
+                      quality={66}
+                      loading="lazy"
+                    />
+                  </button>
+                  {s.year && <p class="gal__yr u-index">{s.year}</p>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ===================== 04 GET IN TOUCH ===================== -->
+  <section class="u-section" id="get-in-touch">
+    <div class="u-shell touch">
+      <div class="touch__copy">
+        <Eyebrow index="04" label="Get in touch" />
+        <h2 class="u-display vis__h">Plan your visit with us.</h2>
+        <p class="vis__lede">
+          Tell us who's coming and when. Partners, press, schools, and curious
+          individuals are all welcome to write. We'll reply by email and help with
+          the logistics.
+        </p>
+        <p class="touch__mail">
+          Prefer email? <a class="u-linktext" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        </p>
+        <p class="touch__share u-label">Share this page: mars.college/visit</p>
+      </div>
+      <div class="touch__form">
+        <VisitForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div id="lightbox" class="lb-box" role="dialog" aria-modal="true" aria-label="Photo gallery" hidden>
+    <button type="button" class="lb-box__close" aria-label="Close gallery">×</button>
+    <button type="button" class="lb-box__nav lb-box__nav--prev" aria-label="Previous">‹</button>
+    <button type="button" class="lb-box__nav lb-box__nav--next" aria-label="Next">›</button>
+    <figure class="lb-box__figure">
+      <div class="lb-box__imgwrap">
+        {
+          ALL.map((s) => (
+            <Image
+              src={s.img}
+              alt={s.alt}
+              widths={[900, 1400, 1920]}
+              sizes="(max-width: 900px) 100vw, 90vw"
+              format="webp"
+              quality={60}
+              loading="lazy"
+              data-lb-slide={s.id}
+            />
+          ))
+        }
+      </div>
+      <figcaption class="lb-box__cap">
+        <span class="lb-box__cap-text"></span>
+        <span class="lb-box__cap-meta"></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const box = document.getElementById("lightbox");
+      if (!box) return;
+      const slides = Array.from(box.querySelectorAll("[data-lb-slide]"));
+      const order = slides.map((el) => el.dataset.lbSlide);
+      const capText = box.querySelector(".lb-box__cap-text");
+      const capMeta = box.querySelector(".lb-box__cap-meta");
+      const triggers = Array.from(document.querySelectorAll(".lb[data-lb-id]"));
+      const meta = {};
+      triggers.forEach((t) => {
+        meta[t.dataset.lbId] = { cap: t.dataset.lbCap || "", track: t.dataset.lbMeta || "" };
+      });
+      let cur = 0;
+      let opener = null;
+      const show = (i) => {
+        cur = (i + order.length) % order.length;
+        slides.forEach((el, idx) => el.classList.toggle("is-active", idx === cur));
+        const m = meta[order[cur]] || {};
+        capText.textContent = m.cap;
+        capMeta.textContent = m.track;
+      };
+      const close = () => {
+        box.hidden = true;
+        document.body.style.overflow = "";
+        if (opener) opener.focus();
+      };
+      triggers.forEach((t) => {
+        t.addEventListener("click", (e) => {
+          e.preventDefault();
+          const idx = order.indexOf(t.dataset.lbId);
+          if (idx < 0) return;
+          opener = t;
+          box.hidden = false;
+          document.body.style.overflow = "hidden";
+          show(idx);
+          box.querySelector(".lb-box__close").focus();
+        });
+      });
+      box.querySelector(".lb-box__close").addEventListener("click", close);
+      box.querySelector(".lb-box__nav--prev").addEventListener("click", () => show(cur - 1));
+      box.querySelector(".lb-box__nav--next").addEventListener("click", () => show(cur + 1));
+      box.addEventListener("click", (e) => {
+        if (e.target === box) close();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (box.hidden) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowLeft") show(cur - 1);
+        if (e.key === "ArrowRight") show(cur + 1);
+      });
+    })();
+  </script>
+
+  <style>
+    .vis__h { font-size: var(--text-3xl); max-width: 24ch; }
+    .vis__lede { margin-top: 1.25rem; font-size: var(--text-lg); line-height: 1.5; color: var(--color-ink-2); }
+    .u-linktext { color: var(--color-clay-deep); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid currentColor; }
+    .u-linktext:hover { color: var(--color-clay); }
+
+    /* dates: timeline-style rows split by hairlines */
+    .wk { list-style: none; margin: clamp(2rem, 5vw, 3.5rem) 0 0; padding: 0; border-top: var(--rule-strong); }
+    .wk__item { display: grid; grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(1rem, 3vw, 3rem); padding-block: clamp(1.75rem, 4vw, 3rem); border-bottom: var(--rule); align-items: start; }
+    .wk__dates { font-size: var(--text-3xl); line-height: 0.95; margin-top: 0.5rem; }
+    .wk__year { margin-top: 0.6rem; }
+    .wk__name { font-size: var(--text-xl); }
+    .wk__blurb { margin: 0.75rem 0 1.5rem; font-size: var(--text-base); color: var(--color-ink-2); max-width: 46ch; }
+    .wk__watch { margin: 0 0 1.5rem; }
+    .wk__years { list-style: none; margin: 0.6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+    .wk__years a:not(.u-link) { display: inline-block; font-weight: 800; font-size: var(--text-sm); text-decoration: none; color: var(--color-ink); border: 1.5px solid var(--color-ink); padding: 0.45rem 0.9rem; transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+    .wk__years a:not(.u-link):hover { background: var(--color-ink); color: var(--color-paper); }
+    .wk__all { margin-left: 0.6rem; }
+    .wk__n { padding-top: 0.3rem; }
+
+    /* the place */
+    .vis__panel { background: var(--color-paper-2); border-block: var(--rule); }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.25rem, 3vw, 3rem); margin: 0; }
+    .facts__item { border-top: var(--rule-strong); padding-top: 1rem; }
+    .facts__item dt { color: var(--color-clay); }
+    .facts__item dd { margin: 0.6rem 0 0; font-size: var(--text-base); line-height: 1.45; }
+    .facts__help { margin-top: clamp(1.75rem, 4vw, 2.75rem); }
+
+    /* pictures */
+    .gal__h { color: var(--color-bone-on-night); }
+    .gal__lede { color: #cabda6; }
+    .gal__group { margin-top: clamp(2.5rem, 6vw, 4.5rem); }
+    .gal__head { margin-bottom: 1.25rem; max-width: 48rem; }
+    .gal__title { font-size: var(--text-xl); margin-top: 0.4rem; color: var(--color-bone-on-night); }
+    .gal__blurb { margin-top: 0.5rem; color: #d2c5af; font-size: var(--text-sm); }
+    .gal__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.4rem, 0.8vw, 0.75rem); }
+    .gal__grid[data-n="4"] { grid-template-columns: repeat(4, 1fr); }
+    .gal__cell { min-width: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .gal__plate { background: var(--color-night); border: 1px solid var(--color-rule-night); padding: 0; cursor: zoom-in; display: block; width: 100%; aspect-ratio: 4 / 3; transition: border-color var(--dur-fast) var(--ease-out); }
+    .gal__plate :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+    .gal__plate:hover, .gal__plate:focus-visible { border-color: var(--color-clay); }
+    .gal__plate:hover :global(img), .gal__plate:focus-visible :global(img) { transform: scale(1.04); }
+    .gal__plate:focus-visible { outline: 2px solid var(--color-clay); outline-offset: 2px; }
+    .gal__yr { display: block; font-size: 1rem; }
+    @media (prefers-reduced-motion: reduce) {
+      .gal__plate :global(img) { transition: none; }
+      .gal__plate:hover :global(img), .gal__plate:focus-visible :global(img) { transform: none; }
+    }
+
+    /* contact */
+    .touch { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+    .touch__mail { margin-top: 1.5rem; font-size: var(--text-base); }
+    .touch__share { margin-top: 1.5rem; text-transform: none; letter-spacing: 0.04em; }
+
+    @media (max-width: 900px) {
+      .wk__item { grid-template-columns: 1fr; gap: 0.75rem; }
+      .wk__n { padding-top: 0; }
+      .facts { grid-template-columns: 1fr; }
+      .touch { grid-template-columns: 1fr; }
+      .gal__grid, .gal__grid[data-n="4"] { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ─── lightbox (same pattern as /mit) ─── */
+    .lb-box { position: fixed; inset: 0; z-index: 100; background: rgba(10, 8, 6, 0.95); display: flex; align-items: center; justify-content: center; }
+    .lb-box[hidden] { display: none; }
+    .lb-box__figure { margin: 0; max-width: min(94vw, 1400px); max-height: 88vh; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .lb-box__imgwrap { position: relative; width: 100%; max-height: 76vh; display: flex; align-items: center; justify-content: center; }
+    .lb-box__imgwrap :global(img) { display: none; max-width: 100%; max-height: 76vh; width: auto; height: auto; object-fit: contain; }
+    .lb-box__imgwrap :global(img.is-active) { display: block; }
+    .lb-box__cap { text-align: center; color: var(--color-bone-on-night); font-family: var(--font-body); font-size: var(--text-meta); display: flex; flex-direction: column; gap: 0.2rem; max-width: 60ch; }
+    .lb-box__cap-meta { letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-clay); font-weight: 700; }
+    .lb-box__close, .lb-box__nav { position: absolute; background: transparent; color: var(--color-bone-on-night); border: 1.5px solid color-mix(in srgb, var(--color-bone-on-night) 40%, transparent); width: 3rem; height: 3rem; cursor: pointer; font-family: var(--font-display); font-size: 1.5rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+    .lb-box__close:hover, .lb-box__nav:hover { color: var(--color-clay); border-color: var(--color-clay); }
+    .lb-box__close { top: 1.25rem; right: 1.25rem; }
+    .lb-box__nav--prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+    .lb-box__nav--next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+    @media (max-width: 640px) {
+      .lb-box__nav--prev { left: 0.5rem; }
+      .lb-box__nav--next { right: 0.5rem; }
+      .lb-box__close { top: 0.75rem; right: 0.75rem; }
+    }
+  </style>
+</BaseLayout>

@@ -16,6 +16,7 @@ const SOURCES = [
   "history.md",
   "traditions.md",
   "mars-2027.md",
+  "visit.md",
   "ai.md",
   "links.md",
 ];

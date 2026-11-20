@@ -7,7 +7,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Eyebrow from "../components/Eyebrow.astro";
-import { APPLY_URL } from "../data/site";
+import { APPLY_URL, FESTIVALS } from "../data/site";
 
 // Header — the 2026 festival at the Bombay Beach Arts Center.
 import heroImg from "../assets/photos/mff/screening-2026-wide.jpg";
@@ -23,15 +23,6 @@ import p2023Audience from "../assets/photos/mff/mff-2023-audience.jpg";
 import p2025Screening from "../assets/photos/mff/mff-2025-screening.jpg";
 import p2026Projection from "../assets/photos/mff/mff-2026-projection.jpg";
 import pFractal26 from "../assets/photos/mff/screening-2026-fractal.jpg";
-
-// The four festivals on the Mars College YouTube channel:
-// https://www.youtube.com/@MarsCollege-k7t/videos
-const FESTIVALS = [
-  { year: "2023", id: "SL--NeP0iHo" },
-  { year: "2024", id: "ih7okZcBhEA" },
-  { year: "2025", id: "olxXcD4Tjko" },
-  { year: "2026", id: "jkm9IK16URU" },
-];
 
 // An editorial mosaic rather than a uniform grid. Three scales only — full
 // width, half, third — and photos are only ever paired with others of the

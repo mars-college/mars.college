@@ -1,0 +1,286 @@
+---
+// Visit inquiry form → info@mars.college via FormSubmit.
+// Works without JS (plain POST to FormSubmit, which shows its own thank-you
+// page); the script below upgrades it to an inline AJAX submit with
+// success/error states. Endpoint lives in site.ts (VISIT_FORM_ENDPOINT).
+import { EMAIL, VISIT_EVENTS, VISIT_FORM_ENDPOINT } from "../data/site";
+
+const WEEKENDS = [
+  ...VISIT_EVENTS.map((e) => ({ value: `${e.name} (${e.dates})`, label: `${e.name} · ${e.dates.replace(", 2027", "")}` })),
+  { value: "Other dates / not sure yet", label: "Other / not sure yet" },
+];
+---
+
+<form
+  class="vf"
+  action={VISIT_FORM_ENDPOINT}
+  method="POST"
+  data-visit-form
+  data-endpoint={VISIT_FORM_ENDPOINT}
+  data-email={EMAIL}
+>
+  <input type="hidden" name="_subject" value="Visit inquiry" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_next" value="https://mars.college/visit?sent=1#get-in-touch" />
+  <!-- honeypot: real people never see or fill this -->
+  <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="vf__honey" aria-hidden="true" />
+
+  <div class="vf__row">
+    <label class="vf__field">
+      <span class="vf__lab u-label">Name</span>
+      <input name="name" type="text" autocomplete="name" required />
+    </label>
+    <label class="vf__field">
+      <span class="vf__lab u-label">Email</span>
+      <input name="email" type="email" autocomplete="email" required />
+    </label>
+  </div>
+
+  <div class="vf__row">
+    <label class="vf__field">
+      <span class="vf__lab u-label">Organization <em>(optional)</em></span>
+      <input name="organization" type="text" autocomplete="organization" />
+    </label>
+    <label class="vf__field">
+      <span class="vf__lab u-label">Group size <em>(optional)</em></span>
+      <input name="group_size" type="text" inputmode="numeric" placeholder="e.g. 6" />
+    </label>
+  </div>
+
+  <fieldset class="vf__field vf__fieldset">
+    <legend class="vf__lab u-label">Which weekend?</legend>
+    <div class="vf__chips">
+      {
+        WEEKENDS.map((w, i) => (
+          <label class="vf__chip">
+            <input type="radio" name="weekend" value={w.value} checked={i === 0} />
+            <span>{w.label}</span>
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  <label class="vf__field">
+    <span class="vf__lab u-label">Message</span>
+    <textarea
+      name="message"
+      rows="5"
+      required
+      placeholder="Who is coming, what you hope to see, and anything you need help planning."></textarea>
+  </label>
+
+  <div class="vf__actions">
+    <button type="submit" class="u-cta" data-submit>
+      <span data-submit-label>Send inquiry</span> <span aria-hidden="true">→</span>
+    </button>
+    <p class="vf__note u-label">Goes straight to {EMAIL}.</p>
+  </div>
+
+  <p class="vf__status vf__status--ok" role="status" data-ok hidden>
+    <strong>Thanks, it's on its way.</strong> We read every inquiry and will reply by email.
+  </p>
+  <p class="vf__status vf__status--err" role="alert" data-err hidden>
+    <strong>That didn't go through.</strong> Please email us directly at
+    <a href={`mailto:${EMAIL}`} data-mailto>{EMAIL}</a>
+    and we'll take it from there.
+  </p>
+</form>
+
+<style>
+  .vf {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 42rem;
+  }
+  .vf [hidden] {
+    display: none;
+  }
+  .vf__honey {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  .vf__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .vf__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+  .vf__lab {
+    color: var(--color-ink-2);
+  }
+  .vf__lab em {
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--color-ink-3);
+  }
+  .vf input[type="text"],
+  .vf input[type="email"],
+  .vf textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1.5px solid var(--color-ink);
+    padding: 0.55rem 0.1rem;
+    border-radius: 0;
+    width: 100%;
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+  .vf textarea {
+    border: 1.5px solid var(--color-rule);
+    padding: 0.75rem;
+    resize: vertical;
+  }
+  .vf input:focus,
+  .vf textarea:focus {
+    outline: none;
+    border-color: var(--color-clay);
+  }
+  .vf input::placeholder,
+  .vf textarea::placeholder {
+    color: var(--color-ink-3);
+  }
+  .vf__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .vf__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1.5px solid var(--color-rule);
+    padding: 0.55rem 0.9rem;
+    cursor: pointer;
+    font-size: var(--text-sm);
+    transition: border-color var(--dur-fast), background var(--dur-fast);
+    user-select: none;
+  }
+  .vf__chip:hover {
+    border-color: var(--color-ink);
+  }
+  .vf__chip input {
+    accent-color: var(--color-clay);
+    margin: 0;
+  }
+  .vf__chip:has(input:checked) {
+    border-color: var(--color-clay);
+    background: color-mix(in srgb, var(--color-clay) 9%, transparent);
+  }
+  .vf__chip:has(input:focus-visible) {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 2px;
+  }
+  .vf__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .vf__actions .u-cta {
+    cursor: pointer;
+  }
+  .vf__actions .u-cta[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .vf__note {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: var(--color-ink-3);
+  }
+  .vf__status {
+    border-left: 3px solid var(--color-clay);
+    padding: 0.85rem 1.1rem;
+    background: var(--color-paper-2);
+    font-size: var(--text-sm);
+  }
+  .vf__status[hidden] {
+    display: none;
+  }
+  .vf__status a {
+    color: var(--color-clay-deep);
+    font-weight: 700;
+  }
+  @media (max-width: 560px) {
+    .vf__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-visit-form]");
+  if (form) {
+    const ok = form.querySelector<HTMLElement>("[data-ok]")!;
+    const err = form.querySelector<HTMLElement>("[data-err]")!;
+    const mailto = form.querySelector<HTMLAnchorElement>("[data-mailto]")!;
+    const btn = form.querySelector<HTMLButtonElement>("[data-submit]")!;
+    const label = form.querySelector<HTMLElement>("[data-submit-label]")!;
+    const endpoint = form.dataset.endpoint!;
+    const email = form.dataset.email!;
+    const ajax = endpoint.replace("formsubmit.co/", "formsubmit.co/ajax/");
+
+    // Landed here from the no-JS redirect.
+    if (new URLSearchParams(location.search).has("sent")) {
+      ok.hidden = false;
+      form.querySelectorAll<HTMLElement>(".vf__row, .vf__fieldset, .vf__field, .vf__actions").forEach((el) => (el.hidden = true));
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      delete data._next; // only for the no-JS redirect
+      data._subject = `Visit inquiry: ${(data.name || "").trim()}`;
+
+      ok.hidden = true;
+      err.hidden = true;
+      btn.disabled = true;
+      label.textContent = "Sending…";
+      try {
+        const res = await fetch(ajax, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || String(json.success) === "false") throw new Error("send failed");
+        form.reset();
+        ok.hidden = false;
+        ok.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      } catch {
+        const body = [
+          `Name: ${data.name}`,
+          `Email: ${data.email}`,
+          data.organization && `Organization: ${data.organization}`,
+          data.group_size && `Group size: ${data.group_size}`,
+          `Weekend: ${data.weekend}`,
+          "\n" + data.message,
+        ].filter(Boolean).join("\n");
+        mailto.href = `mailto:${email}?subject=${encodeURIComponent(data._subject)}&body=${encodeURIComponent(body)}`;
+        err.hidden = false;
+      } finally {
+        btn.disabled = false;
+        label.textContent = "Send inquiry";
+      }
+    });
+  }
+</script>

@@ -65,6 +65,7 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
           </svg>
         </a>
       </span>
+      <a href="/visit" class="hdr__visit">Visit</a>
       <a
         href={localApply ?? "/#apply"}
         class="hdr__apply"
@@ -141,6 +142,19 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
     width: 1.15rem;
     height: 1.15rem;
   }
+  .hdr__visit {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .hdr__visit:hover {
+    color: var(--color-clay);
+  }
   .hdr__apply {
     font-family: var(--font-body);
     font-size: 0.9375rem;
@@ -161,6 +175,9 @@ const localApply = LOCAL_APPLY[path.replace(/\/$/, "") || "/"];
   @media (max-width: 640px) {
     .hdr__nav {
       gap: 0.9rem;
+    }
+    .hdr__visit {
+      display: none;
     }
     .hdr__word {
       font-size: 1.05rem;

@@ -21,6 +21,48 @@ export const TALLY_OFFGRID_FORM_ID = "ZjWDVv";
 // Substack post URL for the build deep-dive (TBD — published)
 export const BUILD_SUBSTACK_URL = "https://marscollege.substack.com/";
 
+// /visit inquiry form. FormSubmit (https://formsubmit.co) forwards each
+// submission to EMAIL. The first-ever submission triggers an activation email
+// to that address that must be confirmed once. The no-JS <form> posts here; the
+// script upgrades it to the JSON endpoint at formsubmit.co/ajax/<email>.
+export const VISIT_FORM_ENDPOINT = `https://formsubmit.co/${EMAIL}`;
+
+// The two public showcase weekends. Single source for /visit and its JSON-LD;
+// public/visit.md mirrors it by hand (see AI-LEGIBILITY.md).
+export const VISIT_EVENTS = [
+  {
+    id: "midterms",
+    n: "01",
+    name: "Midterms",
+    dates: "Feb 12 – 14, 2027",
+    start: "2027-02-12",
+    end: "2027-02-14",
+    kicker: "Mid-season",
+    blurb:
+      "The Mars campus pauses and comes together. Everyone stops what they are doing to present where they are in their Mars journey, so it is the best weekend to see what a month of the semester has produced.",
+  },
+  {
+    id: "electronica",
+    n: "02",
+    name: "Mars Electronica",
+    dates: "Mar 26 – 28, 2027",
+    start: "2027-03-26",
+    end: "2027-03-28",
+    kicker: "End of season",
+    blurb:
+      "The end-of-season exhibition and finals: an art exhibition, final presentations, and the Mars AI Film Festival screened outdoors under the desert sky. Open to locals and Martians alike.",
+  },
+] as const;
+
+// The four AI Film Festival reels on the Mars College YouTube channel:
+// https://www.youtube.com/@MarsCollege-k7t/videos (used by /mff and /visit)
+export const FESTIVALS = [
+  { year: "2023", id: "SL--NeP0iHo" },
+  { year: "2024", id: "ih7okZcBhEA" },
+  { year: "2025", id: "olxXcD4Tjko" },
+  { year: "2026", id: "jkm9IK16URU" },
+];
+
 export const SOCIAL = {
   substack: "https://marscollege.substack.com/",
   instagram: "https://www.instagram.com/mars.college",
@@ -34,6 +76,7 @@ export const NAV = [
   // for reference but nothing links to it.
   { label: "Build", href: "https://dpw.mars.college" },
   { label: "MIT", href: "/mit" },
+  { label: "Visit", href: "/visit" },
   { label: "Apply", href: "/#apply" },
 ];
 
